@@ -1,6 +1,6 @@
 # Haack Series Nose Cone
 
-$$ \theta = arccos( 1 - \dfrac{2x}{L} ) $$
+$$ \theta = \arccos \left( 1 - \dfrac{2x}{L} \right) $$
 $$ y = \dfrac { R } { \sqrt{ \pi } } \sqrt { \theta - \dfrac{ \sin (2 \theta) } { 2 } + C \sin^3 \theta } $$
 
 [Source][haack-wiki]
