@@ -22,5 +22,11 @@ function [ C ] = basic_drag( input_args )
 %
 % 
 
+function D = DRAG(Cd, v, ro, A_ref)
+%#codegen
+D=0.5*Cd*v^2*A_ref*ro
+
+end
+
 
 end
