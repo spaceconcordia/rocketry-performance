@@ -4,14 +4,10 @@
 %
 % Data Access of Parametric Model
 %
-% Thrust curves are provided in tabulated and time-based form. The values for 
-% thrust need to be processed as input to the model in a synchronized fashion
-% with the simulation clock
-%
-% Additionally, Design Parameters for the Rocket are stored in a spreadsheet. 
+% Design Parameters for the Rocket are stored in a spreadsheet. 
 % These parameters will be accessed and passed along into the simulation to 
-% determine other parameters and ultimately to evaluate the performance of those 
-% design values
+% determine other parameters and ultimately to evaluate the performance of 
+% those design values
 %
 %--------------------------------------------------------------------------------
 % References
@@ -19,14 +15,25 @@
 % http://www.mathworks.com/help/matlab/matlab_external/example-reading-excel-spreadsheet-data.html
 %--------------------------------------------------------------------------------
 
-% Import the data from Excel for a lookup table
-data = xlsread('Parametric_Model','Sheet1');
+% Import the data from Excel
+data = xlsread('input_parameters.csv');
+
+% Extract parameters from the imported data file
+area_fin_frontal    = data(2,2);
+area_face_fin       = data(2,3);
+width_fins_at_tube  = data(2,3);
+fins_count           = data(2,3);
+thrust = data(:,2);
+
+% Plot the thrust curve for reference
+% TODO: maybe we want to ask the user to verify the curve before proceeding
+plot(time,thrust);
 
 % Row indices for lookup table
-breakpoints1 = data(2:end,1)';
+% breakpoints1 = data(2:end,1)';
 
 % Column indices for lookup table
-breakpoints2 = data(1,2:end);
+% breakpoints2 = data(1,2:end);
 
 % Output values for lookup table
-table_data = data(2:end,2:end);
+% table_data = data(2:end,2:end);

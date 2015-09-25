@@ -1,9 +1,13 @@
-## Performance Model Specification
+# Performance Model Specification
 
 ## Overview 
 The goal of this project is to create a Performance Model in Matlab in order to input current structural design parameters and simulate flight characteristics in order to optimize the rocket in meeting the mission requirements.
 
 The model must take into account all applicable flight physics and rocket design parameters to optimize the rocket performance in meeting the mission requirements
+
+## General Assumptions
+- subsonic flight
+- not real-time
 
 ## Project 1 - Vertical (AOA < 5$^\circ$) Flight
 
@@ -12,7 +16,6 @@ The model must take into account all applicable flight physics and rocket design
 
 ### Assumptions
 - vertical/linear flight within 5 degrees
-- not real-time
 
 ### Input
 - Design parameters
