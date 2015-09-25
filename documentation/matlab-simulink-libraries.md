@@ -9,3 +9,6 @@ The goal is to create a robust Simulink model that references Matlab code from f
 1. Open Matlab
 2. Open Simulink
 3. Click File --> New --> Library
+
+## Add to Library Browser
+[Add to Library Browser](http://www.mathworks.com/help/simulink/ug/adding-libraries-to-the-library-browser.html)
