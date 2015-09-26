@@ -15,6 +15,18 @@ S-function (level 1) blocks shall be used to reference Matlab files so they can 
 - Saving files as libraries and following the existing use cases in the documentation will allow robust versioning and collaboration workflow
 
 ## Unit Testing
+### Simulink Unit Testing
+#### Model Referencing
+Model Referencing shall be used to test all libraries for expected behavior. 
+
+Model Referencing with Libraries is a little more complicated
+
+1. Create a Model in which you drag the Library
+2. Right-click the library block in the Model 
+
+Start here:
+- http://www.mathworks.com/videos/getting-started-with-model-referencing-68918.html
+- http://www.mathworks.com/help/simulink/ug/creating-a-model-reference.html 
 
 ### Background
 - Once a library is created, it can be unit tested
