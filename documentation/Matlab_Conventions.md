@@ -1,6 +1,7 @@
 # Matlab Conventions
 
 ## Versioning for Matlab Files
+S-function (level 1) blocks shall be used to reference Matlab files so they can be versioned in Git
 
 ### Background
 - Older versions allowed providing external '.m' file for the *Matlab Function* block in Simulink
@@ -25,6 +26,9 @@
     - Library Model
 
 ## Open Questions
+- it would be nice to enable logging - a master log file that output useful progress information during the simulation
+- it would be nice to enable a countdown and mission status to show what stages are encountered
+
 
 ## Resources
 - http://www.mathworks.com/help/simulink/slref/model.html
