@@ -2,11 +2,7 @@
 
 A statistical analysis is needed to establish the confidence of our simulations.
 
-## Pertinent Questions
-
 ## Scope
-
-It would be interesting to generate a distribution of simulation data in which variability in parameters was evaluated to produce a large set of results for all data of interest
 
 1. Tolerance analysis with Simulations to determine confidence limits of estimations (particularly altitude and velocity)
 2. How much variation in C$_d$ and motor impulse is required to achieve the recorded altitude and velocity 
@@ -14,20 +10,25 @@ It would be interesting to generate a distribution of simulation data in which v
     - if the simulation time to apogee is not close to the actual flight time to apogee, something is wrong in the simulation
 4. Find reliable 3rd party sources of data to increase the statistical accuracy of the model
     - Weather balloon data for real altitude data: http://weather.uwyo.edu/upperair/sounding.html
-
-**emphasis**
+5. Time permitting, generate a distribution of simulation data in which variability in parameters was evaluated to produce a large set of results for all data of interest
 
 ## Data of Interest
 
-### Velocity vs. Time
+| Model | Parameters |
+| --- | --- |
+| Vertical flight model | velocity, altitude |
+| Drag model | C$_d$, Drag Force |
+| Angular Model | Angular position, velocity, and acceleration | 
 
-### Mach Number vs. Time
+### Relationships of Interest
 
-### Acceleration vs. Time
+#### Velocity vs. Time
 
-### Drag Coefficient vs. Velocity
+#### Mach Number vs. Time
 
---- 
+#### Acceleration vs. Time
+
+#### Drag Coefficient vs. Velocity
 
 ## Tolerance Analysis
 
@@ -54,14 +55,7 @@ Any feature on the outer surface not accounted for in the CATIA design that intr
 - Motor impulse can easily vary $\pm$ 10% 
 - 20% variance is allowed under NFPA1120
 
-[source?]
-
----
-
 ## Confidence Limits
-
-
---- 
 
 ## References
 
