@@ -57,5 +57,12 @@ Any feature on the outer surface not accounted for in the CATIA design that intr
 
 ## Confidence Limits
 
+## Data Sources
+
+NACA
+
+[United States Air Force Stability and Control Datcom Method]:(http://oai.dtic.mil/oai/oai?verb=getRecord&metadataPrefix=html&identifier=ADB072483)
+[Mandell et al, 1973]
+
 ## References
 

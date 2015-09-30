@@ -30,6 +30,7 @@ $$ \tau_{da} = - \dot{M} (l^2_{cn}-l^2_{cc}) \omega $$
 ### Parasitic Drag
 
 
+
 ### Form Drag
 
 

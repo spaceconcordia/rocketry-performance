@@ -87,10 +87,16 @@ $\dot{M} (l^2_{cn}-l^2_{cc})$ is the thrust damping coefficient $C_{da}$ and mus
 - range (drift)
 - roll
 
+## Project 3 - Onboard Execution (Extra)
+
+Run the simulation on the commercial avionics hardware and actuate the recovery system.
+
 ## Questions
-- how to get Matlab to get time-based data from a spreadsheet
-    - http://soliton.ae.gatech.edu/classes/ae6382/samples/matlab/excel-2/actx_excel.html
+- feasible to place rocket in a wind tunnel to experimentally determine drag coefficient?
+- ask Emily to provide moment of inertia for each rocket section individually
+
 
 ## Resources
-[Thrust Curves]: (http://www.thrustcurve.org/simfilesearch.jsp?id=1591)
-[Datcom]: (http://www.holycows.net/datcom/)
+[Thrust Curves]:(http://www.thrustcurve.org/simfilesearch.jsp?id=1591)
+[Datcom]:(http://www.holycows.net/datcom/)
+[United States Air Force Stability and Control Datcom Method]:(http://oai.dtic.mil/oai/oai?verb=getRecord&metadataPrefix=html&identifier=ADB072483)
