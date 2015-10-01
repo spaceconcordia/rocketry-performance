@@ -3,7 +3,7 @@
 ## Overview 
 The goal of this project is to create a Performance Model in Matlab in order to input current structural design parameters and simulate flight characteristics in order to optimize the rocket in meeting the mission requirements.
 
-The model must take into account all applicable flight physics and rocket design parameters to optimize the rocket performance in meeting the mission requirements
+Specifically the model should verify the maximum altitude and velocity. Further developments are explored for future enhancement. The model will be developed in a modular fashion in order to support future expansion. 
 
 ## General Assumptions
 - subsonic flight
@@ -70,26 +70,6 @@ $\dot{M} (l^2_{cn}-l^2_{cc})$ is the thrust damping coefficient $C_{da}$ and mus
 - stability (all moments of flight)
 - launcher angle
 
-## Project 2 - Stability (Roll, Pitch, Yaw) Analysis
-
-### Overview
-- non-linear model (stability analysis)
- - finding lift will be annoying
-
-## Validation
-- Unit Testing where applicable
-- Comparison with OpenRocket data
-- Comparison with previous models and Arcturus flight data
-- Comparison with available flight data
-
-## Out-of-scope
-- ambient conditions
-- range (drift)
-- roll
-
-## Project 3 - Onboard Execution (Extra)
-
-Run the simulation on the commercial avionics hardware and actuate the recovery system.
 
 ## Questions
 - feasible to place rocket in a wind tunnel to experimentally determine drag coefficient?
