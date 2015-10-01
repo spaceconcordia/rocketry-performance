@@ -14,8 +14,6 @@ $$ D_{pa} = D_{pa} () $$
 
 ### Form Drag
 
-
-
 $$ D_{fo} = D_{fo} () $$ 
 
 

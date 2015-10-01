@@ -28,7 +28,7 @@ Acceleration can be integrated to find position and velocity.
 $$ \vec{v} = \int \vec{a} dx $$
 $$ x = \iint \vec{a} dx $$
 
-Modelling in the frequency domain, integration is represented by the $\dfrac{1}{s}$ block 
+Modeling in the frequency domain, integration is represented by the $\dfrac{1}{s}$ block 
 
 [image]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
 ![Alt text][image] 

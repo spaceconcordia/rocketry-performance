@@ -7,5 +7,5 @@
 | Re           | Reynolds Number             | $$ \rho,\mu,\vec{v},L $$ | dimensionless |
 | $I_{zz}$     | Pitch/Yaw Moment of Inertia | time                     | $m^4$         |
 | D            | Drag Force (combined)       |                          | N             |
-| W            | Weight of the Rocket        |                          | N           |
-| T            | Thrust of the Rocket        |                          | N           |
+| W            | Weight of the Rocket        |                          | N             |
+| T            | Thrust of the Rocket        |                          | N             |

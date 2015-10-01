@@ -1,4 +1,3 @@
-
 ## Project 2 - Stability (Roll, Pitch, Yaw) Analysis
 
 ### Overview
