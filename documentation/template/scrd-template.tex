@@ -176,6 +176,13 @@ $endfor$
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
+
+%-----------------------------------------------------------------------------------------------------------------------------------------
+% Page break after sections
+%-----------------------------------------------------------------------------------------------------------------------------------------
+%\usepackage{titlesec}
+%\newcommand{\sectionbreak}{\clearpage}
+
 \lhead{
     %left header content
 %    \topskip0pt
@@ -264,6 +271,7 @@ $if(toc)$
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
+\clearpage
 }
 $endif$
 $if(lot)$
