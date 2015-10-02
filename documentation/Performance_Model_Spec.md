@@ -1,11 +1,14 @@
 # Performance Model Specification
 
 ## Overview 
-The goal of this project is to create a Performance Model in Matlab in order to input current structural design parameters and simulate flight characteristics in order to optimize the rocket in meeting the mission requirements.
+The goal of this project is to create a Performance Model in Matlab to simulate the rocket flight characteristics.
 
-Specifically the model should verify the maximum altitude and velocity. Further developments are explored for future enhancement. The model will be developed in a modular fashion in order to support future expansion. 
+Specifically the model should verify the maximum altitude and velocity. Further developments are explored for future enhancement. A modular development pattern will be followed order to support expansion. Unit testing of simulator logic will be undertaken in all reasonable places, and validation will be provided by testing the overall model against 3rd party flight data where available.
+
+The model must take as input the current structural design parameters, thrust information, and simulated ambient conditions of the launch environment. Certain parameters will be dynamic; as the motor expends fuel, the position of the center of gravity and center of pressure will shift with decreasing mass. Additionally the moments of inertia will be altered. These dynamic parameters must be considered to maximize the accuracy of the model.
 
 ## General Assumptions
+
 - subsonic flight
 - not real-time
 - axis-symmetric rigid body rocket
@@ -13,11 +16,9 @@ Specifically the model should verify the maximum altitude and velocity. Further 
 - conical, ogive, or parabolic nose shape [Box et. al]
 - three or four trapezoidal fins [Box et. al]
 - passively controlled (no active thrust or stability control)
- 
-## Vertical (AOA < 5$^\circ$) Flight Model
+- constant fuel expenditure rate
 
-### Notes
- - remove dependency on OpenRocket for weight
+## Vertical (AOA < 5$^\circ$) Flight Model
 
 ### Assumptions
 - vertical/linear flight within 5 degrees
@@ -25,6 +26,7 @@ Specifically the model should verify the maximum altitude and velocity. Further 
 ### Input
 
 #### Dynamic Parameters
+
     - thrust (see thrust curve)
     - mass (changes with fuel expenditure)
     - center of mass (changes with fuel expenditure)
