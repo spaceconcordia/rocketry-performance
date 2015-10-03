@@ -2,11 +2,9 @@
 
 Rockets in flight experience multiple sources of drag. The total drag effect is the sum of all specific drag effects.
 
-The drag model shall take the parametric design parameters and applicable dynamics parameters to output the Drag Force and combined drag coefficient.
+The drag model shall take the parametric design parameters and applicable dynamics parameters (see *Data Model*) to output the Drag Force and combined drag coefficient.
 
-Reference areas are required to calculate the drag force
-
-## Compressible Flow Correction
+### Compressible Flow Correction
 
 Drag is evaluated differently when compressibility effects are in play. Compressibility effects must be considered above Mach 0.3 **[source?]**, which will be easily exceeded by the transonic target velocity of Mach 0.88 **[source?]**.
 
@@ -15,13 +13,15 @@ Particular correction factors are recommended for ranges of Mach number
 | Mach Number         | Correction Factor                           |
 | ---                 | ---                                         |
 | $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-M^2}} $$     |
-| $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
+| $$ 0.8 < M < 1.1 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
 
 Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressibility corrected drag coefficient.
 
-[Box et. al]
+[@box2009]
 
 ### Areas
+
+Reference areas are required to calculate the drag force.
 
 Related to area, the specific parameters of interest on the rocket are the following:
 
@@ -32,6 +32,7 @@ Related to area, the specific parameters of interest on the rocket are the follo
 - Number of Fins
 - Width of Fins
 - Surface Area of Nose
+
 
 #### Wetted Body Area
 
