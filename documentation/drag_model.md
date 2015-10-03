@@ -6,14 +6,24 @@ The drag model shall take the parametric design parameters and applicable dynami
 
 Reference areas are required to calculate the drag force
 
+## Compressible Flow Correction
+
+Drag is evaluated differently when compressibility effects are in play. Compressibility effects must be considered above Mach 0.3 **[source?]**, which will be easily exceeded by the transonic target velocity of Mach 0.88 **[source?]**.
+
+Particular correction factors are recommended for ranges of Mach number
+
+| Mach Number         | Correction Factor                           |
+| ---                 | ---                                         |
+| $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-M^2}} $$     |
+| $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
+
+Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressibility corrected drag coefficient.
+
+[Box et. al]
 
 ### Areas
 
-#### Wetted Body Area
-
-The *Wetted Body Area* is the combined area of all surfaces in contact with moving air. 
-
-The specific areas of interest on the rocket are the following:
+Related to area, the specific parameters of interest on the rocket are the following:
 
 - Outer Diameter of Rocket (OD)
 - Total Length of Rocket (L) 
@@ -22,6 +32,10 @@ The specific areas of interest on the rocket are the following:
 - Number of Fins
 - Width of Fins
 - Surface Area of Nose
+
+#### Wetted Body Area
+
+The *Wetted Body Area* is the combined area of all surfaces in contact with moving air. 
 
 [Fluids e-book (TODO find better)]:(https://ecourses.ou.edu/cgi-bin/eBook.cgi?doc=&topic=fl&chap_sec=09.1&page=theory)
 
@@ -44,7 +58,11 @@ $$ C_{pa}, D_{pa} (A_{ref}, M) $$
 $$ C_{fo}, D_{fo} (A_{ref}, M) $$ 
 
 
-#### Profile Drag
+#### Profile (Pressure) Drag
+
+This is the drag caused by the pressure imbalance as an object moves through a free stream in the opposite direction to its motion.
+
+[Pressure drag vs base drag?]
 
 $$ C_{pr}, D_{pr} (A_{ref}, M) $$ 
 
@@ -72,3 +90,10 @@ $$ C_{sk}, D_{sk} (A_{ref}, M) $$
 
 $$ C_{fp}, D_{fp} (A_{ref}, M) $$ 
 
+#### Wave Drag
+
+*Wave drag* is drag associated with shock waves (independent of viscous effects)
+
+#### Boat-Tail Drag
+
+*Boat-Tail Drag* occurs due to ... 

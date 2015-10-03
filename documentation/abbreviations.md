@@ -2,6 +2,7 @@
 
 | Abbreviation | Description                 | Function of              | Units              |
 | ---          | ---                         | ---                      | ---                |
+| AOA          | Angle of Attack             |                          | radians            |
 | COP          | Center of pressure          |                          | N/A                |
 | COG          | Center of gravity           | time                     | N/A                |
 | Re           | Reynolds Number             | $$ \rho,\mu,\vec{v},L $$ | dimensionless      |
@@ -24,4 +25,3 @@
 | OD           | Outer Diameter              |                          | m                  |
 | L            | Total Length of Rocket      |                          | m                  |
 
----
