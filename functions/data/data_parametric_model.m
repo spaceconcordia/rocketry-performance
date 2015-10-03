@@ -20,7 +20,7 @@ function parametric_data_object = data_parametric_model()
 [pnum,ptxt,praw] = xlsread('Parametric_Data.xlsm','Matlab_Data');
 
 % Extract parameters from the imported data 
-keyset = ptxt(2:end,1);
+keyset = praw(2:end,1);
 valset = praw(2:end,2);
 
 % initialize map object to store parametric data
