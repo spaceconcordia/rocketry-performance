@@ -75,7 +75,7 @@ $$ \dot{m} = S_{fG} \cdot T_{avg} = 5.3587 \times 10^{-4} \dfrac{kg}{N \cdot s} 
 
 This equation can be expressed in terms of Weight through Newton's 2$^nd$ law: $F = m\vec{a}$
 
-$$ \dot{W}_m = \dot{m} \cdot \vec{g} = 0.8236 \, kg/s \cdot 9.81 \, m/s^2 \approx 8.0799 $$ 
+$$ \dot{W}_m = \dot{m} \cdot \vec{g} = 0.8236 \, kg/s \cdot 9.81 \, m/s^2 \approx 8.0799 N/s $$ 
 
 To develop a relation for the change in weight as a function of $S_{f_c}$
 
@@ -121,8 +121,6 @@ function weight_curve = dynamic_weight_calculation(thrust_curve, wet_motor_weigh
         weight_curve(2,i) = wet_motor_weight - mfc*weight_curve(1,i); 
     end
 ~~~~
-
-### Center of Mass
 
 ### Center of Gravity
 
