@@ -46,6 +46,20 @@ The *Frontal Reference Area* is the project area of the rocket perpendicular to 
 
 ### Drag Force and Coefficients
 
+The total drag force is a function of air velocity (relative to the rocket body, therefore ideally the velocity of the rocket in quiescent air conditions), drag coefficient, reference area, and air density.
+
+$$ D_f = D_f (\vec{v}, C_d, A_{ref}, \rho) $$
+
+The drag coefficient $C_d$ is the sum of all component drag coefficients
+
+$$ C_d = \sum C_i = C_{pa} + C_{fo} + C_{pr} + C_{in} + C_{ba} + C_{sk} + C_{fp} + C_{wa} + C_{bt} $$ 
+
+The *reference area* is the projected area of the body flowing through air, perpendicular to the direction of flow. [source?]
+ 
+From Fluid Mechanics [source?]
+
+$$ D_f = \dfrac{1}{2} C_d A_{ref} \rho \vec{v}^2 $$ 
+
 #### Parasitic Drag
 
 Parasitic drag is the drag due to body features not explicitly designed and/or imperfections not easily approximated. 
@@ -53,6 +67,15 @@ Examples include launch guides, ventilation holes, surface roughness, and any da
 
 $$ C_{pa}, D_{pa} (A_{ref}, M) $$ 
 
+##### Parasitic Drag Coefficient
+
+$$ C_{pa} = \left( 1.3 - 0.3 \dfrac{(L-h_n)}{OD} \right)_{max} \cdot C_{stagnation} $$
+
+Where *L* is the rocket length, $h_n$ is the height of the nose code, *OD* is the outer diameter of the rocket, and $C_{stagnation}$ is the stagnation coefficient.
+
+##### Parasitic Drag Coefficient - Normalized
+
+$$ C_{pa_{norm}} = C_{pa} \cdot \left( \pi \cdot (r_{ext}^2 - r_{int}^2) \cdot \left[ 1 - \left( \dfrac{L-h}{OD} \right), 0 \right]_{max} \right) $$
 
 #### Form Drag
 

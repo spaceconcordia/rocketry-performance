@@ -122,6 +122,7 @@ function weight_curve = dynamic_weight_calculation(thrust_curve, wet_motor_weigh
     end
 ~~~~
 
+
 ### Center of Gravity
 
 $$ y_{cg} = \dfrac{m_1 y_1 + m_2 y_2 + ... + m_n y_n}{\sum_{j=1}^n m_j} $$

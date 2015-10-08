@@ -27,8 +27,9 @@ $$ \tau_{da} = - \dot{M} (l^2_{cn}-l^2_{cc}) \omega $$
 
 ## Drag
 
-### Parasitic Drag
+### Reference Area
 
+### Parasitic Drag
 
 
 ### Form Drag
