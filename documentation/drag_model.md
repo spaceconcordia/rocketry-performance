@@ -8,16 +8,47 @@ The drag model shall take the parametric design parameters and applicable dynami
 
 Drag is evaluated differently when compressibility effects are in play. Compressibility effects must be considered above Mach 0.3 **[source?]**, which will be easily exceeded by the transonic target velocity of Mach 0.88 **[source?]**.
 
+> At low speeds (incompressible flow), the aerodynamic coefficients are functions of the angle of attack ($\alpha$) and Reynolds number (Re). 
+
+$$ C_i (M < 0.3) = C_i (\alpha, Re) $$ 
+
+> At higher speeds (compressible, Ma $\ge$ 0.4) they are also a function of Mach number.
+
+$$ C_i (M \ge 0.3) = C_i (\alpha, Re, M) $$ 
+
 Particular correction factors are recommended for ranges of Mach number
 
 | Mach Number         | Correction Factor                           |
 | ---                 | ---                                         |
+| $$ M < 0.3 $$       | N/A                                         |
 | $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-M^2}} $$     |
 | $$ 0.8 < M < 1.1 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
 
 Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressibility corrected drag coefficient.
 
 [@box2009]
+
+### Incompressible Flow
+
+For Mach < 0.3, 
+
+> In the incompressible flow regime the forces can be divided into pressure
+force and viscous force
+
+*Pressure Force* is due to fluid stagnation on areas of the rocket, as well as due to the low pressure region created beyond the rocket at is passes quickly through the air. 
+
+*Viscous Force* is due to boundary layer effects and interactions of moving air with surfaces. These forces are highly dependent on Reynold's number.
+[@box2009, pg.6]
+
+[image]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
+![Alt text][image] 
+[Rocket Drag Forces - Axial vs. Normal](#image).
+
+### Turbulent Effects
+
+Viscous forces are much less severe in turbulent conditions than laminar conditions - TODO EXPAND
+
+[@box2009, pg.6]
 
 ### Areas
 
@@ -42,7 +73,9 @@ The *Wetted Body Area* is the combined area of all surfaces in contact with movi
 
 #### Frontal Reference Area
 
-The *Frontal Reference Area* is the project area of the rocket perpendicular to the direction of air flow. For perfectly vertical flight and quiescent air conditions, this is the precise projection of the tip face of the rocket.
+The *Frontal Reference Area* is the projected area of the rocket perpendicular to the direction of air flow. For perfectly vertical flight and quiescent air conditions, this is the precise projection of the tip face of the rocket.
+
+[TODO show figure]
 
 ### Drag Force and Coefficients
 
@@ -116,7 +149,9 @@ $$ C_{fp}, D_{fp} (A_{ref}, M) $$
 
 #### Wave Drag
 
-*Wave drag* is drag associated with shock waves (independent of viscous effects)
+*Wave drag* is drag associated with shock waves (independent of viscous effects). 
+
+> At transonic speed, shock waves form at the nose tip and at the leading edge of the fins ... Momentum is transferred from the rocket to the surrounding air via these shockwaves  
 
 #### Boat-Tail Drag
 
