@@ -13,13 +13,13 @@
 | T                | Thrust of the Rocket                   |                          | N                                               |
 | c                | Speed of sound                         | $$ \sqrt{\gamma RT} $$   |                                                 |
 | M                | Mach Number                            | $$ \vec{v}, c $$         | dimensionless                                   |
-| $D_{pa}, C_{pa}$ | Parasitic Drag Force, coefficient      |                          |                                                 |
-| $D_{fo}, C_{fo}$ | Form Drag Force, coefficient           |                          |                                                 |
-| $D_{fp}, C_{fp}$ | Fin Pressure Drag Force, coefficient   |                          |                                                 |
-| $D_{pr}, C_{pr}$ | Profile Drag Force, coefficient        |                          |                                                 |
-| $D_{in}, C_{in}$ | Interference Drag Force, coefficient   |                          |                                                 |
-| $D_{ba}, C_{ba}$ | Base Drag Force, coefficient           |                          |                                                 |
-| $D_{sk}, C_{sk}$ | Skin Friction Drag Force, coefficient  |                          |                                                 |
+| $D_{pa}, C_{pa}$ | Parasitic Drag Force, Coefficient      |                          |                                                 |
+| $D_{fo}, C_{fo}$ | Form Drag Force, Coefficient           |                          |                                                 |
+| $D_{fp}, C_{fp}$ | Fin Pressure Drag Force, Coefficient   |                          |                                                 |
+| $D_{pr}, C_{pr}$ | Profile Drag Force, Coefficient        |                          |                                                 |
+| $D_{in}, C_{in}$ | Interference Drag Force, Coefficient   |                          |                                                 |
+| $D_{ba}, C_{ba}$ | Base Drag Force, Coefficient           |                          |                                                 |
+| $D_{sk}, C_{sk}$ | Skin Friction Drag Force, Coefficient  |                          |                                                 |
 | $A_{wb}$         | Area of Wetted Body                    |                          |                                                 |
 | $A_{fr}$         | Frontal Reference Area                 |                          |                                                 |
 | OD               | Outer Diameter                         |                          | m                                               |
@@ -31,4 +31,7 @@
 | $t_{burn}$       | Burn Time                              |                          | s                                               |
 | $m_{m_t}$        | Total Motor Mass                       |                          | g                                               |
 | $W_{m_t}$        | Total Motor Weight                     |                          | N                                               |
+| $F_N$            | Aerodynamic Normal Force               |                          | N                                               |
+| $F_A$            | Aerodynamic Axial Force                |                          | N                                               |
+| $F_L$            | Aerodynamic Lift Force                 |                          | N                                               |
 

@@ -10,11 +10,10 @@ Drag is evaluated differently when compressibility effects are in play. Compress
 
 > At low speeds (incompressible flow), the aerodynamic coefficients are functions of the angle of attack ($\alpha$) and Reynolds number (Re). 
 
-$$ C_i (M < 0.3) = C_i (\alpha, Re) $$ 
-
+(@) $$ C_i (M < 0.3) = C_i (\alpha, Re) $$ 
 > At higher speeds (compressible, Ma $\ge$ 0.4) they are also a function of Mach number.
 
-$$ C_i (M \ge 0.3) = C_i (\alpha, Re, M) $$ 
+(@) $$ C_i (M \ge 0.3) = C_i (\alpha, Re, M) $$ 
 
 Particular correction factors are recommended for ranges of Mach number
 
@@ -40,9 +39,13 @@ force and viscous force
 *Viscous Force* is due to boundary layer effects and interactions of moving air with surfaces. These forces are highly dependent on Reynold's number.
 [@box2009, pg.6]
 
-[image]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
+[rocket_drag_forces]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
 ![Alt text][image] 
-[Rocket Drag Forces - Axial vs. Normal](#image).
+[Rocket Drag Forces - Axial $F_A$ vs. Normal $F_N$, relative to the roll axis](#image).
+
+[@box2009, pg.6]
+
+Velocity $\vec{v}$ is the apparent velocity of the center of pressure relative to the surrounding air. 
 
 ### Turbulent Effects
 
@@ -56,9 +59,9 @@ Reference areas are required to calculate the drag force.
 
 Related to area, the specific parameters of interest on the rocket are the following:
 
-- Outer Diameter of Rocket (OD)
-- Total Length of Rocket (L) 
-- Height of Nose Cone
+- Outer Diameter of Rocket (*OD*)
+- Total Length of Rocket (*L*) 
+- Height of Nose Cone ($h_n$)
 - Thickness of Fins
 - Number of Fins
 - Width of Fins

@@ -1,5 +1,9 @@
 ## Data Model
 
+### Data Store
+
+TODO investigate: It's possible that a [Data Store](http://www.mathworks.com/help/simulink/slref/datastorememory.html) is a good data object available in Matlab to store global parameters, static and dynamic included. 
+
 The *Data Model* provides static and dynamics parameters as needed by other models in the simulation. 
 
 ### Static Parameters

@@ -1,22 +1,22 @@
-Parameter,Value,Units,Description
-area_fin_frontal,0.000301625,m^2,
-area_face_fin,0.026125,m^2,
-width_fins_at_tube,0.45,m,
-fins_count,3,N/A,
-thickness_fins_at_tube,0.003175,m,
-area_surface_nose,0.131,m^2,
-height_fins,0.95,m,
-diameter_outer,0.104,m,
-surface_roughness,2.00E-05,m,
-length_total_rocket,2.98,m,
-pressure_ambient_ground,101325,Pa,
-temperature_ambient_ground,30,C,
-edge_rounding,0,N/A,1:rounded 0:rectangular
-distance_tip_to_COG,1.88,m,
-distance_tip_to_COP,2.05,m,
-angle_leading_edge,0.21,rad,
-fin_leading_edge_profile,1,N/A,1:slanted 0:perpendicular
-fin_trailing_edge_profile,1,N/A,1:square 2:rounded 3:tapered
-diameter_outer_launch_guide,0.0161,m,
-diameter_inner_launch_guide,0,m,
-moment_inertia_rocket,4.08052,m^4 ,
+Parameter                   , Value       , Units , Description
+area_fin_frontal            , 0.000301625 , m^2   ,
+area_face_fin               , 0.026125    , m^2   ,
+width_fins_at_tube          , 0.45        , m     ,
+fins_count                  , 3           , N/A   ,
+thickness_fins_at_tube      , 0.003175    , m     ,
+area_surface_nose           , 0.131       , m^2   ,
+height_fins                 , 0.95        , m     ,
+diameter_outer              , 0.104       , m     ,
+surface_roughness           , 2.00E-05    , m     ,
+length_total_rocket         , 2.98        , m     ,
+pressure_ambient_ground     , 101325      , Pa    ,
+temperature_ambient_ground  , 30          , C     ,
+edge_rounding               , 0           , N/A   , 1:rounded 0:rectangular
+distance_tip_to_COG         , 1.88        , m     ,
+distance_tip_to_COP         , 2.05        , m     ,
+angle_leading_edge          , 0.21        , rad   ,
+fin_leading_edge_profile    , 1           , N/A   , 1:slanted 0:perpendicular
+fin_trailing_edge_profile   , 1           , N/A   , 1:square 2:rounded 3:tapered
+diameter_outer_launch_guide , 0.0161      , m     ,
+diameter_inner_launch_guide , 0           , m     ,
+moment_inertia_rocket       , 4.08052     , m^4   ,
