@@ -1,14 +1,26 @@
 ## Matlab Conventions
 
 ### Versioning for Matlab Files
-S-function (level 1) blocks shall be used to reference Matlab files so they can be versioned in Git
+S-function (level 1) blocks are proposed to be used to reference Matlab files so they can be versioned in Git
 
 #### Background
 - Older versions allowed providing external '.m' file for the *Matlab Function* block in Simulink
 - Newer versions are shifting towards the embedded model, where Matlab code is complied for execution on test hardware
 
+#### S-Functions
+
+- [S-Function Doc with Examples](http://www.mathworks.com/help/simulink/matlab-s-functions-1.html)
+- [S-Function Features](http://www.mathworks.com/help/simulink/sfg/s-function-features.html)
+- [Writing Level 2 Matlab S-Functions](http://www.mathworks.com/help/simulink/sfg/writing-level-2-matlab-s-functions.html)
+- [Level 1 versus Level 2 S-Functions](http://www.mathworks.com/help/simulink/sfg/level-1-versus-level-2-s-functions.html)
+- [Types of Sample Time](http://www.mathworks.com/help/simulink/ug/types-of-sample-time.html)
+
+##### Level 1 vs Level 2
+
+Level 1 S-Functions only support a single input and output (See S-Function-Features).
+Level 1 S-Functions appear to be suitable for continuous sample time, while Level 2 S-Functions are required for discrete sample time
+
 #### Current Status
-- S-function (level 1) may be used to recreate the desired behavior
 - With the help of Narendra Gollu I am looking into whether the old behavior can be achieved easily
 
 ### Versioning for Libraries
@@ -28,6 +40,7 @@ Model Referencing with Libraries is a little more complicated
 2. Right-click the library block in the Model 
 
 Start here:
+
 - http://www.mathworks.com/videos/getting-started-with-model-referencing-68918.html
 - http://www.mathworks.com/help/simulink/ug/creating-a-model-reference.html 
 

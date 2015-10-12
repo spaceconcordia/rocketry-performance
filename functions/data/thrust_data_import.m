@@ -1,6 +1,7 @@
-%--------------------------------------------------------------------------------
+function thrust_curve = thrust_data_import(csvfilename)
+%-------------------------------------------------------------------------------
 %
-% data_parametric_model.m
+% thrust_data_import.m
 %
 % Data Access of Parametric Model
 %
@@ -14,14 +15,14 @@
 % should be chosen and the data in between interpolated to complete the 
 % set. TODO
 %
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 % References
 % http://www.mathworks.com/help/simulink/ug/how-to-import-data-from-an-excel-spreadsheet.html
 % http://www.mathworks.com/help/matlab/matlab_external/example-reading-excel-spreadsheet-data.html
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 % Import the data from Excel
-data = xlsread('monotomic_time_thrust_curve.csv');
+data = xlsread(csvfilename);
 
 % Transpose the data for the .mat file
 data_transpose = data.';
@@ -36,6 +37,8 @@ thrust = data(:,2);
 % Plot the thrust curve for reference
 % TODO: maybe we want to ask the user to verify the curve before proceeding
 plot(time,thrust);
+
+thrust_curve = data_transpose 
 
 % Row indices for lookup table
 % breakpoints1 = data(2:end,1)';
