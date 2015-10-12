@@ -22,7 +22,7 @@
 | $D_{sk}, C_{sk}$ | Skin Friction Drag Force, Coefficient  |                          |                                                 |
 | $A_{wb}$         | Area of Wetted Body                    |                          |                                                 |
 | $A_{fr}$         | Frontal Reference Area                 |                          |                                                 |
-| OD               | Outer Diameter                         |                          | m                                               |
+| OD,$\phi_{bt}$   | Outer Diameter                         |                          | m                                               |
 | L                | Total Length of Rocket                 |                          | m                                               |
 | h_n              | Height ofthe nose cone                 |                          | m                                               |
 | $S_{fc}$         | Thrust Specific Fuel Consumption       |                          | $\dfrac{g}{s}\cdot \dfrac{1}{N} = \dfrac{s}{m}$ |
@@ -34,4 +34,5 @@
 | $F_N$            | Aerodynamic Normal Force               |                          | N                                               |
 | $F_A$            | Aerodynamic Axial Force                |                          | N                                               |
 | $F_L$            | Aerodynamic Lift Force                 |                          | N                                               |
+| $S_{lm}$         | Longitudinal Stability Margin          |                          | Calibers                                        |
 

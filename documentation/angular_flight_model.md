@@ -1,4 +1,4 @@
-## Project 2 - Angular Flight Stability (Roll, Pitch, Yaw) Analysis
+## Project 2 - Angular Flight Stability (Pitch, Yaw) Analysis
 
 ### Overview
 - non-linear model (stability analysis)
@@ -8,14 +8,35 @@
 
 http://www.nar.org/NARTS/TR13.html
 
-### Validation
-- Unit Testing where applicable
-- Comparison with OpenRocket data
-- Comparison with previous models and Arcturus flight data
-- Comparison with available flight data
-
 ### Out-of-scope
-- ambient conditions
+
 - range (drift)
 - roll
+
+### Requirement
+
+- 2a - The static stability margin falls above 2 (but less than 3) calibers at launch
+- 2b - The dynamic stability is greater tha n0 even in winds up to 8.33 m/s
+- 2f - The vehicle does not experience resonant pitching/yawing motion in flight
+
+### Validation
+
+- 2a  
+- 2b
+- 2c
+
+### Longitudinal Static Stability Margin
+
+The *Longitudinal Static Stability Margin* is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube.
+
+$$ SSM = \dfrac{COP - COG}{OD} $$
+
+The result is dimensionless, however the ratio determined is measured as *calibers*. 
+
+https://www.apogeerockets.com/education/downloads/Newsletter133.pdf
+
+### Wind Impulse
+
+Wind can be approximated as an impulse in the model [source?]
+
 
