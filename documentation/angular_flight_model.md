@@ -27,9 +27,9 @@ http://www.nar.org/NARTS/TR13.html
 
 ### Longitudinal Static Stability Margin
 
-The *Longitudinal Static Stability Margin* is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube.
+The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube.
 
-$$ SSM = \dfrac{COP - COG}{OD} $$
+$$ S_{lm} = \dfrac{COP - COG}{OD} $$
 
 The result is dimensionless, however the ratio determined is measured as *calibers*. 
 
@@ -38,5 +38,4 @@ https://www.apogeerockets.com/education/downloads/Newsletter133.pdf
 ### Wind Impulse
 
 Wind can be approximated as an impulse in the model [source?]
-
 
