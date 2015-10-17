@@ -1,4 +1,4 @@
-function thrust_curve = thrust_data_import(csvfilename)
+function [burntime,thrust] = thrust_data_import(csvfilename)
 %-------------------------------------------------------------------------------
 %
 % thrust_data_import.m
@@ -30,7 +30,10 @@ function thrust_curve = thrust_data_import(csvfilename)
 %-------------------------------------------------------------------------------
 
 % Import the data from Excel
-data = xlsread(csvfilename);
+% data = xlsread(csvfilename);
+
+% TODO hardcoding is bad
+data = xlsread('monotomic_time_thrust_curve.csv');
 
 % Interpolate the data
 % data = scrd_interpolate(data)
@@ -42,14 +45,12 @@ data_transpose = data.';
 save('thrust_curve.mat','data_transpose');
 
 % Extract data from mat file
-time = data(:,1);
+burntime = data(:,1);
 thrust = data(:,2);
 
 % Plot the thrust curve for reference
 % TODO: maybe we want to ask the user to verify the curve before proceeding
 %plot(time,thrust);
-
-thrust_curve = data_transpose;
 
 % Row indices for lookup table
 % breakpoints1 = data(2:end,1)';
@@ -57,5 +58,5 @@ thrust_curve = data_transpose;
 % Column indices for lookup table
 % breakpoints2 = data(1,2:end);
 
-% Output values for lookup table
+% output values for lookup table
 % table_data = data(2:end,2:end);
