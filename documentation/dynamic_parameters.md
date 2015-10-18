@@ -98,18 +98,16 @@ $$ W_m (t) = W_{m_t} - \Delta W_f(t) = W_{m_t} - \dot{m}_{fc} \cdot t $$
 
 [dynamic_parameter_calculation]: images/dynamic_parameter_calculation.png "Dynamic Parameter Calculation" 
 ![Alt text][dynamic_parameter_calculation] 
-Figure 1 Dynamic Parameter Calculation [dynamic_parameter_calculation](#dynamic_parameter_calculation).
+[Figure 1 Dynamic Parameter Calculation](#fig:dynamic_parameter_calculation)
 
 ~~~~
-function weight_curve = dynamic_weight_calculation(thrust_curve, wet_motor_weight, dry_motor_weight, mfc)
+function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, wfc)
 %------------------------------------------------------------------------------
 % INPUT PARAMETERS
 % thrust_curve     - a horizontal data set containing time and thrust
 %                    data from a given motor    
-% mfc              - the mass flow rate based on fuel consumption 
+% wfc              - the rate of motor weight loss due to fuel consumption 
 % wet_motor_weight - the weight in Newtons of a motor *including* 
-%                    propellant
-% dry_motor_weight - the weight in Newtons of a motor *excluding* 
 %                    propellant
 %
 % NOTE: this implementation skips the W_dot evaluation, just uses mfc 
@@ -117,18 +115,76 @@ function weight_curve = dynamic_weight_calculation(thrust_curve, wet_motor_weigh
 %------------------------------------------------------------------------------
 
 % create the weight curve from an input thrust curvve matlab file 
-% with the same time set and dimensions as the input thrust curve
+% with the same dimensions as the input thrust curve
 % weight_curve = {'time','weight'}
 
-weight_curve = thrust_curve;
+% grab the size of the input thrust curve
+data_length = size(thrust_curve,1);
 
-% zero all thrust data to be replaced by weight data
-weight_curve(2,:)=0;
+% create the corresponding weight curve, same size
+weight = zeros(data_length,1);
     
-for i = 1:length(thrust_curve)
-    weight_curve(2,i) = wet_motor_weight - mfc*weight_curve(1,i); 
+%for i = 1:length(thrust_curve)
+for i = 1:data_length
+    weight(i,1) = wet_motor_weight - wfc*thrust_curve(i,1); 
 end
+
+thrust = thrust_curve;
+mass = weight * 9.81;
+
 ~~~~
+
+##### Unit Testing
+
+~~~~
+%------------------------------------------------------------------------------
+%
+% Dynamic Weight Calculation Test
+%
+% run the function against input thrust data
+%------------------------------------------------------------------------------
+
+g                = 9.81;
+wet_motor_weight = 5.906*g;
+dry_motor_weight = 3.624*g;
+mfc              = 0.8236*g;
+
+thrust_curve = thrust_data_import('monotomic_time_thrust_curve.csv');
+
+burntime     = thrust_curve(:,1);
+thrust_force = thrust_curve(:,2);
+
+subplot(2,1,1);
+plot(burntime,thrust_force);
+title('Dynamic Weight Calculation Test - Motor Thrust Curve');
+ylabel('Thrust - T (N)');
+xlabel('Time - t (s)');
+
+[actual_mass, actual_weight, actual_thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, mfc);
+
+subplot(2,1,2);
+plot(burntime,actual_weight(:,1))
+title('Dynamic Weight Calculation Test - Motor Weight Curve');
+ylabel('Weight - W (N)');
+xlabel('Time - t (s)');
+
+% TODO need to provide some hand-calculated data to assert against
+
+% check that the last weight value is equal to the dry motor weight
+%assert ( actual_weight_curve(122,1) == dry_motor_weight );
+last_row = size(actual_weight,1);
+final_weight = actual_weight(last_row, 1);
+
+% TODO right now this assertion fails because the thrust data is not interpolated
+assert ( dry_motor_weight == final_weight );
+
+~~~~
+
+The following figure shows the output of the test. The Thrust and Weight curves are output as expected.
+
+[dynamic_weight_calculation_test_figure]: images/dynamic_weight_calculation_test_figure.png "Dynamic Weight Calculation Test Output" 
+![Alt text][dynamic_weight_calculation_test_figure] 
+[Figure 1 Dynamic Parameter Calculation ](#dynamic_weight_calculation_test_figure)
 
 
 ### Center of Gravity

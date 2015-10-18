@@ -1,4 +1,4 @@
-function thrust_curve = thrust_data_import(csvfilename)
+function thrust_curve = thrust_data_import()
 %-------------------------------------------------------------------------------
 %
 % thrust_data_import.m
@@ -29,24 +29,20 @@ function thrust_curve = thrust_data_import(csvfilename)
 % http://www.mathworks.com/help/matlab/matlab_external/example-reading-excel-spreadsheet-data.html
 %-------------------------------------------------------------------------------
 
+coder.extrinsic('xlsread');
+
 % Import the data from Excel
 % data = xlsread(csvfilename);
 
 % TODO hardcoding is bad
 data = xlsread('monotomic_time_thrust_curve.csv');
 
-% Interpolate the data
+% TODO Interpolate the data
 % data = scrd_interpolate(data)
 
-% Transpose the data for the .mat file
-% data_transpose = data.'; 
-% Store the data in a .mat file
-% fuck the mat file % save('thrust_curve.mat','data_transpose');
-
-% Extract data from mat file and store in workspace
-burntime = data(:,1);
-thrust = data(:,2);
+% instatiate the output container
+thrust_curve = zeros( size(data) );
+double(thrust_curve);
 
 % store the thrust curve in the workspace
-thrust_curve = data;
-
+thrust_curve = data

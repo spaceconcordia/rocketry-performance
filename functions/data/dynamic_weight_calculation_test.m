@@ -21,10 +21,10 @@ title('Dynamic Weight Calculation Test - Motor Thrust Curve');
 ylabel('Thrust - T (N)');
 xlabel('Time - t (s)');
 
-actual_weight_curve = dynamic_weight_calculation(thrust_curve, wet_motor_weight, mfc);
+[actual_mass, actual_weight, actual_thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, mfc);
 
 subplot(2,1,2);
-plot(burntime,actual_weight_curve(:,1))
+plot(burntime,actual_weight(:,1))
 title('Dynamic Weight Calculation Test - Motor Weight Curve');
 ylabel('Weight - W (N)');
 xlabel('Time - t (s)');
@@ -33,8 +33,8 @@ xlabel('Time - t (s)');
 
 % check that the last weight value is equal to the dry motor weight
 %assert ( actual_weight_curve(122,1) == dry_motor_weight );
-last_row = size(actual_weight_curve,1)
-final_weight = actual_weight_curve(last_row, 1)
+last_row = size(actual_weight,1);
+final_weight = actual_weight(last_row, 1);
 
 % TODO right now this assertion fails because the thrust data is not interpolated
 assert ( dry_motor_weight == final_weight );

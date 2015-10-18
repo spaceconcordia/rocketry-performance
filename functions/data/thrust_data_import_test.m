@@ -6,7 +6,8 @@
 %
 %------------------------------------------------------------------------------
 
-thrust_curve = thrust_data_import('monotomic_time_thrust_curve.csv');
+%thrust_curve = thrust_data_import('monotomic_time_thrust_curve.csv');
+thrust_curve = thrust_data_import();
 
 burntime     = thrust_curve(:,1);
 thrust_force = thrust_curve(:,2);
