@@ -1,0 +1,3 @@
+LIBRARY rocket_thrust_data_test_sfun.mexw64
+EXPORTS
+mexFunction

@@ -1,0 +1,3 @@
+LIBRARY rocket_dynamic_data_library_sfun.lib
+EXPORTS
+mexFunction

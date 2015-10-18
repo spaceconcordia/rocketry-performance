@@ -7,6 +7,9 @@ S-function (level 1) blocks are proposed to be used to reference Matlab files so
 - Older versions allowed providing external '.m' file for the *Matlab Function* block in Simulink
 - Newer versions are shifting towards the embedded model, where Matlab code is complied for execution on test hardware
 
+Naming conventions in Simulink for Matlab files changed after 2011A:
+- http://www.goddardconsulting.ca/simulink-using-embedded-matlab.html
+
 #### S-Functions
 
 - [S-Function Doc with Examples](http://www.mathworks.com/help/simulink/matlab-s-functions-1.html)

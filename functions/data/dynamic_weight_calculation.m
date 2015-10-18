@@ -1,4 +1,4 @@
-function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, wfc)
+function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, burntime, wet_motor_weight, wfc)
 %------------------------------------------------------------------------------
 % INPUT PARAMETERS
 % thrust_curve     - a horizontal data set containing time and thrust
@@ -11,20 +11,18 @@ function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, wet_m
 % NOTE: UNTESTED
 %------------------------------------------------------------------------------
 
-% create the weight curve from an input thrust curvve matlab file 
-% with the same dimensions as the input thrust curve
-% weight_curve = {'time','weight'}
-
 % grab the size of the input thrust curve
 data_length = size(thrust_curve,1);
 
 % create the corresponding weight curve, same size
 weight = zeros(data_length,1);
-    
-%for i = 1:length(thrust_curve)
-for i = 1:data_length
-    weight(i,1) = wet_motor_weight - wfc*thrust_curve(i,1); 
-end
+
+% populate weight array
+weight = wet_motor_weight - wfc.*burntime;
+
+%for i = 1:data_length
+%    weight(i,1) = wet_motor_weight - wfc*i*0.01
+%end
 
 thrust = thrust_curve;
 mass = weight * 9.81;
