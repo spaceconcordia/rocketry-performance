@@ -6,12 +6,12 @@
 %
 %------------------------------------------------------------------------------
 
-[burntime,thrust] = thrust_data_import('monotomic_time_thrust_curve.csv');
+thrust_curve = thrust_data_import('monotomic_time_thrust_curve.csv');
 
-%time   = thrust_curve(1,:)
-%thrust = thrust_curve(2,:);
+burntime     = thrust_curve(:,1);
+thrust_force = thrust_curve(:,2);
 
-plot(burntime, thrust);
+plot(burntime, thrust_force);
 
 assert (1 == 1);
 

@@ -1,9 +1,9 @@
-function weight_curve = dynamic_weight_calculation(thrust_curve, burntime, wet_motor_weight, dry_motor_weight, mfc)
+function weight_curve = dynamic_weight_calculation(thrust_curve, wet_motor_weight, wfc)
 %------------------------------------------------------------------------------
 % INPUT PARAMETERS
 % thrust_curve     - a horizontal data set containing time and thrust
 %                    data from a given motor    
-% mfc              - the mass flow rate based on fuel consumption 
+% wfc              - the rate of motor weight loss due to fuel consumption 
 % wet_motor_weight - the weight in Newtons of a motor *including* 
 %                    propellant
 % dry_motor_weight - the weight in Newtons of a motor *excluding* 
@@ -17,11 +17,17 @@ function weight_curve = dynamic_weight_calculation(thrust_curve, burntime, wet_m
 % with the same dimensions as the input thrust curve
 % weight_curve = {'time','weight'}
 
-weight_curve = thrust_curve;
+% grab the size of the input thrust curve
+data_length = size(thrust_curve,1);
+
+% create the corresponding weight curve, same size
+weight_curve = zeros(data_length,1);
+%weight_curve = thrust_curve;
 
 % zero all thrust data to be replaced by weight data
-weight_curve(1,:)=0;
+%weight_curve(:,2) = 0;
     
-for i = 1:length(thrust_curve)
-    weight_curve(1,i) = wet_motor_weight - mfc*burntime(i,1); 
+%for i = 1:length(thrust_curve)
+for i = 1:data_length
+    weight_curve(i,1) = wet_motor_weight - wfc*thrust_curve(i,1); 
 end
