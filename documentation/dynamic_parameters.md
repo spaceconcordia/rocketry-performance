@@ -45,7 +45,8 @@ Source: http://www.thrustcurve.org/motorsearch.jsp?id=673
 
 *Thrust Specific Fuel Consumption* is how much fuel is burned for a given time. 
 
-$$ S_{fg} = \dfrac{m}{t_{burn}}\cdot \dfrac{1}{T_{avg}} : \left[ \dfrac{g}{s}\cdot \dfrac{1}{N} = \dfrac{s}{m} \right] $$ 
+$$ S_{fg} = \dfrac{m}{t_{burn}}\cdot \dfrac{1}{T_{avg}} $$ 
+$$ \left[ \dfrac{g}{s}\cdot \dfrac{1}{N} = \dfrac{s}{m} \right] $$ 
 
 Since at the time of writing the $S_{fc}$ was not provided by the manufacturer, the following calculations are used for a first approximation. 
 
