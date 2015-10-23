@@ -2,6 +2,7 @@
 
 #include "rocket_thrust_data_test_sfun.h"
 #include "rocket_thrust_data_test_sfun_debug_macros.h"
+#include "c2_rocket_thrust_data_test.h"
 
 /* Type Definitions */
 
@@ -28,6 +29,11 @@ unsigned int sf_rocket_thrust_data_test_method_dispatcher(SimStruct
   *simstructPtr, unsigned int chartFileNumber, const char* specsCksum, int_T
   method, void *data)
 {
+  if (chartFileNumber==2) {
+    c2_rocket_thrust_data_test_method_dispatcher(simstructPtr, method, data);
+    return 1;
+  }
+
   return 0;
 }
 
@@ -61,14 +67,21 @@ unsigned int sf_rocket_thrust_data_test_process_check_sum_call( int nlhs,
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2410307792U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2304617792U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2239501229U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2118839761U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(4020749918U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3979199310U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3170983988U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(4224285654U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
       switch (chartFileNumber) {
+       case 2:
+        {
+          extern void sf_c2_rocket_thrust_data_test_get_check_sum(mxArray *plhs[]);
+          sf_c2_rocket_thrust_data_test_get_check_sum(plhs);
+          break;
+        }
+
        default:
         ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(0.0);
         ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(0.0);
@@ -84,10 +97,10 @@ unsigned int sf_rocket_thrust_data_test_process_check_sum_call( int nlhs,
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(848709528U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2163802061U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3858350583U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(716660135U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3957462097U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3258380483U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1369172088U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1603555632U);
   }
 
   return 1;
@@ -123,6 +136,19 @@ unsigned int sf_rocket_thrust_data_test_autoinheritance_info( int nlhs, mxArray 
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 2:
+      {
+        if (strcmp(aiChksum, "GK3iEerhiNwsfm1a9GDsBC") == 0) {
+          extern mxArray *sf_c2_rocket_thrust_data_test_get_autoinheritance_info
+            (void);
+          plhs[0] = sf_c2_rocket_thrust_data_test_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -158,6 +184,17 @@ unsigned int sf_rocket_thrust_data_test_get_eml_resolved_functions_info( int
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 2:
+      {
+        extern const mxArray
+          *sf_c2_rocket_thrust_data_test_get_eml_resolved_functions_info(void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c2_rocket_thrust_data_test_get_eml_resolved_functions_info();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -193,6 +230,16 @@ unsigned int sf_rocket_thrust_data_test_third_party_uses_info( int nlhs, mxArray
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 2:
+      {
+        if (strcmp(tpChksum, "MFOJdM7dTGNGn9IuqhwCGG") == 0) {
+          extern mxArray *sf_c2_rocket_thrust_data_test_third_party_uses_info
+            (void);
+          plhs[0] = sf_c2_rocket_thrust_data_test_third_party_uses_info();
+          break;
+        }
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -221,6 +268,16 @@ unsigned int sf_rocket_thrust_data_test_updateBuildInfo_args_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 2:
+      {
+        if (strcmp(tpChksum, "MFOJdM7dTGNGn9IuqhwCGG") == 0) {
+          extern mxArray
+            *sf_c2_rocket_thrust_data_test_updateBuildInfo_args_info(void);
+          plhs[0] = sf_c2_rocket_thrust_data_test_updateBuildInfo_args_info();
+          break;
+        }
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -233,7 +290,7 @@ void rocket_thrust_data_test_debug_initialize(struct SfDebugInstanceStruct*
   debugInstance)
 {
   _rocket_thrust_data_testMachineNumber_ = sf_debug_initialize_machine
-    (debugInstance,"rocket_thrust_data_test","sfun",0,0,0,0,0);
+    (debugInstance,"rocket_thrust_data_test","sfun",0,1,0,0,0);
   sf_debug_set_machine_event_thresholds(debugInstance,
     _rocket_thrust_data_testMachineNumber_,0,0);
   sf_debug_set_machine_data_thresholds(debugInstance,

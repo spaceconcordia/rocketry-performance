@@ -62,10 +62,10 @@ unsigned int sf_rocket_dynamic_data_library_process_check_sum_call( int nlhs,
       machineName[(sizeof(machineName)/sizeof(char)-1)] = '\0';
       if (!strcmp(machineName,"rocket_dynamic_data_library")) {
         if (nrhs==3) {
-          ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2745241339U);
-          ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(967542477U);
-          ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2370826715U);
-          ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3484740221U);
+          ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1899920835U);
+          ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3628462595U);
+          ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3380026023U);
+          ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(645335638U);
         } else if (nrhs==4) {
           unsigned int chartFileNumber;
           chartFileNumber = (unsigned int)mxGetScalar(prhs[3]);
@@ -132,7 +132,7 @@ unsigned int sf_rocket_dynamic_data_library_autoinheritance_info( int nlhs,
     switch (chartFileNumber) {
      case 2:
       {
-        if (strcmp(aiChksum, "UPv1MKu5WmcRMlG7DCy9J") == 0) {
+        if (strcmp(aiChksum, "MZWk6673IKN3BcAvRZkNkG") == 0) {
           extern mxArray
             *sf_c2_rocket_dynamic_data_library_get_autoinheritance_info(void);
           plhs[0] = sf_c2_rocket_dynamic_data_library_get_autoinheritance_info();
@@ -227,7 +227,7 @@ unsigned int sf_rocket_dynamic_data_library_third_party_uses_info( int nlhs,
     switch (chartFileNumber) {
      case 2:
       {
-        if (strcmp(tpChksum, "KElfoVhmVWeq0TzyupZ4p") == 0) {
+        if (strcmp(tpChksum, "6MgD9zwiehFvcmEaVYYdPG") == 0) {
           extern mxArray
             *sf_c2_rocket_dynamic_data_library_third_party_uses_info(void);
           plhs[0] = sf_c2_rocket_dynamic_data_library_third_party_uses_info();
@@ -265,7 +265,7 @@ unsigned int sf_rocket_dynamic_data_library_updateBuildInfo_args_info( int nlhs,
     switch (chartFileNumber) {
      case 2:
       {
-        if (strcmp(tpChksum, "KElfoVhmVWeq0TzyupZ4p") == 0) {
+        if (strcmp(tpChksum, "6MgD9zwiehFvcmEaVYYdPG") == 0) {
           extern mxArray
             *sf_c2_rocket_dynamic_data_library_updateBuildInfo_args_info(void);
           plhs[0] = sf_c2_rocket_dynamic_data_library_updateBuildInfo_args_info();

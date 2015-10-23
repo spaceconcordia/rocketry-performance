@@ -22,7 +22,7 @@ title('Dynamic Weight Calculation Test - Motor Thrust Curve');
 ylabel('Thrust - T (N)');
 xlabel('Time - t (s)');
 
-[actual_mass, actual_weight, actual_thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, mfc);
+[actual_mass, actual_weight, actual_thrust] = dynamic_weight_calculation(thrust_curve, burntime, wet_motor_weight, dry_motor_weight, mfc);
 
 subplot(2,1,2);
 plot(burntime,actual_weight(:,1))

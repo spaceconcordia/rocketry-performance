@@ -1,0 +1,3 @@
+LIBRARY thrust_curve_test_sfun.mexw64
+EXPORTS
+mexFunction

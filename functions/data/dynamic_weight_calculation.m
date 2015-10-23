@@ -1,4 +1,4 @@
-function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, burntime, wet_motor_weight, wfc)
+function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, burntime, wet_motor_weight, dry_motor_weight, wfc)
 %------------------------------------------------------------------------------
 % INPUT PARAMETERS
 % thrust_curve     - a horizontal data set containing time and thrust
@@ -18,7 +18,13 @@ data_length = size(thrust_curve,1);
 weight = zeros(data_length,1);
 
 % populate weight array
-weight = wet_motor_weight - wfc.*burntime;
+weight_buffer = wet_motor_weight - wfc.*burntime;
+
+if weight_buffer <= dry_motor_weight
+    weight = dry_motor_weight
+else
+    weight = wet_motor_weight - wfc.*burntime;
+end
 
 %for i = 1:data_length
 %    weight(i,1) = wet_motor_weight - wfc*i*0.01
