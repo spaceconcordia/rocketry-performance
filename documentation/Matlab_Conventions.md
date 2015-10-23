@@ -1,5 +1,35 @@
 ## Matlab Conventions
 
+### Importing Data
+
+Tabulated input data is relied upon to drive the simulation (see *Dynamic Parameters*). The following configuration is investigated to support this smoothly
+
+[Load Signal Data for Simulation](http://www.mathworks.com/help/simulink/import-data.html)
+
+[Importing Signal Data in Simulink](http://www.mathworks.com/help/simulink/ug/importing-signal-data-in-simulink.html)
+
+[Import Data Structures](http://www.mathworks.com/help/simulink/ug/importing-data-structures-to-a-root-level-input-port.html)
+
+#### From File 
+The *From File* block in Simulink allows incremental loading of data 
+
+> The From File block reads data from a MAT-file and outputs the data as a signal. The data is a sequence of samples. Each sample consists of a time stamp and an associated data value.
+
+[From File](http://www.mathworks.com/help/simulink/slref/fromfile.html)
+
+##### Mat-File Versions
+
+Data is read incrementally from Mat-File versions 7.3 and above
+[Mat-file Versions](http://www.mathworks.com/help/matlab/import_export/mat-file-versions.html)
+
+
+#### nD Lookup Tables
+
+#### Specifying Time Data
+
+
+[Specifying Time Data in Simulink](http://www.mathworks.com/help/simulink/ug/importing-data-structures-to-a-root-level-input-port.html#bsuwoyk)
+
 ### Versioning for Matlab Files
 S-function (level 1) blocks are proposed to be used to reference Matlab files so they can be versioned in Git
 

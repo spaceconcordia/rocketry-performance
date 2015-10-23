@@ -1,0 +1,5 @@
+sim('thrust_curve_test')
+thrust_curve_test_burntime
+thrust_curve_test_out
+sfc
+plot(thrust_curve_test_burntime,thrust_curve_test_thrust)
