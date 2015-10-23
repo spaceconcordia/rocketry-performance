@@ -21,14 +21,14 @@ The model must take as input the current structural design parameters, thrust in
     - Primary 3rd-party data source will be OpenRocket simulations.
     - Where possible, actual rocket flight data will be used to validate the model.
 
-# Vertical (AOA < 5$^\circ$) Flight Model
+## Vertical (AOA < 5$^\circ$) Flight Model
 
-## Assumptions
+### Assumptions
 
 - subsonic flight
 - axis-symmetric rigid body rocket
 - single cylindrical body 
-- conical, ogive, or parabolic nose shape 
+- ~~conical, ogive, or parabolic~~ Von Karman nose shape
 - three or four trapezoidal fins 
 - passively controlled (no active thrust or stability control)
 - constant fuel expenditure rate

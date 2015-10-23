@@ -1,4 +1,4 @@
-## Project 2 - Angular Flight Stability (Pitch, Yaw) Analysis
+## Angular Flight Stability (Pitch, Yaw) Analysis
 
 ### Overview
 - non-linear model (stability analysis)

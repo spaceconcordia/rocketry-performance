@@ -40,7 +40,7 @@ force and viscous force
 [@box2009, pg.6]
 
 [rocket_drag_forces]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
-![Alt text][image] 
+![Alt text][rocket_drag_forces] 
 [Rocket Drag Forces - Axial $F_A$ vs. Normal $F_N$, relative to the roll axis](#image).
 
 [@box2009, pg.6]
@@ -159,3 +159,13 @@ $$ C_{fp}, D_{fp} (A_{ref}, M) $$
 #### Boat-Tail Drag
 
 *Boat-Tail Drag* occurs due to ... 
+
+### Matlab Implementation
+
+[rocket_drag_model_overview]: images/rocket_drag_model_overview.png "Rocket Drag Model Overview" 
+![Alt text][rocket_drag_model_overview] 
+[Figure - Rocket Drag Model Overview](#image).
+
+[rocket_drag_model]: images/rocket_drag_model.png "Rocket Drag Model" 
+![Alt text][rocket_drag_model] 
+[Figure - Rocket Drag Model](#image).
