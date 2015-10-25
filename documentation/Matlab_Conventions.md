@@ -4,6 +4,8 @@
 
 Tabulated input data is relied upon to drive the simulation (see *Dynamic Parameters*). The following configuration is investigated to support this smoothly
 
+[Recommended Methods for Importing Data](http://www.mathworks.com/help/matlab/import_export/recommended-methods-for-importing-data.html)
+
 [Load Signal Data for Simulation](http://www.mathworks.com/help/simulink/import-data.html)
 
 [Importing Signal Data in Simulink](http://www.mathworks.com/help/simulink/ug/importing-signal-data-in-simulink.html)

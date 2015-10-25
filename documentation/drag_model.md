@@ -4,24 +4,32 @@ Rockets in flight experience multiple sources of drag. The total drag effect is 
 
 The drag model shall take the parametric design parameters and applicable dynamics parameters (see *Data Model*) to output the Drag Force and combined drag coefficient.
 
+
 ### Compressible Flow Correction
 
-Drag is evaluated differently when compressibility effects are in play. Compressibility effects must be considered above Mach 0.3 **[source?]**, which will be easily exceeded by the transonic target velocity of Mach 0.88 **[source?]**.
+Special considerations apply when compressibility effects are in play. These effects occur above Mach 0.3 **[source?]**, which will be easily exceeded by the transonic target velocity of Mach 0.88 **[source?]**.
 
 > At low speeds (incompressible flow), the aerodynamic coefficients are functions of the angle of attack ($\alpha$) and Reynolds number (Re). 
 
-(@) $$ C_i (M < 0.3) = C_i (\alpha, Re) $$ 
+\begin{equation}
+C_i (M < 0.3) = C_i (\alpha, Re) 
+\end{equation}
 > At higher speeds (compressible, Ma $\ge$ 0.4) they are also a function of Mach number.
 
-(@) $$ C_i (M \ge 0.3) = C_i (\alpha, Re, M) $$ 
+\begin{equation}
+C_i (M \ge 0.3) = C_i (\alpha, Re, M)
+\end{equation}
 
 Particular correction factors are recommended for ranges of Mach number
+
 
 | Mach Number         | Correction Factor                           |
 | ---                 | ---                                         |
 | $$ M < 0.3 $$       | N/A                                         |
 | $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-M^2}} $$     |
 | $$ 0.8 < M < 1.1 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
+
+\captionof{table}{Compressible Flow Correction Factors}
 
 Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressibility corrected drag coefficient.
 
@@ -40,8 +48,7 @@ force and viscous force
 [@box2009, pg.6]
 
 [rocket_drag_forces]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
-![Alt text][rocket_drag_forces] 
-[Rocket Drag Forces - Axial $F_A$ vs. Normal $F_N$, relative to the roll axis](#image).
+![Rocket Drag Forces - Axial vs. Normal Caption \label{rocket_drag_forces_label}][rocket_drag_forces] 
 
 [@box2009, pg.6]
 
@@ -53,70 +60,57 @@ Viscous forces are much less severe in turbulent conditions than laminar conditi
 
 [@box2009, pg.6]
 
-### Areas
-
-Reference areas are required to calculate the drag force.
-
-Related to area, the specific parameters of interest on the rocket are the following:
-
-- Outer Diameter of Rocket (*OD*)
-- Total Length of Rocket (*L*) 
-- Height of Nose Cone ($h_n$)
-- Thickness of Fins
-- Number of Fins
-- Width of Fins
-- Surface Area of Nose
-
-
-#### Wetted Body Area
-
-The *Wetted Body Area* is the combined area of all surfaces in contact with moving air. 
-
-[Fluids e-book (TODO find better)]:(https://ecourses.ou.edu/cgi-bin/eBook.cgi?doc=&topic=fl&chap_sec=09.1&page=theory)
-
-#### Frontal Reference Area
-
-The *Frontal Reference Area* is the projected area of the rocket perpendicular to the direction of air flow. For perfectly vertical flight and quiescent air conditions, this is the precise projection of the tip face of the rocket.
-
-[TODO show figure]
 
 ### Drag Force and Coefficients
 
 The total drag force is a function of air velocity (relative to the rocket body, therefore ideally the velocity of the rocket in quiescent air conditions), drag coefficient, reference area, and air density.
 
-$$ D_f = D_f (\vec{v}, C_d, A_{ref}, \rho) $$
+\begin{equation} 
+D_f = D_f (\vec{v}, C_d, A_{ref}, \rho) 
+\end{equation}
 
 The drag coefficient $C_d$ is the sum of all component drag coefficients
 
-$$ C_d = \sum C_i = C_{pa} + C_{fo} + C_{pr} + C_{in} + C_{ba} + C_{sk} + C_{fp} + C_{wa} + C_{bt} $$ 
+\begin{equation} 
+C_d = \sum C_i = C_{pa} + C_{fo} + C_{pr} + C_{in} + C_{ba} + C_{sk} + C_{fp} + C_{wa} + C_{bt} 
+\end{equation}
 
 The *reference area* is the projected area of the body flowing through air, perpendicular to the direction of flow. [source?]
  
 From Fluid Mechanics [source?]
 
-$$ D_f = \dfrac{1}{2} C_d A_{ref} \rho \vec{v}^2 $$ 
+\begin{equation}
+D_f = \dfrac{1}{2} C_d A_{ref} \rho \vec{v}^2  
+\end{equation}
 
 #### Parasitic Drag
 
 Parasitic drag is the drag due to body features not explicitly designed and/or imperfections not easily approximated. 
 Examples include launch guides, ventilation holes, surface roughness, and any damage during flight. 
 
-$$ C_{pa}, D_{pa} (A_{ref}, M) $$ 
+\begin{equation}
+C_{pa}, D_{pa} (A_{ref}, M) 
+\end{equation}
 
 ##### Parasitic Drag Coefficient
 
-$$ C_{pa} = \left( 1.3 - 0.3 \dfrac{(L-h_n)}{OD} \right)_{max} \cdot C_{stagnation} $$
+\begin{equation}
+C_{pa} = \left( 1.3 - 0.3 \dfrac{(L-h_n)}{OD} \right)_{max} \cdot C_{stagnation} 
+\end{equation}
 
 Where *L* is the rocket length, $h_n$ is the height of the nose code, *OD* is the outer diameter of the rocket, and $C_{stagnation}$ is the stagnation coefficient.
 
 ##### Parasitic Drag Coefficient - Normalized
 
-$$ C_{pa_{norm}} = C_{pa} \cdot \left( \pi \cdot (r_{ext}^2 - r_{int}^2) \cdot \left[ 1 - \left( \dfrac{L-h}{OD} \right), 0 \right]_{max} \right) $$
+\begin{equation}
+C_{pa_{norm}} = C_{pa} \cdot \left( \pi \cdot (r_{ext}^2 - r_{int}^2) \cdot \left[ 1 - \left( \dfrac{L-h}{OD} \right), 0 \right]_{max} \right) 
+\end{equation}
 
 #### Form Drag
 
-$$ C_{fo}, D_{fo} (A_{ref}, M) $$ 
-
+\begin{equation} 
+C_{fo}, D_{fo} (A_{ref}, M) 
+\end{equation}
 
 #### Profile (Pressure) Drag
 
@@ -124,31 +118,83 @@ This is the drag caused by the pressure imbalance as an object moves through a f
 
 [Pressure drag vs base drag?]
 
-$$ C_{pr}, D_{pr} (A_{ref}, M) $$ 
-
+\begin{equation} 
+C_{pr}, D_{pr} (A_{ref}, M) 
+\end{equation}
 
 #### Interference Drag
 
-$$ C_{in}, D_{in} (A_{ref}, M) $$ 
-
+\begin{equation} 
+C_{in}, D_{in} (A_{ref}, M) 
+\end{equation}
 
 #### Base Drag
 
 Base drag is experienced behind the aft section of the rocket cause by boundary separation between the flow past the rocket and the surrounding air. This results in a low pressure region which has an effect analogous to *pulling* the rocket against its direction of flight.
 
-$$ C_{ba}, D_{ba} ((A_{ref}, M)) $$ 
+\begin{equation}
+C_{ba}, D_{ba} ((A_{ref}, M)) 
+\end{equation}
 
 
 #### Skin Friction Drag
 
 Skin Friction Drag is a result of surface roughness. It is a component effect of parasitic drag.
 
-$$ C_{sk}, D_{sk} (A_{ref}, M) $$ 
+\begin{equation}
+C_{sk}, D_{sk} (A_{ref}, M)
+\end{equation}
+
+The *Critical Reynold's Number* ($Re_{crit}$) is the value of *Reynold's Number* where the flow changes from laminar to turbulent 
+
+[Trinh, Khanh Tuoc](http://arxiv.org/ftp/arxiv/papers/1007/1007.0810.pdf)
+[See Fluids Text book](fluids textbook)
+
+The *Actual Reynold's Number* can be expressed in the following form: 
+
+\begin{equation}
+Re = \dfrac{\vec{v} L}{\mu} 
+\end{equation}
+
+However, the kinematic viscosity can be substituted as a function of the local temperature (in Kelvin)
+
+\begin{equation}
+Re = \dfrac{\vec{v} L}{A\cdot T^3 + B\cdot T^2 + C\cdot T - D} 
+\end{equation}
+
+Where A = $-1 \times 10^{14}$, B = $1 \times 10^{-10}$, C = $3 \times 10^{-8}$, and D = $3 \times 10^-6$.
+
+With the critical and actual Reynold's Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
+
+\begin{equation}
+C_{sk_{uncorrected}} = 
+\begin{cases}
+    0.0148                                & Re < 10^4 \\
+    \dfrac{1}{(1.5 ln Re - 5.6)^2}        & 10^4 < Re < Re_{crit} \\
+    0.032 \left( \dfrac{R_a}{L} \right)^2 & Re > Re_{crit}
+\end{cases}
+\end{equation}
+
+Finally, the *Corrected Skin Friction Drag Coefficient* is
+
+\begin{equation}
+C_{sk} = \dfrac{ C_{sk,c} \left[ \left( 1+ \dfrac{1}{2 f_B} \right) \cdot A_{wet,body} + \left( 1 + \dfrac{2t_f}{L_{cf}}\cdot \right) A_{wet,fins} \right] }{A_{ref}}
+\end{equation}
+
+Where $f_b$ is the *Fineness Ratio*, the ratio of the length of the rocket divided by the outer diameter. 
+
+[botros]
+
+\begin{equation}
+Re_{crit} = 51 \left( \dfrac{R_a}{L} \right) ^{-1.039} 
+\end{equation}
 
 
 #### Fin Pressure Drag
 
-$$ C_{fp}, D_{fp} (A_{ref}, M) $$ 
+\begin{equation}
+C_{fp}, D_{fp} (A_{ref}, M) 
+\end{equation}
 
 #### Wave Drag
 
@@ -163,9 +209,7 @@ $$ C_{fp}, D_{fp} (A_{ref}, M) $$
 ### Matlab Implementation
 
 [rocket_drag_model_overview]: images/rocket_drag_model_overview.png "Rocket Drag Model Overview" 
-![Alt text][rocket_drag_model_overview] 
-[Figure - Rocket Drag Model Overview](#image).
+![Rocket Drag Model Overview \label{rocket_drag_model_overview_label}][rocket_drag_model_overview] 
 
 [rocket_drag_model]: images/rocket_drag_model.png "Rocket Drag Model" 
-![Alt text][rocket_drag_model] 
-[Figure - Rocket Drag Model](#image).
+![Rocket Drag Model \label{rocket_drag_model_label}][rocket_drag_model] 

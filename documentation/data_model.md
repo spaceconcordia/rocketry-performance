@@ -2,7 +2,16 @@
 
 ### Data Store
 
-TODO investigate: It's possible that a [Data Store](http://www.mathworks.com/help/simulink/slref/datastorememory.html) is a good data object available in Matlab to store global parameters, static and dynamic included. 
+[Data Stores](http://www.mathworks.com/help/simulink/data-stores.html)
+
+[Data Store](http://www.mathworks.com/help/simulink/slref/datastorememory.html) 
+
+[When to Use a Data Store](http://www.mathworks.com/help/simulink/ug/when-to-use-a-data-store.html)
+
+[Data Store Examples](http://www.mathworks.com/help/simulink/ug/data-store-examples.html)
+
+[Data Stores and Software Verification](http://www.mathworks.com/help/simulink/ug/data-stores-and-software-verification.html)
+> see RTCA DO-331, ["Model-Based Development and Verification Supplement to DO-178C and DO-278A," Section MB.6.3.3.b.](http://www.rtca.org/Files/ListofAvailableDocsMarch2013.pdf)
 
 The *Data Model* provides static and dynamics parameters as needed by other models in the simulation. 
 
@@ -13,7 +22,6 @@ Many parameters are constant throughout the simulation, notably the structural d
 > http://www.mathworks.com/help/matlab/map-containers.html
 
 This instance can be accessed by multiple models to clearly and effectively provide parameter access. 
-
 
 
 #### Spreadsheet Import and Mapping

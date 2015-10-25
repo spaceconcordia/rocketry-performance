@@ -14,6 +14,7 @@ Pandoc is a document converter that in our case is useful in converting the Mark
 
 [The User Guide is very helpful](http://pandoc.org/README.html) 
 
+
 ## Haskell
 
 Haskell is useful in this environment to do some custom scripting
@@ -26,9 +27,18 @@ LaTeX is a powerful typesetting language useful for academic writing. It's mathe
 
 [Excellent citation discussion](http://www.chriskrycho.com/2015/academic-markdown-and-citations.html)
 
+[Haskell and Bibtex in Pandoc](http://blog.wuzzeb.org/posts/2012-06-15-bibtex-and-pandoc.html)
+
 [IEEE CSL File](https://gist.github.com/marcelofernandez/3264858)
 
 ## Equations
+
+Wrap functions as follows to enable automatic numbering:
+```
+\begin{equation}
+f(x) = s \cdot e^{xy}
+\end{equation}
+```
 
 [pandoc-eqnos](https://github.com/tomduck/pandoc-eqnos) 
 
@@ -36,16 +46,26 @@ LaTeX is a powerful typesetting language useful for academic writing. It's mathe
 
 ## Figures
 
-[Figures in Markdown+Pandoc](http://stackoverflow.com/questions/9434536/how-do-i-make-a-reference-to-a-figure-in-markdown-using-pandoc)
+To automatically number figures, use the following syntax to insert an image:
+```
+[rocket_drag_model_overview]: images/rocket_drag_model_overview.png "Rocket Drag Model Overview" 
+![Rocket Drag Model Overview \label{rocket_drag_model_overview_label}][rocket_drag_model_overview] 
+```
+Then, in your pandoc command, add the lof variable:
 
-[Tables with knitr](http://kbroman.org/knitr_knutshell/pages/figs_tables.html)
-
-[pandoc-tablenos](https://github.com/tomduck/pandoc-tablenos) 
+```
+pandoc -s ... -V lof=lof
+```
 
 ## Tables
 
-[pandoc-fignos](https://github.com/tomduck/pandoc-fignos) 
+To automatically number tables and add captions, add the *capt-of* package to your preamble
+```
+\usepackage{capt-of}
+```
 
-## Look into
+Then, in your pandoc command, add the lot variable:
 
-http://rmarkdown.rstudio.com/
+```
+pandoc -s ... -V lot=lot
+```

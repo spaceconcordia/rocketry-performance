@@ -3,7 +3,7 @@
 ## Overview 
 The goal of this project is to create a Performance Model in Matlab to simulate the rocket flight characteristics.
 
-Specifically the model should verify the maximum altitude and velocity. Further developments are explored for future enhancement. A modular development pattern will be followed order to support expansion. Unit testing of simulator logic will be undertaken in all reasonable places, and validation will be provided by testing the overall model against 3rd party flight data where available.
+Specifically the model should verify the maximum altitude and velocity. Further developments are explored for future enhancement. A modular development pattern will be followed order to support expansion. Unit testing of simulator logic will be undertaken where reasonable, and further validation will be provided by testing the overall model against 3rd party flight data where available.
 
 The model must take as input the current structural design parameters, thrust information, and simulated ambient conditions of the launch environment. Certain parameters will be dynamic; as the motor expends fuel, the position of the center of gravity and center of pressure will shift with decreasing mass. Additionally the moments of inertia will be altered. These dynamic parameters must be considered to maximize the accuracy of the model[^fn].
 
@@ -23,6 +23,16 @@ The model must take as input the current structural design parameters, thrust in
 
 ## Vertical (AOA < 5$^\circ$) Flight Model
 
+### Overview
+
+The rocket is to be launched on a guide that may have a $\pm$ 5$^\circ$ angle. Considering the small angle approximation, the sine of 5 degrees or less is approximately equal to the angle in radians, or zero.
+
+For a 1% error:
+(@) $$ sin ( \theta \le 15^\circ ) \approx 0 $$ 
+[UManitoba](http://www.physics.umanitoba.ca/undergraduate/phys2260/Lectures/Intro%20Optics%20-%20PPT%20v1part%2004.pdf)
+
+This assumption greatly simplifies the simulation analysis. We consider that the rocket flies perfectly vertical (experiencing no significant drift) into still (quiescent) air for which density is described by the [International Standard Atmosphere (ISA) model](https://en.wikipedia.org/wiki/International_Standard_Atmosphere). 
+
 ### Assumptions
 
 - subsonic flight
@@ -34,4 +44,5 @@ The model must take as input the current structural design parameters, thrust in
 - constant fuel expenditure rate
 - vertical/linear flight within 5 degrees
 
+\cite{box2009}
 [@box2009] 

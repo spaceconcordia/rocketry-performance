@@ -6,12 +6,16 @@
 | COP              | Center of pressure                     |                          | N/A                                             |
 | COG              | Center of gravity                      | time                     | N/A                                             |
 | Re               | Reynolds Number                        | $$ \rho,\mu,\vec{v},L $$ | dimensionless                                   |
+| Re_{crit}        | Critical Reynolds Number               | $$ \rho,\mu,\vec{v},L $$ | dimensionless                                   |
 | $I_{zz}$         | Pitch/Yaw Moment of Inertia            | time                     | $m^4$                                           |
 | D                | Drag Force (combined)                  |                          | N                                               |
 | W                | Weight of the Rocket                   |                          | N                                               |
 | R                | Specific Gas Constant                  |                          | $J kg^{-1} K^{-1}$                              |
 | T                | Thrust of the Rocket                   |                          | N                                               |
+| $t_f$            | Fin thickness                          | distance                 | m                                               |
+| $L_{cf}$         | Aerodynamic Chord Length of Fins       | distance                 | m                                               |
 | c                | Speed of sound                         | $$ \sqrt{\gamma RT} $$   |                                                 |
+| $R_a$            | Surface Finish                         | $$ distance $$           | microns                                         |
 | M                | Mach Number                            | $$ \vec{v}, c $$         | dimensionless                                   |
 | $D_{pa}, C_{pa}$ | Parasitic Drag Force, Coefficient      |                          |                                                 |
 | $D_{fo}, C_{fo}$ | Form Drag Force, Coefficient           |                          |                                                 |
@@ -35,4 +39,6 @@
 | $F_A$            | Aerodynamic Axial Force                |                          | N                                               |
 | $F_L$            | Aerodynamic Lift Force                 |                          | N                                               |
 | $S_{lm}$         | Longitudinal Stability Margin          |                          | Calibers                                        |
-
+| $f_B$            | Fineness Ratio                         |                          | dimensionless                                   |
+| $\mu$            | Dynamic Viscosity                      |                          | $N s / m^2$                                     |
+| $\nu$            | Kinematic Viscosity                    | $\mu$, $\rho$            | $m^2/s$                                         |
