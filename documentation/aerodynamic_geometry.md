@@ -8,7 +8,9 @@
 
 The *Fineness Ratio* is the ratio of the length to the outer diameter
 
-$$ f_B = L / OD $$ 
+\begin{equation} 
+f_B = L / OD 
+\end{equation}
 
 ### Fins
 
@@ -42,3 +44,25 @@ The *Wetted Body Area* is the combined area of all surfaces in contact with movi
 The *Frontal Reference Area* is the projected area of the rocket perpendicular to the direction of air flow. For perfectly vertical flight and quiescent air conditions, this is the precise projection of the tip face of the rocket.
 
 [TODO show figure]
+
+## Nose Profile
+
+### Von Karman (Haack)
+
+A *Von Karman* nose profile has been selected by the design team, other profiles will not be supported in the initial version of the model.
+The *Von Karman* nose profile is a *Haack Series* geometry, designed to minimize theoretical pressure drag [niskanen2013]. 
+This profile excels in subsonic flow conditions, and performs well in transonic flow conditions - as such is it well suited for the current mission [nassaNoseCone].
+
+The equation for the *Haack Series* is 
+\begin{equation}
+r(x) = \dfrac{R}{\sqrt{\pi}} \sqrt{ \theta - \dfrac{1}{2} sin (2 \theta) + \kappa \sin^3 \theta }
+\end{equation}
+
+Where 
+\begin{equation}
+\theta = \cos^{-1} \left( 1 - \dfrac{2x}{L} \right)
+\end{equation}
+
+[Nose Profile Design](http://rimworld.com/nassarocketry/fabrication/nosecones/design.html)
+
+[Nose Profile Design](https://en.wikipedia.org/wiki/Nose_cone_design#Von_K.C3.A1rm.C3.A1n)

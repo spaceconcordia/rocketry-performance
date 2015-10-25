@@ -25,6 +25,7 @@
 | $D_{ba}, C_{ba}$ | Base Drag Force, Coefficient           |                          |                                                 |
 | $D_{sk}, C_{sk}$ | Skin Friction Drag Force, Coefficient  |                          |                                                 |
 | $A_{wb}$         | Area of Wetted Body                    |                          |                                                 |
+| $A_{wf}$         | Area of Wetted Fins                    |                          |                                                 |
 | $A_{fr}$         | Frontal Reference Area                 |                          |                                                 |
 | OD,$\phi_{bt}$   | Outer Diameter                         |                          | m                                               |
 | L                | Total Length of Rocket                 |                          | m                                               |

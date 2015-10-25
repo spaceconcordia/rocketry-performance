@@ -44,7 +44,7 @@ force and viscous force
 
 *Pressure Force* is due to fluid stagnation on areas of the rocket, as well as due to the low pressure region created beyond the rocket at is passes quickly through the air. 
 
-*Viscous Force* is due to boundary layer effects and interactions of moving air with surfaces. These forces are highly dependent on Reynold's number.
+*Viscous Force* is due to boundary layer effects and interactions of moving air with surfaces. These forces are highly dependent on Reynolds number.
 [@box2009, pg.6]
 
 [rocket_drag_forces]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
@@ -136,7 +136,6 @@ Base drag is experienced behind the aft section of the rocket cause by boundary 
 C_{ba}, D_{ba} ((A_{ref}, M)) 
 \end{equation}
 
-
 #### Skin Friction Drag
 
 Skin Friction Drag is a result of surface roughness. It is a component effect of parasitic drag.
@@ -145,12 +144,14 @@ Skin Friction Drag is a result of surface roughness. It is a component effect of
 C_{sk}, D_{sk} (A_{ref}, M)
 \end{equation}
 
-The *Critical Reynold's Number* ($Re_{crit}$) is the value of *Reynold's Number* where the flow changes from laminar to turbulent 
+##### Critical Reynolds Number
+
+The *Critical Reynolds Number* ($Re_{crit}$) is the value of *Reynolds Number* where the flow changes from laminar to turbulent. This is greatly dependent on the surface roughness [munson2013]. 
 
 [Trinh, Khanh Tuoc](http://arxiv.org/ftp/arxiv/papers/1007/1007.0810.pdf)
 [See Fluids Text book](fluids textbook)
 
-The *Actual Reynold's Number* can be expressed in the following form: 
+The *Actual Reynolds Number* can be expressed in the following form: 
 
 \begin{equation}
 Re = \dfrac{\vec{v} L}{\mu} 
@@ -164,7 +165,7 @@ Re = \dfrac{\vec{v} L}{A\cdot T^3 + B\cdot T^2 + C\cdot T - D}
 
 Where A = $-1 \times 10^{14}$, B = $1 \times 10^{-10}$, C = $3 \times 10^{-8}$, and D = $3 \times 10^-6$.
 
-With the critical and actual Reynold's Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
+With the critical and actual Reynolds Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
 
 \begin{equation}
 C_{sk_{uncorrected}} = 
@@ -175,10 +176,25 @@ C_{sk_{uncorrected}} =
 \end{cases}
 \end{equation}
 
-Finally, the *Corrected Skin Friction Drag Coefficient* is
+[botros]
+
+Two other sources describe the cases for Skin Friction Drag Coefficient as follows:
+\begin{equation}
+C_{sk_{uncorrected}} = 
+\begin{cases}
+    \dfrac{1.328}{\sqrt{Re}} & Re \le Re_{crit} \\
+    \dfrac{0.074}{Re^{1/5}}  & 10^4 < Re < Re_{crit}
+\end{cases}
+\end{equation}
+
+[box2009] 
+
+[mandell1973] 
+
+Finally, the *Corrected Skin Friction Drag Coefficient* is:
 
 \begin{equation}
-C_{sk} = \dfrac{ C_{sk,c} \left[ \left( 1+ \dfrac{1}{2 f_B} \right) \cdot A_{wet,body} + \left( 1 + \dfrac{2t_f}{L_{cf}}\cdot \right) A_{wet,fins} \right] }{A_{ref}}
+C_{sk} = \dfrac{ C_{sk,c} \left[ \left( 1+ \dfrac{1}{2 f_B} \right) \cdot A_{wb} + \left( 1 + \dfrac{2t_f}{L_{cf}}\cdot \right) A_{wf} \right] }{A_{ref}}
 \end{equation}
 
 Where $f_b$ is the *Fineness Ratio*, the ratio of the length of the rocket divided by the outer diameter. 
@@ -213,3 +229,28 @@ C_{fp}, D_{fp} (A_{ref}, M)
 
 [rocket_drag_model]: images/rocket_drag_model.png "Rocket Drag Model" 
 ![Rocket Drag Model \label{rocket_drag_model_label}][rocket_drag_model] 
+
+#### Von Karman Nose Pressure Drag
+
+> The curves of the pressure drag coefficient as a function of the nose fineness
+ratio f N can be closely fitted with a function of the form
+
+\begin{equation}
+C_{d_pressure} = \dfrac{a}{(f_N + 1)^b}
+\end{equation}
+
+Where *a* and *b* are calculated from two data points corresponding to fineness ratios 0 and 3
+
+(C D• ) pressure =
+a
+(f N + 1) b
+. 
+
+Subsonic pressure drag of nose cones is calculated as follows:
+
+\begin{equation}
+\begin{cases}
+    0.8 \cdot \sin^2 \phi               & M \approx 0 \\
+    a \cdot M^b + 0.8 \cdot \sin^2 \phi & M \approx 0.8
+\end{cases}
+\end{equation}

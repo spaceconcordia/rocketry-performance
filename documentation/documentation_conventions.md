@@ -52,7 +52,6 @@ To automatically number figures, use the following syntax to insert an image:
 ![Rocket Drag Model Overview \label{rocket_drag_model_overview_label}][rocket_drag_model_overview] 
 ```
 Then, in your pandoc command, add the lof variable:
-
 ```
 pandoc -s ... -V lof=lof
 ```
@@ -65,7 +64,6 @@ To automatically number tables and add captions, add the *capt-of* package to yo
 ```
 
 Then, in your pandoc command, add the lot variable:
-
 ```
 pandoc -s ... -V lot=lot
 ```
