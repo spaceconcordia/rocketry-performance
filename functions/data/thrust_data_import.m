@@ -1,4 +1,4 @@
-function thrust_curve = thrust_data_import()
+function thrust_curve = thrust_data_import(csvfilename)
 %-------------------------------------------------------------------------------
 %
 % thrust_data_import.m

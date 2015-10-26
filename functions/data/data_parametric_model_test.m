@@ -1,4 +1,4 @@
-[pnum,ptxt,praw] = xlsread('Parametric_Data.xlsm','Matlab_Data');
+[pnum,ptxt,praw] = xlsread('C:\Users\scorpii\Google Drive\PARAMETRIC DATA\Parametric_Data.xlsm','Matlab_Data');
 
 % Note: Map Containers sort the key/value pair alphabetically by
 %       key name, so to iterate through the Map Container we need
@@ -20,4 +20,3 @@ for i = 2:(length(pmo)-1) % we start at two to skip the column label
     % check mapped values
     assert ( pmo(char(labels(i))) == values(i) )
 end
-

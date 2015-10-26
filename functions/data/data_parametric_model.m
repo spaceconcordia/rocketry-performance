@@ -17,11 +17,17 @@ function parametric_data_object = data_parametric_model()
 %--------------------------------------------------------------------------------
 
 % Import the data from Excel
-[pnum,ptxt,praw] = xlsread('Parametric_Data.xlsm','Matlab_Data');
+[pnum,ptxt,praw] = xlsread('C:\Users\scorpii\Google Drive\PARAMETRIC DATA\Parametric_Data.xlsm','Matlab_Data');
 
 % Extract parameters from the imported data 
 keyset = praw(2:end,1);
 valset = praw(2:end,2);
+
+for i = 1:length(keyset)
+    %keyset(i) = genvarname(valset(i))
+end
+
+keyset = genvarname(valset)
 
 % initialize map object to store parametric data
 parametric_data_object = containers.Map(keyset,valset);
