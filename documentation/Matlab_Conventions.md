@@ -33,30 +33,29 @@ Data is read incrementally from Mat-File versions 7.3 and above
 [Specifying Time Data in Simulink](http://www.mathworks.com/help/simulink/ug/importing-data-structures-to-a-root-level-input-port.html#bsuwoyk)
 
 ### Versioning for Matlab Files
-S-function (level 1) blocks are proposed to be used to reference Matlab files so they can be versioned in Git
 
 #### Background
 - Older versions allowed providing external '.m' file for the *Matlab Function* block in Simulink
 - Newer versions are shifting towards the embedded model, where Matlab code is complied for execution on test hardware
 
-Naming conventions in Simulink for Matlab files changed after 2011A:
-- http://www.goddardconsulting.ca/simulink-using-embedded-matlab.html
+[Naming conventions in Simulink for Matlab files changed after 2011A](http://www.goddardconsulting.ca/simulink-using-embedded-matlab.html)
 
-#### S-Functions
+#### Interpreted Matlab Function
 
-- [S-Function Doc with Examples](http://www.mathworks.com/help/simulink/matlab-s-functions-1.html)
-- [S-Function Features](http://www.mathworks.com/help/simulink/sfg/s-function-features.html)
-- [Writing Level 2 Matlab S-Functions](http://www.mathworks.com/help/simulink/sfg/writing-level-2-matlab-s-functions.html)
-- [Level 1 versus Level 2 S-Functions](http://www.mathworks.com/help/simulink/sfg/level-1-versus-level-2-s-functions.html)
-- [Types of Sample Time](http://www.mathworks.com/help/simulink/ug/types-of-sample-time.html)
+*Interpreted Matlab Function* blocks are used to reference Matlab files so they can be versioned in Git.
+*Interpreted Matlab Function* blocks only accept one input and one output, therefore we must pass an array as input and an array as output. 
+The contents of the array will contain our variables of interest. *(De))Mux* and *Bus* blocks may be useful to streamline the model.
 
-##### Level 1 vs Level 2
-
-Level 1 S-Functions only support a single input and output (See S-Function-Features).
-Level 1 S-Functions appear to be suitable for continuous sample time, while Level 2 S-Functions are required for discrete sample time
-
-#### Current Status
-- With the help of Narendra Gollu I am looking into whether the old behavior can be achieved easily
+1. Write your Matlab function 
+2. Create a Simulink Model
+3. Add the *Interpreted Matlab Function* block
+4. Double-click the added block, and enter the name of your function as directed. Select 'OK'
+5. Right-click the block, expand the 'Mask', and select 'Create Mask'
+6. Add the following in the 'Icon Drawing Commands' box
+~~~
+disp('function_name')
+~~~
+7. Add a *Mux* block to combine your inports into a single input array, and a *Demux* port to unpack your output array into outports
 
 ### Versioning for Libraries
 - Saving files as libraries and following the existing use cases in the documentation will allow robust versioning and collaboration workflow
@@ -69,24 +68,100 @@ Level 1 S-Functions appear to be suitable for continuous sample time, while Leve
 
 Model Referencing shall be used to test all libraries for expected behavior. 
 
-Model Referencing with Libraries is a little more complicated
+1. Create a Test Model in which you drag the Library
+2. Provide all test inputs and output assertion
+3. Create another model to contain all the test cases created in *2*
+4. From the *Simulink Library*, drag a *Model Reference* block
+5. Edit the *Model Reference* block, providing the name of the Test Model created in *2*
+6. Run the model created in *3* to verify the model referencing was successful
 
-1. Create a Model in which you drag the Library
-2. Right-click the library block in the Model 
-
-Start here:
+More information:
 
 - http://www.mathworks.com/videos/getting-started-with-model-referencing-68918.html
 - http://www.mathworks.com/help/simulink/ug/creating-a-model-reference.html 
-
-#### Background
-- Once a library is created, it can be unit tested
-- A reference model shall be created, to which the library will be encapsulated
-- A Test_Model shall be created which includes the reference model, to which test data can be asserted, and output data can be tested
-
-- Model Referencing
-    - Reference Model
-    - Library Model
-
-### Resources
 - http://www.mathworks.com/help/simulink/slref/model.html
+
+## File Organization
+
+- data
+- documentation
+- functions
+- libraries
+- models
+- referencing
+- scripts
+- testing
+
+### data
+
+#### data $\rightarrow$ csv
+
+### documentation
+
+- documentation
+    - images
+    - template
+
+The *documentation* folder contains all markdown files with project documentation. It also contains
+
+#### documentation $\rightarrow$ images
+
+Contains all images used in the documentation
+
+#### documentation $\rightarrow$ template
+
+Contains LaTeX/Pandoc/Markdown template and styling files
+
+#### functions
+
+#### libraries
+
+#### models
+
+#### referencing
+
+#### scripts
+
+#### testing
+
+
+## Naming Conventions
+
+### Variables
+
+All variables must be lowercase, separated by underscores
+
+e.g.
+
+```
+wet_motor_weight
+```
+
+### Functions
+
+All *Matlab Functions* must be CamelCase 
+
+e.g. 
+```
+DynamicWeightCalculation
+```
+
+### Models
+
+All *Matlab Model* names must be CamelCase, and end in the word 'Model'
+
+e.g.
+
+```
+DynamicWeightCalculationModel
+```
+
+### Libraries
+
+All *Matlab Library* names must be CamelCase, and end in the word 'Library'
+
+e.g.
+
+```
+DynamicWeightCalculationLibrary
+```
