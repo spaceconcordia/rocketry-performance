@@ -191,7 +191,13 @@ C_{sk_{uncorrected}} =
 
 [mandell1973] 
 
-Finally, the *Corrected Skin Friction Drag Coefficient* is:
+The *Skin Drag Coefficient Corrected for Compressibility* is:
+
+\begin{equation}
+C_{f_c} = C_f (1-0.1 M^2) [if C_{f_c} > C_f]
+\end{equation}
+
+Finally, the *Normalized and Corrected Skin Friction Drag Coefficient* is:
 
 \begin{equation}
 C_{sk} = \dfrac{ C_{sk,c} \left[ \left( 1+ \dfrac{1}{2 f_B} \right) \cdot A_{wb} + \left( 1 + \dfrac{2t_f}{L_{cf}}\cdot \right) A_{wf} \right] }{A_{ref}}

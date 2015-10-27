@@ -1,4 +1,4 @@
-function D = drag_basic(Cd, v, ro, A_ref)
+function D = BasicDrag(inputs)
 % The following calculates the basic drag coefficient based on C.P. Hoult's
 % "Drag Coefficient (rev 3.2)". The drag is divided into skin friction
 % drag, pressure drag, wave drag and parasitic drag. Note that this
@@ -19,12 +19,12 @@ function D = drag_basic(Cd, v, ro, A_ref)
 % The following uses the equation if total wetted area vs. body station to
 % obtain the integral of the previously stated equation.
 % The equation of the nose profile is known to be:
-%
-% 
 
-D=0.5*Cd*v^2*A_ref*ro
+Cd = inputs(1)
+v = inputs(2) 
+rho = inputs(3)
+A_ref = inputs(4)
 
-end
-
+D=0.5*Cd*v^2*A_ref*rho
 
 end

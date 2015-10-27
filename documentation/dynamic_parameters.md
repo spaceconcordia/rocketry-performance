@@ -235,6 +235,14 @@ The following figure shows the output of the test. The Thrust and Weight curves 
 ![Alt text][dynamic_weight_calculation_test_figure] 
 [Figure - Dynamic Parameter Calculation ](#dynamic_weight_calculation_test_figure)
 
+### Center of Pressure
+
+The *Center of Pressure* (COP) is the location where the aerodynamic forces are said to be acting. 
+A wind tunnel is the best way to approximate this point, but an analytic method is available.
+
+#### Barroman's Equations
+
+
 
 ### Center of Gravity
 
