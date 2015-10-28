@@ -218,6 +218,24 @@ Re_{crit} = 51 \left( \dfrac{R_a}{L} \right) ^{-1.039}
 C_{fp}, D_{fp} (A_{ref}, M) 
 \end{equation}
 
+The *Fin Pressure Drag* depends on the fin profile. The current rocket will use a square (rectangular) profile, and can be determined as follows.
+
+\begin{equation}
+    C_{D,LE} = C_{D,stag} = 0.85 \dfrac{q_{stag}}{q}
+\end{equation}
+
+For perpendicular orientation of the fin edges to air flow 
+
+\begin{equation}
+\dfrac{q_{stag}}{q} =  
+\begin{cases}
+    1 + \dfrac{M^2}{4} + \dfrac{M^4}{40}                                    & M < 1 \\
+    1.84 - \dfrac{0.76}{M^2} + \dfrac{0.166}{M^4} + \dfrac{0.035}{M^6}      & M > 1
+\end{cases}
+\end{equation}
+
+[source]
+
 #### Wave Drag
 
 *Wave drag* is drag associated with shock waves (independent of viscous effects). 
