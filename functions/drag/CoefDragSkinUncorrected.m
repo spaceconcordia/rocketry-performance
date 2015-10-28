@@ -1,15 +1,15 @@
-function C_f = CoefSkinDragUncorrected(inputs)
+function C_f = CoefDragSkinUncorrected(inputs)
 
-R,     = inputs(1);
-R_crit = inputs(2);
+reynolds_number_actual     = inputs(1);
+reynolds_number_critical = inputs(2);
 R_s    = inputs(3);
 L      = inputs(4);
 
 % TODO verify source, suspect OpenRocket tech doc
-if R<1E4
+if reynolds_number_actual<1E4
   C_f=0.0148
-elseif R<R_crit
-  C_f=1/(1.5*log(R)-5.6)^2 
+elseif reynolds_number_actual<reynolds_number_critical
+  C_f=1/(1.5*log(reynolds_number_actual)-5.6)^2 
 else
   C_f=0.032*(R_s/L)^(0.2)
 end 

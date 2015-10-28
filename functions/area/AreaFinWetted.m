@@ -1,4 +1,5 @@
-function area_fin_wetted = AreaFinWetted(area_fin_face, area_fin_front)
-%#codegen
-A_wet_fin=2*A_fin_face+A_fin_front
+function area_fin_wetted = AreaFinWetted(inputs)
+    area_fin_face        = inputs(1)
+    area_fin_front       = inputs(2)
+    area_fin_wetted      = 2*area_fin_face+area_fin_front
 end
