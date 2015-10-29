@@ -224,6 +224,16 @@ The *Fin Pressure Drag* depends on the fin profile. The current rocket will use 
     C_{D,LE} = C_{D,stag} = 0.85 \dfrac{q_{stag}}{q}
 \end{equation}
 
+The *Body Base Drag Coefficient* is 
+
+\begin{equation}
+C_{base} =
+\begin{cases}
+    0.12 + 0.13 M^2     &   M < 1 \\
+    \dfrac{0.25}{M}     &   M > 1
+\end{cases}
+\end{equation}
+
 For perpendicular orientation of the fin edges to air flow 
 
 \begin{equation}

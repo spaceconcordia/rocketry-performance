@@ -5,3 +5,5 @@ if mach_number < 1
 else if mach_number >= 1
     q_q_stag = 1.84 - 0.76/M^2 + 0.166/M^4 + 0.035/M^6;
 end
+
+end
