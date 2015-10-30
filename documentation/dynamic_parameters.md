@@ -53,8 +53,8 @@ $$ x = \iint \vec{a} dx $$
 Modeling in the frequency domain, integration is represented by the $\dfrac{1}{s}$ block. A preliminary version of the model follows. 
 
 [vertical_model_simplified]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
-![Alt text][vertical_model_simplified] 
-Figure 1 Vertical Model - Simplified [vertical_model_simplified](#image).
+![ Vertical Flight Model - Simplified \label{vertical_model_simplified}][vertical_model_simplified] 
+
 Thrust curves are provided by the manufacturer, and are rated at a constant fuel expenditure rate known as the specific fuel consumption ($S_{fc}$)
 
 In addition to a RASP file (.eng) and a RockSim file (.rse) Here is an example of the motor data provided by ThrustCurve.org:
@@ -83,9 +83,7 @@ In addition to a RASP file (.eng) and a RockSim file (.rse) Here is an example o
 | Propellant Info   | Imax                             |
 | Availability      | regular                          |
 
-[motor_data_table]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
-![Alt text][Motor Data Table] 
-Table 1 Motor Data Table [motor_data_table](#table).
+\captionof{table}{Sample Motor Data}
 
 Source: http://www.thrustcurve.org/motorsearch.jsp?id=673
 

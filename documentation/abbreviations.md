@@ -6,7 +6,7 @@
 | COP              | Center of pressure                     |                          | N/A                                             |
 | COG              | Center of gravity                      | time                     | N/A                                             |
 | Re               | Reynolds Number                        | $$ \rho,\mu,\vec{v},L $$ | dimensionless                                   |
-| Re_{crit}        | Critical Reynolds Number               | $$ \rho,\mu,\vec{v},L $$ | dimensionless                                   |
+| $Re_{crit}$      | Critical Reynolds Number               | $$ \rho,\mu,\vec{v},L $$ | dimensionless                                   |
 | $I_{zz}$         | Pitch/Yaw Moment of Inertia            | time                     | $m^4$                                           |
 | D                | Drag Force (combined)                  |                          | N                                               |
 | W                | Weight of the Rocket                   |                          | N                                               |

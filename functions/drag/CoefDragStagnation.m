@@ -1,8 +1,12 @@
 function coef_drag_stagnation = CoefDragStagnation(mach_number)
-
-if mach_number < 0.9
-    coef_drag_stagnation = (1-M^2)^(-0.417) - 1
-else
-    % we don't support supersonic estimates yet
-    coef_drag_stagnation = 1
+    % 1.84 - 
+    % 0.76 - 
+    % 0.166 - 
+    % 0.035 - 
+    % 0.85 - 
+    if mach_number<1
+            coef_drag_stagnation=0.85*(1+mach_number^2/4+mach_number^4/40)
+    else
+            coef_drag_stagnation=0.85*(1.84-0.76/mach_number^2+0.166/mach_number^4+0.035/mach_number^6)
+    end
 end

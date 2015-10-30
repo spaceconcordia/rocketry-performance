@@ -4,6 +4,27 @@ Rockets in flight experience multiple sources of drag. The total drag effect is 
 
 The drag model shall take the parametric design parameters and applicable dynamics parameters (see *Data Model*) to output the Drag Force and combined drag coefficient.
 
+### Mach Number
+
+*Mach Number* (M) is the ratio of the airspeed to the speed of sound for air at a given temperature
+
+The speed of sound (c) is calculated as follows
+
+\begin{equation}
+c = \sqrt{\gamma R T } = \sqrt{\gamma \dfrac{p}{\rho}}
+\end{equation}
+
+Where $p$ is the local pressure, $\rho$ is the local density, and $\gamma$ is the *adiabatic index*, known as the *isentropic explansion factor* - it is the ratio of the specific heats of a gas at constant pressure and constant volume.
+
+[botros]
+
+[munson2013]
+
+The *Mach Number* is then the ratio of the air velocity to the sound speed of the local air
+
+\begin{equation}
+M = \dfrac{ \vec{v} } { c }
+\end{equation}
 
 ### Compressible Flow Correction
 
@@ -91,6 +112,13 @@ Examples include launch guides, ventilation holes, surface roughness, and any da
 \begin{equation}
 C_{pa}, D_{pa} (A_{ref}, M) 
 \end{equation}
+
+\begin{equation}
+C_{pa} = MAX \left( 1.3 - \dfrac{0.3(L-h_n)}{OD}, 1 \right) C_{stag}
+\end{equation}
+
+Where $C_{stag}$ is the *Stagnation Drag Coefficient* [see equation from fin pressure drag section]
+
 
 ##### Parasitic Drag Coefficient
 
