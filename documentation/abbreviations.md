@@ -43,3 +43,5 @@
 | $f_B$            | Fineness Ratio                         |                          | dimensionless                                   |
 | $\mu$            | Dynamic Viscosity                      |                          | $N s / m^2$                                     |
 | $\nu$            | Kinematic Viscosity                    | $\mu$, $\rho$            | $m^2/s$                                         |
+
+\captionof{table}{List of Abbreviations}

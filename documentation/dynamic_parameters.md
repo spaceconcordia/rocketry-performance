@@ -53,7 +53,7 @@ $$ x = \iint \vec{a} dx $$
 Modeling in the frequency domain, integration is represented by the $\dfrac{1}{s}$ block. A preliminary version of the model follows. 
 
 [vertical_model_simplified]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
-![ Vertical Flight Model - Simplified \label{vertical_model_simplified}][vertical_model_simplified] 
+![Vertical Flight Model - Simplified \label{vertical_model_simplified}][vertical_model_simplified] 
 
 Thrust curves are provided by the manufacturer, and are rated at a constant fuel expenditure rate known as the specific fuel consumption ($S_{fc}$)
 
@@ -230,8 +230,8 @@ assert ( dry_motor_weight == final_weight );
 The following figure shows the output of the test. The Thrust and Weight curves are output as expected.
 
 [dynamic_weight_calculation_test_figure]: images/dynamic_weight_calculation_test_figure.png "Dynamic Weight Calculation Test Output" 
-![Alt text][dynamic_weight_calculation_test_figure] 
-[Figure - Dynamic Parameter Calculation ](#dynamic_weight_calculation_test_figure)
+![\label{dynamic_weight_calculation_test_figure}][dynamic_weight_calculation_test_figure] 
+[Dynamic Parameter Calculation ](#dynamic_weight_calculation_test_figure)
 
 ### Center of Pressure
 

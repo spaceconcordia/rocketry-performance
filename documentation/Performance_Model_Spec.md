@@ -38,7 +38,7 @@ This assumption greatly simplifies the simulation analysis. We consider that the
 - subsonic flight
 - axis-symmetric rigid body rocket
 - single cylindrical body 
-- ~~conical, ogive, or parabolic~~ Von Karman nose shape
+- Von Karman nose shape
 - three or four trapezoidal fins 
 - passively controlled (no active thrust or stability control)
 - constant fuel expenditure rate
