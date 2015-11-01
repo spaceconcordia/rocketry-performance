@@ -5,9 +5,7 @@ The goal of this project is to create a Performance Model in Matlab to simulate 
 
 Specifically the model should verify the maximum altitude and velocity. Further developments are explored for future enhancement. A modular development pattern will be followed order to support expansion. Unit testing of simulator logic will be undertaken where reasonable, and further validation will be provided by testing the overall model against 3rd party flight data where available.
 
-The model must take as input the current structural design parameters, thrust information, and simulated ambient conditions of the launch environment. Certain parameters will be dynamic; as the motor expends fuel, the position of the center of gravity and center of pressure will shift with decreasing mass. Additionally the moments of inertia will be altered. These dynamic parameters must be considered to maximize the accuracy of the model[^fn].
-
-[^fn]: Here is a footnote
+The model must take as input the current structural design parameters, thrust information, and simulated ambient conditions of the launch environment. Certain parameters will be dynamic; as the motor expends fuel, the position of the center of gravity and center of pressure will shift with decreasing mass. Additionally the moments of inertia will be altered. These dynamic parameters must be considered to maximize the accuracy of the model.
 
 ## Requirements
 
@@ -46,3 +44,48 @@ This assumption greatly simplifies the simulation analysis. We consider that the
 
 \cite{box2009}
 [@box2009] 
+
+### Simplified Model
+
+The dynamics of the rocket flights can be simplified to a sum of forces. 
+
+Simplifying the rocket flight as ideally one-dimensional, with the positive x direction being upwards from the launch pad, the impulse is equal to the thrust of the rocket minus the weight of the rocket and the drag forces of the rocket interacting with the surrounding air.
+
+\begin{equation}
+m(t)\ddot{x}(t) = T(t) - D(\dot{x}) - W(t)
+\end{equation}
+
+Mass is a function of time, which is explained in the *Dynamic Parameters* section. Drag is a function of velocity, which is explained in *Drag Model* section.
+Acceleration can be expressed as the first derivative of velocity and also the second derivative of position, each with respect to time.
+
+\begin{equation}
+\vec{a} = \dot{v} = \ddot{x}
+\end{equation}
+
+Each force component can be rearranged and expressed as follows:
+\begin{equation}
+\vec{a}_T = \dfrac{T(t)}{m(t)}, \vec{a}_W = \dfrac{W(t)}{m(t)}, \vec{a}_D = \dfrac{D(v)}{m(t)}
+\end{equation}
+
+The net upward acceleration is: $\vec{a}_T  - \vec{a}_W - \vec{a}_D$
+
+The sum of forces can be rearranged and acceleration can be solved for:
+
+\begin{equation}
+\vec{a} =  \ddot{x} = \dfrac{1}{m(t)} (T(t) - D(\dot{x}) - W(t)) 
+\end{equation}
+
+Acceleration can be integrated to find position and velocity.
+
+\begin{equation}
+\vec{v} = \int \vec{a} dx
+\end{equation}
+
+\begin{equation}
+x = \iint \vec{a} dx
+\end{equation}
+
+Modeling in the frequency domain, integration is represented by the $\dfrac{1}{s}$ block. The model is pictured as follows. 
+
+[vertical_model_simplified]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
+![Vertical Flight Model - Simplified \label{vertical_model_simplified}][vertical_model_simplified] 

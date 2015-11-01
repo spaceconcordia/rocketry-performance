@@ -11,53 +11,29 @@ Thrust is the mechanical force that drives the flight of the rocket. It is a vec
 
 *Force* is a change in momentum with time, and is related by Newton's Second Law
 
-$$ F = \dfrac{m \Delta \vec{v}}{\Delta t} = m\vec{a} $$
+\begin{equation}
+F = \dfrac{m \Delta \vec{v}}{\Delta t} = m\vec{a}
+\end{equation}
 
 *Mass Flow Rate* is found by the product of fluid density, velocity, and cross-sectional area.
 
-(@) $$ \dot{m} = \rho \vec{v} A $$
+\begin{equation} 
+\dot{m} = \rho \vec{v} A
+\end{equation}
 
 [NASA - Thrust ](http://www.grc.nasa.gov/WWW/k-12/airplane/thrust1.html)
 
 #### Thrust Equation
 
-(@) $$ T = \dot{m} \Delta \vec{v} $$
+\begin{equation} 
+T = \dot{m} \Delta \vec{v} 
+\end{equation}
 
 [NASA - Thrust Equation](http://www.grc.nasa.gov/WWW/k-12/airplane/thrsteq.html)
 
-The dynamics of the rocket flights can be simplified to a sum of forces. 
-
-Simplifying the rocket flight as ideally one-dimensional, with the positive z direction being upwards from the launch pad, the impulse is equal to the thrust of the rocket minus the weight of the rocket and the drag forces of the rocket interacting with the surrounding air.
-
-$$m(t)\ddot{x}(t) = T(t) - D(\dot{x}) - W(t)$$
-
-Mass is a function of time, which is explained in the *Dynamic Parameters* section. Drag is a function of velocity, which is explained in *Drag Model* section.
-Acceleration can be expressed as the first derivative of velocity and also the second derivative of position, each with respect to time.
-
-$$ \vec{a} = \dot{v} = \ddot{x} $$
-
-Each force component can be rearranged and expressed as follows:
-$$ \vec{a}_T = \dfrac{T(t)}{m(t)}, \vec{a}_W = \dfrac{W(t)}{m(t)}, \vec{a}_D = \dfrac{D(v)}{m(t)} $$
-
-The net upward acceleration is: $\vec{a}_T  - \vec{a}_W - \vec{a}_D$
-
-The sum of forces can be rearranged and acceleration can be solved for:
-
-$$ \vec{a} =  \ddot{x} = \dfrac{1}{m(t)} (T(t) - D(\dot{x}) - W(t)) $$ 
-
-Acceleration can be integrated to find position and velocity.
-
-$$ \vec{v} = \int \vec{a} dx $$
-$$ x = \iint \vec{a} dx $$
-
-Modeling in the frequency domain, integration is represented by the $\dfrac{1}{s}$ block. A preliminary version of the model follows. 
-
-[vertical_model_simplified]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
-![Vertical Flight Model - Simplified \label{vertical_model_simplified}][vertical_model_simplified] 
-
 Thrust curves are provided by the manufacturer, and are rated at a constant fuel expenditure rate known as the specific fuel consumption ($S_{fc}$)
 
-In addition to a RASP file (.eng) and a RockSim file (.rse) Here is an example of the motor data provided by ThrustCurve.org:
+Here is an example of the motor data provided by ThrustCurve.org:
 
 | Parameter         | Value                            |
 | ---               | ---                              |
@@ -91,8 +67,13 @@ Source: http://www.thrustcurve.org/motorsearch.jsp?id=673
 
 *Thrust Specific Fuel Consumption* is how much fuel is burned for a given time. 
 
-$$ S_{fg} = \dfrac{m}{t_{burn}}\cdot \dfrac{1}{T_{avg}} $$ 
-$$ \left[ \dfrac{g}{s}\cdot \dfrac{1}{N} = \dfrac{s}{m} \right] $$ 
+\begin{equation}
+S_{fg} = \dfrac{m}{t_{burn}}\cdot \dfrac{1}{T_{avg}}  
+\end{equation}
+
+\begin{equation}
+\left[ \dfrac{g}{s}\cdot \dfrac{1}{N} = \dfrac{s}{m} \right]  
+\end{equation}
 
 Since at the time of writing the $S_{fc}$ was not provided by the manufacturer, the following calculations are used for a first approximation. 
 
@@ -108,7 +89,9 @@ From the table above, the dry propellant weight is given as 3624 grams. The Aver
 
 Thus, the *Thrust Specific Fuel Consumption* can be determined as follows:
 
-$$ S_{fg} = \dfrac{3.624 \, kg}{4.4 \, s} \cdot \dfrac{1}{1537.0 \, N} \approx 0.00053587 \dfrac{kg}{N \cdot s} = 5.3587 \times 10^{-4} \dfrac{kg}{N \cdot s} $$ 
+\begin{equation}
+S_{fg} = \dfrac{3.624 \, kg}{4.4 \, s} \cdot \dfrac{1}{1537.0 \, N} \approx 0.00053587 \dfrac{kg}{N \cdot s} = 5.3587 \times 10^{-4} \dfrac{kg}{N \cdot s} 
+\end{equation}
 
 This rate is considered constant.
 
@@ -118,28 +101,46 @@ As fuel is expended in generating thrust, the weight of the rocket is reduced. W
 
 First remove the Average Thrust term to isolate the mass flow rate:
 
-$$ \dot{m} = S_{fG} \cdot T_{avg} = 5.3587 \times 10^{-4} \dfrac{kg}{N \cdot s} \cdot 1537.0 \, N  = 0.8236 \, kg/s $$ 
+\begin{equation}
+\dot{m} = S_{fG} \cdot T_{avg} = 5.3587 \times 10^{-4} \dfrac{kg}{N \cdot s} \cdot 1537.0 \, N  = 0.8236 \, kg/s 
+\end{equation}
 
 This equation can be expressed in terms of Weight through Newton's 2$^nd$ law: $F = m\vec{a}$
 
-$$ \dot{W}_m = \dot{m} \cdot \vec{g} = 0.8236 \, kg/s \cdot 9.81 \, m/s^2 \approx 8.0799 N/s $$ 
+\begin{equation}
+\dot{W}_m = \dot{m} \cdot \vec{g} = 0.8236 \, kg/s \cdot 9.81 \, m/s^2 \approx 8.0799 N/s 
+\end{equation}
 
 To develop a relation for the change in weight as a function of $S_{f_c}$
 
-$$ W_f(t) = (m_{f_i} kg - \Delta m(t)) \cdot \vec{g} $$ 
+\begin{equation} 
+W_f(t) = (m_{f_i} kg - \Delta m(t)) \cdot \vec{g} 
+\end{equation}
 
-$$ W_f(t) = (3.624 \, kg - \Delta m(t)) \cdot 9.81 \, m/s^2 $$ 
+\begin{equation}
+W_f(t) = (3.624 \, kg - \Delta m(t)) \cdot 9.81 \, m/s^2 
+\end{equation}
 
-$$ W_f(t) = W_{f_i} - \Delta W_f(t)$$ 
+\begin{equation}
+W_f(t) = W_{f_i} - \Delta W_f(t)
+\end{equation}
 
-$$ \Delta W_f (t) = \int \dot{W} dt = \dot{W}\cdot t $$
+\begin{equation}
+\Delta W_f (t) = \int \dot{W} dt = \dot{W}\cdot t
+\end{equation}
 
-$$ \Delta W_f (t) = \dfrac{\Delta m(t) \cdot \vec{g}}{t}\cdot t = \Delta m (t) \cdot g $$ 
+\begin{equation}
+\Delta W_f (t) = \dfrac{\Delta m(t) \cdot \vec{g}}{t}\cdot t = \Delta m (t) \cdot g 
+\end{equation}
 
-$$ \Delta m_f(t) = S_{fg} \cdot t $$
+\begin{equation}
+\Delta m_f(t) = S_{fg} \cdot t
+\end{equation}
 
 Finally, the motor weight as a function of time is 
-$$ W_m (t) = W_{m_t} - \Delta W_f(t) = W_{m_t} - \dot{m}_{fc} \cdot t $$
+\begin{equation}
+W_m (t) = W_{m_t} - \Delta W_f(t) = W_{m_t} - \dot{m}_{fc} \cdot t
+\end{equation}
 
 #### Matlab Implementation
 
@@ -244,11 +245,15 @@ A wind tunnel is the best way to approximate this point, but an analytic method 
 
 ### Center of Gravity
 
-$$ y_{cg} = \dfrac{m_1 y_1 + m_2 y_2 + ... + m_n y_n}{\sum_{j=1}^n m_j} $$
+\begin{equation}
+y_{cg} = \dfrac{m_1 y_1 + m_2 y_2 + ... + m_n y_n}{\sum_{j=1}^n m_j}
+\end{equation}
 
 [NASA CG]:(http://www.grc.nasa.gov/WWW/K-12/airplane/cg.html)
 
-$$ COG(t) = \dfrac{m_1 y_1 + (m_2 - \Delta m) y_2}{m_1 + m_2 - \Delta m(t)} $$ 
+\begin{equation}
+COG(t) = \dfrac{m_1 y_1 + (m_2 - \Delta m) y_2}{m_1 + m_2 - \Delta m(t)} 
+\end{equation}
 
 Where COG(t) is the Center of Gravity as a function of time, $m_1$ is the static mass (combination of nose cone, body tube, and fins), $m_2$ is the initial mass of the motor, and $\Delta m(t)$ is the change of mass as a function of time due to fuel expenditure.
 
@@ -258,9 +263,13 @@ The instantaneous moment of inertia is determined by relating the moment of iner
 
 The sum of moment of inertias evaluated through the parallel axis theorem nets the total moment of inertia.
 
-$$ I_n = I_{cm(n)} + M_P d^2 $$ 
+\begin{equation}
+I_n = I_{cm(n)} + M_P d^2 
+\end{equation}
 
-$$ I_T(t) = \sum I_n $$ 
+\begin{equation}
+I_T(t) = \sum I_n 
+\end{equation}
 
 Where $I_T(t)$ is the total moment of inertia of the rocket as a function of time, and $I_n$ is the component vector (either static or dynamic moment of inertia)
 
