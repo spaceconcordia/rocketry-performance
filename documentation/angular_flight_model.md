@@ -1,6 +1,6 @@
-## Angular Flight Stability (Pitch, Yaw) Analysis
+# Angular Flight Stability (Pitch, Yaw) Analysis
 
-### Overview
+## Overview
 - non-linear model (stability analysis)
  - finding lift will be annoying
 
@@ -8,24 +8,24 @@
 
 http://www.nar.org/NARTS/TR13.html
 
-### Out-of-scope
+## Out-of-scope
 
 - range (drift)
 - roll
 
-### Requirement
+## Requirement
 
 - 2a - The static stability margin falls above 2 (but less than 3) calibers at launch
-- 2b - The dynamic stability is greater tha n0 even in winds up to 8.33 m/s
+- 2b - The dynamic stability is greater than 0 even in winds up to 8.33 m/s
 - 2f - The vehicle does not experience resonant pitching/yawing motion in flight
 
-### Validation
+## Validation
 
 - 2a  
 - 2b
 - 2c
 
-### Longitudinal Static Stability Margin
+## Longitudinal Static Stability Margin
 
 The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube.
 
@@ -35,7 +35,7 @@ The result is dimensionless, however the ratio determined is measured as *calibe
 
 https://www.apogeerockets.com/education/downloads/Newsletter133.pdf
 
-### Wind Impulse
+## Wind Impulse
 
 Wind can be approximated as an impulse in the model [source?]
 

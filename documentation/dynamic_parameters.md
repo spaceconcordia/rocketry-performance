@@ -1,9 +1,7 @@
 ## Dynamic Parameters
 
-As agreed with Emily on 2015/10/02:
+Parameters listed as *dynamic* in the table above are provided as initial values which are then recalculated by the model throughout the simulated flight.
 
-- the parametric model must provide the moment of inertia, mass, area, and center of gravity of all static structural components (nose cone, body tube, fins, etc.)
-- the mass, center of mass (relative to the nose tip) of the motor
 
 ### Thrust
 
@@ -145,8 +143,7 @@ W_m (t) = W_{m_t} - \Delta W_f(t) = W_{m_t} - \dot{m}_{fc} \cdot t
 #### Matlab Implementation
 
 [dynamic_parameter_calculation]: images/dynamic_parameter_calculation.png "Dynamic Parameter Calculation" 
-![Alt text][dynamic_parameter_calculation] 
-[Figure - Dynamic Parameter Calculation](#fig:dynamic_parameter_calculation)
+![Dynamic Parameter Calculation \label{dynamic_parameter_calculation_label}][dynamic_parameter_calculation] 
 
 ~~~~
 function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, wfc)
@@ -179,7 +176,6 @@ end
 
 thrust = thrust_curve;
 mass = weight * 9.81;
-
 ~~~~
 
 ##### Unit Testing
@@ -225,23 +221,21 @@ final_weight = actual_weight(last_row, 1);
 
 % TODO right now this assertion fails because the thrust data is not interpolated
 assert ( dry_motor_weight == final_weight );
-
 ~~~~
 
 The following figure shows the output of the test. The Thrust and Weight curves are output as expected.
 
 [dynamic_weight_calculation_test_figure]: images/dynamic_weight_calculation_test_figure.png "Dynamic Weight Calculation Test Output" 
-![\label{dynamic_weight_calculation_test_figure}][dynamic_weight_calculation_test_figure] 
-[Dynamic Parameter Calculation ](#dynamic_weight_calculation_test_figure)
+![Dynamic Weight Calculation Test Output \label{dynamic_weight_calculation_test_figure_label}][dynamic_weight_calculation_test_figure] 
 
 ### Center of Pressure
 
 The *Center of Pressure* (COP) is the location where the aerodynamic forces are said to be acting. 
 A wind tunnel is the best way to approximate this point, but an analytic method is available.
 
-#### Barroman's Equations
+#### Barrowman's Equations
 
-
+*Barrowman's Equations* are used to determine the center of pressure. 
 
 ### Center of Gravity
 
@@ -273,5 +267,5 @@ I_T(t) = \sum I_n
 
 Where $I_T(t)$ is the total moment of inertia of the rocket as a function of time, and $I_n$ is the component vector (either static or dynamic moment of inertia)
 
-[1]
+[@box2009]
 

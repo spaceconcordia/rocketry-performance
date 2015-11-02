@@ -173,28 +173,6 @@ static void sf_gateway_c2_VerticalFlight_TestModel
   real_T c2_nargin = 1.0;
   real_T c2_nargout = 1.0;
   real_T c2_T;
-  real_T c2_u;
-  const mxArray *c2_y = NULL;
-  real_T c2_b_u;
-  const mxArray *c2_b_y = NULL;
-  real_T c2_c_u;
-  const mxArray *c2_c_y = NULL;
-  real_T c2_d_u;
-  const mxArray *c2_d_y = NULL;
-  real_T c2_e_u;
-  const mxArray *c2_e_y = NULL;
-  real_T c2_f_u;
-  const mxArray *c2_f_y = NULL;
-  real_T c2_g_u;
-  const mxArray *c2_g_y = NULL;
-  real_T c2_h_u;
-  const mxArray *c2_h_y = NULL;
-  real_T c2_i_u;
-  const mxArray *c2_i_y = NULL;
-  real_T c2_j_u;
-  const mxArray *c2_j_y = NULL;
-  real_T c2_k_u;
-  const mxArray *c2_k_y = NULL;
   real_T *c2_b_t;
   real_T *c2_b_T;
   c2_b_T = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
@@ -222,95 +200,42 @@ static void sf_gateway_c2_VerticalFlight_TestModel
     _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 3);
     c2_T = ((4.0E+6 * c2_mpower(chartInstance, c2_t) - 462933.0 * c2_b_mpower
              (chartInstance, c2_t)) + 41915.0 * c2_t) + 209.66;
-    sf_mex_printf("%s =\\n", "T");
-    c2_u = c2_T;
-    c2_y = NULL;
-    sf_mex_assign(&c2_y, sf_mex_create("y", &c2_u, 0, 0U, 0U, 0U, 0), false);
-    sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U, 14, c2_y);
   } else {
     _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 4);
     if (CV_EML_IF(0, 1, 1, c2_t < 0.15935)) {
       _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 5);
       c2_T = -4701.0 * c2_t + 2748.7;
-      sf_mex_printf("%s =\\n", "T");
-      c2_b_u = c2_T;
-      c2_b_y = NULL;
-      sf_mex_assign(&c2_b_y, sf_mex_create("y", &c2_b_u, 0, 0U, 0U, 0U, 0),
-                    false);
-      sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U, 14, c2_b_y);
     } else {
       _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 6);
       if (CV_EML_IF(0, 1, 2, c2_t < 0.21276)) {
         _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 7);
         c2_T = -1133.2 * c2_t + 2223.6;
-        sf_mex_printf("%s =\\n", "T");
-        c2_c_u = c2_T;
-        c2_c_y = NULL;
-        sf_mex_assign(&c2_c_y, sf_mex_create("y", &c2_c_u, 0, 0U, 0U, 0U, 0),
-                      false);
-        sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U, 14,
-                          c2_c_y);
       } else {
         _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 8);
         if (CV_EML_IF(0, 1, 3, c2_t < 0.32775)) {
           _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 9);
           c2_T = 787.15 * c2_t + 1850.2;
-          sf_mex_printf("%s =\\n", "T");
-          c2_d_u = c2_T;
-          c2_d_y = NULL;
-          sf_mex_assign(&c2_d_y, sf_mex_create("y", &c2_d_u, 0, 0U, 0U, 0U, 0),
-                        false);
-          sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U, 14,
-                            c2_d_y);
         } else {
           _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 10);
           if (CV_EML_IF(0, 1, 4, c2_t < 0.57775)) {
             _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 11);
             c2_T = -754.4 * c2_t + 2339.9;
-            sf_mex_printf("%s =\\n", "T");
-            c2_e_u = c2_T;
-            c2_e_y = NULL;
-            sf_mex_assign(&c2_e_y, sf_mex_create("y", &c2_e_u, 0, 0U, 0U, 0U, 0),
-                          false);
-            sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U, 14,
-                              c2_e_y);
           } else {
             _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 12);
             if (CV_EML_IF(0, 1, 5, c2_t < 0.72775)) {
               _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 13);
               c2_T = -251.0 * c2_t + 2070.7;
-              sf_mex_printf("%s =\\n", "T");
-              c2_f_u = c2_T;
-              c2_f_y = NULL;
-              sf_mex_assign(&c2_f_y, sf_mex_create("y", &c2_f_u, 0, 0U, 0U, 0U,
-                0), false);
-              sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U, 14,
-                                c2_f_y);
             } else {
               _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 14);
               if (CV_EML_IF(0, 1, 6, c2_t < 1.7277)) {
                 _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 15);
                 c2_T = -70.147 * c2_t + 1947.4;
-                sf_mex_printf("%s =\\n", "T");
-                c2_g_u = c2_T;
-                c2_g_y = NULL;
-                sf_mex_assign(&c2_g_y, sf_mex_create("y", &c2_g_u, 0, 0U, 0U, 0U,
-                  0), false);
-                sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U,
-                                  14, c2_g_y);
               } else {
                 _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 16);
                 if (CV_EML_IF(0, 1, 7, c2_t < 3.3777)) {
                   _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 17);
                   c2_T = (-31.421 * c2_b_mpower(chartInstance, c2_t) - 9.1503 *
                           c2_t) + 1930.8;
-                  sf_mex_printf("%s =\\n", "T");
-                  c2_h_u = c2_T;
-                  c2_h_y = NULL;
-                  sf_mex_assign(&c2_h_y, sf_mex_create("y", &c2_h_u, 0, 0U, 0U,
-                    0U, 0), false);
-                  sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U, 1U,
-                                    14, c2_h_y);
                 } else {
                   _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 18);
                   if (CV_EML_IF(0, 1, 8, c2_t < 3.9777)) {
@@ -318,35 +243,14 @@ static void sf_gateway_c2_VerticalFlight_TestModel
                     c2_T = ((3656.6 * c2_mpower(chartInstance, c2_t) - 39167.0 *
                              c2_b_mpower(chartInstance, c2_t)) + 137806.0 * c2_t)
                       - 158018.0;
-                    sf_mex_printf("%s =\\n", "T");
-                    c2_i_u = c2_T;
-                    c2_i_y = NULL;
-                    sf_mex_assign(&c2_i_y, sf_mex_create("y", &c2_i_u, 0, 0U, 0U,
-                      0U, 0), false);
-                    sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U,
-                                      1U, 14, c2_i_y);
                   } else {
                     _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 20);
                     if (CV_EML_IF(0, 1, 9, c2_t < 4.5277)) {
                       _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 21);
                       c2_T = -1051.8 * c2_t + 4709.4;
-                      sf_mex_printf("%s =\\n", "T");
-                      c2_j_u = c2_T;
-                      c2_j_y = NULL;
-                      sf_mex_assign(&c2_j_y, sf_mex_create("y", &c2_j_u, 0, 0U,
-                        0U, 0U, 0), false);
-                      sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U,
-                                        1U, 14, c2_j_y);
                     } else {
                       _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, 23);
                       c2_T = 0.0;
-                      sf_mex_printf("%s =\\n", "T");
-                      c2_k_u = c2_T;
-                      c2_k_y = NULL;
-                      sf_mex_assign(&c2_k_y, sf_mex_create("y", &c2_k_u, 0, 0U,
-                        0U, 0U, 0), false);
-                      sf_mex_call_debug(sfGlobalDebugInstanceStruct, "disp", 0U,
-                                        1U, 14, c2_k_y);
                     }
                   }
                 }
@@ -958,10 +862,10 @@ extern void utFree(void*);
 
 void sf_c2_VerticalFlight_TestModel_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1913971094U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(18893326U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2925278457U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1696637040U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(261171109U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3598159969U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1792267664U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(400959001U);
 }
 
 mxArray *sf_c2_VerticalFlight_TestModel_get_autoinheritance_info(void)
@@ -973,7 +877,7 @@ mxArray *sf_c2_VerticalFlight_TestModel_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("GK3iEerhiNwsfm1a9GDsBC");
+    mxArray *mxChecksum = mxCreateString("orIpZVH2YJxKLwazwDVFG");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -1131,17 +1035,17 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,10,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,526);
-        _SFD_CV_INIT_EML_IF(0,1,0,32,41,90,525);
-        _SFD_CV_INIT_EML_IF(0,1,1,90,106,132,525);
-        _SFD_CV_INIT_EML_IF(0,1,2,132,148,178,525);
-        _SFD_CV_INIT_EML_IF(0,1,3,178,194,221,525);
-        _SFD_CV_INIT_EML_IF(0,1,4,221,237,264,525);
-        _SFD_CV_INIT_EML_IF(0,1,5,264,280,306,525);
-        _SFD_CV_INIT_EML_IF(0,1,6,306,321,349,525);
-        _SFD_CV_INIT_EML_IF(0,1,7,349,364,403,525);
-        _SFD_CV_INIT_EML_IF(0,1,8,403,418,466,525);
-        _SFD_CV_INIT_EML_IF(0,1,9,466,481,509,525);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,537);
+        _SFD_CV_INIT_EML_IF(0,1,0,32,41,91,536);
+        _SFD_CV_INIT_EML_IF(0,1,1,91,107,134,536);
+        _SFD_CV_INIT_EML_IF(0,1,2,134,150,181,536);
+        _SFD_CV_INIT_EML_IF(0,1,3,181,197,225,536);
+        _SFD_CV_INIT_EML_IF(0,1,4,225,241,269,536);
+        _SFD_CV_INIT_EML_IF(0,1,5,269,285,312,536);
+        _SFD_CV_INIT_EML_IF(0,1,6,312,327,356,536);
+        _SFD_CV_INIT_EML_IF(0,1,7,356,371,411,536);
+        _SFD_CV_INIT_EML_IF(0,1,8,411,426,475,536);
+        _SFD_CV_INIT_EML_IF(0,1,9,475,490,519,536);
         _SFD_SET_DATA_COMPILED_PROPS(0,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
           (MexFcnForType)c2_sf_marshallOut,(MexInFcnForType)NULL);
         _SFD_SET_DATA_COMPILED_PROPS(1,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
@@ -1166,7 +1070,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "MFOJdM7dTGNGn9IuqhwCGG";
+  return "jCXIt7Fq0tfFVNGvyZAXy";
 }
 
 static void sf_opaque_initialize_c2_VerticalFlight_TestModel(void
@@ -1352,10 +1256,10 @@ static void mdlSetWorkWidths_c2_VerticalFlight_TestModel(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(2668965442U));
-  ssSetChecksum1(S,(860913930U));
-  ssSetChecksum2(S,(2630402652U));
-  ssSetChecksum3(S,(355827661U));
+  ssSetChecksum0(S,(282400544U));
+  ssSetChecksum1(S,(3453880920U));
+  ssSetChecksum2(S,(2911001554U));
+  ssSetChecksum3(S,(3631402993U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSupportsMultipleExecInstances(S,1);

@@ -21,7 +21,7 @@ Haskell is useful in this environment to do some custom scripting
 
 ## LaTeX
 
-LaTeX is a powerful typesetting language useful for academic writing. It's mathematical expressions are particularly useful for this report.
+LaTeX is a powerful typesetting language useful for academic writing. Its mathematical expressions are particularly useful for this report.
 
 ## Citations
 
