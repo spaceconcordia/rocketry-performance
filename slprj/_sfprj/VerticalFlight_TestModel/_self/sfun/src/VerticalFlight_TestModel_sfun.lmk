@@ -7,6 +7,7 @@ LIBFLAGS =
 
 OBJECTS = \
 	"VerticalFlight_TestModel_sfun.obj"\
+	"c1_VerticalFlight_TestModel.obj"\
 	"c2_VerticalFlight_TestModel.obj"\
 	"VerticalFlight_TestModel_sfun_registry.obj"\
 	"lccstub.obj"\
@@ -30,6 +31,8 @@ VerticalFlight_TestModel_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
 	$(LD) $(LDFLAGS) -o VerticalFlight_TestModel_sfun.mexw64 @VerticalFlight_TestModel_sfun.lmko
 VerticalFlight_TestModel_sfun.obj :	"VerticalFlight_TestModel_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "VerticalFlight_TestModel_sfun.c"
+c1_VerticalFlight_TestModel.obj :	"c1_VerticalFlight_TestModel.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_VerticalFlight_TestModel.c"
 c2_VerticalFlight_TestModel.obj :	"c2_VerticalFlight_TestModel.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_VerticalFlight_TestModel.c"
 VerticalFlight_TestModel_sfun_registry.obj :	"VerticalFlight_TestModel_sfun_registry.c"

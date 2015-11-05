@@ -1,5 +1,9 @@
 ## Matlab Conventions
 
+## Simulink GOTCHAs
+
+- Atomic Units must be carefully employed to allow the simulation to run
+
 ### Importing Data
 
 Tabulated input data is relied upon to drive the simulation (see *Dynamic Parameters*). The following configuration is investigated to support this smoothly

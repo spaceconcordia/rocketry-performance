@@ -2,6 +2,7 @@
 
 #include "VerticalFlight_TestModel_sfun.h"
 #include "VerticalFlight_TestModel_sfun_debug_macros.h"
+#include "c1_VerticalFlight_TestModel.h"
 #include "c2_VerticalFlight_TestModel.h"
 
 /* Type Definitions */
@@ -29,6 +30,11 @@ unsigned int sf_VerticalFlight_TestModel_method_dispatcher(SimStruct
   *simstructPtr, unsigned int chartFileNumber, const char* specsCksum, int_T
   method, void *data)
 {
+  if (chartFileNumber==1) {
+    c1_VerticalFlight_TestModel_method_dispatcher(simstructPtr, method, data);
+    return 1;
+  }
+
   if (chartFileNumber==2) {
     c2_VerticalFlight_TestModel_method_dispatcher(simstructPtr, method, data);
     return 1;
@@ -67,14 +73,22 @@ unsigned int sf_VerticalFlight_TestModel_process_check_sum_call( int nlhs,
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1474325200U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3283752861U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1436610943U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2610991550U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2287025347U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2213824637U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3447881020U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(4283747939U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
       switch (chartFileNumber) {
+       case 1:
+        {
+          extern void sf_c1_VerticalFlight_TestModel_get_check_sum(mxArray *
+            plhs[]);
+          sf_c1_VerticalFlight_TestModel_get_check_sum(plhs);
+          break;
+        }
+
        case 2:
         {
           extern void sf_c2_VerticalFlight_TestModel_get_check_sum(mxArray *
@@ -98,10 +112,10 @@ unsigned int sf_VerticalFlight_TestModel_process_check_sum_call( int nlhs,
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(4169419018U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3977941362U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(205722796U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2790518566U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3745513258U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(788120128U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1389489889U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1534128533U);
   }
 
   return 1;
@@ -137,6 +151,19 @@ unsigned int sf_VerticalFlight_TestModel_autoinheritance_info( int nlhs, mxArray
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        if (strcmp(aiChksum, "9e9cDgrR2U4uwzIVvw5zGH") == 0) {
+          extern mxArray
+            *sf_c1_VerticalFlight_TestModel_get_autoinheritance_info(void);
+          plhs[0] = sf_c1_VerticalFlight_TestModel_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
      case 2:
       {
         if (strcmp(aiChksum, "orIpZVH2YJxKLwazwDVFG") == 0) {
@@ -185,6 +212,17 @@ unsigned int sf_VerticalFlight_TestModel_get_eml_resolved_functions_info( int
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        extern const mxArray
+          *sf_c1_VerticalFlight_TestModel_get_eml_resolved_functions_info(void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c1_VerticalFlight_TestModel_get_eml_resolved_functions_info();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
      case 2:
       {
         extern const mxArray
@@ -231,6 +269,16 @@ unsigned int sf_VerticalFlight_TestModel_third_party_uses_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        if (strcmp(tpChksum, "htsr97W126oRYPCwkL4oPF") == 0) {
+          extern mxArray *sf_c1_VerticalFlight_TestModel_third_party_uses_info
+            (void);
+          plhs[0] = sf_c1_VerticalFlight_TestModel_third_party_uses_info();
+          break;
+        }
+      }
+
      case 2:
       {
         if (strcmp(tpChksum, "jCXIt7Fq0tfFVNGvyZAXy") == 0) {
@@ -269,6 +317,16 @@ unsigned int sf_VerticalFlight_TestModel_updateBuildInfo_args_info( int nlhs,
     unsigned int chartFileNumber;
     chartFileNumber = (unsigned int)mxGetScalar(prhs[1]);
     switch (chartFileNumber) {
+     case 1:
+      {
+        if (strcmp(tpChksum, "htsr97W126oRYPCwkL4oPF") == 0) {
+          extern mxArray
+            *sf_c1_VerticalFlight_TestModel_updateBuildInfo_args_info(void);
+          plhs[0] = sf_c1_VerticalFlight_TestModel_updateBuildInfo_args_info();
+          break;
+        }
+      }
+
      case 2:
       {
         if (strcmp(tpChksum, "jCXIt7Fq0tfFVNGvyZAXy") == 0) {
@@ -291,7 +349,7 @@ void VerticalFlight_TestModel_debug_initialize(struct SfDebugInstanceStruct*
   debugInstance)
 {
   _VerticalFlight_TestModelMachineNumber_ = sf_debug_initialize_machine
-    (debugInstance,"VerticalFlight_TestModel","sfun",0,1,0,0,0);
+    (debugInstance,"VerticalFlight_TestModel","sfun",0,2,0,0,0);
   sf_debug_set_machine_event_thresholds(debugInstance,
     _VerticalFlight_TestModelMachineNumber_,0,0);
   sf_debug_set_machine_data_thresholds(debugInstance,

@@ -1,4 +1,4 @@
-function reynolds_number_actual = ReynoldsNumberActual()
+function reynolds_number_actual = ReynoldsNumberActual(inputs)
 %function ra = reynolds_actual(velocity, length, kinematic_viscosity)
 
 velocity    = inputs(1);
