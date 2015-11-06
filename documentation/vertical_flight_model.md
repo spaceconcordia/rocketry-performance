@@ -37,6 +37,7 @@ The net upward acceleration is: $\vec{a}_T  - \vec{a}_W - \vec{a}_D$
 The sum of forces can be rearranged and acceleration can be solved for:
 
 \begin{equation}
+\label{vertical_flight_equation}
 \vec{a} =  \ddot{x} = \dfrac{1}{m(t)} (T(t) - D(\dot{x}) - W(t)) 
 \end{equation}
 
@@ -50,7 +51,7 @@ Acceleration can be integrated to find position and velocity.
 x = \iint \vec{a} dx
 \end{equation}
 
-Modeling in the frequency domain, integration is represented by the $\dfrac{1}{s}$ block. The model is pictured as follows. 
+Integration of equation (\ref{vertical_flight_equation}) in the model is represented by the $\dfrac{1}{s}$ block. The model is pictured in Figure \ref{vertical_model_simplified}.
 
 [vertical_model_simplified]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
 ![Vertical Flight Model - Simplified \label{vertical_model_simplified}][vertical_model_simplified] 

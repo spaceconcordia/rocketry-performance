@@ -36,13 +36,15 @@ LaTeX is a powerful typesetting language useful for academic writing. Its mathem
 Wrap functions as follows to enable automatic numbering:
 ```
 \begin{equation}
-f(x) = s \cdot e^{xy}
+\label{my_equation}
+f(x) = \int \cdot e^{xy}
 \end{equation}
 ```
-
-[pandoc-eqnos](https://github.com/tomduck/pandoc-eqnos) 
-
-[StackOverflow - LaTeX equations in Markdown+Pandoc](http://stackoverflow.com/questions/25042901/how-to-use-latex-equation-environment-in-pandoc-markdown)
+You can refer to the equation by the label you assigned to it
+```
+This comment refers to equation \ref{my_equation}
+```
+[LaTeX equations in Markdown+Pandoc](http://stackoverflow.com/questions/25042901/how-to-use-latex-equation-environment-in-pandoc-markdown)
 
 ## Figures
 
@@ -54,6 +56,10 @@ To automatically number figures, use the following syntax to insert an image:
 Then, in your pandoc command, add the lof variable:
 ```
 pandoc -s ... -V lof=lof
+```
+You can refer to the figure by the label you assigned to it
+```
+This comment refers to Figure \ref{rocket_drag_model_overview_label}
 ```
 
 ## Tables

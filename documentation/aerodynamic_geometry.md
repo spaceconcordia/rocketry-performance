@@ -16,7 +16,7 @@ f_B = L / OD
 
 ### Aerodynamic Chord Length of Fins
 
-Since there is no airfoil on the fin design, the *Aerodynamic Chord Length of the Fins* ($L_cf$) is equal to the height of the fins. 
+Since there is no airfoil on the fin design, the *Aerodynamic Chord Length of the Fins* ($L_{cf}$) is equal to the height of the fins. 
 
 ### Areas
 

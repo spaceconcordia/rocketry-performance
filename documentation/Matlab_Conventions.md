@@ -1,5 +1,27 @@
 ## Matlab Conventions
 
+## Matlab/Simulink Libraries
+
+## Overview
+The goal is to create a robust Simulink model that references Matlab code from files that can be tracked by versioning software (Git). The Matlab source should be editable and effect changes in the Simulink model.
+
+By a combination of both, full versioning control can be achieved in the project.
+
+## Creating a Library
+1. Open Matlab
+2. Open Simulink
+3. Click File --> New --> Library
+
+## Add to path
+Permanently add your workspace to the Matlab path. At the command prompt:
+```
+>> pathtool
+```
+[Alternatively, try this howto](http://www3.nd.edu/~nancy/Math20550/Homework/matlabpath.pdf)
+
+## Add to Library Browser
+[Add to Library Browser](http://www.mathworks.com/help/simulink/ug/adding-libraries-to-the-library-browser.html)
+
 ## Simulink GOTCHAs
 
 - Atomic Units must be carefully employed to allow the simulation to run
@@ -84,6 +106,10 @@ More information:
 - http://www.mathworks.com/videos/getting-started-with-model-referencing-68918.html
 - http://www.mathworks.com/help/simulink/ug/creating-a-model-reference.html 
 - http://www.mathworks.com/help/simulink/slref/model.html
+
+### Exporting Model Images
+
+[Howto](http://www.mathworks.com/matlabcentral/answers/94951-how-do-i-save-my-simulink-model-as-a-tiff-or-jpeg-image)
 
 ## File Organization
 
