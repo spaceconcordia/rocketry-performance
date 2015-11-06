@@ -25,7 +25,19 @@ http://www.nar.org/NARTS/TR13.html
 - 2b
 - 2c
 
+## Dynamic Stability
+
+The rocket must exhibit dynamic stability, wherein oscillations are reduced by the damping moment j
+
+### Resonant Pitch/Yaw Moment
+
+- 2f - The vehicle does not experience resonant pitching/yawing motion in flight
+
+The rocket should experience a resonant motion in response to aerodynamic forces such that it doesn't sustain at the natural frequencies that can cause structural or component damage. 
+This value must be verified regularly with the design team to ensure compliance.
 ## Longitudinal Static Stability Margin
+
+### Longitudinal Static Stability Margin
 
 The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube.
 
@@ -34,6 +46,16 @@ $$ S_{lm} = \dfrac{COP - COG}{OD} $$
 The result is dimensionless, however the ratio determined is measured as *calibers*. 
 
 https://www.apogeerockets.com/education/downloads/Newsletter133.pdf
+
+### Corrective Moment Coefficient
+
+[Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
+
+
+### Damping Moment Coefficient
+
+[Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
+
 
 ## Wind Impulse
 
