@@ -12,6 +12,7 @@ By a combination of both, full versioning control can be achieved in the project
 2. Open Simulink
 3. Click File --> New --> Library
 
+
 ## Add to path
 Permanently add your workspace to the Matlab path. At the command prompt:
 ```
@@ -26,7 +27,7 @@ Permanently add your workspace to the Matlab path. At the command prompt:
 
 - Atomic Units must be carefully employed to allow the simulation to run
 
-### Importing Data
+## Importing Data
 
 Tabulated input data is relied upon to drive the simulation (see *Dynamic Parameters*). The following configuration is investigated to support this smoothly
 
@@ -38,7 +39,7 @@ Tabulated input data is relied upon to drive the simulation (see *Dynamic Parame
 
 [Import Data Structures](http://www.mathworks.com/help/simulink/ug/importing-data-structures-to-a-root-level-input-port.html)
 
-#### From File 
+### From File 
 The *From File* block in Simulink allows incremental loading of data 
 
 > The From File block reads data from a MAT-file and outputs the data as a signal. The data is a sequence of samples. Each sample consists of a time stamp and an associated data value.
@@ -58,9 +59,9 @@ Data is read incrementally from Mat-File versions 7.3 and above
 
 [Specifying Time Data in Simulink](http://www.mathworks.com/help/simulink/ug/importing-data-structures-to-a-root-level-input-port.html#bsuwoyk)
 
-### Versioning for Matlab Files
+## Versioning for Matlab Files
 
-#### Background
+### Background
 - Older versions allowed providing external '.m' file for the *Matlab Function* block in Simulink
 - Newer versions are shifting towards the embedded model, where Matlab code is complied for execution on test hardware
 
@@ -109,6 +110,10 @@ More information:
 
 ### Exporting Model Images
 
+[export Simulink models to publication-quality figures](https://truongnghiem.wordpress.com/2010/07/07/export-simulink-models-to-publication-quality-figures/)
+[publication quality graphics in Matlab](https://truongnghiem.wordpress.com/2010/05/28/more-on-publication-quality-graphics-in-matlab/)
+[LaPrint](http://www.mathworks.com/matlabcentral/fileexchange/4638-laprint)
+[export-fig](http://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig)
 [Howto](http://www.mathworks.com/matlabcentral/answers/94951-how-do-i-save-my-simulink-model-as-a-tiff-or-jpeg-image)
 
 ## File Organization
@@ -195,3 +200,6 @@ e.g.
 ```
 DynamicWeightCalculationLibrary
 ```
+
+## Export Model Image
+[Exporting images from Simulink](https://truongnghiem.wordpress.com/2010/07/07/export-simulink-models-to-publication-quality-figures/)

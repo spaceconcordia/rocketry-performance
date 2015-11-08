@@ -23,6 +23,8 @@ These dynamic parameters must be considered to maximize the accuracy of the mode
 - passively controlled (no active thrust or stability control)
 - constant fuel expenditure rate
 - vertical/linear flight within 5 degrees [@box2009]
+- the *Ideal Gas Law* applies throughout the flight
+- steady-state irrotational flow around the body [@niskanen2013]
 
 ## Requirements
 The Performance Model must provide the maximum altitude and velocity of the rocket in subsonic flight under a known thrust curve and known dimensional parameters. Assumptions considered legitimate based on prior research for similar rockets may be applied

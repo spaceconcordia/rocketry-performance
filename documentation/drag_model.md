@@ -11,7 +11,22 @@ The drag model shall take the parametric design parameters and applicable dynami
 The speed of sound (c) is calculated as follows
 
 \begin{equation}
-c = \sqrt{\gamma R T } = \sqrt{\gamma \dfrac{p}{\rho}}
+c = \sqrt{\gamma R T } 
+\end{equation}
+
+The *Ideal Gas Law* states that 
+\begin{equation}
+\label{ideal_gas_law}
+P = \rho R T
+\end{equation}
+
+We can simplify our lives by assuming the *Ideal Gas Law* applies, and use it to solve for *RT* 
+$$ RT = \dfrac{P}{\rho} $$
+
+Thus we can calculate the speed of sound as follows
+\begin{equation}
+\label{speed_of_sound}
+c = \sqrt{\gamma \dfrac{P}{\rho} } 
 \end{equation}
 
 Where $p$ is the local pressure, $\rho$ is the local density, and $\gamma$ is the *adiabatic index*, known as the *isentropic explansion factor* - it is the ratio of the specific heats of a gas at constant pressure and constant volume.
