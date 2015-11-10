@@ -71,9 +71,38 @@ P_act   = (P_o + P_dev)*((1 - 0.0065*(alt_in/(T_o + T_dev)))^5.2561);
 rho = P_act/(R*T_act);
 
 %--------------------------------------------------------------------------
+% Define constants for Sutherland's law equation
+% Variables used:
+%   T_so    = reference temperature in kelvin
+%   mu_so   = reference viscosity in kg/m-s
+%   S       = Sutherland's constant in kelvin
+%--------------------------------------------------------------------------
+
+T_so  = 273.11;
+mu_so = 1.716e-5;
+S     = 110.56;
+
+%--------------------------------------------------------------------------
+% Calculate absolute viscosity (A_visc) using Sutherland's law
+% Variables used:
+%   A_visc  = Absolute viscosity in kg/m-s
+%--------------------------------------------------------------------------
+
+A_visc = mu_so*((T_act/T_so)^(3/2))*((T_so-S)/(T_act-S));
+
+%--------------------------------------------------------------------------
+% Calculate kinematic viscosity (K_visc)
+% Variables used:
+%   K_visc  = kinematic viscosity in m^2/s
+%--------------------------------------------------------------------------
+
+K_visc = A_visc/rho;
+
+%--------------------------------------------------------------------------
 % Mux output
 %--------------------------------------------------------------------------
-outputs = [T_act, P_act, rho];
+
+outputs = [T_act, P_act, rho, A_visc, K_visc];
 
 %--------------------------------------------------------------------------
 % END OF FUNCTION
