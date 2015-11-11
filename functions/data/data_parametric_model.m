@@ -1,4 +1,4 @@
-function parametric_data_object = data_parametric_model()
+function pmo = data_parametric_model()
 %--------------------------------------------------------------------------------
 %
 % data_parametric_model.m
@@ -47,7 +47,7 @@ function parametric_data_object = data_parametric_model()
 %% Import the data
 [~, ~, raw] = xlsread('C:\Users\scorpii\Documents\Space\Rocketry\Performance\rocketry-performance\data\Parametric_Data.xlsm','Matlab_Data','B2:B23');
 
-raw = raw.'
+raw = raw.';
 
 raw(cellfun(@(x) ~isempty(x) && isnumeric(x) && isnan(x),raw)) = {''};
 
@@ -59,52 +59,52 @@ raw(R) = {NaN}; % Replace non-numeric cells
 data = reshape([raw{:}],size(raw));
 
 %% Allocate imported array to column variable names
-area_fin_frontal            = data(:,1)
-area_face_fin               = data(:,2)
-width_fins_at_tube          = data(:,3)
-fins_count                  = data(:,4)
-thickness_fins_at_tube      = data(:,5)
-area_surface_nose           = data(:,6)
-height_fins                 = data(:,7)
-diameter_outer              = data(:,8)
-surface_roughness           = data(:,9)
-length_total_rocket         = data(:,10)
-pressure_ambient_ground     = data(:,11)
-temperature_ambient_ground  = data(:,12)
-distance_tip_to_COG         = data(:,13)
-distance_tip_to_COP         = data(:,14)
-angle_leading_edge          = data(:,15)
-diameter_outer_launch_guide = data(:,16)
-diameter_inner_launch_guide = data(:,17)
-moment_inertia_rocket       = data(:,18)
-height_nose_cone            = data(:,19)
-wet_motor_weight            = data(:,20)
-dry_motor_weight            = data(:,21)
-mass_flow_rate              = data(:,22)
+area_fin_frontal            = data(:,1);
+area_face_fin               = data(:,2);
+width_fins_at_tube          = data(:,3);
+fins_count                  = data(:,4);
+thickness_fins_at_tube      = data(:,5);
+area_surface_nose           = data(:,6);
+height_fins                 = data(:,7);
+diameter_outer              = data(:,8);
+surface_roughness           = data(:,9);
+length_total_rocket         = data(:,10);
+pressure_ambient_ground     = data(:,11);
+temperature_ambient_ground  = data(:,12);
+distance_tip_to_COG         = data(:,13);
+distance_tip_to_COP         = data(:,14);
+angle_leading_edge          = data(:,15);
+diameter_outer_launch_guide = data(:,16);
+diameter_inner_launch_guide = data(:,17);
+moment_inertia_rocket       = data(:,18);
+height_nose_cone            = data(:,19);
+wet_motor_weight            = data(:,20);
+dry_motor_weight            = data(:,21);
+mass_flow_rate              = data(:,22);
 
 % Assign variables to workspace
-assignin( 'base' , 'area_fin_frontal'            , area_fin_frontal            )
-assignin( 'base' , 'area_face_fin'               , area_face_fin               )
-assignin( 'base' , 'width_fins_at_tube'          , width_fins_at_tube          )
-assignin( 'base' , 'fins_count'                  , fins_count                  )
-assignin( 'base' , 'thickness_fins_at_tube'      , thickness_fins_at_tube      )
-assignin( 'base' , 'area_surface_nose'           , area_surface_nose           )
-assignin( 'base' , 'height_fins'                 , height_fins                 )
-assignin( 'base' , 'diameter_outer'              , diameter_outer              )
-assignin( 'base' , 'surface_roughness'           , surface_roughness           )
-assignin( 'base' , 'length_total_rocket'         , length_total_rocket         )
-assignin( 'base' , 'pressure_ambient_ground'     , pressure_ambient_ground     )
-assignin( 'base' , 'temperature_ambient_ground'  , temperature_ambient_ground  )
-assignin( 'base' , 'distance_tip_to_COG'         , distance_tip_to_COG         )
-assignin( 'base' , 'distance_tip_to_COP'         , distance_tip_to_COP         )
-assignin( 'base' , 'angle_leading_edge'          , angle_leading_edge          )
-assignin( 'base' , 'diameter_outer_launch_guide' , diameter_outer_launch_guide )
-assignin( 'base' , 'diameter_inner_launch_guide' , diameter_inner_launch_guide )
-assignin( 'base' , 'moment_inertia_rocket'       , moment_inertia_rocket       )
-assignin( 'base' , 'height_nose_cone'            , height_nose_cone            )
-assignin( 'base' , 'wet_motor_weight'            , wet_motor_weight            )
-assignin( 'base' , 'dry_motor_weight'            , dry_motor_weight            )
-assignin( 'base' , 'mass_flow_rate'              , mass_flow_rate              )
+assignin( 'base' , 'area_fin_frontal'            , area_fin_frontal            );
+assignin( 'base' , 'area_face_fin'               , area_face_fin               );
+assignin( 'base' , 'width_fins_at_tube'          , width_fins_at_tube          );
+assignin( 'base' , 'fins_count'                  , fins_count                  );
+assignin( 'base' , 'thickness_fins_at_tube'      , thickness_fins_at_tube      );
+assignin( 'base' , 'area_surface_nose'           , area_surface_nose           );
+assignin( 'base' , 'height_fins'                 , height_fins                 );
+assignin( 'base' , 'diameter_outer'              , diameter_outer              );
+assignin( 'base' , 'surface_roughness'           , surface_roughness           );
+assignin( 'base' , 'length_total_rocket'         , length_total_rocket         );
+assignin( 'base' , 'pressure_ambient_ground'     , pressure_ambient_ground     );
+assignin( 'base' , 'temperature_ambient_ground'  , temperature_ambient_ground  );
+assignin( 'base' , 'distance_tip_to_COG'         , distance_tip_to_COG         );
+assignin( 'base' , 'distance_tip_to_COP'         , distance_tip_to_COP         );
+assignin( 'base' , 'angle_leading_edge'          , angle_leading_edge          );
+assignin( 'base' , 'diameter_outer_launch_guide' , diameter_outer_launch_guide );
+assignin( 'base' , 'diameter_inner_launch_guide' , diameter_inner_launch_guide );
+assignin( 'base' , 'moment_inertia_rocket'       , moment_inertia_rocket       );
+assignin( 'base' , 'height_nose_cone'            , height_nose_cone            );
+assignin( 'base' , 'wet_motor_weight'            , wet_motor_weight            );
+assignin( 'base' , 'dry_motor_weight'            , dry_motor_weight            );
+assignin( 'base' , 'mass_flow_rate'              , mass_flow_rate              );
 
 %% Clear temporary variables
 clearvars data raw R;

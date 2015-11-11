@@ -2,7 +2,20 @@
 
 Rockets in flight experience multiple sources of drag. The total drag effect is the sum of all specific drag effects.
 
-The drag model shall take the parametric design parameters and applicable dynamics parameters (see *Data Model*) to output the Drag Force and combined drag coefficient.
+Figure \ref{rocket_drag_sources_label} depicts the types of drag forces to be expected in subsonic flight.
+
+[rocket_drag_sources]: images/drag_sources_niskanen2013.png "Rocket Drag Sources - Subsonic Flight" 
+![Rocket Drag Sources - Subsonic Flight \label{rocket_drag_sources_label}][rocket_drag_sources] 
+
+[@niskanen2013, pg.42]
+
+The two main contributing factors to *Drag Force* are *Skin Friction* and pressure distribution effects. 
+Pressure distribution effect are broken down into body pressure and parasitic drag effects, among others [@niskanen2013]. 
+These and other drag forces are detailed in this section.
+
+The drag model must take the parametric design parameters and applicable dynamics parameters (see *Data Model*) to output the Drag Force and combined drag coefficient.
+
+[TODO drag figure here]
 
 ### Mach Number
 
@@ -40,6 +53,25 @@ The *Mach Number* is then the ratio of the air velocity to the sound speed of th
 \begin{equation}
 M = \dfrac{ \vec{v} } { c }
 \end{equation}
+
+#### Mach Regions
+
+*Velocity regions* are defined, in which aerodynamic effects are known to vary considerably.
+The following velocity regions are established for further discussion.
+
+| Mach Region (*M*) | Classification |
+| ---               | ---            |
+| 0.3 < 0.8         | Subsonic       |
+| 0.8 < M < 1       | Transonic      |
+| 1 < M < ~5        | Supersonic     |
+| M > ~5            | Hypersonic     |
+
+\captionof{table}{Mach Regions}
+
+[@niskanen2013, pg.19]
+
+As the rocket is constrained not to exceed Mach 0.9, much of the flight will be in the subsonic region, greatly simplifying much of the analysis. 
+However, transonic effects cannot be ignored when at a Mach Number greater than 0.8.
 
 ### Compressible Flow Correction
 
@@ -85,17 +117,23 @@ force and viscous force
 
 [rocket_drag_forces]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
 ![Rocket Drag Forces - Axial vs. Normal Caption \label{rocket_drag_forces_label}][rocket_drag_forces] 
-
 [@box2009, pg.6]
 
 Velocity $\vec{v}$ is the apparent velocity of the center of pressure relative to the surrounding air. 
 
 ### Turbulent Effects
 
-Viscous forces are much less severe in turbulent conditions than laminar conditions - TODO EXPAND
+My sources disgree on turbulent effects for skin friction drag.
+
+> If the boundary layer at the rocket's surface is turbulent then the viscous forces will be significantly less that if it is laminar, hence the viscous force is highly dependant on Reynolds number.
 
 [@box2009, pg.6]
 
+> A turbulent boundary layer induces a notably larger skin friction drag than a laminar boundary layer
+
+[@niskanen2013, pg.42]
+
+Niskanen and other sources disagree. See the following links
 
 ### Drag Force and Coefficients
 
@@ -184,8 +222,20 @@ C_{ba}, D_{ba} ((A_{ref}, M))
 Skin Friction Drag is a result of surface roughness. It is a component effect of parasitic drag.
 
 \begin{equation}
-C_{sk}, D_{sk} (A_{ref}, M)
+\label{friction_drag_force}
+D_{sk} = \dfrac{1}{2} \rho \vec{v}^2 A_{wet} C_{sk}
 \end{equation}
+
+[@munson2013, pg.513]
+
+Where 
+\begin{equation}
+\label{friction_drag_coefficient}
+C_{sk}, (A_{wet}, M, \dfrac{\epsilon}{l} )
+\end{equation}
+
+$\dfrac{\epsilon}{l}$ is the relative roughness of the surface 
+
 
 ##### Critical Reynolds Number
 
@@ -207,6 +257,8 @@ Re = \dfrac{\vec{v} L}{A\cdot T^3 + B\cdot T^2 + C\cdot T - D}
 \end{equation}
 
 Where A = $-1 \times 10^{14}$, B = $1 \times 10^{-10}$, C = $3 \times 10^{-8}$, and D = $3 \times 10^-6$.
+
+[@ansysViscosity]
 
 With the critical and actual Reynolds Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
 
