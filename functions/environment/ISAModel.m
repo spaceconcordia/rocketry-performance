@@ -1,11 +1,14 @@
 function outputs = ISAModel(inputs)
-outputs=zeros(3);
+outputs=zeros(5);
+
 %--------------------------------------------------------------------------
 % Demux inputs
 %--------------------------------------------------------------------------
-T_in   = inputs(1);
-P_in   = inputs(2);
-alt_in = inputs(3);
+
+T_in    = inputs(1);
+P_in    = inputs(2);
+alt_in  = inputs(3);
+alt_act = inputs(4);
 
 %--------------------------------------------------------------------------
 % This model computes the gas characteristics of the atmosphere around the
@@ -28,13 +31,15 @@ T_o     = 288.15;
 R       = 287.04;
     
 %--------------------------------------------------------------------------
-% The following recalculates the temperature in terms of ISA deviation.
+% The following calculates ISA deviation of the launch conditions assuming 
+% a virtual launch site a sea level
 % Variables used:
 %   T_dev   = ISA deviation temperature (degrees C)
 %   T_in    = ground temperature (degrees C)
+%   alt_in  = Launch altitude (meters)
 %--------------------------------------------------------------------------
 
-T_dev   = T_in - T_o + 273.15;
+T_dev   = T_in - T_o + 6.5*(alt_in/1000);
     
 %--------------------------------------------------------------------------
 % The following calculates the temperature at the current altitude.
@@ -43,7 +48,7 @@ T_dev   = T_in - T_o + 273.15;
 %   alt_in  = Actual altitude (m)
 %--------------------------------------------------------------------------
 
-T_act   = (T_o + T_dev) - (6.5/1000)*alt_in;
+T_act   = (T_o + T_dev) - (6.5/1000)*(alt_in + alt_act);
     
 %--------------------------------------------------------------------------
 % The following recalculates the pressure in terms of ISA deviation.
