@@ -96,6 +96,9 @@ Particular correction factors are recommended for ranges of Mach number
 | $$ M < 0.3 $$       | N/A                                         |
 | $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-M^2}} $$     |
 | $$ 0.8 < M < 1.1 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
+| $$ M > 1.1 $$       | $$ C^`_i = \dfrac{C_i}{\sqrt{M^2-1}} $$     |
+
+(Prandtl-Glauert compressibility correction) [@box2009, pg.15]
 
 \captionof{table}{Compressible Flow Correction Factors}
 
