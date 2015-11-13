@@ -1,10 +1,13 @@
 %--------------------------------------------------------------------------
 % Import Rocket Design Data
 %--------------------------------------------------------------------------
+disp ( 'Updating Parametric Data...' );
 %data_parametric_model;
 
+disp ( 'Running Simulation...' );
 sim('VerticalFlight_TestModel');
 
+disp ( 'Plotting output...' );
 %--------------------------------------------------------------------------
 % Dynamics Plot
 %--------------------------------------------------------------------------
@@ -40,7 +43,7 @@ multiplot(xdata, ydata, 'YLabel', ylabel, ...
 %--------------------------------------------------------------------------
 %xdata = {tout, tout, tout};
 xdata = {tout, tout};
-%ydata = {drag_force, drag_coefficient, reynolds_number(:,:,:)};
+%ydata = {drag_force, drag_coefficient, reynolds_number};
 ydata = {drag_force, drag_coefficient};
 %ylabel = {'Drag Force (N)','Drag Coefficient','Reynolds Number'};
 ylabel = {'Drag Force (N)','Drag Coefficient'};
@@ -65,3 +68,5 @@ multiplot(xdata, ydata, 'YLabel', ylabel, ...
 %--------------------------------------------------------------------------
 % TODO write data to output CSV
 %--------------------------------------------------------------------------
+
+disp ( 'Done!' );
