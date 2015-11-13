@@ -1,11 +1,14 @@
 function outputs = ISAModel(inputs)
-outputs=zeros(3);
+outputs=zeros(5);
+
 %--------------------------------------------------------------------------
 % Demux inputs
 %--------------------------------------------------------------------------
-T_in   = inputs(1);
-P_in   = inputs(2);
-alt_in = inputs(3);
+
+T_in    = inputs(1);
+P_in    = inputs(2);
+alt_in  = inputs(3);
+alt_act = inputs(4);
 
 %--------------------------------------------------------------------------
 % This model computes the gas characteristics of the atmosphere around the
@@ -28,31 +31,37 @@ T_o     = 288.15;
 R       = 287.04;
     
 %--------------------------------------------------------------------------
-% The following recalculates the temperature in terms of ISA deviation.
+% The following calculates ISA deviation of the launch conditions assuming 
+% a virtual launch site a sea level
 % Variables used:
 %   T_dev   = ISA deviation temperature (degrees C)
 %   T_in    = ground temperature (degrees C)
+%   alt_in  = Launch altitude (meters)
 %--------------------------------------------------------------------------
 
-T_dev   = T_in - T_o + 273.15;
+T_dev   = T_in - T_o + 6.5*(alt_in/1000);
     
 %--------------------------------------------------------------------------
 % The following calculates the temperature at the current altitude.
 % Variables used:
 %   T_act   = Actual temperature at current altitude (degrees K)
-%   alt_in  = Actual altitude (m)
+%   alt_in  = Launch altitude (m)
+%   alt_act = Altitude above ground level (m)
 %--------------------------------------------------------------------------
 
-T_act   = (T_o + T_dev) - (6.5/1000)*alt_in;
+T_act   = (T_o + T_dev) - (6.5/1000)*(alt_in + alt_act);
     
 %--------------------------------------------------------------------------
 % The following recalculates the pressure in terms of ISA deviation.
 % Variables used:
 %   P_dev   = ISA deviation pressure (Pascals)
 %   P_in    = ground pressure (Pascals)
+%   A       = placeholder for calculation
 %--------------------------------------------------------------------------
 
-P_dev   = P_in - P_o;
+A       = (1 - 0.0065*(alt_in/(T_o + T_dev)))^5.2561;
+
+P_dev   = (P_in/A) - P_o;
     
 %--------------------------------------------------------------------------
 % The following calculates the ambient pressure at the current altitude.
@@ -60,7 +69,7 @@ P_dev   = P_in - P_o;
 %   P_act   = actual pressure at current altitude (Pascals)
 %--------------------------------------------------------------------------
 
-P_act   = (P_o + P_dev)*((1 - 0.0065*(alt_in/(T_o + T_dev)))^5.2561);
+P_act   = (P_o + P_dev)*((1-0.0065*((alt_in+alt_act)/(T_o+T_dev)))^5.2561);
     
 %--------------------------------------------------------------------------
 % The following calculates the air density at the current altitude.
