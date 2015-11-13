@@ -1,119 +1,36 @@
 %--------------------------------------------------------------------------
 % Import Rocket Design Data
 %--------------------------------------------------------------------------
-data_parametric_model
+data_parametric_model;
 
 sim('VerticalFlight_TestModel');
 
 %--------------------------------------------------------------------------
 % Dynamics Plot
 %--------------------------------------------------------------------------
-figure;
-
-%--------------------------------------------------------------------------
-% Mass Plot
-%--------------------------------------------------------------------------
-subplot(3,1,1);
-plot(tout, mass);
-title('Mass vs. Time');
-xlabel('Time (s)');
-ylabel('Mass (kg)')
-xlim([0,5]);
-ylim([0,20]);
-
-indexmax = find(max(mass) == mass);
-xmax = mass(indexmax);
-ymax = mass(indexmax);
-
-strmax = ['Maximum = ',num2str(ymax)];
-text(xmax,ymax,strmax,'HorizontalAlignment','right');
-
-%--------------------------------------------------------------------------
-% Weight Plot
-%--------------------------------------------------------------------------
-subplot(3,1,2);
-plot(tout, weight);
-title('Weight vs. Time');
-xlabel('Time (s)');
-ylabel('Weight (N)');
-xlim([0,5]);
-ylim([0,60]);
-
-indexmax = find(max(weight) == weight);
-xmax = weight(indexmax);
-ymax = weight(indexmax);
-
-strmax = ['Maximum = ',num2str(ymax)];
-text(xmax,ymax,strmax,'HorizontalAlignment','right');
-
-%--------------------------------------------------------------------------
-% Thrust Plot
-%--------------------------------------------------------------------------
-subplot(3,1,3);
-plot(tout, thrust);
-title('Thrust vs. Time');
-xlabel('Time (s)');
-ylabel('Thrust (N)');
-xlim([0,5]);
-ylim([0,2500]);
-
-indexmax = find(max(thrust) == thrust);
-xmax = thrust(indexmax);
-ymax = thrust(indexmax);
-
-strmax = ['Maximum = ',num2str(ymax)];
-text(xmax,ymax,strmax,'HorizontalAlignment','right');
+xdata = {tout, tout, tout};
+ydata = {mass, weight, thrust};
+ylabel = {'Mass (kg)','Weight (N)','Thrust (N)'};
+linespec = {'b-*','b:+','b'};
+multiplot(xdata, ydata, 'YLabel', ylabel, ...
+ 'LineSpec', linespec, 'Title', 'Dynamics Plot', 'XLabel', 'time');
 
 %--------------------------------------------------------------------------
 % Kinematics Figure
 %--------------------------------------------------------------------------
-figure; 
+xdata = {tout, tout, tout};
+ydata = {altitude, velocity, acceleration};
+ylabel = {'Altitude (m)','Velocity (m/s)','Altitude (m/s^2)'};
+linespec = {'b-*','b:+','b'};
+multiplot(xdata, ydata, 'YLabel', ylabel, ...
+ 'LineSpec', linespec, 'Title', 'Kinematics Plot', 'XLabel', 'time');
 
 %--------------------------------------------------------------------------
-% Altitude Plot
+% ISA Model Figure
 %--------------------------------------------------------------------------
-subplot(3,1,1);
-plot(tout, altitude);
-title('Altitude vs. Time');
-xlabel('Time (s)');
-ylabel('Altitude (m)');
-ylim([0,6000]);
-indexmax = find(max(altitude) == altitude);
-xmax = altitude(indexmax);
-ymax = altitude(indexmax);
-
-strmax = ['Maximum = ',num2str(ymax)];
-text(xmax,ymax,strmax,'HorizontalAlignment','right');
-
-%--------------------------------------------------------------------------
-% Velocity Plot
-%--------------------------------------------------------------------------
-subplot(3,1,2);
-plot(tout, velocity);
-title('Velocity vs. Time');
-xlabel('Time (s)');
-ylabel('Velocity (m/s)');
-ylim([-25,1500]);
-indexmax = find(max(velocity) == velocity);
-xmax = velocity(indexmax);
-ymax = velocity(indexmax);
-
-strmax = ['Maximum = ',num2str(ymax)];
-text(xmax,ymax,strmax,'HorizontalAlignment','right');
-
-%--------------------------------------------------------------------------
-% Acceleration Plot
-%--------------------------------------------------------------------------
-subplot(3,1,3);
-plot(tout, acceleration);
-title('Acceleration vs. Time');
-xlabel('Time (s)');
-ylabel('Acceleration (m/s^2)');
-ylim([-10,15]);
-
-indexmax = find(max(acceleration) == acceleration);
-xmax = acceleration(indexmax);
-ymax = acceleration(indexmax);
-
-strmax = ['Maximum = ',num2str(ymax)];
-text(xmax,ymax,strmax,'HorizontalAlignment','right');
+xdata = {tout, tout, tout, tout, tout};
+ydata = {local_temperature, local_pressure, local_density, local_absolute_viscosity, local_kinematic_viscosity};
+ylabel = {'Local Temperature (K)','Local Pressure (kPa)','Local Density (kg/m^3)','Local Absolute Viscosity','Local Kinematic Viscosity'};
+linespec = {'b','b','b','b','b'};
+multiplot(xdata, ydata, 'YLabel', ylabel, ...
+ 'LineSpec', linespec, 'Title', 'ISA Model Plot', 'XLabel', 'time');
