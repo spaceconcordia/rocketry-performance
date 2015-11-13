@@ -108,12 +108,35 @@ More information:
 - http://www.mathworks.com/help/simulink/ug/creating-a-model-reference.html 
 - http://www.mathworks.com/help/simulink/slref/model.html
 
-### Exporting Model Images
+## Exporting Images
 
+High quality figures brings a great deal of value to a report.
+Simulink Models and Matlab figures can be exported to scalable vector graphics and PDF formats at high quality.
+
+### GhostScript
+
+[GhostScript](http://www.ghostscript.com/) is needed to handle the EPS format. 
+It can be downloaded [here](http://www.ghostscript.com/download/).
+
+### GhostScript and GIMP
+
+GIMP has problems opening EPS files with the default configuration. 
+Follow the instructions [here](http://blog.tjitjing.com/index.php/2013/05/solution-error-open-eps-in-gimp-64-bit-with-ghostscript.html) to fix GhostScript in GIMP
+
+
+### Exporting Figures
+
+[export-fig](http://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig) is a Matlab library which provides functions to output figures to various formats
+
+### Exporting Simulink Models
+ 
 [export Simulink models to publication-quality figures](https://truongnghiem.wordpress.com/2010/07/07/export-simulink-models-to-publication-quality-figures/)
+
 [publication quality graphics in Matlab](https://truongnghiem.wordpress.com/2010/05/28/more-on-publication-quality-graphics-in-matlab/)
+
 [LaPrint](http://www.mathworks.com/matlabcentral/fileexchange/4638-laprint)
-[export-fig](http://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig)
+
+
 [Howto](http://www.mathworks.com/matlabcentral/answers/94951-how-do-i-save-my-simulink-model-as-a-tiff-or-jpeg-image)
 
 ## File Organization
@@ -201,5 +224,3 @@ e.g.
 DynamicWeightCalculationLibrary
 ```
 
-## Export Model Image
-[Exporting images from Simulink](https://truongnghiem.wordpress.com/2010/07/07/export-simulink-models-to-publication-quality-figures/)

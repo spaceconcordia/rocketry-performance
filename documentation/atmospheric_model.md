@@ -1,10 +1,10 @@
-# Atmospheric Model
+## Atmospheric Model
 
 The *International Standard Atmosphere* model is assumed to describe the pressure, temperature, density and viscosity conditions of the surrounding air during launch.
 
 [@cavcarISA]
 
-## Viscosity 
+### Viscosity 
 
 Previously, in-house simulations were conducted using the *velocity_model* created by Alex Botros. Of interest to this report, is the method by which the viscosity of the working fluid was calculated. It will include a review of the previous methods use and it will introduce *Sutherland's law*. As well, both methods will be compared and changes to the existing model will be proposed.
 
