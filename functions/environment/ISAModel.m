@@ -1,5 +1,5 @@
 function outputs = ISAModel(inputs)
-outputs=zeros(5);
+%outputs=zeros(5);
 
 %--------------------------------------------------------------------------
 % Demux inputs

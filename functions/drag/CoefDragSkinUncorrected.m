@@ -7,12 +7,12 @@ L                        = inputs(4);
 
 % TODO verify source, suspect OpenRocket tech doc
 if reynolds_number_actual<1E4
-    C_f=0.0148
+    C_f=0.0148;
 else if reynolds_number_actual <= reynolds_number_critical
-    C_f = 1.328 ./ sqrt(reynolds_number_actual)
+    C_f = 1.328 ./ sqrt(reynolds_number_actual);
 else 
     B = (reynolds_number_critical).*(0.074 / reynolds_number_actual^(1/5) - 1.328 / sqrt(reynolds_number_actual));
-    C_f = (0.074 ./ reynolds_number_actual^(1/5)) - (B ./ reynolds_number_actual)
+    C_f = (0.074 ./ reynolds_number_actual^(1/5)) - (B ./ reynolds_number_actual);
 end
 
 %{

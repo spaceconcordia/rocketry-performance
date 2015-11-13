@@ -5,11 +5,3 @@ ylabel = {'1st Data','2nd Data','3rd Data'};
 linespec = {'b-*','r:+','g'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Graph Title', 'XLabel', 'time');
-
-
-xdata = {tout, tout, tout};
-ydata = {mass, weight, thrust};
-ylabel = {'Mass','Weight','Thrust'};
-linespec = {'b-*','r:+','g'};
-multiplot(xdata, ydata, 'YLabel', ylabel, ...
- 'LineSpec', linespec, 'Title', 'Graph Title', 'XLabel', 'time');

@@ -1,7 +1,7 @@
 %--------------------------------------------------------------------------
 % Import Rocket Design Data
 %--------------------------------------------------------------------------
-data_parametric_model;
+%data_parametric_model;
 
 sim('VerticalFlight_TestModel');
 
@@ -34,3 +34,34 @@ ylabel = {'Local Temperature (K)','Local Pressure (kPa)','Local Density (kg/m^3)
 linespec = {'b','b','b','b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'ISA Model Plot', 'XLabel', 'time');
+
+%--------------------------------------------------------------------------
+% Drag Model Figure
+%--------------------------------------------------------------------------
+%xdata = {tout, tout, tout};
+xdata = {tout, tout};
+%ydata = {drag_force, drag_coefficient, reynolds_number(:,:,:)};
+ydata = {drag_force, drag_coefficient};
+%ylabel = {'Drag Force (N)','Drag Coefficient','Reynolds Number'};
+ylabel = {'Drag Force (N)','Drag Coefficient'};
+%linespec = {'b-*','b:+','b'};
+linespec = {'b-*','b:+'};
+multiplot(xdata, ydata, 'YLabel', ylabel, ...
+ 'LineSpec', linespec, 'Title', 'Drag vs. Time Plot', 'XLabel', 'time');
+
+%--------------------------------------------------------------------------
+% Drag Model Figure
+%--------------------------------------------------------------------------
+%xdata = {velocity, velocity, velocity};
+xdata = {velocity, velocity};
+%ydata = {drag_force, drag_coefficient, reynolds_number(:,:,:)};
+ydata = {drag_force, drag_coefficient};
+ylabel = {'Drag Force (N)','Drag Coefficient'};
+%linespec = {'b-*','b:+','b'};
+linespec = {'b-*','b:+'};
+multiplot(xdata, ydata, 'YLabel', ylabel, ...
+ 'LineSpec', linespec, 'Title', 'Drag vs. Velocity Plot', 'XLabel', 'Velocity (m/s)');
+
+%--------------------------------------------------------------------------
+% TODO write data to output CSV
+%--------------------------------------------------------------------------
