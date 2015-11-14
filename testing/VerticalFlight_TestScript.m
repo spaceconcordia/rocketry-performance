@@ -1,9 +1,9 @@
 %% Import Rocket Design Data
 disp ( 'Updating Parametric Data...' );
-%data_parametric_model;
+data_parametric_model;
 
 disp ( 'Running Simulation...' );
-%sim('VerticalFlight_TestModel');
+sim('VerticalFlight_TestModel');
 
 disp ( 'Plotting output...' );
 
