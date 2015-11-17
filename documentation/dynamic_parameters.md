@@ -233,9 +233,23 @@ The following figure shows the output of the test. The Thrust and Weight curves 
 The *Center of Pressure* (COP) is the location where the aerodynamic forces are said to be acting. 
 A wind tunnel is the best way to approximate this point, but an analytic method is available.
 
+\begin{equation}
+\label{rocket_center_of_pressure}
+\bar{X} = 
+\dfrac
+{ \left( C_{N \alpha} \right)_n \bar{x}_n + \left( C_{N \alpha} \right)_{cs} \bar{x}_{cs} + \left( C_{N \alpha} \right)_{cb} \bar{x}_{cb} + \left( C_{N \alpha} \right)_{fb} \bar{x}_{fb} }
+{ C_{N \alpha}  }
+\end{equation}
+
+[@barrowman, pg.12]
+
+
+
 #### Barrowman's Equations
 
 *Barrowman's Equations* are used to determine the center of pressure. 
+
+
 
 ### Center of Gravity
 

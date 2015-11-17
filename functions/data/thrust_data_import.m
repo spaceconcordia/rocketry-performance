@@ -29,20 +29,27 @@ function thrust_curve = thrust_data_import(csvfilename)
 % http://www.mathworks.com/help/matlab/matlab_external/example-reading-excel-spreadsheet-data.html
 %-------------------------------------------------------------------------------
 
+%% Enable xlsread in Simulink 
 coder.extrinsic('xlsread');
 
-% Import the data from Excel
+%% Import the data from Excel
 % data = xlsread(csvfilename);
-
 % TODO hardcoding is bad
-data = xlsread('monotomic_time_thrust_curve.csv');
+data = xlsread('aurelius_openrocket_simulation.csv');
 
-% TODO Interpolate the data
-% data = scrd_interpolate(data)
+raw_thrust = data(:,29);
+raw_time   = data(:,1);
 
-% instatiate the output container
-thrust_curve = zeros( size(data) );
-double(thrust_curve);
+% you must remember to remove all comment rows from the open rocket data
 
-% store the thrust curve in the workspace
-thrust_curve = data
+simulation_time = 252; % seconds
+timestep        = 0.001; % seconds
+t_new           = linspace(0,simulation_time,simulation_time/timestep);
+t_new           = t_new.';
+
+thrust = interp1(raw_time, raw_thrust, t_new, 'PCHIP'); % PCHIP is cubic spline
+
+thrust_curve(1,:) = t_new.';
+thrust_curve(2,:) = thrust.';
+
+save ('thrust_curve_mclass.mat','-v7.3','thrust_curve');

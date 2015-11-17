@@ -253,16 +253,6 @@ The *Actual Reynolds Number* can be expressed in the following form:
 Re = \dfrac{\vec{v} L}{\mu} 
 \end{equation}
 
-However, the kinematic viscosity can be substituted as a function of the local temperature (in Kelvin)
-
-\begin{equation}
-Re = \dfrac{\vec{v} L}{A\cdot T^3 + B\cdot T^2 + C\cdot T - D} 
-\end{equation}
-
-Where A = $-1 \times 10^{14}$, B = $1 \times 10^{-10}$, C = $3 \times 10^{-8}$, and D = $3 \times 10^-6$.
-
-[@ansysViscosity]
-
 With the critical and actual Reynolds Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
 
 \begin{equation}
