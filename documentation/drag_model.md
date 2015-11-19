@@ -73,39 +73,6 @@ The following velocity regions are established for further discussion.
 As the rocket is constrained not to exceed Mach 0.9, much of the flight will be in the subsonic region, greatly simplifying much of the analysis. 
 However, transonic effects cannot be ignored when at a Mach Number greater than 0.8.
 
-### Compressible Flow Correction
-
-Special considerations apply when compressibility effects are in play. These effects occur above Mach 0.3 **[source?]**, which will be easily exceeded by the transonic target velocity of Mach 0.88 **[source?]**.
-
-> At low speeds (incompressible flow), the aerodynamic coefficients are functions of the angle of attack ($\alpha$) and Reynolds number (Re). 
-
-\begin{equation}
-C_i (M < 0.3) = C_i (\alpha, Re) 
-\end{equation}
-> At higher speeds (compressible, Ma $\ge$ 0.4) they are also a function of Mach number.
-
-\begin{equation}
-C_i (M \ge 0.3) = C_i (\alpha, Re, M)
-\end{equation}
-
-Particular correction factors are recommended for ranges of Mach number
-
-
-| Mach Number         | Correction Factor                           |
-| ---                 | ---                                         |
-| $$ M < 0.3 $$       | N/A                                         |
-| $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-M^2}} $$     |
-| $$ 0.8 < M < 1.1 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
-| $$ M > 1.1 $$       | $$ C^`_i = \dfrac{C_i}{\sqrt{M^2-1}} $$     |
-
-(Prandtl-Glauert compressibility correction) [@box2009, pg.15]
-
-\captionof{table}{Compressible Flow Correction Factors}
-
-Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressibility corrected drag coefficient.
-
-[@box2009]
-
 ### Incompressible Flow
 
 For Mach < 0.3, 
@@ -123,6 +90,34 @@ force and viscous force
 [@box2009, pg.6]
 
 Velocity $\vec{v}$ is the apparent velocity of the center of pressure relative to the surrounding air. 
+
+### Compressible Flow Correction
+
+Special considerations apply when compressibility effects are in play. These effects occur above Mach 0.3 [@box2009], which will be easily exceeded by the transonic upper limit of Mach 0.9 mandated by the competition.
+
+> At low speeds (incompressible flow), the aerodynamic coefficients are functions of the angle of attack ($\alpha$) and Reynolds number (Re). 
+
+\begin{equation}
+C_i (M < 0.3) = C_i (\alpha, Re) 
+\end{equation}
+> At higher speeds (compressible, Ma $\ge$ 0.4) they are also a function of Mach number.
+
+\begin{equation}
+C_i (M \ge 0.3) = C_i (\alpha, Re, M)
+\end{equation}
+
+Particular correction factors are recommended for ranges of Mach number
+
+| Mach Number         | Correction Factor                           |
+| ---                 | ---                                         |
+| $$ M < 0.3 $$       | N/A                                         |
+| $$ 0.3 < M < 0.8 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-M^2}} $$     |
+| $$ 0.8 < M < 1.1 $$ | $$ C^`_i = \dfrac{C_i}{\sqrt{1-(0.8)^2}} $$ |
+| $$ M > 1.1 $$       | $$ C^`_i = \dfrac{C_i}{\sqrt{M^2-1}} $$     |
+
+\captionof{table}{Prandtl-Glauert Compressible Flow Correction Factors}
+
+Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressibility corrected drag coefficient [@box2009, pg.15].
 
 ### Turbulent Effects
 
@@ -182,18 +177,15 @@ Examples include launch guides, ventilation holes, surface roughness, and any da
 C_{pa}, D_{pa} (A_{ref}, M) 
 \end{equation}
 
-\begin{equation}
-C_{pa} = MAX \left( 1.3 - \dfrac{0.3(L-h_n)}{OD}, 1 \right) C_{stag}
-\end{equation}
-
 Where $C_{stag}$ is the *Stagnation Drag Coefficient* [see equation from fin pressure drag section]
-
 
 ##### Parasitic Drag Coefficient
 
 \begin{equation}
 C_{pa} = \left( 1.3 - 0.3 \dfrac{(L-h_n)}{OD} \right)_{max} \cdot C_{stagnation} 
 \end{equation}
+
+[@botros]
 
 Where *L* is the rocket length, $h_n$ is the height of the nose code, *OD* is the outer diameter of the rocket, and $C_{stagnation}$ is the stagnation coefficient.
 
@@ -333,11 +325,11 @@ Re_{crit} = 51 \left( \dfrac{R_a}{L} \right) ^{-1.039}
 
 #### Fin Pressure Drag
 
+The *Fin Pressure Drag* depends on the fin profile. The current rocket will use a square (rectangular) profile, and can be determined as follows.
+
 \begin{equation}
 C_{fp}, D_{fp} (A_{ref}, M) 
 \end{equation}
-
-The *Fin Pressure Drag* depends on the fin profile. The current rocket will use a square (rectangular) profile, and can be determined as follows.
 
 \begin{equation}
     C_{D,LE} = C_{D,stag} = 0.85 \dfrac{q_{stag}}{q}
@@ -371,11 +363,10 @@ For perpendicular orientation of the fin edges to air flow
 
 > At transonic speed, shock waves form at the nose tip and at the leading edge of the fins ... Momentum is transferred from the rocket to the surrounding air via these shockwaves  
 
-#### Boat-Tail Drag
-
-*Boat-Tail Drag* occurs due to ... 
-
 #### Von Karman Nose Pressure Drag
+
+Most nose cone shapes can be approximated to produce zero pressure drag at subsonic velocities, however complications arise for transonic and supersonic velocities.
+A semi-empirical method can be employed in the latter conditions.
 
 > The curves of the pressure drag coefficient as a function of the nose fineness
 ratio f N can be closely fitted with a function of the form
@@ -386,12 +377,9 @@ C_{d_pressure} = \dfrac{a}{(f_N + 1)^b}
 
 Where *a* and *b* are calculated from two data points corresponding to fineness ratios 0 and 3
 
-(C D• ) pressure =
-a
-(f N + 1) b
-. 
+[@source?]
 
-Subsonic pressure drag of nose cones is calculated as follows:
+In subsonic and transonic regions, pressure drag of nose cones is calculated as follows:
 
 \begin{equation}
 \begin{cases}
@@ -399,6 +387,22 @@ Subsonic pressure drag of nose cones is calculated as follows:
     a \cdot M^b + 0.8 \cdot \sin^2 \phi & M \approx 0.8
 \end{cases}
 \end{equation}
+
+Where *a* and *b* are computed by interpolation to fit the drag coefficient and the derivative of the drag coefficient at the lower bound of the transonic region. 
+
+The cause of this drag is slight flow separation, and as such cannot be corrected due to compressibility effects.
+
+[@niskanen2013, pg.47]
+
+#### Shoulder Pressure Drag
+
+The drag coefficient of the shoulder interfacing the body tube is assumed to be equal to that of the body tube itself, and also assumes a smooth interface.
+This is likely to be sufficient for subsonic velocites [@niskanen2013, pg.48], and for the scope of this project it is neglected entirely.
+
+#### Boat-Tail Drag
+
+A *boat-tail* is a reduction in diameter of the body tube towards the base of the rocket. 
+Our rocket does not have a boat-tail, thus *Boat-Tail Drag* considerations are ignored. 
 
 ### Matlab Implementation
 

@@ -1,6 +1,6 @@
 %% Plot Rocket Drag Coefficients
 figure;
-plot( tout , coef_drag_base_normalized         , 'p' );
+plot( tout , coef_drag_base_normalized         , 'y' );
 hold on;
 plot( tout , coef_drag_fin_pressure_normalized , 'b' );
 plot( tout , coef_drag_parasitic               , 'g' );
