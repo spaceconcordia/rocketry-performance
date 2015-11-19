@@ -18,6 +18,7 @@
 | $R_a$            | Surface Finish                         | $$ distance $$           | microns                                         |
 | M                | Mach Number                            | $$ \vec{v}, c $$         | dimensionless                                   |
 | $D_{pa}, C_{pa}$ | Parasitic Drag Force, Coefficient      |                          |                                                 |
+| $D_{fb}, C_{fb}$ | Body Drag Force, Coefficient           |                          |                                                 |
 | $D_{fo}, C_{fo}$ | Form Drag Force, Coefficient           |                          |                                                 |
 | $D_{fp}, C_{fp}$ | Fin Pressure Drag Force, Coefficient   |                          |                                                 |
 | $D_{pr}, C_{pr}$ | Profile Drag Force, Coefficient        |                          |                                                 |

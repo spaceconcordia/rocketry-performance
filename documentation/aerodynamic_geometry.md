@@ -51,7 +51,7 @@ The *Frontal Reference Area* is the projected area of the rocket perpendicular t
 
 A *Von Karman* nose profile has been selected by the design team, other profiles will not be supported in the initial version of the model.
 The *Von Karman* nose profile is a *Haack Series* geometry, designed to minimize theoretical pressure drag [niskanen2013]. 
-This profile excels in subsonic flow conditions, and performs well in transonic flow conditions - as such is it well suited for the current mission [nassaNoseCone].
+This profile excels in subsonic flow conditions, and performs well in transonic flow conditions [nassaNoseCone] - as such is it well suited for the current mission.
 
 The equation for the *Haack Series* is 
 \begin{equation}

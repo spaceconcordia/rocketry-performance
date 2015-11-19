@@ -160,6 +160,19 @@ From Fluid Mechanics [source?]
 D_f = \dfrac{1}{2} C_d A_{ref} \rho \vec{v}^2  
 \end{equation}
 
+#### Body Drag 
+
+*Body Drag* is the drag on the rocket forebody (pressure drag?)
+
+\begin{equation}
+\label{body_drag_coefficient}
+C_{fb} = \left[ 1 + \dfrac{60}{(l_{TR}/d_b)^3} + 0.0025 \dfrac{l_b}{d_b} \right] \left[ 2.7 \dfrac{l_n}{d_b} + 4 \dfrac{l_b}{d_b} 2 \left( 1 - \dfrac{d_d}{d_b} \right) \dfrac{l_c}{d_b} \right] \cdot C_{f(fb)}
+\end{equation}
+
+Where $l_{TR}$ is the total length of the rocket body, $l_c$ is the length of the boat tail, $d_b$ is
+the maximum body diameter and $d_d$ is the diameter of the rocket base. C f(fb) is the coefficient
+of viscous friction on the rocket forebody (defined later in (45))
+
 #### Parasitic Drag
 
 Parasitic drag is the drag due to body features not explicitly designed and/or imperfections not easily approximated. 
@@ -239,7 +252,6 @@ C_{sk}, (A_{wet}, M, \dfrac{\epsilon}{l} )
 
 $\dfrac{\epsilon}{l}$ is the relative roughness of the surface 
 
-
 ##### Critical Reynolds Number
 
 The *Critical Reynolds Number* ($Re_{crit}$) is the value of *Reynolds Number* where the flow changes from laminar to turbulent. This is greatly dependent on the surface roughness [munson2013]. 
@@ -256,17 +268,20 @@ Re = \dfrac{\vec{v} L}{\mu}
 With the critical and actual Reynolds Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
 
 \begin{equation}
+\label{eq_skin_drag_coefficient_uncorrected}
 C_{sk_{uncorrected}} = 
 \begin{cases}
-    0.0148                                & Re < 10^4 \\
-    \dfrac{1}{(1.5 ln Re - 5.6)^2}        & 10^4 < Re < Re_{crit} \\
-    0.032 \left( \dfrac{R_a}{L} \right)^2 & Re > Re_{crit}
+    0.0148                                    & Re < 10^4 \\
+    \dfrac{1}{(1.5 ln Re - 5.6)^2}            & 10^4 < Re < Re_{crit} \\
+    0.032 \left( \dfrac{R_a}{L} \right)^{0.2} & Re > Re_{crit}
 \end{cases}
 \end{equation}
 
-[botros]
+[@niskanen2013]
 
-Two other sources describe the cases for Skin Friction Drag Coefficient as follows:
+Two other sources describe the cases for Skin Friction Drag Coefficient differently.
+
+
 \begin{equation}
 C_{sk_{uncorrected}} = 
 \begin{cases}
@@ -275,14 +290,28 @@ C_{sk_{uncorrected}} =
 \end{cases}
 \end{equation}
 
-[box2009] 
 
-[mandell1973] 
+[@box2009] and [@mandell1973] agree on the above.
+
 
 The *Skin Drag Coefficient Corrected for Compressibility* is:
 
 \begin{equation}
 C_{f_c} = C_f (1-0.1 M^2) [if C_{f_c} > C_f]
+\end{equation}
+
+[@botros]
+
+Conversely, Niskanen evaluates the corrected skin drag coefficient as follows
+
+\begin{equation}
+\label{eq_skin_drag_coefficient_corrected}
+C_{sk_{corrected}} = 
+\begin{cases}
+    C_{sk_{uncorrected}} (1- 0.1 M^2)                 & Subsonic \\
+    C_{sk_{uncorrected}} ( (1+0.15 M^2)^{0.58} )^{-1} & Supersonic \\
+    C_{sk_{uncorrected}} ( 1 + 0.18 M^2 )^{-1}        & Roughness Limited
+\end{cases}
 \end{equation}
 
 Finally, the *Normalized and Corrected Skin Friction Drag Coefficient* is:
@@ -291,14 +320,16 @@ Finally, the *Normalized and Corrected Skin Friction Drag Coefficient* is:
 C_{sk} = \dfrac{ C_{sk,c} \left[ \left( 1+ \dfrac{1}{2 f_B} \right) \cdot A_{wb} + \left( 1 + \dfrac{2t_f}{L_{cf}}\cdot \right) A_{wf} \right] }{A_{ref}}
 \end{equation}
 
-Where $f_b$ is the *Fineness Ratio*, the ratio of the length of the rocket divided by the outer diameter. 
+Where $f_b$ is the *Fineness Ratio*, the ratio of the length of the rocket divided by the outer diameter. $L_{cf}$ is the aerodynamic chord length of the fins, and $t_f$ is the thickness of the fins
 
-[botros]
+[@botros]
+
+[@niskanen2013, pg.45]
 
 \begin{equation}
+\label{eq_reynolds_critical}
 Re_{crit} = 51 \left( \dfrac{R_a}{L} \right) ^{-1.039} 
 \end{equation}
-
 
 #### Fin Pressure Drag
 
@@ -344,14 +375,6 @@ For perpendicular orientation of the fin edges to air flow
 
 *Boat-Tail Drag* occurs due to ... 
 
-### Matlab Implementation
-
-[rocket_drag_model_overview]: images/rocket_drag_model_overview.png "Rocket Drag Model Overview" 
-![Rocket Drag Model Overview \label{rocket_drag_model_overview_label}][rocket_drag_model_overview] 
-
-[rocket_drag_model]: images/rocket_drag_model.png "Rocket Drag Model" 
-![Rocket Drag Model \label{rocket_drag_model_label}][rocket_drag_model] 
-
 #### Von Karman Nose Pressure Drag
 
 > The curves of the pressure drag coefficient as a function of the nose fineness
@@ -376,3 +399,13 @@ Subsonic pressure drag of nose cones is calculated as follows:
     a \cdot M^b + 0.8 \cdot \sin^2 \phi & M \approx 0.8
 \end{cases}
 \end{equation}
+
+### Matlab Implementation
+
+Figure \ref{rocket_drag_coefficients_label} below shows the *Simulink* implementation of the calculation of drag coefficient
+
+[rocket_drag_model]: images/rocket_drag_coefficient.png "Rocket Drag Model" 
+![Rocket Drag Model \label{rocket_drag_coefficients_label}][rocket_drag_model] 
+
+\clearpage
+
