@@ -33,7 +33,7 @@ The *Ideal Gas Law* states that
 P = \rho R T
 \end{equation}
 
-We can simplify our lives by assuming the *Ideal Gas Law* applies, and use it to solve for *RT* 
+We can simplify our lives by assuming the *Ideal Gas Law* applies, and use it to solve for *RT* using pressure and density. 
 $$ RT = \dfrac{P}{\rho} $$
 
 Thus we can calculate the speed of sound as follows
@@ -219,15 +219,46 @@ C_{in}, D_{in} (A_{ref}, M)
 
 #### Base Drag
 
-Base drag is experienced behind the aft section of the rocket cause by boundary separation between the flow past the rocket and the surrounding air. This results in a low pressure region which has an effect analogous to *pulling* the rocket against its direction of flight.
+Base drag is caused by a low pressure region generated behind the base of the rocket as it moves quickly through the atmosphere [@niskanen2013, pg.50].
+Specifically, it is due to boundary separation between the flow past the rocket and the surrounding air [@box2009, pg.12]. 
+This low pressure region has an effect analogous to *pulling* the rocket against its direction of flight.
 
 \begin{equation}
 C_{ba}, D_{ba} ((A_{ref}, M)) 
 \end{equation}
 
+\begin{equation}
+\label{eq_base_drag_coefficient}
+C_{ba} = 
+\begin{cases}
+0.12+0.13 M^2   & M < 1 \\
+\dfrac{0.25}{M} & M > 1
+\end{cases}
+\end{equation}
+
+[@niskanen, pg.50]
+
+In reality, this low pressure region is disturbed by the thrust envelope from the motor. 
+Thus, we would expect base drag to be different during the motor burn time than during the free flight after all fuel was exhausted.
+Considering the thrust envelope is at this moment beyond the scope of the project.
+Instead, an accepted approximation is to subtract the area of the motor from the area of the base when calculating drag force [@niskanen2013, pg.50].
+
+\begin{equation}
+\label{eq_base_drag_force}
+D_{ba} = \dfrac{1}{2} C_{ba} \rho (A_{tube,base} - A_{motor,base}) \vec{v}^2 
+\end{equation}
+
+We can normalize the base drag coefficient to take this into account.
+
+\begin{equation}
+\label{eq_base_drag_coefficient_normalized}
+C_{ba,normalized} =
+C_{ba} * A_{tube,base}/A_{motor,base}
+\end{equation}
+
 #### Skin Friction Drag
 
-Skin Friction Drag is a result of surface roughness. It is a component effect of parasitic drag.
+Skin Friction Drag is due to viscous effects during flight, and is significantly influenced by surface roughness.
 
 \begin{equation}
 \label{friction_drag_force}
@@ -331,6 +362,8 @@ The *Fin Pressure Drag* depends on the fin profile. The current rocket will use 
 C_{fp}, D_{fp} (A_{ref}, M) 
 \end{equation}
 
+##### Leading Edge pressure drag
+
 \begin{equation}
     C_{D,LE} = C_{D,stag} = 0.85 \dfrac{q_{stag}}{q}
 \end{equation}
@@ -369,7 +402,7 @@ Most nose cone shapes can be approximated to produce zero pressure drag at subso
 A semi-empirical method can be employed in the latter conditions.
 
 > The curves of the pressure drag coefficient as a function of the nose fineness
-ratio f N can be closely fitted with a function of the form
+ratio $f_N$ can be closely fitted with a function of the form
 
 \begin{equation}
 C_{d_pressure} = \dfrac{a}{(f_N + 1)^b}
