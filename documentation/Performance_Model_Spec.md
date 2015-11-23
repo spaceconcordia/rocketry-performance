@@ -28,6 +28,7 @@ These dynamic parameters must be considered to maximize the accuracy of the mode
 - fully aligned thrust [@box2009, pg.16]
 - smooth transition between nose cone and body tube (no shoulder)
 - rocket does not have a boattail
+- rocket has a single rectangular launch lug
 
 ## Requirements
 The Performance Model must provide the maximum altitude and velocity of the rocket in subsonic flight under a known thrust curve and known dimensional parameters. Assumptions considered legitimate based on prior research for similar rockets may be applied

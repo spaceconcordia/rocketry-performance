@@ -2,7 +2,7 @@
 xdata = {mach_number, mach_number};
 ydata = {drag_force, drag_coefficient};
 ylabel = {'Drag Force (N)','Drag Coefficient'};
-linespec = {'b-*','b:+'};
+linespec = {'b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Drag vs. Mach Number Plot', 'XLabel', 'Mach Number');
 

@@ -121,21 +121,17 @@ Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressib
 
 ### Turbulent Effects
 
-My sources disgree on turbulent effects for skin friction drag.
-
-> If the boundary layer at the rocket's surface is turbulent then the viscous forces will be significantly less that if it is laminar, hence the viscous force is highly dependant on Reynolds number.
-
-[@box2009, pg.6]
-
 > A turbulent boundary layer induces a notably larger skin friction drag than a laminar boundary layer
 
 [@niskanen2013, pg.42]
 
-Niskanen and other sources disagree. See the following links
+### Stagnation Pressure
+
+
 
 ### Drag Force and Coefficients
 
-The total drag force is a function of air velocity (relative to the rocket body, therefore ideally the velocity of the rocket in quiescent air conditions), drag coefficient, reference area, and air density.
+The total drag force is a function of air velocity (relative to the rocket body) drag coefficient, reference area, and air density.
 
 \begin{equation} 
 D_f = D_f (\vec{v}, C_d, A_{ref}, \rho) 
@@ -146,8 +142,6 @@ The drag coefficient $C_d$ is the sum of all component drag coefficients
 \begin{equation} 
 C_d = \sum C_i = C_{pa} + C_{fo} + C_{pr} + C_{in} + C_{ba} + C_{sk} + C_{fp} + C_{wa} + C_{bt} 
 \end{equation}
-
-The *reference area* is the projected area of the body flowing through air, perpendicular to the direction of flow. [source?]
  
 From Fluid Mechanics [source?]
 
@@ -155,108 +149,9 @@ From Fluid Mechanics [source?]
 D_f = \dfrac{1}{2} C_d A_{ref} \rho \vec{v}^2  
 \end{equation}
 
-#### Body Drag 
+#### Viscous Drag Effects
 
-*Body Drag* is the drag on the rocket forebody (pressure drag?)
-
-\begin{equation}
-\label{body_drag_coefficient}
-C_{fb} = \left[ 1 + \dfrac{60}{(l_{TR}/d_b)^3} + 0.0025 \dfrac{l_b}{d_b} \right] \left[ 2.7 \dfrac{l_n}{d_b} + 4 \dfrac{l_b}{d_b} 2 \left( 1 - \dfrac{d_d}{d_b} \right) \dfrac{l_c}{d_b} \right] \cdot C_{f(fb)}
-\end{equation}
-
-Where $l_{TR}$ is the total length of the rocket body, $l_c$ is the length of the boat tail, $d_b$ is
-the maximum body diameter and $d_d$ is the diameter of the rocket base. C f(fb) is the coefficient
-of viscous friction on the rocket forebody (defined later in (45))
-
-#### Parasitic Drag
-
-Parasitic drag is the drag due to body features not explicitly designed and/or imperfections not easily approximated. 
-Examples include launch guides, ventilation holes, surface roughness, and any damage during flight. 
-
-\begin{equation}
-C_{pa}, D_{pa} (A_{ref}, M) 
-\end{equation}
-
-Where $C_{stag}$ is the *Stagnation Drag Coefficient* [see equation from fin pressure drag section]
-
-##### Parasitic Drag Coefficient
-
-\begin{equation}
-C_{pa} = \left( 1.3 - 0.3 \dfrac{(L-h_n)}{OD} \right)_{max} \cdot C_{stagnation} 
-\end{equation}
-
-[@botros]
-
-Where *L* is the rocket length, $h_n$ is the height of the nose code, *OD* is the outer diameter of the rocket, and $C_{stagnation}$ is the stagnation coefficient.
-
-##### Parasitic Drag Coefficient - Normalized
-
-\begin{equation}
-C_{pa_{norm}} = C_{pa} \cdot \left( \pi \cdot (r_{ext}^2 - r_{int}^2) \cdot \left[ 1 - \left( \dfrac{L-h}{OD} \right), 0 \right]_{max} \right) 
-\end{equation}
-
-#### Form Drag
-
-\begin{equation} 
-C_{fo}, D_{fo} (A_{ref}, M) 
-\end{equation}
-
-#### Profile (Pressure) Drag
-
-This is the drag caused by the pressure imbalance as an object moves through a free stream in the opposite direction to its motion.
-
-[Pressure drag vs base drag?]
-
-\begin{equation} 
-C_{pr}, D_{pr} (A_{ref}, M) 
-\end{equation}
-
-#### Interference Drag
-
-\begin{equation} 
-C_{in}, D_{in} (A_{ref}, M) 
-\end{equation}
-
-#### Base Drag
-
-Base drag is caused by a low pressure region generated behind the base of the rocket as it moves quickly through the atmosphere [@niskanen2013, pg.50].
-Specifically, it is due to boundary separation between the flow past the rocket and the surrounding air [@box2009, pg.12]. 
-This low pressure region has an effect analogous to *pulling* the rocket against its direction of flight.
-
-\begin{equation}
-C_{ba}, D_{ba} ((A_{ref}, M)) 
-\end{equation}
-
-\begin{equation}
-\label{eq_base_drag_coefficient}
-C_{ba} = 
-\begin{cases}
-0.12+0.13 M^2   & M < 1 \\
-\dfrac{0.25}{M} & M > 1
-\end{cases}
-\end{equation}
-
-[@niskanen, pg.50]
-
-In reality, this low pressure region is disturbed by the thrust envelope from the motor. 
-Thus, we would expect base drag to be different during the motor burn time than during the free flight after all fuel was exhausted.
-Considering the thrust envelope is at this moment beyond the scope of the project.
-Instead, an accepted approximation is to subtract the area of the motor from the area of the base when calculating drag force [@niskanen2013, pg.50].
-
-\begin{equation}
-\label{eq_base_drag_force}
-D_{ba} = \dfrac{1}{2} C_{ba} \rho (A_{tube,base} - A_{motor,base}) \vec{v}^2 
-\end{equation}
-
-We can normalize the base drag coefficient to take this into account.
-
-\begin{equation}
-\label{eq_base_drag_coefficient_normalized}
-C_{ba,normalized} =
-C_{ba} * A_{tube,base}/A_{motor,base}
-\end{equation}
-
-#### Skin Friction Drag
+##### Skin Friction Drag
 
 Skin Friction Drag is due to viscous effects during flight, and is significantly influenced by surface roughness.
 
@@ -313,9 +208,7 @@ C_{sk_{uncorrected}} =
 \end{cases}
 \end{equation}
 
-
 [@box2009] and [@mandell1973] agree on the above.
-
 
 The *Skin Drag Coefficient Corrected for Compressibility* is:
 
@@ -345,8 +238,6 @@ C_{sk} = \dfrac{ C_{sk,c} \left[ \left( 1+ \dfrac{1}{2 f_B} \right) \cdot A_{wb}
 
 Where $f_b$ is the *Fineness Ratio*, the ratio of the length of the rocket divided by the outer diameter. $L_{cf}$ is the aerodynamic chord length of the fins, and $t_f$ is the thickness of the fins
 
-[@botros]
-
 [@niskanen2013, pg.45]
 
 \begin{equation}
@@ -354,7 +245,28 @@ Where $f_b$ is the *Fineness Ratio*, the ratio of the length of the rocket divid
 Re_{crit} = 51 \left( \dfrac{R_a}{L} \right) ^{-1.039} 
 \end{equation}
 
-#### Fin Pressure Drag
+#### Pressure (Form/Profile) Drag
+
+This is the drag caused by the pressure exerted on the surface of an object as it moves through a free stream [@munson2013, pg.514].
+
+\begin{equation} 
+C_{pr}, D_{pr} (A_{ref}, M) 
+\end{equation}
+
+##### Body Drag 
+
+*Body Drag* is the drag on the rocket forebody (pressure drag?)
+
+\begin{equation}
+\label{body_drag_coefficient}
+C_{fb} = \left[ 1 + \dfrac{60}{(l_{TR}/d_b)^3} + 0.0025 \dfrac{l_b}{d_b} \right] \left[ 2.7 \dfrac{l_n}{d_b} + 4 \dfrac{l_b}{d_b} 2 \left( 1 - \dfrac{d_d}{d_b} \right) \dfrac{l_c}{d_b} \right] \cdot C_{f(fb)}
+\end{equation}
+
+Where $l_{TR}$ is the total length of the rocket body, $l_c$ is the length of the boat tail, $d_b$ is
+the maximum body diameter and $d_d$ is the diameter of the rocket base. C f(fb) is the coefficient
+of viscous friction on the rocket forebody (defined later in (45))
+
+##### Fin Pressure Drag
 
 The *Fin Pressure Drag* depends on the fin profile. The current rocket will use a square (rectangular) profile, and can be determined as follows.
 
@@ -362,7 +274,7 @@ The *Fin Pressure Drag* depends on the fin profile. The current rocket will use 
 C_{fp}, D_{fp} (A_{ref}, M) 
 \end{equation}
 
-##### Leading Edge pressure drag
+###### Leading Edge pressure drag
 
 \begin{equation}
     C_{D,LE} = C_{D,stag} = 0.85 \dfrac{q_{stag}}{q}
@@ -390,13 +302,7 @@ For perpendicular orientation of the fin edges to air flow
 
 [source]
 
-#### Wave Drag
-
-*Wave drag* is drag associated with shock waves (independent of viscous effects). 
-
-> At transonic speed, shock waves form at the nose tip and at the leading edge of the fins ... Momentum is transferred from the rocket to the surrounding air via these shockwaves  
-
-#### Von Karman Nose Pressure Drag
+##### Von Karman Nose Pressure Drag
 
 Most nose cone shapes can be approximated to produce zero pressure drag at subsonic velocities, however complications arise for transonic and supersonic velocities.
 A semi-empirical method can be employed in the latter conditions.
@@ -427,22 +333,133 @@ The cause of this drag is slight flow separation, and as such cannot be correcte
 
 [@niskanen2013, pg.47]
 
-#### Shoulder Pressure Drag
+##### Base Drag
+
+Base drag is caused by a low pressure region generated behind the base of the rocket as it moves quickly through the atmosphere [@niskanen2013, pg.50].
+Specifically, it is due to boundary separation between the flow past the rocket and the surrounding air [@box2009, pg.12]. 
+The flowing air attempts to make a sharp turn around the sudden geometry change at the base end of the rocket, however, viscous effects resist this change in direction.
+As a result, pressure cannot be equalized in the space directly behind the rocket and a low-pressure (vacuum) region forms [@gregorek, pg.13].
+This low-pressure region has an effect analogous to *pulling* the rocket against its direction of flight.
+
+\begin{equation}
+C_{ba}, D_{ba} ((A_{ref}, M)) 
+\end{equation}
+
+\begin{equation}
+\label{eq_base_drag_coefficient}
+C_{ba} = 
+\begin{cases}
+0.12+0.13 M^2   & M < 1 \\
+\dfrac{0.25}{M} & M > 1
+\end{cases}
+\end{equation}
+
+[@niskanen, pg.50]
+
+In reality, this low pressure region is disturbed by the thrust envelope from the motor. 
+Thus, we would expect base drag to be different during the motor burn time than during the free flight after all fuel was exhausted.
+Considering the thrust envelope is at this moment beyond the scope of the project.
+Instead, an accepted approximation is to subtract the area of the motor from the area of the base when calculating drag force [@niskanen2013, pg.50].
+
+\begin{equation}
+\label{eq_base_drag_force}
+D_{ba} = \dfrac{1}{2} C_{ba} \rho (A_{tube,base} - A_{motor,base}) \vec{v}^2 
+\end{equation}
+
+We can normalize the base drag coefficient to take this into account.
+
+\begin{equation}
+\label{eq_base_drag_coefficient_normalized}
+C_{ba,normalized} =
+C_{ba} * A_{tube,base}/A_{motor,base}
+\end{equation}
+
+##### Shoulder Pressure Drag
 
 The drag coefficient of the shoulder interfacing the body tube is assumed to be equal to that of the body tube itself, and also assumes a smooth interface.
 This is likely to be sufficient for subsonic velocites [@niskanen2013, pg.48], and for the scope of this project it is neglected entirely.
+
+##### Parasitic Drag
+
+Parasitic drag is the drag due to body features not explicitly designed and/or imperfections not easily approximated. 
+Examples include launch guides, ventilation holes, surface roughness, and any damage during flight. 
+
+\begin{equation}
+C_{pa}, D_{pa} (A_{ref}, M) 
+\end{equation}
+
+Where $C_{stag}$ is the *Stagnation Drag Coefficient* [see equation from fin pressure drag section]
+
+We consider the most significant source of *Parasitic Drag* to be the launch lug. 
+If there is no significant airflow through the launch lug, we can approximate it as a cylinder next to the rocket body. 
+*Niskanen* states that a launch lug with a length at least two times its width has a drag coefficient of 0.74, with its reference area being the frontal area.
+Stagnation pressure proportionally influences the drag coefficient [@niskanen2013, pg.52].
+
+The following equation relates the launch lug diameter $\phi_{lug}$ to the launch lug tube length $l_{lug}$.
+
+\begin{equation}
+C_{pa} = \left( 1.3 - 0.3 \dfrac{l_{lug}}{\phi_{lug}} , 1 \right)_{max} \cdot C_{stagnation} 
+\end{equation}
+
+Where *L* is the rocket length, $h_n$ is the height of the nose cone, *OD* is the outer diameter of the rocket, and $C_{stagnation}$ is the stagnation coefficient [@niskanen2013, pg.52].
+
+The reference area of the launch lug is given as follows
+
+\begin{equation}
+\label{eq_area_reference_launch_lug}
+\pi \cdot (r_{ext,lug}^2 - r_{int,lug}^2) \cdot 
+\left[ 1 - \left( \dfrac{l_{lug}}{\phi_{lug}} \right) \right]_{+ve} 
+\end{equation}
+
+The *Parasitic Drag Coefficient* can be normalized to the reference area of the launch lug.
+
+\begin{equation}
+\label{eq_coef_drag_parasitic_normalized}
+C_{pa_{norm}} = 
+C_{pa} \cdot 
+\left( 
+\pi \cdot (r_{ext}^2 - r_{int}^2) \cdot 
+\left[ 1 - \left( \dfrac{L-h}{OD} \right)  \right]_{+ve} 
+\right) 
+\end{equation}
+
+[@niskanen2013, pg.52]
+
+[img_coef_drag_parasitic]: images/drag/coef_drag_parasitic.png "" 
+![Matlab Implementation of Parasitic Drag Coefficient\label{img_coef_drag_parasitic_label}][img_coef_drag_parasitic] 
+
+##### Interference Drag
+
+\begin{equation} 
+C_{in}, D_{in} (A_{ref}, M) 
+\end{equation}
+
+#### Wave Drag
+
+*Wave drag* is drag associated with shock waves (independent of viscous effects). 
+
+> At transonic speed, shock waves form at the nose tip and at the leading edge of the fins ... Momentum is transferred from the rocket to the surrounding air via these shockwaves  
 
 #### Boat-Tail Drag
 
 A *boat-tail* is a reduction in diameter of the body tube towards the base of the rocket. 
 Our rocket does not have a boat-tail, thus *Boat-Tail Drag* considerations are ignored. 
 
+\clearpage 
+
 ### Matlab Implementation
+
+Figure \ref{rocket_drag_model_label} below shows the *Simulink* implementation of the calculation of the drag model
+
+[rocket_drag_model]: images/rocket_drag_model.png "Rocket Drag Model" 
+![Rocket Drag Model\label{rocket_drag_model_label}][rocket_drag_model] 
+
+\clearpage
 
 Figure \ref{rocket_drag_coefficients_label} below shows the *Simulink* implementation of the calculation of drag coefficient
 
-[rocket_drag_model]: images/rocket_drag_coefficient.png "Rocket Drag Model" 
-![Rocket Drag Model \label{rocket_drag_coefficients_label}][rocket_drag_model] 
+[rocket_coef_drag_model]: images/rocket_drag_coefficient.png "Rocket Drag Model" 
+![Rocket Drag Coefficient Model \label{rocket_drag_coefficients_label}][rocket_coef_drag_model] 
 
 \clearpage
 

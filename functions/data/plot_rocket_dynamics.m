@@ -2,7 +2,7 @@
 xdata = {tout, tout, tout};
 ydata = {mass, weight, thrust};
 ylabel = {'Mass (kg)','Weight (N)','Thrust (N)'};
-linespec = {'b-*','b:+','b'};
+linespec = {'b','b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Dynamics Plot', 'XLabel', 'time');
 

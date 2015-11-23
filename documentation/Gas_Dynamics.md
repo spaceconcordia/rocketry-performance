@@ -283,16 +283,16 @@ $M_2 = \dfrac { M_{n2} } { sin ( \beta + \theta ) }$
 - isentropic expansion
 - not a shock process
 
-| Parameter             | Description               |
-| ---                   | ---                       |
-| $$ \delta \nu $$      | Expansion Angle           |
-| $$ \mu $$             | Shock angle               |
-| $$ \vec{v}_t $$       | Shock velocity            |
+| Parameter    | Description     |
+| ---          | ---             |
+| $\delta \nu$ | Expansion Angle |
+| $\mu$      | Shock angle     |
+| $\vec{v}_t$  | Shock velocity  |
 
-| Expression                                                        | Description                   |
-| $$ \dfrac{ \Delta \vec{v} }{ \vec{v} } = \tan ( \mu ) d \nu $$    |                               |
-| $$ \Delta \mu = \d \nu + \mu_1 - \mu_2 $$                         | Fan angle                     |
-| $$ M_1 = \dfrac{1}{\mu_1} $$                                      | Mach related to wave angle    |
+| Expression                                                 | Description                |
+| $\dfrac{ \Delta \vec{v} }{ \vec{v} } = \tan ( \mu ) d \nu$ |                            |
+| $\Delta \mu = \Delta \nu + \mu_1 - \mu_2$                      | Fan angle                  |
+| $M_1 = \dfrac{1}{\mu_1}$                                   | Mach related to wave angle |
 
 
 $$ \vec{v}_{2n} > \vec{v}_{1n} $$ 

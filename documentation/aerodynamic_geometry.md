@@ -32,7 +32,6 @@ Related to area, the specific parameters of interest on the rocket are the follo
 - Width of Fins
 - Surface Area of Nose
 
-
 #### Wetted Body Area
 
 The *Wetted Body Area* is the combined area of all surfaces in contact with moving air. 
@@ -44,6 +43,8 @@ The *Wetted Body Area* is the combined area of all surfaces in contact with movi
 The *Frontal Reference Area* is the projected area of the rocket perpendicular to the direction of air flow. For perfectly vertical flight and quiescent air conditions, this is the precise projection of the tip face of the rocket.
 
 [TODO show figure]
+
+#### Planform Area
 
 ## Nose Profile
 

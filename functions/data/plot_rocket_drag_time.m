@@ -6,7 +6,7 @@ ydata = {drag_force, drag_coefficient};
 %ylabel = {'Drag Force (N)','Drag Coefficient','Reynolds Number'};
 ylabel = {'Drag Force (N)','Drag Coefficient'};
 %linespec = {'b-*','b:+','b'};
-linespec = {'b-*','b:+'};
+linespec = {'b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Drag vs. Time Plot', 'XLabel', 'time');
 

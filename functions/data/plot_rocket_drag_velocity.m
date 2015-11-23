@@ -5,7 +5,7 @@ xdata = {velocity, velocity};
 ydata = {drag_force, drag_coefficient};
 ylabel = {'Drag Force (N)','Drag Coefficient'};
 %linespec = {'b-*','b:+','b'};
-linespec = {'b-*','b:+'};
+linespec = {'b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Drag vs. Velocity Plot', 'XLabel', 'Velocity (m/s)');
 if saveplots % conditionally save the plot
