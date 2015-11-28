@@ -127,6 +127,28 @@ Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressib
 
 ### Stagnation Pressure
 
+*Stagnation Pressure* is the pressure on the normal surfaces to airflow. 
+
+For a cylindrical rocket, it can be approximated as follows [@niskanen2013, pg.108] 
+
+\begin{equation}
+\label{eq_stagnation_pressure_blunt_cylinder}
+\dfrac{q_{stag}}{q} =  
+\begin{cases}
+    1 + \dfrac{M^2}{4} + \dfrac{M^4}{40}                                    & M < 1 \\
+    1.84 - \dfrac{0.76}{M^2} + \dfrac{0.166}{M^4} + \dfrac{0.035}{M^6}      & M > 1
+\end{cases}
+\end{equation}
+
+Where $q_{stag}$ is 
+and $q$ is 
+
+Then, the *Pressure Drag Coefficient* can be expressed as a function of *Mach Number*
+
+\begin{equation}
+\label{eq_pressure_drag_coefficient}
+C_{pr} = 0.85 \dfrac{q_{stag}}{q}
+\end{equation}
 
 
 ### Drag Force and Coefficients
@@ -290,17 +312,16 @@ C_{base} =
 \end{cases}
 \end{equation}
 
-For perpendicular orientation of the fin edges to air flow 
+For perpendicular orientation of the fin edges to air flow, the stagnation pressure defined in Equation \ref{eq_stagnation_pressure_blunk_cylinder} is used. 
 
-\begin{equation}
+$$
 \dfrac{q_{stag}}{q} =  
 \begin{cases}
     1 + \dfrac{M^2}{4} + \dfrac{M^4}{40}                                    & M < 1 \\
     1.84 - \dfrac{0.76}{M^2} + \dfrac{0.166}{M^4} + \dfrac{0.035}{M^6}      & M > 1
 \end{cases}
-\end{equation}
-
-[source]
+$$
+[@niskanen2013, pg. 108]
 
 ##### Von Karman Nose Pressure Drag
 

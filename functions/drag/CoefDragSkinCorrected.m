@@ -7,10 +7,7 @@ double coef_calculation;
 
 coef_calculation = coef_drag_skin_uncorrected * (1-0.1*mach_number^2);
 
-% or, if 0.8 < Mach < 1.1
-% Prandtl-Glauert compressibility correction
-% coef_calculation = coef_drag_skin_uncorrectd * 1 / sqrt(1-mach_number^2)
-% coef_calculation = coef_drag_skin_uncorrectd * 1 / sqrt(1-0.8^2)
+% or, if 0.8 < Mach < 1.1, apply Prandtl-Glauert compressibility correction
 
 if coef_calculation>coef_drag_skin_uncorrected
   coef_drag_skin_corrected=coef_calculation;

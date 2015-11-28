@@ -1,4 +1,4 @@
-function thrust_curve = thrust_data_import(csvfilename)
+function thrust_curve = openrocket_data_import(csvfilename)
 %-------------------------------------------------------------------------------
 %
 % thrust_data_import.m
@@ -29,21 +29,27 @@ function thrust_curve = thrust_data_import(csvfilename)
 % http://www.mathworks.com/help/matlab/matlab_external/example-reading-excel-spreadsheet-data.html
 %-------------------------------------------------------------------------------
 
+if size(csvfilename) == 0
+    csvfilename='aurelius_openrocket_simulation.csv';
+end
+
 %% Enable xlsread in Simulink 
 coder.extrinsic('xlsread');
 
 %% Import the data from Excel
 % data = xlsread(csvfilename);
 % TODO hardcoding is bad
-disp('Reading aurelius_openrocket_simulation.csv');
-data = xlsread('aurelius_openrocket_simulation.csv');
+disp('Reading CSV input file');
+data = xlsread(csvfilename);
 
 disp('Extracting parameters of interest');
-raw_time       = data(:,1);
-raw_mach       = data(:,27);
-raw_thrust     = data(:,29);
-raw_drag_force = data(:,30);
-raw_drag_coef  = data(:,31);
+raw_time         = data(:,1);
+raw_altitude     = data(:,2);
+raw_acceleration = data(:,4);
+raw_mach         = data(:,27);
+raw_thrust       = data(:,29);
+raw_drag_force   = data(:,30);
+raw_drag_coef    = data(:,31);
 
 % you must remember to remove all comment rows from the open rocket data
 
@@ -56,6 +62,12 @@ t_new           = t_new.';
 %% Interpolate data
 disp('Interpolating thrust data');
 thrust = interp1(raw_time, raw_thrust, t_new, 'PCHIP'); % PCHIP is cubic spline
+
+disp('Interpolating altitude data');
+openrocket_altitude = interp1(raw_time, raw_altitude, t_new, 'PCHIP'); % PCHIP is cubic spline
+
+disp('Interpolating acceleration data');
+openrocket_acceleration = interp1(raw_time, raw_acceleration, t_new, 'PCHIP'); % PCHIP is cubic spline
 
 disp('Interpolating drag coef data');
 openrocket_drag_coef  = interp1(raw_time, raw_drag_coef, t_new, 'PCHIP'); % PCHIP is cubic spline
@@ -70,15 +82,14 @@ openrocket_mach = interp1(raw_time, raw_mach, t_new, 'PCHIP'); % PCHIP is cubic 
 disp('Transposing data');
 thrust_curve(1,:)    = t_new.';
 thrust_curve(2,:)    = thrust.';
-raw_drag_coef_trans  = raw_drag_coef.';
-raw_drag_force_trans = raw_drag_force.';
-raw_mach_trans = raw_mach.';
 
 %% Assign to workspace variables
-assignin( 'base' , 'simtime'               , t_new );
-assignin( 'base' , 'openrocket_drag_coef'  , openrocket_drag_coef );
-assignin( 'base' , 'openrocket_drag_force' , openrocket_drag_force );
-assignin( 'base' , 'openrocket_mach'       , openrocket_mach );
+assignin( 'base' , 'simtime'                 , t_new );
+assignin( 'base' , 'openrocket_altitude'     , openrocket_altitude );
+assignin( 'base' , 'openrocket_acceleration' , openrocket_acceleration );
+assignin( 'base' , 'openrocket_drag_coef'    , openrocket_drag_coef );
+assignin( 'base' , 'openrocket_drag_force'   , openrocket_drag_force );
+assignin( 'base' , 'openrocket_mach'         , openrocket_mach );
 
 save ('thrust_curve_mclass.mat','-v7.3','thrust_curve');
 

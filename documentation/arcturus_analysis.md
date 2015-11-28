@@ -104,7 +104,8 @@ This negative region can be used to analyze a segment of the flight curve approa
 
 \clearpage
 
-Figure \ref{arcturus_strattologger_plot_label} below shows the data acquired from the Commercial Stratologger altimeter provided by *Perfect Flight*
+Figure \ref{arcturus_strattologger_plot_label} below shows the data acquired from the Commercial Stratologger altimeter provided by *Perfect Flight*.
+Velocity and acceleration data is apparently derived from the altitude as a function of time [ApogeeRockets Link](https://www.apogeerockets.com/Electronics_Payloads/Altimeters/PerfectFlite_StratoLogger_Altimeter)
 
 ### Commercial Stratologger Data
 [arcturus_strattologger_plot]: images/plots/arcturus_strattologger_plot.png "" 
@@ -112,3 +113,13 @@ Figure \ref{arcturus_strattologger_plot_label} below shows the data acquired fro
 
 \clearpage
 
+### OpenRocket Simulation Data
+
+NOTE: this is actually the *Aurelius* simulation data. 
+*Arcturus* data was not playing nice with Matlab at the time of this report.
+
+[arcturus_openrocket_plot]: images/plots/arcturus_openrocket_plot.png "" 
+![Altitude, Acceleration, and Mach Number as a function of time \label{arcturus_openrocket_plot_label}][arcturus_openrocket_plot] 
+
+
+\clearpage
