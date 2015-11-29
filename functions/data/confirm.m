@@ -1,6 +1,6 @@
 function bool = confirm(question)
 
-prompt = strcat(question, ' [y/N] ');
+prompt = strcat(question, ' [y/N] : ');
 response = input(prompt,'s');
 
 bool=1; %TRUE

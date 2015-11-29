@@ -71,6 +71,30 @@ altitude =
 \dfrac{ \left( T_o + T_{dev} \right) \left( \left( \dfrac{ (P_o + P_{dev}) }{ P_{actual} } \right)^{( 1/5.2561 )}  - 1 \right) } { \left( 0.0065 \right) }
 \end{equation} 
 
+### Temperature Correction
+
+\begin{equation}
+\label{eq_temperature_correction}
+Correction = 
+H 
+\times 
+\left( 
+\dfrac
+{15 - t_0}
+{273 + t_0 - 0.5 \cdot L_0 (H+H_0)}
+\right)
+\end{equation}
+
+Where:
+
+- $H$ is the minimum height above the altimeter source
+- $t_0 = t_{aerodrome} + L_0 \cdot h_{aerodrome}$
+    - specified temperature reporting point adjusted to sea level
+- $L_0 = 0.0065 ^{\circ}C/m$ 
+- $H_0$ is the altimeter setting source elevation
+
+[@code7700]
+
 \clearpage
 
 ## Analysis
