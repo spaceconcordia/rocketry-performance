@@ -1,4 +1,11 @@
 %% Import Rocket Design Data
+ord = confirm('Update OpenRocket Data for thrust curve and validation?');
+if ord
+    fprintf ( 'Updating OpenRocket Data ... ' );
+    openrocket_data_import('aurelius_openrocket_simulation.csv');
+    disp ( 'Done' );
+end
+
 dpm = confirm('Update Parametric Data?');
 if dpm
     fprintf ( 'Updating Parametric Data ... ' );

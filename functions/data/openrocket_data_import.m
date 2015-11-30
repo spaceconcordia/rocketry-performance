@@ -46,6 +46,8 @@ disp('Extracting parameters of interest');
 raw_time               = data(:,1);
 raw_altitude           = data(:,2);
 raw_acceleration       = data(:,4);
+raw_mass               = data(:,20);
+raw_mass_propellant    = data(:,21);
 raw_mach               = data(:,27);
 raw_reynolds           = data(:,28);
 raw_thrust             = data(:,29);
@@ -92,6 +94,16 @@ openrocket_drag_base_coef  = interp1(raw_time, raw_drag_base_coef, t_new, 'PCHIP
 disp('Interpolating drag force data');
 openrocket_drag_force = interp1(raw_time, raw_drag_force, t_new, 'PCHIP'); 
 
+disp('Interpolating Mass data');
+openrocket_mass = interp1(raw_time, raw_mass, t_new, 'PCHIP'); 
+% convert to kg
+openrocket_mass = openrocket_mass / 1000;
+
+disp('Interpolating Mass data');
+openrocket_mass_propellant = interp1(raw_time, raw_mass_propellant, t_new, 'PCHIP'); 
+% convert to kg
+openrocket_mass_propellant = openrocket_mass_propellant / 1000;
+
 disp('Interpolating Mach data');
 openrocket_mach = interp1(raw_time, raw_mach, t_new, 'PCHIP'); 
 
@@ -99,6 +111,9 @@ openrocket_mach = interp1(raw_time, raw_mach, t_new, 'PCHIP');
 disp('Transposing data');
 thrust_curve(1,:)    = t_new.';
 thrust_curve(2,:)    = thrust.';
+
+%% Write thrust to matfile
+save ('thrust_curve_mclass.mat','-v7.3','thrust_curve');
 
 %% Assign to workspace variables
 assignin( 'base' , 'simtime'                       , t_new );
@@ -110,9 +125,11 @@ assignin( 'base' , 'openrocket_drag_friction_coef' , openrocket_drag_friction_co
 assignin( 'base' , 'openrocket_drag_pressure_coef' , openrocket_drag_pressure_coef );
 assignin( 'base' , 'openrocket_drag_base_coef'     , openrocket_drag_base_coef );
 assignin( 'base' , 'openrocket_drag_force'         , openrocket_drag_force );
+assignin( 'base' , 'openrocket_mass'               , openrocket_mass );
+assignin( 'base' , 'openrocket_mass_propellant'    , openrocket_mass_propellant );
 assignin( 'base' , 'openrocket_mach'               , openrocket_mach );
 
-save ('thrust_curve_mclass.mat','-v7.3','thrust_curve');
+assignin( 'base' , 'openrocket_thrust' , thrust );
 
 %% Cleanup
 clearvars ans;
