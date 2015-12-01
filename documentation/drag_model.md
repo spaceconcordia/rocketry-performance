@@ -42,9 +42,7 @@ c = \sqrt{\gamma \dfrac{P}{\rho} }
 
 Where $p$ is the local pressure, $\rho$ is the local density, and $\gamma$ is the *adiabatic index*, known as the *isentropic explansion factor* - it is the ratio of the specific heats of a gas at constant pressure and constant volume.
 
-[botros]
-
-[munson2013]
+[@munson2013]
 
 The *Mach Number* is then the ratio of the air velocity to the sound speed of the local air
 

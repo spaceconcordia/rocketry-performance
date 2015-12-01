@@ -8,25 +8,25 @@ The following table lists all input parameters to the system
 
 \captionof{table}{Input Parameters}
 
-| Parameter                   | Value       | Units | Status  | Source |
-| ---                         | ---         | ---   | ---     | ---    |
-| area_fin_frontal            | 0.000301625 | m^2   | Static  | CATIA  |
-| area_face_fin               | 0.026125    | m^2   | Static  | CATIA  |
-| width_fins_at_tube          | 0.45        | m     | Static  | CATIA  |
-| fins_count                  | 3           | N/A   | Static  | CATIA  |
-| thickness_fins_at_tube      | 0.003175    | m     | Static  | CATIA  |
-| area_surface_nose           | 0.131       | m^2   | Static  | CATIA  |
-| height_fins                 | 0.95        | m     | Static  | CATIA  |
-| diameter_outer              | 0.104       | m     | Static  | CATIA  |
-| surface_roughness           | 2.00E-05    | m     | Static  | CATIA  |
-| length_total_rocket         | 2.98        | m     | Static  | CATIA  |
-| pressure_ambient_ground     | 101325      | Pa    | Static  | Manual |
-| temperature_ambient_ground  | 30          | C     | Static  | Manual |
-| distance_tip_to_COG         | 1.88        | m     | Dynamic | CATIA  |
-| distance_tip_to_COP         | 2.05        | m     | Dynamic | Manual |
-| diameter_outer_launch_guide | 0.0161      | m     | Static  | CATIA  |
-| diameter_inner_launch_guide | 0           | m     | Static  | CATIA  |
-| moment_inertia_rocket       | 4.08052     | m^4   | Dynamic | CATIA  |
+| Parameter                   | Units | Status  | Source |
+| ---                         | ---   | ---     | ---    |
+| area_fin_frontal            | m^2   | Static  | CATIA  |
+| area_face_fin               | m^2   | Static  | CATIA  |
+| width_fins_at_tube          | m     | Static  | CATIA  |
+| fins_count                  | N/A   | Static  | CATIA  |
+| thickness_fins_at_tube      | m     | Static  | CATIA  |
+| area_surface_nose           | m^2   | Static  | CATIA  |
+| height_fins                 | m     | Static  | CATIA  |
+| diameter_outer              | m     | Static  | CATIA  |
+| surface_roughness           | m     | Static  | CATIA  |
+| length_total_rocket         | m     | Static  | CATIA  |
+| pressure_ambient_ground     | Pa    | Static  | Manual |
+| temperature_ambient_ground  | C     | Static  | Manual |
+| distance_tip_to_COG         | m     | Dynamic | CATIA  |
+| distance_tip_to_COP         | m     | Dynamic | Manual |
+| diameter_outer_launch_guide | m     | Static  | CATIA  |
+| diameter_inner_launch_guide | m     | Static  | CATIA  |
+| moment_inertia_rocket       | m^4   | Dynamic | CATIA  |
 
 >As agreed with Emily on 2015/10/02:
 
