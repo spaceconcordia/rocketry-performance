@@ -45,6 +45,7 @@ data = xlsread(csvfilename);
 disp('Extracting parameters of interest');
 raw_time               = data(:,1);
 raw_altitude           = data(:,2);
+raw_velocity           = data(:,3);
 raw_acceleration       = data(:,4);
 raw_mass               = data(:,20);
 raw_mass_propellant    = data(:,21);
@@ -72,6 +73,9 @@ thrust = interp1(raw_time, raw_thrust, t_new, 'PCHIP');
 
 disp('Interpolating altitude data');
 openrocket_altitude = interp1(raw_time, raw_altitude, t_new, 'PCHIP'); 
+
+disp('Interpolating velocity data');
+openrocket_velocity = interp1(raw_time, raw_velocity, t_new, 'PCHIP'); 
 
 disp('Interpolating acceleration data');
 openrocket_acceleration = interp1(raw_time, raw_acceleration, t_new, 'PCHIP'); 
@@ -119,6 +123,7 @@ save ('thrust_curve_mclass.mat','-v7.3','thrust_curve');
 assignin( 'base' , 'simtime'                       , t_new );
 assignin( 'base' , 'openrocket_altitude'           , openrocket_altitude );
 assignin( 'base' , 'openrocket_reynolds'           , openrocket_reynolds );
+assignin( 'base' , 'openrocket_velocity'           , openrocket_velocity );
 assignin( 'base' , 'openrocket_acceleration'       , openrocket_acceleration );
 assignin( 'base' , 'openrocket_drag_coef'          , openrocket_drag_coef );
 assignin( 'base' , 'openrocket_drag_friction_coef' , openrocket_drag_friction_coef );

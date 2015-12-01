@@ -30,6 +30,7 @@ LaTeX is a powerful typesetting language useful for academic writing. Its mathem
 [Haskell and Bibtex in Pandoc](http://blog.wuzzeb.org/posts/2012-06-15-bibtex-and-pandoc.html)
 
 [IEEE CSL File](https://gist.github.com/marcelofernandez/3264858)
+[Another IEEE CSL File](https://gist.github.com/dnguyen85/d41b0f0bba387c1c31b7)
 
 ## Equations
 

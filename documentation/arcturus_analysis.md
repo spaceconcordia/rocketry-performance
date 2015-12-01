@@ -26,6 +26,29 @@
 
 \clearpage
 
+## Consultations
+
+A number of technical contacts were approached to discuss our results
+
+### Jeroen Louwers
+
+Mr. Louwsers works at Cesroni Motors. 
+His comments are as follows
+
+> The total impulse of our motors is much closer than +- 20%. I would estimate it at +-2% (max). 20% additional total impulse would translate into very unrealistic specific impulse numbers.
+
+> - What software did you use to calculate the maximum altitude (sorry my questionmarks are not working on this key board).
+> - Did you take the launch altitude into account.
+> - Did you compare accelerometer data to your computer model.
+
+> The 40degC will mostly result in shorter burn times. As a result of the higher motor pressure, there will be a little higher total impulse, but not much. Typically this advantage is lost because of the increased drag at higher burn-out velocity.
+
+> Have a look at the effect of the initial altitude in your simulation. Depending on where you launched, there could be a large advantage because of the reduced air density (Utah, Colorado, etc).
+
+> When you compare accelerometer data, you can also verify the drag model.
+
+\clearpage
+
 ## Altitude Determination
 
 ## Resources

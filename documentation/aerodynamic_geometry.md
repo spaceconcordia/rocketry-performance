@@ -1,5 +1,17 @@
 ## Aerodynamic Geometry
 
+### Overview
+
+Related to aerodynamic geometry of the rocket, the specific parameters of interest are the following:
+
+- Outer Diameter of Rocket (*OD*)
+- Total Length of Rocket (*L*) 
+- Height of Nose Cone ($h_n$)
+- Thickness of Fins
+- Number of Fins
+- Width of Fins
+- Surface Area of Nose
+
 ### Surface Roughness
 
 *Surface Roughness* is the deviation in the normal direction from a surface of its features. It contributes to *Skin Friction Drag* 
@@ -9,7 +21,7 @@
 The *Fineness Ratio* is the ratio of the length to the outer diameter
 
 \begin{equation} 
-f_B = L / OD 
+f_B = \dfrac{L} {OD}
 \end{equation}
 
 ### Fins
@@ -21,16 +33,6 @@ Since there is no airfoil on the fin design, the *Aerodynamic Chord Length of th
 ### Areas
 
 Reference areas are required to calculate the drag force.
-
-Related to area, the specific parameters of interest on the rocket are the following:
-
-- Outer Diameter of Rocket (*OD*)
-- Total Length of Rocket (*L*) 
-- Height of Nose Cone ($h_n$)
-- Thickness of Fins
-- Number of Fins
-- Width of Fins
-- Surface Area of Nose
 
 #### Wetted Body Area
 

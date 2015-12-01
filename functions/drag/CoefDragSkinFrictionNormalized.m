@@ -1,5 +1,5 @@
 function coef_skin_friction_drag_normalized = CoefDragSkinFrictionNormalized(inputs)
-%% The skin friction drag coefficient is a function of the wetted area, the reference area, the boyant force
+
 coef_skin_drag_corrected = inputs(1);
 fineness_ratio           = inputs(2);
 area_wetted_body         = inputs(3);

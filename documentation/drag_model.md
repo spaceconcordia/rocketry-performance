@@ -15,8 +15,6 @@ These and other drag forces are detailed in this section.
 
 The drag model must take the parametric design parameters and applicable dynamics parameters (see *Data Model*) to output the Drag Force and combined drag coefficient.
 
-[TODO drag figure here]
-
 ### Mach Number
 
 *Mach Number* (M) is the ratio of the airspeed to the speed of sound for air at a given temperature
@@ -150,6 +148,67 @@ Then, the *Pressure Drag Coefficient* can be expressed as a function of *Mach Nu
 C_{pr} = 0.85 \dfrac{q_{stag}}{q}
 \end{equation}
 
+### Reynolds Number
+
+The *Reynolds Number* is a dimensionless number which describes the ratio of the kinematic effects of a fluid to viscous effects.
+
+\begin{equation}
+\label{eq_reynolds_number_theory}
+Re = \dfrac{\rho \vec{v} d}{\mu}
+\end{equation}
+
+[@munson2013, pg.324]
+
+#### Critical Reynolds Number
+
+The *Critical Reynolds Number* ($Re_{crit}$) is the value of *Reynolds Number* where the flow changes from laminar to turbulent. 
+This is greatly dependent on the surface roughness [munson2013]. 
+
+[@niskanen2013, pg.42] gives the *Critical Reynolds Number* as 
+\begin{equation}
+\label{eq_reynolds_number_critical}
+R_{crit} = \dfrac{\vec{v} x} {\nu}
+\end{equation}
+
+Where:
+
+- $\vec{v}$ is the free stream air velocty
+- $x$ is the distance along the body from the nose cone tip where turbulent flow begins
+- $\nu$ is the kinematic viscosity of air
+
+For $Re_{crit} = 5 \times 10^5$
+
+- $\nu = 1.5 \times 10^-5 m^2/s$
+- $v_0 = 100 m/s$
+- $x = 7 cm $ from the nose tip, where turbulent flow begins
+
+[@niskanen2013, pg.42]
+
+[Trinh, Khanh Tuoc](http://arxiv.org/ftp/arxiv/papers/1007/1007.0810.pdf)
+[See Fluids Text book](fluids textbook)
+
+Surface roughness has a considerable influence on *Critical Reynolds Number*. 
+It can be determined as follows.
+
+\begin{equation}
+\label{eq_reynolds_number_critical_roughness}
+R_{crit} = 51 \left( \dfrac{R_s}{L} \right)^{-1.039}
+\end{equation}
+
+[@niskanen2013, pg.44]
+
+#### Actual Reynolds Number
+The *Actual Reynolds Number* can be expressed in the following form: 
+
+\begin{equation}
+Re = \dfrac{\vec{v} L}{\nu} 
+\end{equation}
+
+Where:
+
+- $\vec{v}$ is the free stream velocity
+- $L$ is the length of the rocket
+- $\nu$ is the kinematic viscosity of the air in free stream
 
 ### Drag Force and Coefficients
 
@@ -192,19 +251,6 @@ C_{sk}, (A_{wet}, M, \dfrac{\epsilon}{l} )
 
 $\dfrac{\epsilon}{l}$ is the relative roughness of the surface 
 
-##### Critical Reynolds Number
-
-The *Critical Reynolds Number* ($Re_{crit}$) is the value of *Reynolds Number* where the flow changes from laminar to turbulent. This is greatly dependent on the surface roughness [munson2013]. 
-
-[Trinh, Khanh Tuoc](http://arxiv.org/ftp/arxiv/papers/1007/1007.0810.pdf)
-[See Fluids Text book](fluids textbook)
-
-The *Actual Reynolds Number* can be expressed in the following form: 
-
-\begin{equation}
-Re = \dfrac{\vec{v} L}{\mu} 
-\end{equation}
-
 With the critical and actual Reynolds Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
 
 \begin{equation}
@@ -212,7 +258,7 @@ With the critical and actual Reynolds Numbers determined, the *Uncorrected Skin 
 C_{sk_{uncorrected}} = 
 \begin{cases}
     0.0148                                    & Re < 10^4 \\
-    \dfrac{1}{(1.5 ln Re - 5.6)^2}            & 10^4 < Re < Re_{crit} \\
+    \dfrac{1}{(1.5 \ln Re - 5.6)^2}            & 10^4 < Re < Re_{crit} \\
     0.032 \left( \dfrac{R_a}{L} \right)^{0.2} & Re > Re_{crit}
 \end{cases}
 \end{equation}
@@ -220,7 +266,6 @@ C_{sk_{uncorrected}} =
 [@niskanen2013]
 
 Two other sources describe the cases for Skin Friction Drag Coefficient differently.
-
 
 \begin{equation}
 C_{sk_{uncorrected}} = 
@@ -234,21 +279,15 @@ C_{sk_{uncorrected}} =
 
 The *Skin Drag Coefficient Corrected for Compressibility* is:
 
-\begin{equation}
-C_{f_c} = C_f (1-0.1 M^2) [if C_{f_c} > C_f]
-\end{equation}
-
-[@botros]
-
 Conversely, Niskanen evaluates the corrected skin drag coefficient as follows
 
 \begin{equation}
 \label{eq_skin_drag_coefficient_corrected}
-C_{sk_{corrected}} = 
+C_{sk_{corrected}} = C_{sk_{uncorrected}} \times 
 \begin{cases}
-    C_{sk_{uncorrected}} (1- 0.1 M^2)                 & Subsonic \\
-    C_{sk_{uncorrected}} ( (1+0.15 M^2)^{0.58} )^{-1} & Supersonic \\
-    C_{sk_{uncorrected}} ( 1 + 0.18 M^2 )^{-1}        & Roughness Limited
+     ( 1- 0.1 M^2 )                          & \text{Subsonic} \\
+     \left[ (1+0.15 M^2)^{0.58} \right]^{-1} & \text{Supersonic} \\
+     ( 1 + 0.18 M^2 )^{-1}                   & \text{Roughness Limited}
 \end{cases}
 \end{equation}
 
@@ -312,7 +351,7 @@ C_{base} =
 \end{cases}
 \end{equation}
 
-For perpendicular orientation of the fin edges to air flow, the stagnation pressure defined in Equation \ref{eq_stagnation_pressure_blunk_cylinder} is used. 
+For perpendicular orientation of the fin edges to air flow, the stagnation pressure defined in Equation \ref{eq_stagnation_pressure_blunt_cylinder} is used. 
 
 $$
 \dfrac{q_{stag}}{q} =  
@@ -405,6 +444,8 @@ This is likely to be sufficient for subsonic velocites [@niskanen2013, pg.48], a
 Parasitic drag is the drag due to body features not explicitly designed and/or imperfections not easily approximated. 
 Examples include launch guides, ventilation holes, surface roughness, and any damage during flight. 
 
+PARASITIC DRAG IS CURRENTLY NEGLECTED IN THE MODEL, gt
+
 \begin{equation}
 C_{pa}, D_{pa} (A_{ref}, M) 
 \end{equation}
@@ -451,9 +492,34 @@ C_{pa} \cdot
 
 ##### Interference Drag
 
+*Interference Drag* is caused due to effects of air flow at the interfaces of the fins and the body.
+
 \begin{equation} 
 C_{in}, D_{in} (A_{ref}, M) 
 \end{equation}
+
+\begin{equation}
+\label{eq_interference_drag_coefficient}
+C_{in} = 2 C_{sk,fins} \left( 1 + 2 \dfrac{T_f}{l_m} \right) \dfrac{4n(A_{f_p}-A_{f_e}} {\pi d^2_f}
+\end{equation}
+
+Where:
+- $C_{sk,fins}$ is the coefficient of skin friction (due to viscous effects) on the fins
+- $n$ is the number of fins
+- $A_{f_p}$ is the fin planform area 
+\begin{equation}
+\label{eq_fin_planform_area}
+A_{f_p} = A_{f_e} + \dfrac{1}{2} d_f l_r
+\end{equation}
+- $A_{f_e}$ is the exposed planform area of the fin
+\begin{equation}
+\label{eq_exposed_fin_planform_area}
+A_{f_e} = \dfrac{1}{2} (l_r + l_t) l_s 
+\end{equation}
+
+[@box2009, pg.12-13]
+
+Interference Drag effects are small in comparison to other drag effects [@niskanen2013], and are thus ignored at this stage of the project.
 
 #### Wave Drag
 

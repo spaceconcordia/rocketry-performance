@@ -5,14 +5,11 @@ reynolds_number_critical = inputs(2);
 R_s                      = inputs(3);
 L                        = inputs(4);
 
-% source niskanen2013 OpenRocket TechDoc
 if reynolds_number_actual<1E4
   C_f=0.0148;
 elseif reynolds_number_actual<reynolds_number_critical
   C_f= 1 / (1.5 * log(reynolds_number_actual) - 5.6 )^2;
-    % apparently log is log_e?
 else
   C_f=0.032*(R_s/L)^(0.2);
 end 
 
-end

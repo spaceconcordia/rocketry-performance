@@ -6,6 +6,3 @@ openrocket_time = simtime(1:arraysize)
 openrocket_xdata = {openrocket_time, openrocket_time, openrocket_time, openrocket_time, openrocket_time};
 matlab_xdata     = {tout, tout, tout, tout, tout};
 
-plot_openrocket_validation_overall
-plot_openrocket_validation_drag
-plot_openrocket_validation_motor
