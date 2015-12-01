@@ -3,6 +3,11 @@ function outputs = ISAModel(inputs)
 
 %--------------------------------------------------------------------------
 % Demux inputs
+% inputs used:
+%   T_in    = temperature at the launch site AGL (Kelvin)
+%   P_in    = pressure at the launch site AGL (Pascals)
+%   alt_in  = altitude of the launch site (meters)
+%   alt_act = altitude of the rocket AGL (meters)
 %--------------------------------------------------------------------------
 
 T_in    = inputs(1);
