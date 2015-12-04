@@ -1,6 +1,4 @@
 function outputs = ISAModel(inputs)
-%outputs=zeros(5);
-
 %--------------------------------------------------------------------------
 % Demux inputs
 % inputs used:
@@ -39,8 +37,8 @@ R       = 287.04;
 % The following calculates ISA deviation of the launch conditions assuming 
 % a virtual launch site a sea level
 % Variables used:
-%   T_dev   = ISA deviation temperature (degrees C)
-%   T_in    = ground temperature (degrees C)
+%   T_dev   = ISA deviation temperature (Kelvin)
+%   T_in    = ground temperature (Kelvin)
 %   alt_in  = Launch altitude (meters)
 %--------------------------------------------------------------------------
 
@@ -49,7 +47,7 @@ T_dev   = T_in - T_o + 6.5*(alt_in/1000);
 %--------------------------------------------------------------------------
 % The following calculates the temperature at the current altitude.
 % Variables used:
-%   T_act   = Actual temperature at current altitude (degrees K)
+%   T_act   = Actual temperature at current altitude (Kelvin)
 %   alt_in  = Launch altitude (m)
 %   alt_act = Altitude above ground level (m)
 %--------------------------------------------------------------------------
