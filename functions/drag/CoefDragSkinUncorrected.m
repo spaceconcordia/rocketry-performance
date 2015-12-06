@@ -5,6 +5,9 @@ reynolds_number_critical = inputs(2);
 R_s                      = inputs(3);
 L                        = inputs(4);
 
+double C_f
+double B
+
 if reynolds_number_actual <= reynolds_number_critical
     C_f = 1.328 / sqrt(reynolds_number_actual);
 else 

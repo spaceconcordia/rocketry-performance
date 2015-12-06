@@ -11,4 +11,6 @@ height_of_fins = inputs(4);
 
 area_reference_frontal = (pi/4 * outer_diameter^2) + (fin_thickness * height_of_fins * number_of_fins);
 
+assignin( 'base' , 'area_reference_frontal' , area_reference_frontal );
+
 end
