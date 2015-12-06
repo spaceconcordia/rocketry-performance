@@ -54,6 +54,7 @@ raw_reynolds           = data(:,28);
 raw_thrust             = data(:,29);
 raw_drag_force         = data(:,30);
 raw_drag_coef          = data(:,31);
+raw_drag_axial_coef    = data(:,32);
 raw_drag_friction_coef = data(:,33);
 raw_drag_pressure_coef = data(:,34);
 raw_drag_base_coef     = data(:,35);
@@ -85,6 +86,9 @@ openrocket_reynolds = interp1(raw_time, raw_reynolds, t_new, 'PCHIP');
 
 disp('Interpolating drag coef data');
 openrocket_drag_coef  = interp1(raw_time, raw_drag_coef, t_new, 'PCHIP'); 
+
+disp('Interpolating drag_axial coef data');
+openrocket_drag_axial_coef  = interp1(raw_time, raw_drag_axial_coef, t_new, 'PCHIP'); 
 
 disp('Interpolating drag_friction coef data');
 openrocket_drag_friction_coef  = interp1(raw_time, raw_drag_friction_coef, t_new, 'PCHIP'); 
@@ -126,6 +130,7 @@ assignin( 'base' , 'openrocket_reynolds'           , openrocket_reynolds );
 assignin( 'base' , 'openrocket_velocity'           , openrocket_velocity );
 assignin( 'base' , 'openrocket_acceleration'       , openrocket_acceleration );
 assignin( 'base' , 'openrocket_drag_coef'          , openrocket_drag_coef );
+assignin( 'base' , 'openrocket_drag_axial_coef'    , openrocket_drag_axial_coef );
 assignin( 'base' , 'openrocket_drag_friction_coef' , openrocket_drag_friction_coef );
 assignin( 'base' , 'openrocket_drag_pressure_coef' , openrocket_drag_pressure_coef );
 assignin( 'base' , 'openrocket_drag_base_coef'     , openrocket_drag_base_coef );

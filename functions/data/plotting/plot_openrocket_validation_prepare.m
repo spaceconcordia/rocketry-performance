@@ -1,6 +1,6 @@
 %% Trim the array sizes to match the smallest set
-arraysize       = size(tout,1)
-openrocket_time = simtime(1:arraysize)
+arraysize       = size(tout,1);
+openrocket_time = simtime(1:arraysize);
 
 %% Set the x-axis
 openrocket_xdata = {openrocket_time, openrocket_time, openrocket_time, openrocket_time, openrocket_time};

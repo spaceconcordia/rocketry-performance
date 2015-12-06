@@ -1,3 +1,6 @@
+arraysize       = size(tout,1);
+openrocket_time = simtime(1:arraysize);
+
 if isempty(openrocket_time)
     plot_openrocket_validation_prepare
 end;
@@ -91,8 +94,17 @@ end
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
  'LineSpec', matlab_linespec, 'Title', 'Matlab Drag Vs Mach', 'XLabel', 'Mach Number');
 
+
 %% Conditionally save the plot
 if saveplots 
     %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
     %export_fig atmosphere_plot.pnd -m2
 end
+
+figure
+subplot(2,1,1)
+plot_error_drag_mach
+subplot(2,1,2)
+plot_error_coeffrictiondrag_mach
+
+

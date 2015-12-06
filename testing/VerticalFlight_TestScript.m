@@ -4,6 +4,7 @@ if ord
     fprintf ( 'Updating OpenRocket Data ... ' );
     openrocket_data_import('aurelius_openrocket_simulation.csv');
     disp ( 'Done' );
+    fprintf( 'Maximum OpenRocket altitude: %d m, %d ft \r\n', max(openrocket_altitude), max(openrocket_altitude)*3.28);
 end
 
 dpm = confirm('Update Parametric Data?');
@@ -19,6 +20,10 @@ if vftm
     fprintf ( 'Running Simulation ... ' );
     sim('VerticalFlight_TestModel');
     disp ( 'Done' );
+    
+    timetoapogee
+    
+    fprintf( 'Maximum Matlab Altitude: %d m, %d ft \r\n', max(altitude), max(altitude)*3.28);
 end
 
 %% Plotting
@@ -33,6 +38,12 @@ if plotoutput
     plot_rocket_drag_velocity
     plot_rocket_drag_mach
     plot_rocket_drag_coef
+end
+
+validate = confirm('Validate against OpenRocket?');
+if validate
+   timetoapogee_openrocket
+   plot_openrocket_validation 
 end
 
 disp ( 'Done' );
