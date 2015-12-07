@@ -1,4 +1,4 @@
-arraysize = size(tout,1)
+arraysize = size(tout,1);
 
 %% Plot Rocket Drag Coefficients
 plot( tout , openrocket_drag_base_coef(1:arraysize) , 'm' );
@@ -12,7 +12,9 @@ title('OpenRocket - Drag Coefficient vs. Time');
 xlabel('Time (s)');
 legend ('Base','Friction','Pressure','Axial','Total');
 
-if saveplots % conditionally save the plot
-    saveas(gcf, '../documentation/images/plots/openrocket_drag_coefficients.png');
-    export_fig openrocket_drag_coefficients.pnd -m2
+if exist('saveplots')
+    if saveplots % conditionally save the plot
+        saveas(gcf, '../documentation/images/plots/openrocket_drag_coefficients.png');
+        export_fig openrocket_drag_coefficients.pnd -m2
+    end
 end

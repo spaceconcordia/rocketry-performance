@@ -1,4 +1,5 @@
-if isempty(openrocket_time)
+if exist('openrocket_time')
+else
     plot_openrocket_validation_prepare
 end;
 
@@ -18,7 +19,6 @@ openrocket_motor_data = {
     openrocket_mass_propellant(1:arraysize),...
 };
 
-
 %--------------------------------------------------------------------------------
 % Motor Performance
 %--------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ openrocket_motor_data = {
 %% Set the graph attributes
 openrocket_xdata    = {openrocket_time, openrocket_time, openrocket_time};
 matlab_xdata        = {tout, tout, tout};
-ylabel              = {'Motor Thrust','Rocket Mass','Motor Mass'};
+ylabel              = {'Motor Thrust','Rocket Mass','Propellant Mass'};
 matlab_linespec     = {'b','b','b'};
 openrocket_linespec = {'b','b','b'};
 

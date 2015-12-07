@@ -9,7 +9,18 @@ The following model was executed
 
 ## Observations
 
-## Graphs
+## Primary Plots
+
+[error_altitude_plot]: images/plots/error_altitude_plot.png "" 
+![Mass, Weight, and Thrust as a Function of Time \label{error_altitude_plot_label}][error_altitude_plot] 
+
+[error_mach_plot]: images/plots/error_mach_plot.png "" 
+![Mass, Weight, and Thrust as a Function of Time \label{error_mach_plot_label}][error_mach_plot] 
+
+[error_drag_plot]: images/plots/error_drag_plot.png "" 
+![Mass, Weight, and Thrust as a Function of Time \label{error_drag_plot_label}][error_drag_plot] 
+
+### Additional Plots
 
 [dynamics_plot]: images/plots/dynamics_plot.png "" 
 ![Mass, Weight, and Thrust as a Function of Time \label{dynamics_plot_label}][dynamics_plot] 

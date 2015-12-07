@@ -1,7 +1,8 @@
 arraysize       = size(tout,1);
 openrocket_time = simtime(1:arraysize);
 
-if isempty(openrocket_time)
+if exist('openrocket_time')
+else
     plot_openrocket_validation_prepare
 end;
 
@@ -45,7 +46,7 @@ multiplot(openrocket_xdata, openrocket_drag_data, 'YLabel', ylabel, ...
 %% Conditionally save the plot
 if saveplots 
     %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.pnd -m2
+    %export_fig atmosphere_plot.png -m2
 end
 
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
@@ -54,7 +55,7 @@ multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
 %% Conditionally save the plot
 if saveplots 
     %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.pnd -m2
+    %export_fig atmosphere_plot.png -m2
 end
 
 %--------------------------------------------------------------------------------
@@ -88,7 +89,7 @@ multiplot(openrocket_xdata, openrocket_drag_data, 'YLabel', ylabel, ...
 %% Conditionally save the plot
 if saveplots 
     %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.pnd -m2
+    %export_fig atmosphere_plot.png -m2
 end
 
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
@@ -98,7 +99,7 @@ multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
 %% Conditionally save the plot
 if saveplots 
     %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.pnd -m2
+    %export_fig atmosphere_plot.png -m2
 end
 
 figure
