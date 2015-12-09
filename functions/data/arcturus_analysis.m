@@ -9,6 +9,9 @@ plot_arcturus_pressure
 %% Import Accelerometer Data
 import_arcturus_accelerometer
 
+%% Import Arcturus OpenRocket Data
+openrocket_data_import('arcturus_openrocket.csv','arcturus')
+
 %% Plot Accelerometer Data
 plot_arcturus_accelerometer
 

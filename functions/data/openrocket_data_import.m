@@ -1,4 +1,4 @@
-function thrust_curve = openrocket_data_import(csvfilename)
+function thrust_curve = openrocket_data_import(csvfilename, prefix)
 %-------------------------------------------------------------------------------
 %
 % thrust_data_import.m
@@ -124,20 +124,20 @@ thrust_curve(2,:)    = thrust.';
 save ('thrust_curve_mclass.mat','-v7.3','thrust_curve');
 
 %% Assign to workspace variables
-assignin( 'base' , 'simtime'                       , t_new );
-assignin( 'base' , 'openrocket_altitude'           , openrocket_altitude );
-assignin( 'base' , 'openrocket_reynolds'           , openrocket_reynolds );
-assignin( 'base' , 'openrocket_velocity'           , openrocket_velocity );
-assignin( 'base' , 'openrocket_acceleration'       , openrocket_acceleration );
-assignin( 'base' , 'openrocket_drag_coef'          , openrocket_drag_coef );
-assignin( 'base' , 'openrocket_drag_axial_coef'    , openrocket_drag_axial_coef );
-assignin( 'base' , 'openrocket_drag_friction_coef' , openrocket_drag_friction_coef );
-assignin( 'base' , 'openrocket_drag_pressure_coef' , openrocket_drag_pressure_coef );
-assignin( 'base' , 'openrocket_drag_base_coef'     , openrocket_drag_base_coef );
-assignin( 'base' , 'openrocket_drag_force'         , openrocket_drag_force );
-assignin( 'base' , 'openrocket_mass'               , openrocket_mass );
-assignin( 'base' , 'openrocket_mass_propellant'    , openrocket_mass_propellant );
-assignin( 'base' , 'openrocket_mach'               , openrocket_mach );
+assignin( 'base' , strcat(prefix,'simtime')                       , t_new );
+assignin( 'base' , strcat(prefix,'openrocket_altitude')           , openrocket_altitude );
+assignin( 'base' , strcat(prefix,'openrocket_reynolds')           , openrocket_reynolds );
+assignin( 'base' , strcat(prefix,'openrocket_velocity')           , openrocket_velocity );
+assignin( 'base' , strcat(prefix,'openrocket_acceleration')       , openrocket_acceleration );
+assignin( 'base' , strcat(prefix,'openrocket_drag_coef')          , openrocket_drag_coef );
+assignin( 'base' , strcat(prefix,'openrocket_drag_axial_coef')    , openrocket_drag_axial_coef );
+assignin( 'base' , strcat(prefix,'openrocket_drag_friction_coef') , openrocket_drag_friction_coef );
+assignin( 'base' , strcat(prefix,'openrocket_drag_pressure_coef') , openrocket_drag_pressure_coef );
+assignin( 'base' , strcat(prefix,'openrocket_drag_base_coef')     , openrocket_drag_base_coef );
+assignin( 'base' , strcat(prefix,'openrocket_drag_force')         , openrocket_drag_force );
+assignin( 'base' , strcat(prefix,'openrocket_mass')               , openrocket_mass );
+assignin( 'base' , strcat(prefix,'openrocket_mass_propellant')    , openrocket_mass_propellant );
+assignin( 'base' , strcat(prefix,'openrocket_mach')               , openrocket_mach );
 
 assignin( 'base' , 'openrocket_thrust' , thrust );
 

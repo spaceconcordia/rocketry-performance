@@ -2,7 +2,7 @@
 ord = confirm('Update OpenRocket Data for thrust curve and validation?');
 if ord
     fprintf ( 'Updating OpenRocket Data ... ' );
-    openrocket_data_import('aurelius_openrocket_simulation.csv');
+    openrocket_data_import('aurelius_openrocket_simulation.csv','');
     disp ( 'Done' );
     fprintf( 'Maximum OpenRocket altitude: %d m, %d ft \r\n', max(openrocket_altitude), max(openrocket_altitude)*3.28);
 end
