@@ -1,4 +1,4 @@
-%% Plot drag coef
+%% Plot drag force
 plot(mach_number_trimmed, drag_force)
 
 hold on

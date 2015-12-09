@@ -59,7 +59,7 @@ if saveplots
 end
 
 %--------------------------------------------------------------------------------
-% Drag performance VS MACH
+%% Drag performance VS MACH
 %--------------------------------------------------------------------------------
 
 openrocket_mach_trimmed = openrocket_mach(1:arraysize);
@@ -87,25 +87,41 @@ multiplot(openrocket_xdata, openrocket_drag_data, 'YLabel', ylabel, ...
  'LineSpec', openrocket_linespec, 'Title', 'OpenRocket - Drag Vs Mach', 'XLabel', 'Mach Number');
 
 %% Conditionally save the plot
-if saveplots 
-    %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.png -m2
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}
 
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
  'LineSpec', matlab_linespec, 'Title', 'Matlab Drag Vs Mach', 'XLabel', 'Mach Number');
 
 
 %% Conditionally save the plot
-if saveplots 
-    %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.png -m2
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}
 
 figure
 subplot(2,1,1)
 plot_error_drag_mach
 subplot(2,1,2)
-plot_error_coeffrictiondrag_mach
+plot_error_dragcoef_v_mach
 
-
+%% Conditionally save the plot
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
+end
+%}

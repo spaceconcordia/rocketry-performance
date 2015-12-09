@@ -77,16 +77,24 @@ multiplot(openrocket_xdata, openrocket_ydata, 'YLabel', ylabel, ...
  'LineSpec', openrocket_linespec, 'Title', 'OpenRocket', 'XLabel', 'time');
 
 %% Conditionally save the plot
-if saveplots 
-    %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.pnd -m2
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}
 
 multiplot(matlab_xdata, matlab_ydata, 'YLabel', ylabel, ...
  'LineSpec', matlab_linespec, 'Title', 'Matlab', 'XLabel', 'time');
 
 %% Conditionally save the plot
-if saveplots 
-    %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.pnd -m2
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}

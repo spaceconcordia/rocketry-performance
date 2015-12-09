@@ -1,17 +1,10 @@
-%% Plot altitude error
+figure
+
+%% Plot altitude
 plot(tout, altitude)
 hold on
 plot(tout, openrocket_altitude(1:arraysize))
 hold off
-
-%% fill region in between
-%{
-hold on
-X=[tout,fliplr(tout)]; %#create continuous x value array for plotting
-Y=[openrocket_altitude(1:arraysize),fliplr(altitude)]; %#create y values for out and then back
-fill(X,Y,'g'); %#plot filled area
-hold off
-%}
 
 %% Graph details
 clear title xlabel ylabel
@@ -36,6 +29,10 @@ set(ax2,'ylim',...
     'xtick',get(ax1,'xtick'), 'xticklabel',''...
     )
 ylabel('in feet');
+
+X=[x,fliplr(altitude)];                %#create continuous x value array for plotting
+Y=[y1,fliplr(y2)];              %#create y values for out and then back
+fill(X,Y,'b');                  %#plot filled area
 
 %% conditionally save the plot
 if exist('saveplots')

@@ -1,10 +1,10 @@
 %% Plot drag coef v mach number
 plot(mach_number_trimmed, drag_coefficient)
-
 hold on
 plot(mach_number_trimmed, openrocket_drag_coef(1:arraysize))
 hold off
 
+%% Graph Details
 clear title xlabel ylabel
 title('Drag Coefficient vs Mach Number');
 xlabel('Mach Number');
