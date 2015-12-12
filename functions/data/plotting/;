@@ -6,7 +6,7 @@ linespec = {'b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Drag vs. Mach Number Plot', 'XLabel', 'Mach Number');
 
-%% conditionally save the plot
+% conditionally save the plot
 if exist('saveplots')
     if saveplots 
         saveas(gcf, '../documentation/images/plots/drag_v_mach.png');

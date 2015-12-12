@@ -1,3 +1,8 @@
+if confirm('Validate Motor data?')
+else
+     return
+end
+
 if exist('openrocket_time')
 else
     plot_openrocket_validation_prepare

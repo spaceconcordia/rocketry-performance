@@ -120,6 +120,7 @@ Two commonly used Wind Models are as follows
 \end{equation}
 
 Where 
+
 - $\dfrac{S_u (f)}{\sigma ^2 _ u}$ is the *Spectral Density Function* of turbulence velocity
 - *f* is the turbulence frequency
 - $\sigma_u$ is the standard deviation fo the turbulence velocity

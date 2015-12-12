@@ -1,3 +1,8 @@
+if confirm('Validate Drag data?')
+else
+     return
+end
+
 arraysize       = size(tout,1);
 openrocket_time = simtime(1:arraysize);
 
@@ -40,8 +45,10 @@ matlab_linespec     = {'b','b','b','b','b'};
 openrocket_linespec = {'b','b','b','b','b'};
 
 %% Plot
+%{
 multiplot(openrocket_xdata, openrocket_drag_data, 'YLabel', ylabel, ...
  'LineSpec', openrocket_linespec, 'Title', 'OpenRocket - Drag Vs Time', 'XLabel', 'time');
+%}
 
 %% Conditionally save the plot
 %{
@@ -53,8 +60,10 @@ if exist('saveplots')
 end
 %}
 
+%{
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
  'LineSpec', matlab_linespec, 'Title', 'Matlab Drag Vs Time', 'XLabel', 'time');
+%}
 
 %% Conditionally save the plot
 %{
@@ -107,7 +116,6 @@ end
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
  'LineSpec', matlab_linespec, 'Title', 'Matlab Drag Vs Mach', 'XLabel', 'Mach Number');
 
-
 %% Conditionally save the plot
 %{
 if exist('saveplots')
@@ -118,18 +126,7 @@ if exist('saveplots')
 end
 %}
 
-figure
-subplot(2,1,1)
-plot_error_drag_mach
-subplot(2,1,2)
-plot_error_dragcoef_v_mach
-
-%% Conditionally save the plot
-%{
-if exist('saveplots')
-    if saveplots
-        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
-        export_fig error_drag_plot.png -m2
-    end
-end
-%}
+figure;
+plot_openrocket_drag_coef_v_mach
+figure;
+plot_rocket_drag_coef_v_mach

@@ -1,0 +1,19 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Dynamic Parameter Calculation }}{10}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Dynamic Weight Calculation Test Output }}{12}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Vertical Flight Model - Simplified }}{15}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces Rocket Drag Sources - Subsonic Flight }}{17}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Matlab Implementation of Parasitic Drag Coefficient}}{24}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Rocket Drag Model}}{26}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Rocket Drag Coefficient Model }}{27}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces All Integration Tests }}{30}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Vertical Model in Simulink, angle of attack less than 5 degrees }}{31}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Mass, Weight, and Thrust as a Function of Time }}{32}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Mass, Weight, and Thrust as a Function of Time }}{32}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Mass, Weight, and Thrust as a Function of Time }}{33}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Mass, Weight, and Thrust as a Function of Time }}{33}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Altitude, Velocity, and Acceleration as a Function of Time }}{34}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Drag Force, Drag Coefficient, and Reynolds Number as a Function of Velocity }}{34}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Drag Force, Drag Coefficient, and Reynolds Number as a Function of Mach Number }}{35}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Altitude, Velocity, and Acceleration as a Function of Time }}{35}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Specific Drag Coefficients as a Function of Time }}{36}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Altitude, Velocity, and Acceleration as a Function of Time }}{36}{figure.19}

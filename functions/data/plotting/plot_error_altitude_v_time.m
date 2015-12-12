@@ -1,7 +1,7 @@
 %% Plot altitude error
-plot(tout, altitude)
+plot(tout, altitude, 'm')
 hold on
-plot(tout, openrocket_altitude(1:arraysize))
+plot(tout, openrocket_altitude(1:arraysize),'b')
 hold off
 
 %% fill region in between

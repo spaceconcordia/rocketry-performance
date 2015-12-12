@@ -1,8 +1,8 @@
 %% Plot drag force
-plot(mach_number_trimmed, drag_force)
+plot(mach_number_trimmed, drag_force,'m')
 
 hold on
-plot(mach_number_trimmed, openrocket_drag_force(1:arraysize))
+plot(mach_number_trimmed, openrocket_drag_force(1:arraysize),'b')
 hold off
 
 clear title xlabel ylabel

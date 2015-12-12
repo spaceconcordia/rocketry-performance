@@ -1,7 +1,7 @@
 %% Plot drag coef v mach number
-plot(mach_number_trimmed, drag_coefficient)
+plot(mach_number_trimmed, drag_coefficient, 'm')
 hold on
-plot(mach_number_trimmed, openrocket_drag_coef(1:arraysize))
+plot(mach_number_trimmed, openrocket_drag_coef(1:arraysize), 'b')
 hold off
 
 %% Graph Details
