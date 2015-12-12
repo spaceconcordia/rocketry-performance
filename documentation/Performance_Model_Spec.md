@@ -24,6 +24,7 @@ These dynamic parameters must be considered to maximize the accuracy of the mode
 - constant fuel expenditure rate
 - vertical/linear flight within 5 degrees [@box2009]
 - the *Ideal Gas Law* applies throughout the flight
+- humidity in the air is ignored
 - steady-state irrotational flow around the body [@niskanen2013]
 - fully aligned thrust [@box2009, pg.16]
 - smooth transition between nose cone and body tube (no shoulder)
