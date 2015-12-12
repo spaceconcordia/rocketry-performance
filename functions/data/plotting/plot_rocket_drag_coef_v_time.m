@@ -11,5 +11,5 @@ legend ('Base','Fin Pressure','Parasitic','Skin Friction','Total Drag Coefficien
 
 if saveplots % conditionally save the plot
     saveas(gcf, '../documentation/images/plots/drag_coefficients.png');
-    export_fig drag_coefficients.pnd -m2
+    export_fig drag_coefficients.png -m2
 end

@@ -15,6 +15,6 @@ legend ('Base','Friction','Pressure','Axial','Total');
 if exist('saveplots')
     if saveplots % conditionally save the plot
         saveas(gcf, '../documentation/images/plots/openrocket_drag_coefficients.png');
-        export_fig openrocket_drag_coefficients.pnd -m2
+        export_fig openrocket_drag_coefficients.png -m2
     end
 end

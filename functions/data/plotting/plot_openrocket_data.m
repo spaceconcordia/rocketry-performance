@@ -22,5 +22,5 @@ multiplot(xdata, ydata, 'YLabel', ylabel, ...
 
 if saveplots % conditionally save the plot
     saveas(gcf, '../documentation/images/plots/arcturus_openrocket_plot.png');
-    export_fig arcturus_openrocket_plot.pnd -m2
+    export_fig arcturus_openrocket_plot.png -m2
 end

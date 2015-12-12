@@ -11,7 +11,12 @@ linespec = {'b','b','b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Arcturus Strattologger Data', 'XLabel', 'time');
 
-if saveplots % conditionally save the plot
-    saveas(gcf, '../documentation/images/plots/arcturus_strattologger_plot.png');
-    export_fig arcturus_strattologger_plot.pnd -m2
+%% Conditionally save the plot
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}

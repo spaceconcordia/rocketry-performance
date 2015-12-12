@@ -15,10 +15,15 @@ linespec = {'b','b','b'};
 multiplot(xdata, ydata, 'YLabel', ylabel, ...
  'LineSpec', linespec, 'Title', 'Arcturus Accelerometer Data', 'XLabel', 'time');
 
-if saveplots % conditionally save the plot
-    saveas(gcf, '../documentation/images/plots/arcturus_accelerometer_plot.png');
-    export_fig arcturus_accelerometer_plot.pnd -m2
+%% Conditionally save the plot
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}
 
 figure;
 plot (t_acc_arcturus, x_acc_arcturus);
@@ -26,10 +31,15 @@ axis([0 30 -30 30]);
 title('Accelerometer Data to Apogee');
 xlabel('Time (s)');
 
-if saveplots % conditionally save the plot
-    saveas(gcf, '../documentation/images/plots/arcturus_accelerometer_apogee_plot.png');
-    export_fig arcturus_accelerometer_apogee_plot.pnd -m2
+%% Conditionally save the plot
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}
 
 %% interpolate and align acceleration data
 disp('Setting baseline time');
@@ -46,9 +56,29 @@ axis([0 30 -30 30]);
 title('Interpolated Accelerometer Data to Apogee');
 xlabel('Time (s)');
 
+%% Conditionally save the plot
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
+end
+%}
+
 figure;
 plot (t_new, openrocket_acceleration);
 axis([0 30 -30 30]);
 title('Interpolated Openrocket Acceleration Data to Apogee');
 xlabel('Time (s)');
 hold off;
+
+%% Conditionally save the plot
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
+end
+%}

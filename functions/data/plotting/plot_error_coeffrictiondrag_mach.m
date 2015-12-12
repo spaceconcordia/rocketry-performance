@@ -9,3 +9,13 @@ title('Friction Drag Coefficient vs Mach Number');
 xlabel('Mach Number');
 %ylabel('Drag coefficient');
 legend('Matlab','OpenRocket')
+
+%% Conditionally save the plot
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
+end
+%}

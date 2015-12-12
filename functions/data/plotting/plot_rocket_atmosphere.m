@@ -9,5 +9,5 @@ multiplot(xdata, ydata, 'YLabel', ylabel, ...
 
 if saveplots % conditionally save the plot
     saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    export_fig atmosphere_plot.pnd -m2
+    export_fig atmosphere_plot.png -m2
 end

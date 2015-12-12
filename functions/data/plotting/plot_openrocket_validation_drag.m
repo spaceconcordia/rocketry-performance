@@ -44,19 +44,27 @@ multiplot(openrocket_xdata, openrocket_drag_data, 'YLabel', ylabel, ...
  'LineSpec', openrocket_linespec, 'Title', 'OpenRocket - Drag Vs Time', 'XLabel', 'time');
 
 %% Conditionally save the plot
-if saveplots 
-    %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.png -m2
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}
 
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
  'LineSpec', matlab_linespec, 'Title', 'Matlab Drag Vs Time', 'XLabel', 'time');
 
 %% Conditionally save the plot
-if saveplots 
-    %saveas(gcf, '../documentation/images/plots/atmosphere_plot.png');
-    %export_fig atmosphere_plot.png -m2
+%{
+if exist('saveplots')
+    if saveplots
+        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
+        export_fig error_drag_plot.png -m2
+    end
 end
+%}
 
 %--------------------------------------------------------------------------------
 %% Drag performance VS MACH
