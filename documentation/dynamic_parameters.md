@@ -2,7 +2,6 @@
 
 Parameters listed as *dynamic* in the table above are provided as initial values which are then recalculated by the model throughout the simulated flight.
 
-
 ### Thrust
 
 Thrust is the mechanical force that drives the flight of the rocket. It is a vector quantity of magnitude and direction. *Thrust* is a reaction force in the opposite direction of accelerating fluid (exhaust gas) caused by the combustion of fuel.
@@ -31,7 +30,7 @@ T = \dot{m} \Delta \vec{v}
 
 Thrust curves are provided by the manufacturer, and are rated at a constant fuel expenditure rate known as the specific fuel consumption ($S_{fc}$)
 
-Here is an example of the motor data provided by ThrustCurve.org:
+Table \ref{sample_motor_data} shows an example of the motor data provided by ThrustCurve.org:
 
 | Parameter         | Value                            |
 | ---               | ---                              |
@@ -57,7 +56,7 @@ Here is an example of the motor data provided by ThrustCurve.org:
 | Propellant Info   | Imax                             |
 | Availability      | regular                          |
 
-\captionof{table}{Sample Motor Data}
+\captionof{table}{\label{sample_motor_data}Sample Motor Data}
 
 Source: http://www.thrustcurve.org/motorsearch.jsp?id=673
 
@@ -225,13 +224,17 @@ assert ( dry_motor_weight == final_weight );
 
 The following figure shows the output of the test. The Thrust and Weight curves are output as expected.
 
-[dynamic_weight_calculation_test_figure]: images/dynamic_weight_calculation_test_figure.png "Dynamic Weight Calculation Test Output" 
+[dynamic_weight_calculation_test_figure]: images/plots/error_mass_v_time_plot.png "Dynamic Weight Calculation Test Output" 
 ![Dynamic Weight Calculation Test Output \label{dynamic_weight_calculation_test_figure_label}][dynamic_weight_calculation_test_figure] 
 
 ### Center of Pressure
 
 The *Center of Pressure* (COP) is the location where the aerodynamic forces are said to be acting. 
 A wind tunnel is the best way to approximate this point, but an analytic method is available.
+
+#### Barrowman's Equations
+
+*Barrowman's Equations* are used to determine the center of pressure. 
 
 \begin{equation}
 \label{rocket_center_of_pressure}
@@ -242,14 +245,6 @@ A wind tunnel is the best way to approximate this point, but an analytic method 
 \end{equation}
 
 [@barrowman, pg.12]
-
-
-
-#### Barrowman's Equations
-
-*Barrowman's Equations* are used to determine the center of pressure. 
-
-
 
 ### Center of Gravity
 
