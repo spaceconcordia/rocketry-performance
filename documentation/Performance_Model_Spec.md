@@ -1,7 +1,7 @@
-# Performance Model Specification
+# Engineering Simulator for Rocket Flight Analysis
 
 ## Overview 
-The goal of this project is to create a Performance Model in Matlab to simulate the rocket flight characteristics.
+The goal of this project is to create an Engineering Simulator for Rocket Flight Analysis in Matlab to model the rocket flight characteristics of the CR-2_4G Rocket.
 
 Specifically the model should verify the maximum altitude and velocity.
 Further developments are explored for future enhancement. 
