@@ -2,7 +2,7 @@
 
 Rockets in flight experience multiple sources of drag. The total drag effect is the sum of all specific drag effects.
 
-Figure \ref{rocket_drag_sources_label} depicts the types of drag forces to be expected in subsonic flight.
+Figure \ref{rocket_drag_sources_label} depicts the types of drag forces to be expected in subsonic flight at *zero-angle of attack*.
 
 [rocket_drag_sources]: images/drag_sources_niskanen2013.png "Rocket Drag Sources - Subsonic Flight" 
 ![Rocket Drag Sources - Subsonic Flight \label{rocket_drag_sources_label}][rocket_drag_sources] 
@@ -31,7 +31,7 @@ The *Ideal Gas Law* states that
 P = \rho R T
 \end{equation}
 
-We can simplify our lives by assuming the *Ideal Gas Law* applies, and use it to solve for *RT* using pressure and density. 
+We assume that the *Ideal Gas Law* applies, and use it to solve for *RT* using pressure and density. 
 $$ RT = \dfrac{P}{\rho} $$
 
 Thus we can calculate the speed of sound as follows
@@ -69,6 +69,8 @@ The following velocity regions are established for further discussion.
 As the rocket is constrained not to exceed Mach 0.9, much of the flight will be in the subsonic region, greatly simplifying much of the analysis. 
 However, transonic effects cannot be ignored when at a Mach Number greater than 0.8.
 
+\clearpage
+
 ### Incompressible Flow
 
 For Mach < 0.3, 
@@ -81,11 +83,6 @@ force and viscous force
 *Viscous Force* is due to boundary layer effects and interactions of moving air with surfaces. These forces are highly dependent on Reynolds number.
 [@box2009, pg.6]
 
-[rocket_drag_forces]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
-![Rocket Drag Forces - Axial vs. Normal Caption \label{rocket_drag_forces_label}][rocket_drag_forces] 
-[@box2009, pg.6]
-
-Velocity $\vec{v}$ is the apparent velocity of the center of pressure relative to the surrounding air. 
 
 ### Compressible Flow Correction
 
@@ -176,7 +173,7 @@ Where:
 
 For $Re_{crit} = 5 \times 10^5$
 
-- $\nu = 1.5 \times 10^-5 m^2/s$
+- $\eta = 1.5 \times 10^-5 m^2/s$
 - $v_0 = 100 m/s$
 - $x = 7 cm $ from the nose tip, where turbulent flow begins
 
@@ -219,7 +216,7 @@ D_f = D_f (\vec{v}, C_d, A_{ref}, \rho)
 The drag coefficient $C_d$ is the sum of all component drag coefficients
 
 \begin{equation} 
-C_d = \sum C_i = C_{pa} + C_{fo} + C_{pr} + C_{in} + C_{ba} + C_{sk} + C_{fp} + C_{wa} + C_{bt} 
+C_d = \sum C_i = C_{pa} + C_{fo} + C_{pr} + C_{in} + C_{ba} + C_{sk} + C_{fp} + C_{wa} + C_{bt} + C_{aoa}
 \end{equation}
  
 From Fluid Mechanics [source?]
@@ -498,10 +495,11 @@ C_{in}, D_{in} (A_{ref}, M)
 
 \begin{equation}
 \label{eq_interference_drag_coefficient}
-C_{in} = 2 C_{sk,fins} \left( 1 + 2 \dfrac{T_f}{l_m} \right) \dfrac{4n(A_{f_p}-A_{f_e}} {\pi d^2_f}
+C_{in} = 2 C_{sk,fins} \left( 1 + 2 \dfrac{T_f}{l_m} \right) \dfrac{4n(A_{f_p}-A_{f_e})} {\pi d^2_f}
 \end{equation}
 
 Where:
+
 - $C_{sk,fins}$ is the coefficient of skin friction (due to viscous effects) on the fins
 - $n$ is the number of fins
 - $A_{f_p}$ is the fin planform area 
@@ -531,6 +529,86 @@ A *boat-tail* is a reduction in diameter of the body tube towards the base of th
 Our rocket does not have a boat-tail, thus *Boat-Tail Drag* considerations are ignored. 
 
 \clearpage 
+
+### Additional Drag at Angle of Attack
+
+When the rocket flies at a non-zero angle of attack, additional drag considerations must be made.
+The reference area the rocket becomes larger as the rocket is pitched into the free stream, exposing more of the rocket body to pressure and stagnation effects.
+
+In Figure \ref{rocket_drag_aoa_label}, velocity $\vec{v}$ is the apparent velocity of the center of pressure relative to the surrounding air. 
+
+[rocket_drag_aoa]: images/rocket_drag_forces.png "Rocket Drag Forces - Axial vs. Normal" 
+![Rocket Drag Forces - Axial vs. Normal Caption \label{rocket_drag_aoa_label}][rocket_drag_aoa] 
+
+[@box2009, pg.6]
+
+In the following analysis, additional rocket drag coefficients are determined to be added to the *zero angle of attack* drag coefficient. 
+This analysis is derived with the aid of additional coefficients determined experimentally in wind tunnel tests on rocket models
+[@box2009, pg.13] [@mandell1973].
+
+\begin{equation}
+\label{eq_rocket_drag_aoa}
+C_{aoa} = C_{Db(\alpha)} + C_{Df(\alpha)}
+\end{equation}
+
+#### Rocket Body Drag at Angle of Attack
+
+\begin{equation}
+\label{eq_rocket_body_drag_aoa}
+C_{Db(\alpha)} = 2 \delta \alpha^2 + \dfrac{3.6 \eta (1.36 L - 0.55 h_n ) }{ \pi OD } \alpha^3
+\end{equation}
+
+Where:
+
+- $\alpha$ is the angle of attack
+- $L$ is the total rocket length
+- $OD$ is the outer diameter of the rocket 
+- $h_n$ is the height of the nose cone
+- $\delta$ and $\nu$ are experimentally determined coefficients
+
+#### Rocket Fin Drag at Angle of Attack
+
+\begin{equation}
+\label{eq_rocket_fin_drag_aoa}
+C_{Df(\alpha)} = \alpha^2 \left[ 1.2 \dfrac{A_{fp}4}{\pi OD^2_f} + 3.12 (k_{fb} + k_{bf} - 1) \left( \dfrac{A_{fe} 4}{\pi OD^2_f} \right) \right]
+\end{equation}
+
+Where: 
+
+- $k_{fb}$ is the fin-body coefficient
+\begin{equation}
+\label{eq_fin_body_coef_aoa}
+k_{fb} = 0.8065 R^2_s + 1.1553 R_s
+\end{equation}
+
+- $k_{bf}$ is the body-fin coefficient
+\begin{equation}
+\label{eq_body_fin_coef_aoa}
+k_{bf} = 0.1935 R^2_s + 0.8174 R_s + 1
+\end{equation}
+
+- $R_s$ is the fin section ratio
+\begin{equation}
+\label{eq_fin_section_ratio}
+R_s = \dfrac{l_{TS}}{d_f}
+\end{equation}
+
+- $l_{TS}$ is the total span of the fins
+- $OD_f$ is the diameter of the body tube at the base of the fin mount
+
+[@box2009, pg.14]
+
+#### Alternatively
+
+Alternatively, [@niskanen2013, pg.53] proposes a piecewise approximation for angle of attack drag correction as described below:
+
+\begin{quote}
+Based on experimental data an empirical formula was produced for calculating the axial drag coefficient at an angle of attack $\alpha$ from the zero-angle
+drag coefficient. 
+The scaling function is a two-part polynomial function that starts from 1 at $\alpha$ = 0 $^\circ$, increases to 1.3 at $\alpha$ = 17$^\circ$ and then decreases to
+zero at $\alpha$ = 90$^\circ$ the derivative is also zero at these points. 
+Since the majority of the simulated flight is at very small angles of attack, this approximation provides a sufficiently accurate estimate for the purposes of this thesis.
+\end{quote}
 
 ### Matlab Implementation
 
