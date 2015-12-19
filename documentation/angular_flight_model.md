@@ -76,13 +76,20 @@ The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between th
 
 $$ S_{lm} = \dfrac{COP - COG}{OD} $$
 
-The result is dimensionless, however the ratio determined is measured as *calibers*. 
+When traveling under a non-zero angle of attack, the component with respect to the velocity vector is taken.
 
-https://www.apogeerockets.com/education/downloads/Newsletter133.pdf
+\begin{equation}
+\label{eq_static_stability_margin}
+S_{lm} = \dfrac{COP - COG}{OD} \cdot \cos(\alpha)
+\end{equation}
+
+The result is dimensionless, however the ratio determined is measured in the number *calibers*. 
+
+[Static Stability Margin](https://www.apogeerockets.com/education/downloads/Newsletter133.pdf)
 
 ## Dynamic Stability
 
-The rocket must exhibit dynamic stability, wherein oscillations are reduced by the damping moment j
+The rocket must exhibit dynamic stability, wherein oscillations are reduced by the damping moment.
 
 ### Resonant Pitch/Yaw Moment
 
