@@ -93,13 +93,28 @@ This value must be verified regularly with the design team to ensure compliance.
 
 ### Corrective Moment Coefficient
 
-[Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
+The *Corrective Moment Coefficient* describes the reaction of the rocket due to a disturbance about its longitudinal axis.
 
+\begin{equation}
+\label{eq_coef_moment_corrective}
+C_{MC} = \rho \vec{v}^2 A_{ref} C_{FN} (COP-COG)
+\end{equation}
+
+Where:
+
+- $\rho$ is the local density of air
+- $\vec{v}$ is the velocity of the rocket
+- $A_{ref}$ is the reference area of the rocket flying into the free stream
+- $C_{NF}$ is the *Normal Force Coefficient* 
+- $(COP-COG)$ is the distance between the *Center of Pressure* and *Center of Gravity*
+
+Note: a rocket with a high *Corrective Moment Coefficient* is going to weathercock faster at lower velocities.
+
+[Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
 
 ### Damping Moment Coefficient
 
 [Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
-
 
 ## Wind Impulse
 
