@@ -97,7 +97,7 @@ The *Corrective Moment Coefficient* describes the reaction of the rocket due to 
 
 \begin{equation}
 \label{eq_coef_moment_corrective}
-C_{MC} = \rho \vec{v}^2 A_{ref} C_{FN} (COP-COG)
+C_{MC} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} C_{FN} (COP-COG)
 \end{equation}
 
 Where:
@@ -113,6 +113,48 @@ Note: a rocket with a high *Corrective Moment Coefficient* is going to weatherco
 [Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
 
 ### Damping Moment Coefficient
+
+As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
+In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
+The *Damping Moment Coefficient* determines how fast the response settles towards zero.
+
+There are two *Damping Moment Coefficients* to consider, the *Aerodynamic Damping Moment Coefficient* and the *Propulsive Damping Moment Coefficient*.
+
+Then the *Damping Moment Coefficient* is the sum of the two component coefficients.
+
+\begin{equation}
+\label{eq_coef_moment_damping}
+C_{DM} = C_{ADM} + C_{PDM}
+\end{equation}
+
+#### Aerodynamic Damping Moment Coefficient
+
+Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient*
+
+\begin{equation}
+\label{eq_coef_moment_damping_aero}
+C_{ADM} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
+\end{equation}
+
+NOTE: SHOULD V BE SQUARED?
+
+Where:
+
+- $\rho$ is the local density of air
+- $\vec{v}$ is the velocity of the rocket
+- $A_{ref}$ is the reference area of the rocket flying into the free stream
+- $C_{NF,x}$ is the *Normal Force Coefficient* 
+- $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
+- $COG)$ is the distance between the rocket *Center of Gravity* to the nose cone tip
+
+#### Propulsive Damping Moment Coefficient
+
+Also known as *Jet Damping*, as propulsion creates forward momentum, it resists rotation of the rocket.
+
+\begin{equation}
+\label{eq_coef_moment_damping_jet}
+C_{PDM} = \dot{m} \left( d_{tip,nozzle} - COG \right) ^2
+\end{equation}
 
 [Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
 
@@ -137,11 +179,10 @@ Two commonly used Wind Models are as follows
 Where 
 
 - $\dfrac{S_u (f)}{\sigma ^2 _ u}$ is the *Spectral Density Function* of turbulence velocity
-- *f* is the turbulence frequency
+- $f$ is the turbulence frequency
 - $\sigma_u$ is the standard deviation fo the turbulence velocity
 - $L_{1u}$ and $L_{2u}$ are length parameters
 - *U* is the average wind speed
 
 [@niskanen2013, pg. 59]
-
 

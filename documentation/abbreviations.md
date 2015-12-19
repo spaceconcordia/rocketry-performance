@@ -27,6 +27,8 @@
 | $D_{aoa}, C_{aoa}$ | Additional Angle of Attack Drag Force, Coefficient |                          |                                                 |
 | $C_{MC}$           | Corrective Moment Coefficient                      |                          |                                                 |
 | $C_{FN}$           | Normal Force Coefficient                           |                          |                                                 |
+| $C_{PDM}$          | Propulsive Damping Moment Coefficient              |                          |                                                 |
+| $C_{ADM}$          | Aerodynamic Damping Moment Coefficient             |                          |                                                 |
 | $A_{wb}$           | Area of Wetted Body                                |                          | $m^2$                                           |
 | $A_{wf}$           | Area of Wetted Fins                                |                          | $m^2$                                           |
 | $A_{fr}$           | Frontal Reference Area                             |                          | $m^2$                                           |
