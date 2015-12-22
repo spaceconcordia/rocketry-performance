@@ -23,8 +23,11 @@ http://www.nar.org/NARTS/TR13.html
 
 ### Assumptions
 
+- small angle of attack (less than 10$^\circ$)
 - incompressible flow
 - neglect viscous forces
+- neglect compressibility effects [@box2009, pg.7]
+- neglect lift force on the body tube [@box2009, pg.7]
 
 [@box2009, pg. 9]
 

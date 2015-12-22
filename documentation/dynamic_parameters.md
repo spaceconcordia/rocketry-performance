@@ -141,110 +141,119 @@ W_m (t) = W_{m_t} - \Delta W_f(t) = W_{m_t} - \dot{m}_{fc} \cdot t
 
 #### Matlab Implementation
 
-[dynamic_parameter_calculation]: images/dynamic_parameter_calculation.png "Dynamic Parameter Calculation" 
-![Dynamic Parameter Calculation \label{dynamic_parameter_calculation_label}][dynamic_parameter_calculation] 
-
-~~~~
-function [mass, weight, thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, wfc)
-%------------------------------------------------------------------------------
-% INPUT PARAMETERS
-% thrust_curve     - a horizontal data set containing time and thrust
-%                    data from a given motor    
-% wfc              - the rate of motor weight loss due to fuel consumption 
-% wet_motor_weight - the weight in Newtons of a motor *including* 
-%                    propellant
-%
-% NOTE: this implementation skips the W_dot evaluation, just uses mfc 
-% NOTE: UNTESTED
-%------------------------------------------------------------------------------
-
-% create the weight curve from an input thrust curvve matlab file 
-% with the same dimensions as the input thrust curve
-% weight_curve = {'time','weight'}
-
-% grab the size of the input thrust curve
-data_length = size(thrust_curve,1);
-
-% create the corresponding weight curve, same size
-weight = zeros(data_length,1);
-    
-%for i = 1:length(thrust_curve)
-for i = 1:data_length
-    weight(i,1) = wet_motor_weight - wfc*thrust_curve(i,1); 
-end
-
-thrust = thrust_curve;
-mass = weight * 9.81;
-~~~~
-
-##### Unit Testing
-
-~~~~
-%------------------------------------------------------------------------------
-%
-% Dynamic Weight Calculation Test
-%
-% run the function against input thrust data
-%------------------------------------------------------------------------------
-
-g                = 9.81;
-wet_motor_weight = 5.906*g;
-dry_motor_weight = 3.624*g;
-mfc              = 0.8236*g;
-
-thrust_curve = thrust_data_import('monotomic_time_thrust_curve.csv');
-
-burntime     = thrust_curve(:,1);
-thrust_force = thrust_curve(:,2);
-
-subplot(2,1,1);
-plot(burntime,thrust_force);
-title('Dynamic Weight Calculation Test - Motor Thrust Curve');
-ylabel('Thrust - T (N)');
-xlabel('Time - t (s)');
-
-[actual_mass, actual_weight, actual_thrust] = dynamic_weight_calculation(thrust_curve, wet_motor_weight, mfc);
-
-subplot(2,1,2);
-plot(burntime,actual_weight(:,1))
-title('Dynamic Weight Calculation Test - Motor Weight Curve');
-ylabel('Weight - W (N)');
-xlabel('Time - t (s)');
-
-% TODO need to provide some hand-calculated data to assert against
-
-% check that the last weight value is equal to the dry motor weight
-%assert ( actual_weight_curve(122,1) == dry_motor_weight );
-last_row = size(actual_weight,1);
-final_weight = actual_weight(last_row, 1);
-
-% TODO right now this assertion fails because the thrust data is not interpolated
-assert ( dry_motor_weight == final_weight );
-~~~~
-
-The following figure shows the output of the test. The Thrust and Weight curves are output as expected.
+The following figure shows the output of the dynamic weight calculation in Matlab. 
+The Thrust and Weight curves produce output similar to OpenRocket as expected.
 
 [dynamic_weight_calculation_test_figure]: images/plots/error_mass_v_time_plot.png "Dynamic Weight Calculation Test Output" 
 ![Dynamic Weight Calculation Test Output \label{dynamic_weight_calculation_test_figure_label}][dynamic_weight_calculation_test_figure] 
 
+\clearpage
+
 ### Center of Pressure
 
-The *Center of Pressure* (COP) is the location where the aerodynamic forces are said to be acting. 
+The *Center of Pressure* (COP) is the location (point) where the aerodynamic forces can be said to be acting, simplifying the complex distribution of forces across the rocket and its features. 
+
+The *Center of Pressure* changes with the normal force distribution on the rocket, which is driven by *Angle of Attack*  [@barrowman, pg.4].
+
+$$ COP = COP(\alpha) $$
+
 A wind tunnel is the best way to approximate this point, but an analytic method is available.
 
 #### Barrowman's Equations
 
-*Barrowman's Equations* are used to determine the center of pressure. 
+*Barrowman's Equations* are used to determine the *Center of Pressure*.
 
 \begin{equation}
 \label{rocket_center_of_pressure}
 \bar{X} = 
 \dfrac
-{ \left( C_{N \alpha} \right)_n \bar{x}_n + \left( C_{N \alpha} \right)_{cs} \bar{x}_{cs} + \left( C_{N \alpha} \right)_{cb} \bar{x}_{cb} + \left( C_{N \alpha} \right)_{fb} \bar{x}_{fb} }
+{ \left( C_{N \alpha} \right)_n \bar{x}_n + \left( C_{N \alpha} \right)_{cb} \bar{x}_{cb} + \left( C_{N \alpha} \right)_{fb} \bar{x}_{fb} }
 { C_{N \alpha}  }
 \end{equation}
 
+Where:
+
+- $C_{N \alpha}$ is the *Normal Force Coefficient*
+- $_n$ is the nose cone
+- $_{cb}$ is the cylindrical body
+- $_{fb}$ is the fin set in the presence of the body
+
 [@barrowman, pg.12]
+
+##### Cylindrical Body COP
+
+Wind tunnel tests performed in 1918 and 1919 demonstrated that the normal force generated at an angle of attack of less than 10 degrees is negligible
+[@barrowman, pg.10].
+
+##### Nose Cone COP
+
+###### LV-Haack Nose Cone COP
+
+\begin{equation}
+\label{eq_cop_lv_haack}
+\bar{X}_n = 0.437 h_n
+\end{equation}
+
+[@crowell1996, pg.7]
+
+####### Von Karman Nose Cone COP
+
+\begin{equation}
+\label{eq_cop_von_karman}
+\bar{X}_n = 0.500 h_n
+\end{equation}
+
+[@crowell1996, pg.7]
+
+##### Fin Set COP
+
+The force acting on the fins can be calculated using the following equation (applies only for identically shaped fins, in sets of 3, 4, or 6).
+
+\begin{equation}
+\label{eq_cop_fin_set}
+(C_{n \alpha} )_f = C_{in}\dfrac{4n \left( \dfrac{s}{d} \right)^2}{1 + \sqrt{1 + \left( \dfrac{2 l}{a + b} \right)^2}}
+\end{equation}
+
+Where:
+
+- $a$ is the fin tip chord length
+- $b$ is the fin root chord length
+- $s$ is the fin height
+- $l$ is the distance between the root center and the tip center
+- $C_{in}$ is a coefficient for the interference effects of the air flow near the fin-body interface
+
+\begin{equation}
+\label{eq_coef_cop_interference}
+C_{in} = 1 + \dfrac{OD/2}{OD/2 + s}
+\end{equation}
+
+[@barrowman, pg.11]
+
+The location of the *Center of Pressure* for the fin set is as follows.
+
+\begin{equation}
+\label{eq_cop_fin_set}
+\bar{X}_{fb}
+= 
+X_f 
++ 
+\dfrac {l ( b + 2 a )} {3 ( b + a ) } 
++ \dfrac{1}{6} 
+\left[ b + a - \dfrac{b a}{b + a} \right]
+\end{equation}
+
+[@box2009, pg.10]
+
+Where:
+
+- $X_f$ is the distance from the tip of the nose cone to the point where the leading edge of the fin meets the body tube [@box2009, pg.11]
+
+##### Transonic Considerations
+
+*Barrowman's Equations* are based on assumptions that are only valid in subsonic flight.
+In the transonic and supersonic regions, what new effects are introduced that would affect the location of the *Center of Pressure*?
+
+Also, see this [Center of Pressure Calculator online](http://physics.gallaudet.edu/tools/rocketcop.html).
 
 ### Center of Gravity
 
