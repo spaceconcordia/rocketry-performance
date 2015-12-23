@@ -39,7 +39,8 @@ F_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N
 \end{equation}
 [@box2009, pg. 9]
 
-Where $A_c$ is the cross-sectional area of the body tube, and $C_N$ is the *Normal Force Coefficient*, and is a function of angle-of-attack ($\alpha$)
+Where $A_c$ is the cross-sectional area of the body tube, and $C_N$ is the *Normal Force Coefficient*, and is a function of angle-of-attack ($\alpha$). 
+The small angle approximation is applied, wherein small angles can be approximated as a linear function of the angle.
 
 \begin{equation}
 \label{normal_force_coefficient}
