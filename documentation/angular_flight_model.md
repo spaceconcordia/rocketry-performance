@@ -1,8 +1,10 @@
 # Angular Flight Stability (Pitch, Yaw) Analysis
 
 ## Overview
-- non-linear model (stability analysis)
- - finding lift will be annoying
+
+The rocket will tend to fly at an *Angle of Attack* into the atmosphere, wherein the velocity vector taken from the *Center of Gravity* is not parallel with the longitudinal axis.
+This will cause non-linear changes to the magnitude of the aerodynamic forces, which, as a further simplification, can be said to be acting about the *Center of Pressure*.
+In order for the aerodynamic forces to straighten the rocket in it's forward motion, and to stabilize the oscillatory rotation about the COG, the COP must be located behind the COG.
 
 > "One of the first principles any rocket designer must learn is that a rocket will fly only if the center of gravity is ahead of the center of pressure far enough to allow the air currents to cause a stabilizing effect."
 
@@ -18,6 +20,34 @@ http://www.nar.org/NARTS/TR13.html
 - 2a - The static stability margin falls above 2 (but less than 3) calibers at launch
 - 2b - The dynamic stability is greater than 0 even in winds up to 8.33 m/s
 - 2f - The vehicle does not experience resonant pitching/yawing motion in flight
+
+## Equation of Motion
+
+The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Normal Force* and the *Lift Force*.
+These forces will be discussed more later. 
+
+The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
+Then, the sum of forces at the COP is the *Normal Force* ($F_N$) minus the *Lift Force* ($F_L$), and the sum of the Moments about the COG is expressed as follows.
+
+\begin{equation}
+\label{eq_angular_flight_eom}
+\sum M_{COG} = (d_{COP} - d_{COG}) (F_N  - F_L)
+\end{equation}
+
+The *Moment* of a rigid body about its COG can be expressed as the product of the *Moment of Inertia* of the rigid body and the *Angular acceleration* of the body. 
+
+\begin{equation}
+\label{eq_moment}
+M = I \alpha 
+\end{equation}
+
+Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment} to give the equation of angular motion of the rocket.
+
+\begin{equation}
+\label{eq_moment}
+I \alpha = (d_{COP} - d_{COG}) (F_N  - F_L)
+\end{equation}
+
 
 ## Barrowman Method
 
