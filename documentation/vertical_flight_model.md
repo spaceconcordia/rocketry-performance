@@ -2,11 +2,15 @@
 
 ## Particular Assumptions
 
-The rocket is to be launched on a guide that may have a $\pm$ 5$^\circ$ angle. Considering the small angle approximation, the sine of 5 degrees or less is approximately equal to the angle in radians, or zero.
+The rocket is to be launched on a guide that may have a $\pm$ 5$^\circ$ angle. 
+Considering the small angle approximation, the sine of 5 degrees or less is approximately equal to the angle in radians, or zero.
 
 For a 1% error:
-(@) $$ sin ( \theta \le 15^\circ ) \approx 0 $$ 
-[UManitoba](http://www.physics.umanitoba.ca/undergraduate/phys2260/Lectures/Intro%20Optics%20-%20PPT%20v1part%2004.pdf)
+\begin{equation} 
+sin ( \theta \le 15^\circ ) \approx 0 
+\end{equation}
+
+[@optics2004]
 
 This assumption greatly simplifies the simulation analysis. We consider that the rocket flies perfectly vertical (experiencing no significant drift) into still (quiescent) air for which density is described by the [International Standard Atmosphere (ISA) model](https://en.wikipedia.org/wiki/International_Standard_Atmosphere). 
 
