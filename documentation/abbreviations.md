@@ -50,6 +50,9 @@
 | $f_B$              | Fineness Ratio                                     |                          | dimensionless                                   |
 | $\mu$              | Dynamic Viscosity                                  |                          | $N s / m^2$                                     |
 | $\nu$              | Kinematic Viscosity                                | $\mu$, $\rho$            | $m^2/s$                                         |
+| $\lambda$              | Angular Acceleration                                |             | $rad/s^2$                                         |
+| $\omega$              | Angular Velocity                                |             | $rad/s$                                         |
+| $\theta$              | Angular Position                                |             | $radians$                                         |
 
 
 \captionof{table}{List of Abbreviations}

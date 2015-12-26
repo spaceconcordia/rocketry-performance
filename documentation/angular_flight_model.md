@@ -38,16 +38,53 @@ The *Moment* of a rigid body about its COG can be expressed as the product of th
 
 \begin{equation}
 \label{eq_moment}
-M = I \alpha 
+M = I \lambda 
 \end{equation}
 
 Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment} to give the equation of angular motion of the rocket.
 
 \begin{equation}
-\label{eq_moment}
-I \alpha = (d_{COP} - d_{COG}) (F_N  - F_L)
+\label{eq_moment_eom}
+I \lambda = (d_{COP} - d_{COG}) (F_N  - F_L)
 \end{equation}
 
+$\alpha$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement. $\omega$ is the angular velocity, which is the first time derivative of the angular displacement.
+
+$$ 
+\lambda = \ddot{\theta}
+$$
+$$
+\omega = \dot{\theta}
+$$
+
+Equation \ref{eq_moment_eom} can be divided by the *Moment of Inertia*, then integrated twice with respect to time to acquire $\omega$ and $\theta$.
+
+$$
+\omega = \int \lambda dt = \int \dfrac{1}{I} (d_{COP} - d_{COG}) (F_N  - F_L) dt
+$$
+
+The integration of Force with respect to time is *Impulse* $J$ [@source].
+
+$$
+\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) (F_N  - F_L) t
+$$
+
+\begin{equation}
+\label{eq_angular_velocity}
+\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} 
+\end{equation}
+
+$$
+\theta = \iint \alpha dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_N  - F_L) dt dt
+$$
+
+\begin{equation}
+\label{eq_angular_position}
+\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} t
+\end{equation}
+
+[angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
+![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
 
 ## Barrowman Method
 
