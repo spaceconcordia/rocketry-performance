@@ -143,7 +143,7 @@ Where $A_p$ is the *planform area* of the rocket (the projected length-wise area
 
 ## Longitudinal Static Stability Margin
 
-The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube when the rocket is positioned at an angle-of-attack ($\alpha$) of zero [TODO source??].
+The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube when the rocket is positioned at an angle-of-attack ($\alpha$) of zero [@source].
 
 $$ S_{lm} = \dfrac{COP - COG}{OD} $$
 
@@ -154,7 +154,11 @@ When traveling under a non-zero angle of attack, the component with respect to t
 S_{lm} = \dfrac{COP - COG}{OD} \cdot \cos(\alpha)
 \end{equation}
 
-The result is dimensionless, however the ratio determined is measured in the number *calibers*. 
+The result is dimensionless, however the ratio determined is measured in the number of *calibers*. 
+
+\begin{quote}
+2a - The static stability margin falls above 2 (but less than 3) calibers at launch
+\end{quote}
 
 [Static Stability Margin](https://www.apogeerockets.com/education/downloads/Newsletter133.pdf)
 
@@ -214,7 +218,7 @@ Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient
 C_{ADM} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
 \end{equation}
 
-NOTE: SHOULD V BE SQUARED?
+NOTE: SHOULD $\vec{v}$ BE SQUARED?
 
 Where:
 
