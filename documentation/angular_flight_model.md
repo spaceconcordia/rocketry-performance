@@ -198,20 +198,20 @@ Note: a rocket with a high *Corrective Moment Coefficient* is going to weatherco
 
 As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
 In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
-The *Damping Moment Coefficient* determines how fast the response settles towards zero.
+The *Damping Moment ~~Coefficient~~* determines how fast the response settles towards zero.
 
-There are two *Damping Moment Coefficients* to consider, the *Aerodynamic Damping Moment Coefficient* and the *Propulsive Damping Moment Coefficient*.
+There are two *Damping Moment ~~Coefficient~~s* to consider, the *Aerodynamic Damping Moment ~~Coefficient~~* and the *Propulsive Damping Moment ~~Coefficient~~*.
 
-Then the *Damping Moment Coefficient* is the sum of the two component coefficients.
+Then the *Damping Moment ~~Coefficient~~* is the sum of the two moment components ~~coefficients~~.
 
 \begin{equation}
 \label{eq_coef_moment_damping}
 C_{DM} = C_{ADM} + C_{PDM}
 \end{equation}
 
-#### Aerodynamic Damping Moment Coefficient
+#### Aerodynamic Damping Moment ~~Coefficient~~
 
-Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient*
+Each rocket component contributes to the *Aerodynamic Damping Moment ~~Coefficient~~*
 
 \begin{equation}
 \label{eq_coef_moment_damping_aero}
@@ -229,7 +229,7 @@ Where:
 - $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
 - $COG)$ is the distance between the rocket *Center of Gravity* to the nose cone tip
 
-#### Propulsive Damping Moment Coefficient
+#### Propulsive Damping Moment ~~Coefficient~~
 
 Also known as *Jet Damping*, as propulsion creates forward momentum, it resists rotation of the rocket.
 
@@ -237,6 +237,19 @@ Also known as *Jet Damping*, as propulsion creates forward momentum, it resists 
 \label{eq_coef_moment_damping_jet}
 C_{PDM} = \dot{m} \left( d_{tip,nozzle} - COG \right) ^2
 \end{equation}
+
+##### Dimensional Analysis
+
+$$
+\dot{m} \left( d_{tip,nozzle} - COG \right) ^2 :
+\left[ \dfrac{kg}{s} \cdot m^2 \right]
+$$
+$$
+M = fd : 
+\left[ \dfrac{kg \cdot m^2}{s^2} \right]
+$$
+
+Note: why is the *Jet Damping Moment* missing a 1/t?
 
 [Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
 
