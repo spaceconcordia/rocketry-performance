@@ -21,6 +21,17 @@ http://www.nar.org/NARTS/TR13.html
 - 2b - The dynamic stability is greater than 0 even in winds up to 8.33 m/s
 - 2f - The vehicle does not experience resonant pitching/yawing motion in flight
 
+## Rocket Flight Differential Equation
+
+The following describes rocket flight as a *homogeneous, non-linear, differential equation* [@mandell1973, pg.83].
+
+\begin{equation}
+\label{eq_rocket_diff}
+I_L \dfrac{d^2 \alpha_x}{dt^2} + F (\alpha_x) + G \left( \dfrac{d \alpha_x}{dt} \right) = 0
+\end{equation}
+
+Equation \ref{eq_rocket_diff} has no assured solutions, and as a result of being non-linear, must be solved by *linearization approximation* over piece-wise and limited regions [@mandell1973, pg.84].
+
 ## Equation of Motion
 
 The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Normal Force* and the *Lift Force*.
@@ -48,7 +59,7 @@ Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment}
 I \lambda = (d_{COP} - d_{COG}) (F_N  - F_L)
 \end{equation}
 
-$\alpha$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement. $\omega$ is the angular velocity, which is the first time derivative of the angular displacement.
+$\lambda$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement. $\omega$ is the angular velocity, which is the first time derivative of the angular displacement.
 
 $$ 
 \lambda = \ddot{\theta}
@@ -87,6 +98,8 @@ $$
 ![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
 
 ## Barrowman Method
+
+The *Barrowman Method* allows a simplified analysis of rocket flight to avoid the complications of linear approximations of Equation \ref{eq_rocket_diff}.
 
 ### Assumptions
 
