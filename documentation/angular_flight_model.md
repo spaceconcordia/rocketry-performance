@@ -211,20 +211,20 @@ Note: a rocket with a high *Corrective Moment Coefficient* is going to weatherco
 
 As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
 In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
-The *Damping Moment ~~Coefficient~~* determines how fast the response settles towards zero.
+The *Damping Moment Coefficient* determines how fast the response settles towards zero.
 
-There are two *Damping Moment ~~Coefficient~~s* to consider, the *Aerodynamic Damping Moment ~~Coefficient~~* and the *Propulsive Damping Moment ~~Coefficient~~*.
+There are two *Damping Moment Coefficients* to consider, the *Aerodynamic Damping Moment Coefficient* and the *Propulsive Damping Moment Coefficient*.
 
-Then the *Damping Moment ~~Coefficient~~* is the sum of the two moment components ~~coefficients~~.
+Then the *Damping Moment Coefficient* is the sum of the two moment components coefficients.
 
 \begin{equation}
 \label{eq_coef_moment_damping}
 C_{DM} = C_{ADM} + C_{PDM}
 \end{equation}
 
-#### Aerodynamic Damping Moment ~~Coefficient~~
+#### Aerodynamic Damping Moment Coefficient
 
-Each rocket component contributes to the *Aerodynamic Damping Moment ~~Coefficient~~*
+Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient*
 
 \begin{equation}
 \label{eq_coef_moment_damping_aero}
