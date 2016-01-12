@@ -1,10 +1,11 @@
 function coef_moment_corrective = CoefMomentCorrective(inputs)
 
-density           = inputs(1);
-velocity          = inputs(2);
-area_ref          = inputs(3);
-coef_force_normal = inputs(4);
-COP_to_COG        = inputs(5);
+density           = inputs(1)
+velocity          = inputs(2)
+area_ref          = inputs(3)
+coef_force_normal = inputs(4)
+COP               = inputs(5)
+COG               = inputs(6)
 
 coef_moment_corrective = ...
     1 / 2 ...
@@ -12,4 +13,4 @@ coef_moment_corrective = ...
     * velocity^2 ...
     * area_ref ...
     * coef_force_normal ...
-    * COP_to_COG;
+    * (COP - COG)
