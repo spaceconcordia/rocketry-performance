@@ -45,4 +45,8 @@ Why Bother?
  - initial altitude, temperature
 - Detailed motor investigation 
 
+# Aurelius Analysis
 
+- Thrust to Weight Ratio
+- Vertical Flight Results
+- Angular Flight Results
