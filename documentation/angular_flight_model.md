@@ -138,7 +138,7 @@ C_{N \alpha} = \sum C_{N \alpha (P)}
 
 [@box2009, pg. 9]
 
-### Rocket Normal Moment
+### Rocket Restoring Moment
 
 The *Rocket Normal Force* (Equation \ref{rocket_normal_force}) applied at the *Center of Pressure* creates a moment about the *Center of Gravity*, known herein as the *Rocket Normal Moment*.
 
@@ -222,7 +222,7 @@ Note: a rocket with a high *Corrective Moment Coefficient* is going to weatherco
 
 As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
 In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
-The *Damping Moment Coefficient* determines how fast the response settles towards zero.
+The *Damping Moment Coefficient* represents how fast the response settles towards zero.
 
 There are two *Damping Moment Coefficients* to consider, the *Aerodynamic Damping Moment Coefficient* and the *Propulsive Damping Moment Coefficient*.
 
@@ -253,7 +253,7 @@ Where:
 - $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
 - $COG$ is the distance between the rocket *Center of Gravity* to the nose cone tip
 
-#### Propulsive Damping Moment ~~Coefficient~~
+#### Propulsive Damping Moment Coefficient
 
 Also known as *Jet Damping*, as propulsion creates forward momentum, it resists rotation of the rocket.
 

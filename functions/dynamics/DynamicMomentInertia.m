@@ -11,7 +11,7 @@ motor_mass            = inputs(7); % motor mass is a function of time
 d_staticcog_rocketcog = abs(rocket_cog-static_cog);
 I_1 = static_moment_inertia + static_mass*(d_staticcog_rocketcog)^2;
 
-motor_moment_inertia = (1/12) * (motor_mass*motor_length^2) 
+motor_moment_inertia = (1/12) * (motor_mass*motor_length^2);
 I_2 = static_moment_inertia + static_mass*(d_staticcog_rocketcog)^2;
 
 moment_of_inertia = static_moment_inertia + motor_moment_inertia;
