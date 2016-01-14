@@ -26,6 +26,17 @@ if vftm
     fprintf( 'Maximum Matlab Altitude: %d m, %d ft \r\n', max(altitude), max(altitude)*3.28);
 end
 
+rftm = confirm('Run RocketFlight_TestModel?');
+if vftm
+    fprintf ( 'Running Simulation ... ' );
+    sim('RocketFlight_TestModel');
+    disp ( 'Done' );
+    
+    timetoapogee
+    
+    fprintf( 'Maximum Matlab Altitude: %d m, %d ft \r\n', max(altitude), max(altitude)*3.28);
+end
+
 %% Plotting
 plotoutput = confirm('Plot output?');
 if plotoutput

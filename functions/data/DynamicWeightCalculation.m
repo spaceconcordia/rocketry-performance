@@ -32,9 +32,10 @@ weight          = motor_weight + dry_rocket_weight;
 thrust          = thrust_curve;
 mass            = weight / 9.81;
 mass_propellant = (motor_weight - dry_motor_weight) / 9.81;
+mass_motor      = motor_weight / 9.81;
 
 %% Mux outputs
-outputs = [mass, weight, thrust, mass_propellant];
+outputs = [mass, weight, thrust, mass_propellant, mass_motor];
 
 %% END OF FUNCTION
 end
