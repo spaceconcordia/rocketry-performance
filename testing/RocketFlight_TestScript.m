@@ -27,7 +27,7 @@ if vftm
 end
 
 rftm = confirm('Run RocketFlight_TestModel?');
-if vftm
+if rftm
     fprintf ( 'Running Simulation ... ' );
     sim('RocketFlight_TestModel');
     disp ( 'Done' );

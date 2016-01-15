@@ -2,7 +2,7 @@
 
 ## Overview
 
-The rocket will tend to fly at an *Angle of Attack* into the atmosphere, wherein the velocity vector taken from the *Center of Gravity* is not parallel with the longitudinal axis.
+Due to disturbances such as wind, and imperfections and imbalances in the construction, the rocket will tend to fly at an *Angle of Attack* into the free stream, wherein the velocity vector (taken from the *Center of Gravity*) is not parallel with the longitudinal axis.
 This will cause non-linear changes to the magnitude of the aerodynamic forces, which, as a further simplification, can be said to be acting about the *Center of Pressure*.
 In order for the aerodynamic forces to straighten the rocket in it's forward motion, and to stabilize the oscillatory rotation about the COG, the COP must be located behind the COG.
 
@@ -59,16 +59,18 @@ Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment}
 I \lambda = (d_{COP} - d_{COG}) (F_N  - F_L)
 \end{equation}
 
-$\lambda$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement. $\omega$ is the angular velocity, which is the first time derivative of the angular displacement.
+- $\lambda$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement 
+- $\omega$ is the angular velocity, which is the first time derivative of the angular displacement
+- $\alpha$ is the *angle of attack*
 
 $$ 
-\lambda = \ddot{\theta}
+\lambda = \ddot{\alpha}
 $$
 $$
-\omega = \dot{\theta}
+\omega = \dot{\alpha}
 $$
 
-Equation \ref{eq_moment_eom} can be divided by the *Moment of Inertia*, then integrated twice with respect to time to acquire $\omega$ and $\theta$.
+Equation \ref{eq_moment_eom} can be divided by the *Moment of Inertia*, then integrated twice with respect to time to acquire $\omega$ and $\alpha$.
 
 $$
 \omega = \int \lambda dt = \int \dfrac{1}{I} (d_{COP} - d_{COG}) (F_N  - F_L) dt
@@ -86,12 +88,12 @@ $$
 \end{equation}
 
 $$
-\theta = \iint \alpha dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_N  - F_L) dt dt
+\alpha = \iint \alpha dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_N  - F_L) dt dt
 $$
 
 \begin{equation}
 \label{eq_angular_position}
-\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} t
+\alpha = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} t
 \end{equation}
 
 [angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
@@ -277,18 +279,37 @@ Note: why is the *Jet Damping Moment* missing a 1/t?
 
 [Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
 
-## Wind Impulse
+## Wind Disturbance
 
-Two commonly used Wind Models are as follows
+We are interested in the damping ratio of the rocket as it stabilizes towards *zero angle of attack* in reaction to angular disturbances.
 
-### Kaimal Wind Model
+As we consider the rocket to have ideal dimensional accuracy, the main source of flight disturbance is wind.
+
+### Impulse Disturbance
+
+We can test the ability of the rocket to stabilize due to an initial angular disturbance, by applying an initial angle of attack. 
+This simulates a small gust of wind hitting the rocket just as it takes off.
+
+### Constant Disturbance
+
+We can test the ability of the rocket to stabilize due to a constant disturbance force, as well as applying an initial *angle of attack*.
+This simulates a constant wind force coming from a single direction.
+As the density of air goes down with increases altitude, this assumes that the wind speed picks up at higher altitudes to maintain the constant wind force.
+
+Alternatively, we could model a constant wind speed of $8.33 m/s$, and apply the ISA Model for the density as a function of altitude to determine the changing wind force as the rocket climbs.
+
+### Future Enhancement
+
+To account for wind turbulence in future models, two commonly used Wind Models are explored.
+
+#### Kaimal Wind Model
 
 \begin{equation}
 \label{eq_kaiman_wind_model}
 \dfrac{S_u (f)}{\sigma ^2 _ u} = \dfrac{4 L_{1u} / U }{(1+6f L_{1u} / U )^{5/3}}
 \end{equation}
 
-### Von Karman Wind Model
+#### Von Karman Wind Model
 
 \begin{equation}
 \label{eq_von_karman_wind_model}
