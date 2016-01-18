@@ -32,6 +32,29 @@ I_L \dfrac{d^2 \alpha_x}{dt^2} + F (\alpha_x) + G \left( \dfrac{d \alpha_x}{dt} 
 
 Equation \ref{eq_rocket_diff} has no assured solutions, and as a result of being non-linear, must be solved by *linearization approximation* over piece-wise and limited regions [@mandell1973, pg.84].
 
+## Characteristic Equations
+
+\begin{equation}
+\label{eq_characteristic_equation}
+C_1 \ddot{\alpha} + C_2 \dot{\omega} + C_3 \alpha = 0
+\end{equation}
+
+### Vibrations 
+
+\begin{equation}
+\label{eq_characteristic_equation_vibes}
+m \ddot{x} + c \dot{x} + kx = 0
+\end{equation}
+
+### Controls
+
+\begin{equation}
+\label{eq_characteristic_equation_controls}
+s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
+\end{equation}
+
+- $\zeta$ is the damping coefficient, and is tied to the frequency of the system
+
 ## Equation of Motion
 
 The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Normal Force* and the *Lift Force*.
@@ -149,6 +172,85 @@ The *Rocket Normal Force* (Equation \ref{rocket_normal_force}) applied at the *C
 M_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N \left( COP - COG \right)
 \end{equation}
 
+### Damping Moment Coefficient
+
+As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
+In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
+The *Damping Moment Coefficient* represents how fast the response settles towards zero.
+
+There are two *Damping Moment Coefficients* to consider, the *Aerodynamic Damping Moment Coefficient* and the *Propulsive Damping Moment Coefficient*.
+
+Then the *Damping Moment Coefficient* is the sum of the two moment components coefficients.
+
+\begin{equation}
+\label{eq_coef_moment_damping}
+C_{DM} = C_{ADM} + C_{PDM}
+\end{equation}
+
+#### Aerodynamic Damping Moment Coefficient
+
+Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient*
+
+\begin{equation}
+\label{eq_coef_moment_damping_aero}
+C_{ADM} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
+\end{equation}
+
+NOTE: SHOULD $\vec{v}$ BE SQUARED?
+
+Where:
+
+- $\rho$ is the local density of air
+- $\vec{v}$ is the velocity of the rocket
+- $A_{ref}$ is the reference area of the rocket flying into the free stream
+- $C_{NF,x}$ is the *Normal Force Coefficient* 
+- $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
+- $COG$ is the distance between the rocket *Center of Gravity* to the nose cone tip
+
+#### Propulsive Damping Moment Coefficient
+
+Also known as *Jet Damping*, as propulsion creates forward momentum, it resists rotation of the rocket.
+
+\begin{equation}
+\label{eq_coef_moment_damping_jet}
+C_{PDM} = \dot{m} \left( d_{tip,nozzle} - COG \right) ^2
+\end{equation}
+
+##### Jet Damping - Dimensional Analysis
+
+$$
+\dot{m} \left( d_{tip,nozzle} - COG \right) ^2 :
+\left[ \dfrac{kg}{s} \cdot m^2 \right]
+$$
+$$
+M = fd : 
+\left[ \dfrac{kg \cdot m^2}{s^2} \right]
+$$
+
+Note: why is the *Jet Damping Moment* missing a 1/t?
+
+[Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
+
+#### Pitch Damping Moment
+
+The *Pitch Damping Moment* is a moment opposing the *Rocket Restoring Moment* and dampens the oscillation. 
+
+\begin{equation}
+\label{eq_moment_damping_pitch}
+0.55 \dfrac{l^4 r_t}{A_{ref} d} \dfrac{\omega^2}{v^2_0}
+\end{equation}
+
+According to [@niskanen2013], the *Pitch Damping Moment* is essentially insignificant until near apogee. 
+This is because it is proportional to $\dfrac{\omega^2}{v^2_0}$ (as seen in \ref{eq_moment_damping_pitch}), which will be near zero until apogee due to very small angular velocities made smaller by squaring the $\omega$ term.
+
+The *Pitch Damping Moment* of each rocket component must be calculated individually.
+For instance, the *Pitch Damping Moment* of a fin is as follows.
+
+\begin{equation}
+\label{eq_moment_damping_pitch_fin}
+C_{damp} = 0.6 \dfrac{N A_{fin} d_{COP}^3}{A_{ref} d} \dfrac{\omega^2}{v^2_0}
+\end{equation}
+
 ### Corrections
 
 #### Compressibility Correction
@@ -165,7 +267,6 @@ C_{N(L)} = K \dfrac{A_p}{A_{ref}} \alpha^2
 \end{equation}
 
 Where $A_p$ is the *planform area* of the rocket (the projected length-wise area of the rocket, neglecting the fins)
-
 
 ## Longitudinal Static Stability Margin
 
@@ -220,64 +321,6 @@ Note: a rocket with a high *Corrective Moment Coefficient* is going to weatherco
 
 [Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
 
-### Damping Moment Coefficient
-
-As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
-In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
-The *Damping Moment Coefficient* represents how fast the response settles towards zero.
-
-There are two *Damping Moment Coefficients* to consider, the *Aerodynamic Damping Moment Coefficient* and the *Propulsive Damping Moment Coefficient*.
-
-Then the *Damping Moment Coefficient* is the sum of the two moment components coefficients.
-
-\begin{equation}
-\label{eq_coef_moment_damping}
-C_{DM} = C_{ADM} + C_{PDM}
-\end{equation}
-
-#### Aerodynamic Damping Moment Coefficient
-
-Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient*
-
-\begin{equation}
-\label{eq_coef_moment_damping_aero}
-C_{ADM} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
-\end{equation}
-
-NOTE: SHOULD $\vec{v}$ BE SQUARED?
-
-Where:
-
-- $\rho$ is the local density of air
-- $\vec{v}$ is the velocity of the rocket
-- $A_{ref}$ is the reference area of the rocket flying into the free stream
-- $C_{NF,x}$ is the *Normal Force Coefficient* 
-- $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
-- $COG$ is the distance between the rocket *Center of Gravity* to the nose cone tip
-
-#### Propulsive Damping Moment Coefficient
-
-Also known as *Jet Damping*, as propulsion creates forward momentum, it resists rotation of the rocket.
-
-\begin{equation}
-\label{eq_coef_moment_damping_jet}
-C_{PDM} = \dot{m} \left( d_{tip,nozzle} - COG \right) ^2
-\end{equation}
-
-##### Dimensional Analysis
-
-$$
-\dot{m} \left( d_{tip,nozzle} - COG \right) ^2 :
-\left[ \dfrac{kg}{s} \cdot m^2 \right]
-$$
-$$
-M = fd : 
-\left[ \dfrac{kg \cdot m^2}{s^2} \right]
-$$
-
-Note: why is the *Jet Damping Moment* missing a 1/t?
-
-[Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
 
 ## Wind Disturbance
 
