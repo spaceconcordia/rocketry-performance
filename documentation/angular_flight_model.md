@@ -172,7 +172,9 @@ The *Rocket Normal Force* (Equation \ref{rocket_normal_force}) applied at the *C
 M_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N \left( COP - COG \right)
 \end{equation}
 
-### Damping Moment Coefficient
+### Damping 
+
+#### Damping Moment Coefficient
 
 As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
 In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
@@ -250,6 +252,23 @@ For instance, the *Pitch Damping Moment* of a fin is as follows.
 \label{eq_moment_damping_pitch_fin}
 C_{damp} = 0.6 \dfrac{N A_{fin} d_{COP}^3}{A_{ref} d} \dfrac{\omega^2}{v^2_0}
 \end{equation}
+
+#### Rocket Damping Ratio
+
+The *Rocket Damping Ratio* is calculated as follows.
+
+\begin{equation}
+\label{eq_rocket_damping_ratio}
+\zeta = \dfrac{C_2}{2 \cdot \sqrt{C_1 I_L}}
+\end{equation}
+
+Where:
+
+- $C_1$ is the *Corrective Moment Coefficient*
+- $C_2$ is the *Damping Moment Coefficient*
+- $I_L$ is the *Longitudinal Moment of Inertia*
+
+[@newsletter197]
 
 ### Corrections
 
