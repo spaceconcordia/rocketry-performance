@@ -163,6 +163,8 @@ A wind tunnel is the best way to approximate this point, but an analytic method 
 
 *Barrowman's Equations* are used to determine the *Center of Pressure*.
 
+The *
+
 \begin{equation}
 \label{rocket_center_of_pressure}
 \bar{X} = 
@@ -173,7 +175,7 @@ A wind tunnel is the best way to approximate this point, but an analytic method 
 
 Where:
 
-- $C_{N \alpha}$ is the *Normal Force Coefficient*
+- $C_{N \alpha}$ is the *Stability Derivative*
 - $_n$ is the nose cone
 - $_{cb}$ is the cylindrical body
 - $_{fb}$ is the fin set in the presence of the body

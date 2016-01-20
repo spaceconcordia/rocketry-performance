@@ -35,6 +35,7 @@ if rftm
     timetoapogee
     
     fprintf( 'Maximum Matlab Altitude: %d m, %d ft \r\n', max(altitude), max(altitude)*3.28);
+    fprintf( 'Average Damping Ratio:  %d \r\n', mean(rocket_damping_ratio));
 end
 
 %% Plotting
@@ -42,6 +43,7 @@ plotoutput = confirm('Plot output?');
 if plotoutput
     saveplots = confirm('Save plots (takes additional time)?');
     fprintf ( 'Plotting output ... ' );
+    plot_rocket_angular
     plot_rocket_dynamics
     plot_rocket_kinematics
     plot_rocket_atmosphere
