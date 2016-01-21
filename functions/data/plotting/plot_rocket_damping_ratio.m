@@ -5,3 +5,4 @@ plot (tout, coef_damping_aero + coef_damping_jet, 'k');
 plot (tout, coef_moment_corrective','r');
 hold off;
 legend('Damping Ratio','Damping Coefficient', 'Corrective Moment Coefficient');
+title ('Rocket Damping Ratio');

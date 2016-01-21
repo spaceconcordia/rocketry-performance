@@ -1,3 +1,6 @@
+%--------------------------------------------------------------------------------
+% Plot the Angular Kinematics
+%--------------------------------------------------------------------------------
 %% provide degrees on right vertical axis
 rad2deg = 180/pi; 
 n=5; % how many tickmarks
@@ -38,7 +41,7 @@ subplot(3,1,3);
 plot (tout, angular_acceleration);
 title ('Angular Acceleration');
 xlabel ('Time (s)');
-ylimit = [-0.5,0.5]; % ylimits in meters
+ylimit = [-0.6,0.6]; % ylimits in meters
 ytic = linspace(ylimit(1),ylimit(2),n); 
 ax1 = gca;
 set(ax1,'ylim', ylimit, 'ytick', ytic);
@@ -59,15 +62,21 @@ if exist('saveplots')
     end
 end
 
-plot_angular_nf_lf
+%--------------------------------------------------------------------------------
+% Plot the Rocket Forces
+%--------------------------------------------------------------------------------
+plot_rocket_forces
 %% conditionally save the plot
 if exist('saveplots')
     if saveplots
-        saveas(gcf, '../documentation/images/plots/rocket_nf_lf.png');
-        export_fig rocket_nf_lf.png -m2
+        saveas(gcf, '../documentation/images/plots/rocket_forces.png');
+        export_fig rocket_forces.png -m2
     end
 end
 
+%--------------------------------------------------------------------------------
+% Plot the Rocket Damping Ratio
+%--------------------------------------------------------------------------------
 plot_rocket_damping_ratio
 %% conditionally save the plot
 if exist('saveplots')
@@ -77,14 +86,19 @@ if exist('saveplots')
     end
 end
 
-figure; plot(angular_position, cop_rocket,'b');
-hold on; plot(angular_position, cog_rocket,'r');
+%--------------------------------------------------------------------------------
+% Plot the Rocket Stability Margin
+%--------------------------------------------------------------------------------
+figure; plot(tout, cop_rocket,'b');
+hold on; plot(tout, cog_rocket,'r');
+hold on; plot(tout, static_stability_margin,'k');
 hold off;
-legend ('Rocket COP','Rocket COG');
+legend ('Rocket COP','Rocket COG','Stability Margin (calibers)');
+title ('Stability Margin');
 %% conditionally save the plot
 if exist('saveplots')
     if saveplots
-        saveas(gcf, '../documentation/images/plots/rocket_cop_cog.png');
-        export_fig rocket_cog_cop.png -m2
+        saveas(gcf, '../documentation/images/plots/rocket_stability_margin.png');
+        export_fig rocket_stability_margin.png -m2
     end
 end
