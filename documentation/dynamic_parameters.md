@@ -2,15 +2,33 @@
 
 Parameters listed as *dynamic* in the table above are provided as initial values which are then recalculated by the model throughout the simulated flight.
 
-### Thrust
-
-Thrust is the mechanical force that drives the flight of the rocket. It is a vector quantity of magnitude and direction. *Thrust* is a reaction force in the opposite direction of accelerating fluid (exhaust gas) caused by the combustion of fuel.
+### Force 
 
 *Force* is a change in momentum with time, and is related by Newton's Second Law
 
 \begin{equation}
 F = \dfrac{m \Delta \vec{v}}{\Delta t} = m\vec{a}
 \end{equation}
+
+### Impulse
+
+*Impulse* is the product of force and integration of a differential (infinitesimal period) of time between the time periods in which it was applied. 
+
+\begin{equation}
+\label{impulse}
+J = \int^{t_2}_{t_1} F dt
+\end{equation}
+
+This is also known as the *Total Impulse*, or the *total change in momentum*, and can be calculated as the average thrust over a given time period.
+
+### Thrust
+
+Thrust is the mechanical force that drives the flight of the rocket. 
+It is a vector quantity of magnitude and direction. 
+*Thrust* is a reaction force in the opposite direction of accelerating fluid (exhaust gas) caused by the combustion of fuel, and is assumed to be aligned with the longitudinal axis of the rocket.
+
+
+### Mass Flow Rate
 
 *Mass Flow Rate* is found by the product of fluid density, velocity, and cross-sectional area.
 

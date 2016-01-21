@@ -1,5 +1,13 @@
 ## Future Enhancements
 
+### Embedded Execution
+
+### 6DOF System with Quaternions
+
+### Porting to Python / OpenModelica
+
+### Robust Wind Model
+
 ### ThrustCurve.org API Integration
 
 ThrustCurve.org has an API we could use to dynamically pull motor data for integration into the simulation
