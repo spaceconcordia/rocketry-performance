@@ -173,9 +173,9 @@ Where:
 
 For $Re_{crit} = 5 \times 10^5$
 
-- $\eta = 1.5 \times 10^-5 m^2/s$
+- $\nu = 1.5 \times 10^-5 m^2/s$
 - $v_0 = 100 m/s$
-- $x = 7 cm $ from the nose tip, where turbulent flow begins
+- $x = 7 cm$ from the nose tip, where turbulent flow begins
 
 [@niskanen2013, pg.42]
 
@@ -439,7 +439,7 @@ This is likely to be sufficient for subsonic velocites [@niskanen2013, pg.48], a
 Parasitic drag is the drag due to body features not explicitly designed and/or imperfections not easily approximated. 
 Examples include launch guides, ventilation holes, surface roughness, and any damage during flight. 
 
-PARASITIC DRAG IS CURRENTLY NEGLECTED IN THE MODEL, gt
+PARASITIC DRAG IS CURRENTLY NEGLECTED IN THE MODEL
 
 \begin{equation}
 C_{pa}, D_{pa} (A_{ref}, M) 

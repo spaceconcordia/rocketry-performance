@@ -43,7 +43,7 @@ plotoutput = confirm('Plot output?');
 if plotoutput
     saveplots = confirm('Save plots (takes additional time)?');
     fprintf ( 'Plotting output ... ' );
-    plot_rocket_angular
+    plot_rocket_angular_flight
     plot_rocket_dynamics
     plot_rocket_kinematics
     plot_rocket_atmosphere

@@ -30,7 +30,7 @@ function thrust_curve = openrocket_data_import(csvfilename, prefix)
 %-------------------------------------------------------------------------------
 
 if size(csvfilename) == 0
-    csvfilename='aurelius_openrocket_simulation.csv';
+    csvfilename='aurelius_openrocket_simulation_nowind_greenriver_temp_pressure_no_isa.csv';
 end
 
 %% Enable xlsread in Simulink 

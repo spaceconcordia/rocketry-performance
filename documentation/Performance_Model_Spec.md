@@ -61,6 +61,7 @@ Forces acting at a distance $d$ from the center of gravity create a rotation abo
 
 If it can be said that the translation of the body at its center of gravity (kinematics) does not impact the rotation of the body about its center of gravity by a force applied at some other point (the *Center of Pressure*), the analysis can be greatly simplified.
 Such a *mutually independent system of equations* could be solved rather easily, as the translational model could be solved independently of the rotational model, and vice-versa [@mandell1973].
+Coupled systems of equations, on the other hand, would have to be solved simultaneously.
 
 As it happens, the translational model of the rocket is not fully decoupled from the rotational model. 
 As the rocket rotates while travelling through the air at an angle of attack, it presents a larger reference area and thus increases the drag force, causing a negative acceleration in the translation model. 

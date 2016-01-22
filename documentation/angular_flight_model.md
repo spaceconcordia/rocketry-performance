@@ -10,6 +10,45 @@ In order for the aerodynamic forces to straighten the rocket in it's forward mot
 
 http://www.nar.org/NARTS/TR13.html
 
+## Intuition
+
+Suppose a high-powered rocket is launched in quiescent air vertically, and flies straight without wobbling.
+Then, suppose a small disturbance is experienced on the side of the rocket causing a deflection, for example a short gust of wind, which then stops.
+If the rocket is *stable*, a restoring force causes a *corrective moment* which will act in the opposite direction of the deflection. 
+This *corrective moment* can be considered a function of angular displacement [@mandell1973, pg.81].
+
+\begin{equation}
+M_{corrective} = F (\alpha)
+\end{equation}
+
+As the rocket gains velocity in the direction opposite the disturbance, a *damping moment* is generated as a result of the relative speed of the airspeed, in the direction orthogonal to the longitudinal axis.
+As this *damping moment* opposes the angular velocity caused by the *corrective moment*, its sign is opposite to the angular velocity.
+The *damping moment* is also a function of angular velocity [@mandell1973, pg.81-82].
+
+\begin{equation}
+M_{damping} = G (\omega)
+\end{equation}
+
+Then, taking a sum of Moments, the rotation of the rocket can be described as follows [@mandell1973, pg.83]
+
+$$
+I \lambda = -F(\alpha) - G(\omega) 
+$$
+$$
+I \left( \dfrac{d^2\alpha}{dt^2} \right) = -F(\alpha) - G \left(\dfrac{d\alpha}{dt} \right) 
+$$
+\begin{equation}
+I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
+\end{equation}
+
+This nonlinear, homogenous, differential equation can not be solved exactly. 
+Approximations are made considering small values of $\alpha$ and $\omega$, known as the *small-perturbation theory* [@mandell1973, pg.86].
+This provides constant coefficients, which we will denote $C_1$ for the *Corrective Moment Coefficient* and $C_2$ for the *Damping Moment Coefficient*.
+
+\begin{equation}
+I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alpha}{dt} \right) = 0
+\end{equation}
+
 ## Out-of-scope
 
 - range (drift)
@@ -36,7 +75,7 @@ Equation \ref{eq_rocket_diff} has no assured solutions, and as a result of being
 
 \begin{equation}
 \label{eq_characteristic_equation}
-C_1 \ddot{\alpha} + C_2 \dot{\omega} + C_3 \alpha = 0
+C_1 \ddot{\alpha} + C_2 \dot{\alpha} + C_3 \alpha = 0
 \end{equation}
 
 ### Vibrations 
@@ -57,15 +96,15 @@ s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
 
 ## Equation of Motion
 
-The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Normal Force* and the *Lift Force*.
+The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Restoring Force* and the *Damping Force*.
 These forces will be discussed more later. 
 
 The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
-Then, the sum of forces at the COP is the *Normal Force* ($F_N$) minus the *Lift Force* ($F_L$), and the sum of the Moments about the COG is expressed as follows.
+Then, the sum of forces at the COP is the *Restoring Force* ($F_R$) minus the *Damping Force* ($F_D$), and the sum of the Moments about the COG is expressed as follows.
 
 \begin{equation}
 \label{eq_angular_flight_eom}
-\sum M_{COG} = (d_{COP} - d_{COG}) (F_N  - F_L)
+D
 \end{equation}
 
 The *Moment* of a rigid body about its COG can be expressed as the product of the *Moment of Inertia* of the rigid body and the *Angular acceleration* of the body. 
@@ -79,7 +118,7 @@ Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment}
 
 \begin{equation}
 \label{eq_moment_eom}
-I \lambda = (d_{COP} - d_{COG}) (F_N  - F_L)
+I \lambda = (d_{COP} - d_{COG}) (F_R  - F_D)
 \end{equation}
 
 - $\lambda$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement 
@@ -96,13 +135,13 @@ $$
 Equation \ref{eq_moment_eom} can be divided by the *Moment of Inertia*, then integrated twice with respect to time to acquire $\omega$ and $\alpha$.
 
 $$
-\omega = \int \lambda dt = \int \dfrac{1}{I} (d_{COP} - d_{COG}) (F_N  - F_L) dt
+\omega = \int \lambda dt = \int \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) dt
 $$
 
-The integration of Force with respect to time is *Impulse* $J$ [@source].
+The integration of Force with respect to time is *Impulse* $J$.
 
 $$
-\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) (F_N  - F_L) t
+\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) t
 $$
 
 \begin{equation}
@@ -111,7 +150,7 @@ $$
 \end{equation}
 
 $$
-\alpha = \iint \alpha dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_N  - F_L) dt dt
+\alpha = \iint \lambda dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_R  - F_D) dt dt
 $$
 
 \begin{equation}
@@ -155,11 +194,11 @@ C_N = C_{N \alpha} \cdot \alpha
 [@box2009, pg. 9]
 
 Where $C_{N \alpha}$ is the *Stability Derivative*, the slope of the *Normal Force Coefficient*.
-The total *Stability Derivative* is the sum of all rocket component stability derivatives
+The total *Stability Derivative* is the sum of all *i* rocket component stability derivatives
 
 \begin{equation}
 \label{total_stability_derivative}
-C_{N \alpha} = \sum C_{N \alpha (P)}   
+C_{N \alpha} = \sum C_{N \alpha (i)}   
 \end{equation}
 
 [@box2009, pg. 9]
@@ -196,10 +235,11 @@ Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient
 
 \begin{equation}
 \label{eq_coef_moment_damping_aero}
-C_{ADM} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
+C_{ADM} = \dfrac{1}{2} \rho \vec{v} A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
 \end{equation}
 
 NOTE: SHOULD $\vec{v}$ BE SQUARED?
+It might have something to with that the ADM is a function of angular displacement, and DM is a function of angular velocity??
 
 Where:
 
