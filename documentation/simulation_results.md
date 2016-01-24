@@ -4,11 +4,11 @@
 
 For all tests, the following conditions were used, based on historical data for June 25th, 2015 at 12:00PM (noon) near Green River, Utah [@forecastio].
 
-| Date       | Elevation             | Ground Pressure | Ground Temperature      | Wind Speed         |
-| ---        | ---                   | ---             | ---                     | ---                |
-| 2015/06/15 | 4,227.92 ft (1,289 m) | 101300 Pa       | 298.15 K (25 $^\circ$C) | 6 km/h (1.6 m/s)   |
-| 2014/06/15 | 4,227.92 ft (1,289 m) | 100700 Pa       | 296.15 K (23 $^\circ$C) | 20 km/h (5.56 m/s) |
-| 2013/06/15 | 4,227.92 ft (1,289 m) | 101000 Pa       | 299.15 K (26 $^\circ$C) | 10 km/h (2.78 m/s) |
+| Date       | Elevation          | Ground Pressure | Ground Temperature      | Wind Speed         | Humidity |
+| ---        | ---                | ---             | ---                     | ---                | ---      |
+| 2015/06/15 | 4,078 ft (1,243 m) | 101300 Pa       | 298.15 K (25 $^\circ$C) | 6 km/h (1.6 m/s)   | 33 %     |
+| 2014/06/15 | 4,078 ft (1,243 m) | 100700 Pa       | 296.15 K (23 $^\circ$C) | 20 km/h (5.56 m/s) | 8 %      |
+| 2013/06/15 | 4,078 ft (1,243 m) | 101000 Pa       | 299.15 K (26 $^\circ$C) | 10 km/h (2.78 m/s) | 19 %     |
 
 \captionof{table}{General Simulation Conditions}
 
@@ -16,9 +16,9 @@ For all tests, the following conditions were used, based on historical data for 
 
 The best case scenario is with no wind, and a 0$^\circ$ launch angle, and the lowest air pressure.
 
-| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle |
-| ---        | ---             | ---                     | ---                |
-| 0 m/s      | 101000 kPa      | 287.15 K (15 $^\circ$C) | 0$^\circ$         |
+| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle | Humidity |
+| ---        | ---             | ---                     | ---                | --- |
+| 0 m/s      | 101000 Pa       | 298.15 K (25 $^\circ$C) | 0$^\circ$          |  
 
 \captionof{table}{Best Case Simulation Conditions}
 
@@ -57,6 +57,18 @@ The following models were executed.
 ![Full Model in Simulink, angle of attack less than 15 degrees \label{full_model_test_label}][full_model_test] 
 
 \clearpage
+
+## Summary
+
+### Best Case
+
+| Software | Case | Velocity leaving launch rail | Max Acc. | Max Vel. | Max. Alt. | Time to apogee |
+| ---      | ---  | ---                          | ---      | ---      | ---       | ---            |
+
+### Worst Case
+
+| Software | Case | Velocity leaving launch rail | Max Acc. | Max Vel. | Max. Alt. | Time to apogee |
+| ---      | ---  | ---                          | ---      | ---      | ---       | ---            |
 
 ## Observations
 

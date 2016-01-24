@@ -1,5 +1,16 @@
 # rocketry-performance
 
+## Installation and Setup
+
+1. Extract or clone this repository somewhere on your hard drive
+2. Add the entire rocketry-performance folder and subfolders to the Matlab path
+3. From the Matlab command line, enter:
+```
+flyrocket
+```
+
+## Overview 
+
 This repo tracks the Matlab performance model for the rocketry team.
 
 Included are the following:
