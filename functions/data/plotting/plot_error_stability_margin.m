@@ -68,7 +68,7 @@ ylabel('Calibers');
 %% conditionally save the plot
 if exist('saveplots')
     if saveplots
-        saveas(gcf, '../documentation/images/plots/error_stability_calibers_plot.png');
+        saveas(gcf, 'documentation/images/plots/error_stability_calibers_plot.png');
         export_fig error_altitude_plot.png -m2
     end
 end

@@ -1,24 +1,85 @@
-# Simulation Results
+# Simulation Execution
 
 ## Simulation Configuration
 
-The following model was executed
+For all tests, the following conditions were used, based on historical data for June 25th, 2015 at 12:00PM (noon) near Green River, Utah [@forecastio].
+
+| Date       | Elevation             | Ground Pressure | Ground Temperature      | Wind Speed         |
+| ---        | ---                   | ---             | ---                     | ---                |
+| 2015/06/15 | 4,227.92 ft (1,289 m) | 101300 Pa       | 298.15 K (25 $^\circ$C) | 6 km/h (1.6 m/s)   |
+| 2014/06/15 | 4,227.92 ft (1,289 m) | 100700 Pa       | 296.15 K (23 $^\circ$C) | 20 km/h (5.56 m/s) |
+| 2013/06/15 | 4,227.92 ft (1,289 m) | 101000 Pa       | 299.15 K (26 $^\circ$C) | 10 km/h (2.78 m/s) |
+
+\captionof{table}{General Simulation Conditions}
+
+### Best Case
+
+The best case scenario is with no wind, and a 0$^\circ$ launch angle, and the lowest air pressure.
+
+| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle |
+| ---        | ---             | ---                     | ---                |
+| 0 m/s      | 101000 kPa      | 287.15 K (15 $^\circ$C) | 0$^\circ$         |
+
+\captionof{table}{Best Case Simulation Conditions}
+
+### Worst Case
+
+The worst case scenario, is the maximum wind condition permitted for launch by the competition, and a launch guide angle, and the highest pressure.
+
+| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle |
+| ---        | ---             | ---                     | ---                |
+| 8.33 m/s   | 101325 kPa      | 288.15 K (15 $^\circ$C) | 5$^\circ$         |
+
+\captionof{table}{Worst Case Simulation Conditions}
+
+\clearpage
+
+## Simulation Software
+
+The following models were executed.
+
+### OpenRocket
+
+### RockSim
+
+### RASAero
+
+\clearpage
+
+### Matlab
+
+#### Matlab Models
 
 [vertical_model_test]: images/vertical_model.png "" 
 ![Vertical Model in Simulink, angle of attack less than 5 degrees \label{vertical_model_test_label}][vertical_model_test] 
 
+[full_model_test]: images/rocket_model.png "" 
+![Full Model in Simulink, angle of attack less than 15 degrees \label{full_model_test_label}][full_model_test] 
+
+\clearpage
+
 ## Observations
+
+\clearpage
 
 ## Primary Plots
 
 [error_altitude_plot]: images/plots/error_altitude_plot.png "" 
-![Mass, Weight, and Thrust as a Function of Time \label{error_altitude_plot_label}][error_altitude_plot] 
+![Altitude as a Function of Time \label{error_altitude_plot_label}][error_altitude_plot] 
 
 [error_mach_plot]: images/plots/error_mach_plot.png "" 
-![Mass, Weight, and Thrust as a Function of Time \label{error_mach_plot_label}][error_mach_plot] 
+![Mach Number as a Function of Time \label{error_mach_plot_label}][error_mach_plot] 
 
-[error_drag_plot]: images/plots/error_drag_plot.png "" 
-![Mass, Weight, and Thrust as a Function of Time \label{error_drag_plot_label}][error_drag_plot] 
+[error_dragcoef_plot]: images/plots/error_dragcoef_v_mach_plot.png "" 
+![Drag Coefficient as a Function of Mach Number \label{error_dragcoef_v_plot_label}][error_dragcoef_plot] 
+
+[error_dragforce_plot]: images/plots/error_dragforce_plot.png "" 
+![Drag Force as a Function of Mach Number \label{error_dragforce_v_plot_label}][error_dragforce_plot] 
+
+[error_stability_calibers_plot]: images/plots/error_stability_calibers_plot.png "" 
+![Stability (Calibers) as a Function of Time \label{error_stability_calibers_plot_label}][error_stability_calibers_plot] 
+
+\clearpage
 
 ### Additional Plots
 
@@ -43,8 +104,5 @@ The following model was executed
 [atmosphere_plot]: images/plots/atmosphere_plot.png "" 
 ![Altitude, Velocity, and Acceleration as a Function of Time \label{atmosphere_plot_label}][atmosphere_plot] 
 
+
 \clearpage
-
-## Raw Data
-
-See Appendix

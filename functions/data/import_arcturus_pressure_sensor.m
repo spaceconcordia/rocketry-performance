@@ -1,8 +1,7 @@
 %% Import data from spreadsheet
 % Script for importing data from the following spreadsheet:
 %
-%    Workbook: C:\Users\scorpii\Documents\Space\Rocketry\Avionics\Arcturus
-%    Flight Analysis\Arcturus Flight Data\ArcturusFlightData.xlsx
+%    Workbook: ArcturusFlightData.xlsx
 %    Worksheet: CA BMP Sensor (PP)
 %
 % To extend the code for use with different selected data or a different

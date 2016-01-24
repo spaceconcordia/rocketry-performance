@@ -70,7 +70,7 @@ ylabel('Altitude (m)');
 
 %% provide imperial units on right vertical axis
 ylimit = [0,12500/meter2feet]; % ylimits in meters
-n=9; % how many tickmarks
+n=11; % how many tickmarks
 ytic = linspace(ylimit(1),ylimit(2),n); 
 ax1 = gca;
 set(ax1,'ylim', ylimit, 'ytick', ytic);
@@ -86,7 +86,7 @@ ylabel('in feet');
 %% conditionally save the plot
 if exist('saveplots')
     if saveplots
-        saveas(gcf, '../documentation/images/plots/error_altitude_plot.png');
+        saveas(gcf, 'documentation/images/plots/error_altitude_plot.png');
         export_fig error_altitude_plot.png -m2
     end
 end
