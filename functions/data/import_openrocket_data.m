@@ -148,6 +148,8 @@ openrocket_Simulationtimestep = dataArray{:, 53};
 openrocket_Computationtime = dataArray{:, 54};
 openrocket_DynamicPressurembar = dataArray{:, 55};
 
+openrocket_DampingCoefficient = openrocket_Pitchdampingcoefficient ./ (2 .* sqrt(openrocket_Longitudinalmomentofinertiakgm .* openrocket_Pitchmomentcoefficient) );
+
 %% Clear temporary variables
 clearvars filename delimiter startRow formatSpec fileID dataArray ans;
 
