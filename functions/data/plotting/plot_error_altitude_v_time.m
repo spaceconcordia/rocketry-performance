@@ -3,30 +3,35 @@ meter2feet = 3.28;
 upperbound = 12000/meter2feet;
 lowerbound = 9500/meter2feet;
 
-%% Plot shaded region for competition bounds
-x1 = Rocksim_Time;
-y1 = linspace(upperbound,upperbound,size(Rocksim_Time,1));
-y2 = linspace(lowerbound,lowerbound,size(Rocksim_Time,1));
 
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude)
-time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket)
+indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
 openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
+openrocket_altitude_max = openrocket_altitude_max(1)*meter2feet;
 
 % RasAero
-indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft)
-time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero)
-rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero)
+indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);
+time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero);
+rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero);
+rasaero_altitude_max = rasaero_altitude_max;
 
 % RockSim
-indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet)
-time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim)
-Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim)
+indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
+time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
+Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
+Rocksim_altitude_max = Rocksim_altitude_max;
+
+%% Plot shaded region for competition bounds
+x1 = rasaero_Timesec(1:indexmax_rasaero);
+y1 = linspace(upperbound,upperbound,size(rasaero_Timesec(1:indexmax_rasaero),1));
+y2 = linspace(lowerbound,lowerbound,size(rasaero_Timesec(1:indexmax_rasaero),1));
 
 %% Plot altitude error
-matlab_plot = plot(tout, altitude, 'm--*')
-hold on
+matlab_plot = plot(tout, altitude, 'm--*');
+
+hold on;
 openrocket_plot = plot(...
     openrocket_VarName1(1:indexmax_openrocket), ...
     openrocket_Altitude(1:indexmax_openrocket), ...
@@ -43,14 +48,18 @@ rocksim_plot = plot( ...
     'k- .' ...
 );
 ha = shadedplot(x1, y1, y2, [0.7, 1, 0.7], 'r'); %first area is red
-hold off
+hold off;
 
 h_legend = legend(...
-    [matlab_plot, openrocket_plot, rasaero_plot, rocksim_plot],...
-    'Matlab','OpenRocket','Rasaero','Rocksim', ...
-    'location', 'east' ...
+    [matlab_plot, openrocket_plot , rasaero_plot, rocksim_plot] , ...
+    strcat('Matlab       :' , sprintf('%0.2f' , floor( max(altitude)*meter2feet) ) , ' ft')        , ...
+    strcat('OpenRocket   :' , sprintf('%0.2f' , openrocket_altitude_max(1))        , ' ft')        , ...
+    strcat('Rasaero      :' , sprintf('%0.2f' , rasaero_altitude_max(1))           , ' ft')        , ...
+    strcat('Rocksim      :' , sprintf('%0.2f' , Rocksim_altitude_max(1))           , ' ft')        , ...
+    'location'              , 'southeast' ...
 );
-set(h_legend,'FontSize',14);
+set(h_legend,'FontSize',12);
+set(h_legend,'FontName','Courier New');
 
 %% fill region in between
 %{
@@ -67,6 +76,8 @@ title('Altitude vs Time');
 grid on;
 xlabel('Time (s)');
 ylabel('Altitude (m)');
+
+xlim([0,time_to_apogee_rasaero(end)]);
 
 %% provide imperial units on right vertical axis
 ylimit = [0,12500/meter2feet]; % ylimits in meters

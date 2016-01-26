@@ -1,18 +1,18 @@
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude)
-time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket)
+indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
 openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
 
 % RasAero
-indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft)
-time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero)
-rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero)
+indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);
+time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero);
+rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero);
 
 % RockSim
-indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet)
-time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim)
-Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim)
+indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
+time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
+Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
 
 %% Plot drag coef v mach number
 matlab_plot = plot(mach_number, drag_coefficient, 'm--*')
@@ -39,7 +39,8 @@ h_legend = legend(...
     'Matlab','OpenRocket','Rasaero','Rocksim', ...
     'location', 'east' ...
 );
-set(h_legend,'FontSize',14);
+set(h_legend,'FontSize',12);
+set(h_legend,'FontName','Courier New');
 
 %% Graph Details
 clear title xlabel ylabel

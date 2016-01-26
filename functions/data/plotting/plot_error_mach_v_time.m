@@ -1,27 +1,27 @@
 %% Define globals
-upperbound = 0.9
+upperbound = 0.9;
 lowerbound = 0.8;
 
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_matlab = find(max(altitude) == altitude)
-time_to_apogee_matlab = tout(indexmax_matlab)
+indexmax_matlab = find(max(altitude) == altitude);
+time_to_apogee_matlab = tout(indexmax_matlab);
 matlab_mach_max = altitude(indexmax_openrocket);
 
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude)
-time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket)
+indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
 openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
 
 % RasAero
-indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft)
-time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero)
-rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero)
+indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);
+time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero);
+rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero);
 
 % RockSim
-indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet)
-time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim)
-Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim)
+indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
+time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
+Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
 
 %% Define shaded region for competition bounds
 x1 = Rocksim_Time(1:indexmax_Rocksim);
@@ -54,16 +54,21 @@ rocksim_plot = plot( ...
 hold off
 h_legend = legend(...
     [matlab_plot, openrocket_plot, rasaero_plot, rocksim_plot],...
-    'Matlab','OpenRocket','Rasaero','Rocksim', ...
-    'location', 'east' ...
+    strcat('Matlab     :',sprintf('%0.2f', max(mach_number))),...
+    strcat('OpenRocket :', sprintf('%0.2f', max(openrocket_Machnumber))), ...
+    strcat('Rasaero    :',sprintf('%0.2f', max(rasaero_Mach))), ...
+    strcat('Rocksim    :',sprintf('%0.2f', max(Rocksim_Machnumber))), ...
+    'location', 'southeast' ...
 );
-set(h_legend,'FontSize',14);
+set(h_legend,'FontSize',12);
+set(h_legend,'FontName','Courier New');
 
 %% Plot details
 clear title xlabel ylabel
 title('Mach Number vs Time');
 xlabel('Time (s)');
 ylabel('Mach Number');
+ylim([0,0.9]);
 
 %% save plot
 if exist('saveplots')

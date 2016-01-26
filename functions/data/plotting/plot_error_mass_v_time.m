@@ -71,7 +71,8 @@ h_legend = legend(...
     'Matlab','OpenRocket','Rocksim', ...
     'location', 'northeast' ...
 );
-set(h_legend,'FontSize',14);
+set(h_legend,'FontSize',12);
+set(h_legend,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('Mass vs Time');

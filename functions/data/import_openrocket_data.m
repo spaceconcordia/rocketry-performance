@@ -10,7 +10,7 @@
 
 %% Initialize variables.
 %filename = 'aurelius_openrocket_simulation_nowind_greenriver_temp_pressure_no_isa.csv';
-filename = 'aurelius_openrocket_worst.csv';
+filename = 'aurelius_openrocket_best.csv';
 delimiter = ',';
 startRow = 2;
 
