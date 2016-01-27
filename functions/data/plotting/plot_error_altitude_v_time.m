@@ -3,7 +3,6 @@ meter2feet = 3.28;
 upperbound = 12000/meter2feet;
 lowerbound = 9500/meter2feet;
 
-
 %% Find value index of apogee for each source
 % OpenRocket
 indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);

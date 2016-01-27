@@ -1,25 +1,27 @@
 lbf2newton = 4.4482216152605;
 ounce2kilogram = .02834952;
+newton2kilogram = 9.81;
+lbf2kilogram = lbf2newton / newton2kilogram;
 
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude)
-time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket)
+indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
 openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
 
 % RasAero
-indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft)
-time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero)
-rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero)
+indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);
+time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero);
+rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero);
 
 % RockSim
-indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet)
-time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim)
-Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim)
+indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
+time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
+Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
 
 %% Plot drag coef
-subplot(2,1,1)
-matlab_plot_1 = plot(tout, thrust, 'm--*')
+subplot(2,1,1);
+matlab_plot_1 = plot(tout, thrust, 'm--*');
 hold on;
 openrocket_plot_1 = plot(...
     openrocket_VarName1(1:indexmax_openrocket), ...
@@ -36,7 +38,7 @@ rocksim_plot_1 = plot( ...
     Rocksim_yThrustN(1:indexmax_Rocksim), ...
     'k- .' ...
 );
-hold off
+hold off;
 
 h_legend = legend(...
     [matlab_plot_1, openrocket_plot_1, rasaero_plot_1, rocksim_plot_1],...
@@ -44,6 +46,7 @@ h_legend = legend(...
     'location', 'northeast' ...
 );
 set(h_legend,'FontSize',14);
+set(h_legend,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('Thrust vs Time');
@@ -51,14 +54,19 @@ xlabel('Thrust (N)');
 ylabel('Time (s)');
 
 subplot(2,1,2)
-matlab_plot_2 = plot(tout, mass, 'm--*')
+
+matlab_plot_2 = plot(tout, mass, 'm--*');
 hold on;
 openrocket_plot_2 = plot(...
     openrocket_VarName1(1:indexmax_openrocket), ...
     openrocket_Mass(1:indexmax_openrocket)/1000, ...
     'b--.'...
 );
-
+rasaero_plot_2 = plot( ...
+    rasaero_Timesec(1:indexmax_rasaero), ...
+    rasaero_Weightlb(1:indexmax_rasaero)*lbf2kilogram, ...
+    'c--o' ...
+);
 rocksim_plot_2 = plot( ...
     Rocksim_Time(1:indexmax_Rocksim), ...
     Rocksim_MassOunces(1:indexmax_Rocksim)*ounce2kilogram, ...
@@ -66,13 +74,13 @@ rocksim_plot_2 = plot( ...
 );
 hold off
 
-h_legend = legend(...
-    [matlab_plot_2, openrocket_plot_2, rocksim_plot_2],...
-    'Matlab','OpenRocket','Rocksim', ...
+h_legend_2 = legend(...
+    [matlab_plot_2, openrocket_plot_2, rasaero_plot_2, rocksim_plot_2],...
+    'Matlab','OpenRocket','RASAero','Rocksim', ...
     'location', 'northeast' ...
 );
-set(h_legend,'FontSize',12);
-set(h_legend,'FontName','Courier New');
+set(h_legend_2,'FontSize',12);
+set(h_legend_2,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('Mass vs Time');

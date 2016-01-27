@@ -2,7 +2,7 @@
 
 ## Simulation Configuration
 
-For all tests, the following conditions were used, based on historical data for June 25th, 2015 at 12:00PM (noon) near Green River, Utah [@forecastio].
+### Historical Weather Data for Green River, Utah
 
 | Date       | Elevation          | Ground Pressure | Ground Temperature      | Wind Speed         | Humidity |
 | ---        | ---                | ---             | ---                     | ---                | ---      |
@@ -10,15 +10,25 @@ For all tests, the following conditions were used, based on historical data for 
 | 2014/06/15 | 4,078 ft (1,243 m) | 100700 Pa       | 296.15 K (23 $^\circ$C) | 20 km/h (5.56 m/s) | 8 %      |
 | 2013/06/15 | 4,078 ft (1,243 m) | 101000 Pa       | 299.15 K (26 $^\circ$C) | 10 km/h (2.78 m/s) | 19 %     |
 
+\captionof{table}{Historical Weather Conditions, Green River, Utah}
+
+### General Conditions 
+
+For all tests, the following conditions were used, based on historical data for June 25th, 2015 at 12:00PM (noon) near Green River, Utah [@forecastio].
+
+| Elevation                        | Humidity | Launch Guide Length |
+| ---                              | ---      | ---                 |
+| 4,078 ft (1,243 m) [@greenriver] | 33 %     | 5.4864 (18 ft)      |
+
 \captionof{table}{General Simulation Conditions}
 
 ### Best Case
 
 The best case scenario is with no wind, and a 0$^\circ$ launch angle, and the lowest air pressure.
 
-| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle | Humidity |
-| ---        | ---             | ---                     | ---                | --- |
-| 0 m/s      | 101000 Pa       | 298.15 K (25 $^\circ$C) | 0$^\circ$          |  
+| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle | 
+| ---        | ---             | ---                     | ---                |
+| 0 m/s      | 101000 Pa       | 298.15 K (25 $^\circ$C) | 0$^\circ$          |
 
 \captionof{table}{Best Case Simulation Conditions}
 
@@ -28,7 +38,7 @@ The worst case scenario, is the maximum wind condition permitted for launch by t
 
 | Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle |
 | ---        | ---             | ---                     | ---                |
-| 8.33 m/s   | 101325 kPa      | 288.15 K (15 $^\circ$C) | 5$^\circ$         |
+| 8.33 m/s   | 101325 kPa      | 288.15 K (15 $^\circ$C) | 10$^\circ$         |
 
 \captionof{table}{Worst Case Simulation Conditions}
 
