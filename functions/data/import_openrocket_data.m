@@ -10,7 +10,7 @@
 
 %% Initialize variables.
 %filename = 'aurelius_openrocket_simulation_nowind_greenriver_temp_pressure_no_isa.csv';
-filename = 'aurelius_openrocket_worst_1243.csv';
+filename = 'aurelius_openrocket_worst_1311.csv';
 delimiter = ',';
 startRow = 2;
 
@@ -159,6 +159,18 @@ openrocket_DampingRatio = ...
 %% Clear temporary variables
 clearvars filename delimiter startRow formatSpec fileID dataArray ans;
 
+%% Find value index of apogee for each source
+% OpenRocket
+indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
+openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
+openrocket_altitude_max = openrocket_altitude_max(1)*meter2feet;
+
+%% Max Altitude
+fprintf( 'OpenRocket time to apogee :                 %d s \r', ...
+    time_to_apogee_openrocket(end)...
+);
+
 %% Max Altitude
 fprintf( 'Maximum OpenRocket altitude:                %d m, %d ft \r', ...
     max(openrocket_Altitude),...
@@ -190,10 +202,9 @@ fprintf( 'Maximum OpenRocket acceleration:  %d m/s^2, %d ft/s^2, %d g \r', ...
 fprintf( 'Maximum OpenRocket drag force:              %d N \r',...
     max(openrocket_Dragforce)...
 );
-%{
+
 indexguide = dsearchn(openrocket_Altitude, launch_guide_length);
 openrocket_guide_velocity = openrocket_Verticalvelocityms(indexguide) / 3.28;
-fprintf( 'Velocity leaving launch guide:              %d m/s \r',...
+fprintf( 'OpenRocket Velocity at launch guide:        %d m/s \r',...
     openrocket_guide_velocity...
 );
-%}

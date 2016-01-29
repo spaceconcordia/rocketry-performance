@@ -50,6 +50,7 @@ grid on;
 title('Drag Force vs Mach Number');
 xlabel('Mach Number');
 ylabel('Drag Force (N)');
+xlim([0,1]);
 
 %% save plot
 if exist('saveplots')

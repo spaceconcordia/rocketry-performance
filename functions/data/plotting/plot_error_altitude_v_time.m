@@ -1,7 +1,7 @@
 %% Globals
 meter2feet = 3.28; 
-upperbound = 12000/meter2feet;
-lowerbound = 9500/meter2feet;
+upperbound = 12500/meter2feet;
+lowerbound = 8500/meter2feet;
 
 %% Find value index of apogee for each source
 % OpenRocket
@@ -79,8 +79,8 @@ ylabel('Altitude (m)');
 xlim([0,time_to_apogee_rasaero(end)]);
 
 %% provide imperial units on right vertical axis
-ylimit = [0,12500/meter2feet]; % ylimits in meters
-n=11; % how many tickmarks
+ylimit = [0,13000/meter2feet]; % ylimits in meters
+n=14; % how many tickmarks
 ytic = linspace(ylimit(1),ylimit(2),n); 
 ax1 = gca;
 set(ax1,'ylim', ylimit, 'ytick', ytic);

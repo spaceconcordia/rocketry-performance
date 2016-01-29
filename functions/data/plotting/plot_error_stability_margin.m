@@ -24,17 +24,13 @@ time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
 Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
 
 %% Plot stability error
-ha = shadedplot(x1, y1, y2, [0.7, 1, 0.7], 'r'); %first area is red
-hold on;
-
-%matlab_plot = plot(tout, static_stability_margin, 'm--*')
-
 openrocket_plot = plot(...
     openrocket_VarName1(1:indexmax_openrocket), ...
     openrocket_Stabilitymargincalibers(1:indexmax_openrocket), ...
     'b--.' ...
 );
-
+hold on;
+%matlab_plot = plot(tout, static_stability_margin, 'm--*')
 %{
 rasaero_plot = plot( ...
     rasaero_Timesec(1:indexmax_rasaero), ...

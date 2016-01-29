@@ -47,6 +47,7 @@ clear title xlabel ylabel
 title('Drag Coefficient vs Mach Number');
 xlabel('Mach Number');
 ylabel('Drag coefficient');
+xlim([0,1]);
 
 %% save plot
 if exist('saveplots')
