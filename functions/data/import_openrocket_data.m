@@ -1,3 +1,4 @@
+
 %% Import data from text file.
 % Script for importing data from the following text file:
 %
@@ -161,6 +162,7 @@ clearvars filename delimiter startRow formatSpec fileID dataArray ans;
 
 %% Find value index of apogee for each source
 % OpenRocket
+meter2feet = 3.28;
 indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
 time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
 openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);

@@ -10,10 +10,21 @@ In order for the aerodynamic forces to straighten the rocket in it's forward mot
 
 http://www.nar.org/NARTS/TR13.html
 
+## Dynamic Stability Analysis 
+
+The rocket must exhibit dynamic stability, wherein oscillations are reduced by the damping moment.
+
+### Resonant Pitch/Yaw Moment
+
+- 2f - The vehicle does not experience resonant pitching/yawing motion in flight
+
+The rocket should experience a resonant motion in response to aerodynamic forces such that it doesn't sustain at the natural frequencies that can cause structural or component damage. 
+This value must be verified regularly with the design team to ensure compliance.
+
 ## Intuition
 
 Suppose a high-powered rocket is launched in quiescent air vertically, and flies straight without wobbling.
-Then, suppose a small disturbance is experienced on the side of the rocket causing a deflection, for example a short gust of wind, which then stops.
+Then, suppose a small and momentary disturbance is experienced on the side of the rocket causing a deflection, for example a short gust of wind.
 If the rocket is *stable*, a restoring force causes a *corrective moment* which will act in the opposite direction of the deflection. 
 This *corrective moment* can be considered a function of angular displacement [@mandell1973, pg.81].
 
@@ -62,7 +73,7 @@ I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alp
 
 ## Rocket Flight Differential Equation
 
-The following describes rocket flight as a *homogeneous, non-linear, differential equation* [@mandell1973, pg.83].
+Neglecting roll and climb, the following describes rocket flight as a *homogeneous, non-linear, differential equation* [@mandell1973, pg.83].
 
 \begin{equation}
 \label{eq_rocket_diff}
@@ -71,99 +82,17 @@ I_L \dfrac{d^2 \alpha_x}{dt^2} + F (\alpha_x) + G \left( \dfrac{d \alpha_x}{dt} 
 
 Equation \ref{eq_rocket_diff} has no assured solutions, and as a result of being non-linear, must be solved by *linearization approximation* over piece-wise and limited regions [@mandell1973, pg.84].
 
-## Characteristic Equations
+## Linearization Approximation
+
+\begin{quote}
+Although the functions representing $M_c$ and $M_d$ are not of the form "$y = mx + b$", they may be approxiimated by such forms over limited ranges of the valules of their independent variables [@mandell1973, pg.84].
+\end{quote}
 
 \begin{equation}
-\label{eq_characteristic_equation}
-C_1 \ddot{\alpha} + C_2 \dot{\alpha} + C_3 \alpha = 0
-\end{equation}
+M_c \cong \left[ \dfrac{d M_c}{d M_d}|_{\alpha = 0} \right]\alpha = C_1 \alpha
+\end{equation}[@mandell1973, pg.84]
 
-### Vibrations 
-
-\begin{equation}
-\label{eq_characteristic_equation_vibes}
-m \ddot{x} + c \dot{x} + kx = 0
-\end{equation}
-
-### Controls
-
-\begin{equation}
-\label{eq_characteristic_equation_controls}
-s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
-\end{equation}
-
-- $\zeta$ is the damping coefficient, and is tied to the frequency of the system
-
-## Equation of Motion
-
-The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Restoring Force* and the *Damping Force*.
-These forces will be discussed more later. 
-
-The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
-Then, the sum of forces at the COP is the *Restoring Force* ($F_R$) minus the *Damping Force* ($F_D$), and the sum of the Moments about the COG is expressed as follows.
-
-\begin{equation}
-\label{eq_angular_flight_eom}
-D
-\end{equation}
-
-The *Moment* of a rigid body about its COG can be expressed as the product of the *Moment of Inertia* of the rigid body and the *Angular acceleration* of the body. 
-
-\begin{equation}
-\label{eq_moment}
-M = I \lambda 
-\end{equation}
-
-Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment} to give the equation of angular motion of the rocket.
-
-\begin{equation}
-\label{eq_moment_eom}
-I \lambda = (d_{COP} - d_{COG}) (F_R  - F_D)
-\end{equation}
-
-- $\lambda$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement 
-- $\omega$ is the angular velocity, which is the first time derivative of the angular displacement
-- $\alpha$ is the *angle of attack*
-
-$$ 
-\lambda = \ddot{\alpha}
-$$
-$$
-\omega = \dot{\alpha}
-$$
-
-Equation \ref{eq_moment_eom} can be divided by the *Moment of Inertia*, then integrated twice with respect to time to acquire $\omega$ and $\alpha$.
-
-$$
-\omega = \int \lambda dt = \int \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) dt
-$$
-
-The integration of Force with respect to time is *Impulse* $J$.
-
-$$
-\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) t
-$$
-
-\begin{equation}
-\label{eq_angular_velocity}
-\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} 
-\end{equation}
-
-$$
-\alpha = \iint \lambda dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_R  - F_D) dt dt
-$$
-
-\begin{equation}
-\label{eq_angular_position}
-\alpha = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} t
-\end{equation}
-
-[angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
-![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
-
-## Barrowman Method
-
-The *Barrowman Method* allows a simplified analysis of rocket flight to avoid the complications of linear approximations of Equation \ref{eq_rocket_diff}.
+An experimental method provided of rocket flight to avoid the complications of linear approximations of Equation \ref{eq_rocket_diff}.
 
 ### Assumptions
 
@@ -312,6 +241,157 @@ C_{N(L)} = K \dfrac{A_p}{A_{ref}} \alpha^2
 
 Where $A_p$ is the *planform area* of the rocket (the projected length-wise area of the rocket, neglecting the fins)
 
+## General Homogeneous Response
+
+The characteristic, linearized, homogeneous yaw/pitch response is given as:
+
+\begin{equation}
+I_L \dfrac{d^2 \alpha_x}{dt^2} + C_2 \dfrac{d \alpha_x}{dt} + C_1 \alpha_x = 0
+\end{equation}
+
+[@mandell1973, pg.94]
+
+A solution over a known range of acceptable values of the coefficients above is:
+
+\begin{equation}
+\label{eq_yaw_pitch_time_response}
+\alpha_x = A \exp^{-Dt} \sin(\omega t + \phi)
+\end{equation}
+
+Where:
+
+- $\omega$ is the frequency of oscillation (not literally the angular velocity of the rocket)
+- $\phi$ is the phase angle in radians
+- $D$ is the *inverse time constant*
+
+[@mandell1973, pg.94]
+
+$$
+I_L (D62 - \omega^2) - C_2 D + C_1 = 0
+$$
+$$
+-2 I_L D + C_2 = 0
+$$
+
+[@mandell1973, pg.95]
+
+\begin{equation}
+\label{eq_inverse_time_constant}
+D = { C_2 \over 2 I_L }
+\end{equation}
+
+\begin{equation}
+\label{eq_frequency_oscillation}
+\omega = \sqrt{ \dfrac{C_1}{I_L} - \dfrac{C_2^2}{4 I_L^2} }
+\end{equation}
+
+\begin{equation}
+\label{eq_phase}
+\phi = 
+\arctan { 
+\left( \dfrac{ \alpha_{xo} \omega } { D\alpha_{xo} + \Omega_{xo} } \right) 
+}
+\end{equation}
+
+We can consider the rocket to be *restored* when the angle of attack stabilizes below 5% of A, where
+
+\begin{equation}
+A = \dfrac{\alpha_{xo}}{sin \phi}
+\end{equation}
+
+
+[@mandell1973, pg.95-96]
+
+## Characteristic Equations
+
+\begin{equation}
+\label{eq_characteristic_equation}
+C_1 \ddot{\alpha} + C_2 \dot{\alpha} + C_3 \alpha = 0
+\end{equation}
+
+### Vibrations 
+
+\begin{equation}
+\label{eq_characteristic_equation_vibes}
+m \ddot{x} + c \dot{x} + kx = 0
+\end{equation}
+
+### Controls
+
+\begin{equation}
+\label{eq_characteristic_equation_controls}
+s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
+\end{equation}
+
+- $\zeta$ is the damping coefficient, and is tied to the frequency of the system
+
+## Equation of Motion
+
+The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Restoring Force* and the *Damping Force*.
+These forces will be discussed more later. 
+
+The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
+Then, the sum of forces at the COP is the *Restoring Force* ($F_R$) minus the *Damping Force* ($F_D$), and the sum of the Moments about the COG is expressed as follows.
+
+\begin{equation}
+\label{eq_angular_flight_eom}
+D
+\end{equation}
+
+The *Moment* of a rigid body about its COG can be expressed as the product of the *Moment of Inertia* of the rigid body and the *Angular acceleration* of the body. 
+
+\begin{equation}
+\label{eq_moment}
+M = I \lambda 
+\end{equation}
+
+Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment} to give the equation of angular motion of the rocket.
+
+\begin{equation}
+\label{eq_moment_eom}
+I \lambda = (d_{COP} - d_{COG}) (F_R  - F_D)
+\end{equation}
+
+- $\lambda$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement 
+- $\omega$ is the angular velocity, which is the first time derivative of the angular displacement
+- $\alpha$ is the *angle of attack*
+
+$$ 
+\lambda = \ddot{\alpha}
+$$
+$$
+\omega = \dot{\alpha}
+$$
+
+Equation \ref{eq_moment_eom} can be divided by the *Moment of Inertia*, then integrated twice with respect to time to acquire $\omega$ and $\alpha$.
+
+$$
+\omega = \int \lambda dt = \int \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) dt
+$$
+
+The integration of Force with respect to time is *Impulse* $J$.
+
+$$
+\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) t
+$$
+
+\begin{equation}
+\label{eq_angular_velocity}
+\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} 
+\end{equation}
+
+$$
+\alpha = \iint \lambda dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_R  - F_D) dt dt
+$$
+
+\begin{equation}
+\label{eq_angular_position}
+\alpha = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} t
+\end{equation}
+
+[angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
+![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
+
 ## Longitudinal Static Stability Margin
 
 The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube when the rocket is positioned at an angle-of-attack ($\alpha$) of zero [@source].
@@ -328,16 +408,6 @@ The result is dimensionless, however the ratio determined is measured in the num
 
 [Static Stability Margin](https://www.apogeerockets.com/education/downloads/Newsletter133.pdf)
 
-## Dynamic Stability Analysis 
-
-The rocket must exhibit dynamic stability, wherein oscillations are reduced by the damping moment.
-
-### Resonant Pitch/Yaw Moment
-
-- 2f - The vehicle does not experience resonant pitching/yawing motion in flight
-
-The rocket should experience a resonant motion in response to aerodynamic forces such that it doesn't sustain at the natural frequencies that can cause structural or component damage. 
-This value must be verified regularly with the design team to ensure compliance.
 
 ### Corrective Moment Coefficient
 
@@ -360,35 +430,6 @@ Note: a rocket with a high *Corrective Moment Coefficient* is going to weatherco
 
 [Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
 
-The characteristic yaw/pitch response is given as:
-
-\begin{equation}
-I_L \dfrac{d^2 \alpha_x}{dt^2} + C_2 \dfrac{d \alpha_x}{dt} + C_1 \alpha_x = 0
-\end{equation}
-
-[@mandell1973, pg.94]
-
-A solution over a known range of acceptable values of the coefficients above is:
-
-\begin{equation}
-\alpha_x = A \exp^{-Dt} \sin(\omega t + \phi)
-\end{equation}
-
-Where:
-
-- $\omega$ is the frequency of oscillation
-- $\phi$ is the phase angle in radians
-
-[@mandell1973, pg.94]
-
-We can consider the rocket to be *restored* when the angle of attack stabilizes below 5% of A, where
-
-\begin{equation}
-A = \dfrac{\alpha_{xo}}{sin \phi}
-\end{equation}
-
-
-[@mandell1973, pg.95-96]
 
 ### Rocket Damping Ratio
 

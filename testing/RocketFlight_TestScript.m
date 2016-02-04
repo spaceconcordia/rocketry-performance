@@ -37,7 +37,7 @@ if rftm
     fprintf( 'Maximum Matlab Altitude: %d m, %d ft \r\n', max(altitude), max(altitude)*3.28);
     fprintf( 'Average Damping Ratio:  %d \r\n', mean(rocket_damping_ratio));
 
-    indexguide = dsearchn(alitude, launch_guide_length);
+    indexguide = dsearchn(altitude, launch_guide_length);
     matlab_guide_velocity = velocity(indexguide);
     fprintf( 'Velocity leaving launch guide:              %d m/s \r',...
         matlab_guide_velocity...

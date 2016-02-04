@@ -1,21 +1,21 @@
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+indexmax_openrocket       = find(max(openrocket_Altitude) == openrocket_Altitude);
 time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
-openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
-openrocket_altitude_max = openrocket_altitude_max(1)*meter2feet;
+openrocket_altitude_max   = openrocket_Altitude(indexmax_openrocket);
+openrocket_altitude_max   = openrocket_altitude_max(1)*meter2feet;
 
 % RasAero
-indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);
+indexmax_rasaero       = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);
 time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero);
-rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero);
-rasaero_altitude_max = rasaero_altitude_max;
+rasaero_altitude_max   = rasaero_Altitudeft(indexmax_rasaero);
+rasaero_altitude_max   = rasaero_altitude_max;
 
 % RockSim
-indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
+indexmax_Rocksim       = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
 time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
-Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
-Rocksim_altitude_max = Rocksim_altitude_max;
+Rocksim_altitude_max   = Rocksim_AltitudeFeet(indexmax_Rocksim);
+Rocksim_altitude_max   = Rocksim_altitude_max;
 
 %% Plot shaded region for competition bounds
 x1 = rasaero_Timesec(1:indexmax_rasaero);
@@ -29,13 +29,11 @@ rasaero_aoa              = plot( ...
 );
 hold on;
 
-%{
 matlab_aoa = plot( ...
     tout, ...
     angular_position*180/pi, ...
     'm--*' ...
 );
-%}
 
 %{
 rasaero_pitch_attitude   = plot( ...
@@ -77,8 +75,8 @@ openrocket_pitch_rate    = plot( ...
 hold off;
 
 h_legend = legend( ...
-    [rasaero_aoa, rocksim_aoa], ...
-    'RASAero AOA', 'RockSim AOA' ...
+    [rasaero_aoa, rocksim_aoa, matlab_aoa], ...
+    'RASAero AOA', 'RockSim AOA', 'Matlab AOA' ...
 );
 
 set(h_legend,'FontSize',12);
