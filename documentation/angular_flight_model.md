@@ -261,8 +261,24 @@ A solution over a known range of acceptable values of the coefficients above is:
 Where:
 
 - $\omega$ is the frequency of oscillation (not literally the angular velocity of the rocket)
+\begin{equation}
+\label{eq_frequency_oscillation}
+\omega = \sqrt{ \dfrac{C_1}{I_L} - \dfrac{C_2^2}{4 I_L^2} }
+\end{equation}
+
 - $\phi$ is the phase angle in radians
+\begin{equation}
+\label{eq_phase}
+\phi = 
+\arctan { 
+\left( \dfrac{ \alpha_{xo} \omega } { D\alpha_{xo} + \Omega_{xo} } \right) 
+}
+\end{equation}
+
 - $D$ is the *inverse time constant*
+\begin{equation}
+A = \dfrac{\alpha_{xo}}{sin \phi}
+\end{equation}
 
 [@mandell1973, pg.94]
 
@@ -280,24 +296,10 @@ $$
 D = { C_2 \over 2 I_L }
 \end{equation}
 
-\begin{equation}
-\label{eq_frequency_oscillation}
-\omega = \sqrt{ \dfrac{C_1}{I_L} - \dfrac{C_2^2}{4 I_L^2} }
-\end{equation}
 
-\begin{equation}
-\label{eq_phase}
-\phi = 
-\arctan { 
-\left( \dfrac{ \alpha_{xo} \omega } { D\alpha_{xo} + \Omega_{xo} } \right) 
-}
-\end{equation}
 
-We can consider the rocket to be *restored* when the angle of attack stabilizes below 5% of A, where
+We can consider the rocket to be *restored* when the angle of attack stabilizes below 5% of $A$.
 
-\begin{equation}
-A = \dfrac{\alpha_{xo}}{sin \phi}
-\end{equation}
 
 
 [@mandell1973, pg.95-96]
