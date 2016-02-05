@@ -260,6 +260,7 @@ A solution over a known range of acceptable values of the coefficients above is:
 
 Where:
 
+- $t$ is the time passed since the "observation of the dynamic response has begun, not the time elapsed since the rocket was launched" [@mandell1973, pg.94]
 - $\omega$ is the frequency of oscillation (not literally the angular velocity of the rocket)
 \begin{equation}
 \label{eq_frequency_oscillation}
@@ -277,13 +278,19 @@ Where:
 
 - $D$ is the *inverse time constant*
 \begin{equation}
+\label{eq_inverse_time_constant}
+D = { C_2 \over 2 I_L }
+\end{equation}
+
+- $A$ is the initial displacement
+\begin{equation}
 A = \dfrac{\alpha_{xo}}{sin \phi}
 \end{equation}
 
 [@mandell1973, pg.94]
 
 $$
-I_L (D62 - \omega^2) - C_2 D + C_1 = 0
+I_L (D^2 - \omega^2) - C_2 D + C_1 = 0
 $$
 $$
 -2 I_L D + C_2 = 0
@@ -291,10 +298,6 @@ $$
 
 [@mandell1973, pg.95]
 
-\begin{equation}
-\label{eq_inverse_time_constant}
-D = { C_2 \over 2 I_L }
-\end{equation}
 
 
 
