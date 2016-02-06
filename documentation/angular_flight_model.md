@@ -255,19 +255,19 @@ A solution over a known range of acceptable values of the coefficients above is:
 
 \begin{equation}
 \label{eq_yaw_pitch_time_response}
-\alpha_x = A \exp^{-Dt} \sin(\omega t + \phi)
+\alpha_x = A e^{-Dt} \sin(\omega t + \phi)
 \end{equation}
 
 Where:
 
 - $t$ is the time passed since the "observation of the dynamic response has begun, not the time elapsed since the rocket was launched" [@mandell1973, pg.94]
-- $\omega$ is the frequency of oscillation (not literally the angular velocity of the rocket)
+- $\omega$ is the *frequency of oscillation* (not literally the angular velocity of the rocket)
 \begin{equation}
 \label{eq_frequency_oscillation}
 \omega = \sqrt{ \dfrac{C_1}{I_L} - \dfrac{C_2^2}{4 I_L^2} }
 \end{equation}
 
-- $\phi$ is the phase angle in radians
+- $\phi$ is the *phase angle* in radians
 \begin{equation}
 \label{eq_phase}
 \phi = 
@@ -282,7 +282,7 @@ Where:
 D = { C_2 \over 2 I_L }
 \end{equation}
 
-- $A$ is the initial displacement
+- $A$ is the *initial displacementi*
 \begin{equation}
 A = \dfrac{\alpha_{xo}}{sin \phi}
 \end{equation}
@@ -350,16 +350,7 @@ The *Moment* of a rigid body about its COG can be expressed as the product of th
 M = I \lambda 
 \end{equation}
 
-Equation \ref{eq_angular_flight_eom} can be subbed into Equation \ref{eq_moment} to give the equation of angular motion of the rocket.
-
-\begin{equation}
-\label{eq_moment_eom}
-I \lambda = (d_{COP} - d_{COG}) (F_R  - F_D)
-\end{equation}
-
-- $\lambda$ is the angular acceleration of the rigid body, which is the second time derivative of the angular displacement 
-- $\omega$ is the angular velocity, which is the first time derivative of the angular displacement
-- $\alpha$ is the *angle of attack*
+- $\lambda$ is the *angular acceleration* of the rigid body, which is the second time derivative of the angular displacement 
 
 $$ 
 \lambda = \ddot{\alpha}
@@ -368,31 +359,8 @@ $$
 \omega = \dot{\alpha}
 $$
 
-Equation \ref{eq_moment_eom} can be divided by the *Moment of Inertia*, then integrated twice with respect to time to acquire $\omega$ and $\alpha$.
-
-$$
-\omega = \int \lambda dt = \int \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) dt
-$$
-
-The integration of Force with respect to time is *Impulse* $J$.
-
-$$
-\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) (F_R  - F_D) t
-$$
-
-\begin{equation}
-\label{eq_angular_velocity}
-\omega = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} 
-\end{equation}
-
-$$
-\alpha = \iint \lambda dt = \iint \dfrac{1}{I}(d_{COP} - d_{COG}) (F_R  - F_D) dt dt
-$$
-
-\begin{equation}
-\label{eq_angular_position}
-\alpha = \dfrac{1}{I} (d_{COP} - d_{COG}) J_{N-L} t
-\end{equation}
+- $\omega$ is the *angular velocity*, which is the first time derivative of the angular displacement
+- $\alpha$ is the *angle of attack*
 
 [angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
 ![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
