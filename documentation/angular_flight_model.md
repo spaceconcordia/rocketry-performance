@@ -4,27 +4,107 @@
 
 Due to disturbances such as wind, and imperfections and imbalances in the construction, the rocket will tend to fly at an *Angle of Attack* into the free stream, wherein the velocity vector (taken from the *Center of Gravity*) is not parallel with the longitudinal axis.
 This will cause non-linear changes to the magnitude of the aerodynamic forces, which, as a further simplification, can be said to be acting about the *Center of Pressure*.
-In order for the aerodynamic forces to straighten the rocket in it's forward motion, and to stabilize the oscillatory rotation about the COG, the COP must be located behind the COG.
+In order for the aerodynamic forces to straighten the rocket in its forward motion, and to stabilize the oscillatory rotation about the COG, the COP must be located behind the COG.
 
 > "One of the first principles any rocket designer must learn is that a rocket will fly only if the center of gravity is ahead of the center of pressure far enough to allow the air currents to cause a stabilizing effect."
 
 http://www.nar.org/NARTS/TR13.html
 
-## Dynamic Stability Analysis 
+### Dynamic Stability Analysis 
 
 The rocket must exhibit dynamic stability, wherein oscillations are reduced by the damping moment.
-
-### Resonant Pitch/Yaw Moment
-
-- 2f - The vehicle does not experience resonant pitching/yawing motion in flight
 
 The rocket should experience a resonant motion in response to aerodynamic forces such that it doesn't sustain at the natural frequencies that can cause structural or component damage. 
 This value must be verified regularly with the design team to ensure compliance.
 
+#### Characteristic Equations
+
+\begin{equation}
+\label{eq_characteristic_equation}
+C_1 \ddot{\alpha} + C_2 \dot{\alpha} + C_3 \alpha = 0
+\end{equation}
+
+##### Vibrations 
+
+\begin{equation}
+\label{eq_characteristic_equation_vibes}
+m \ddot{x} + c \dot{x} + kx = 0
+\end{equation}
+
+##### Controls
+
+\begin{equation}
+\label{eq_characteristic_equation_controls}
+s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
+\end{equation}
+
+- $\zeta$ is the damping coefficient, and is tied to the frequency of the system
+
+### Coordinate System, Equations of Motion
+
+The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
+Then, the sum of forces at the COP is the *Restoring Force* ($F_R$) minus the *Damping Force* ($F_D$), and the sum of the Moments about the COG is expressed as follows.
+
+The *Moment* of a rigid body about its COG can be expressed as the product of the *Moment of Inertia* of the rigid body and the *Angular acceleration* of the body. 
+
+\begin{equation}
+\label{eq_moment}
+M = I \lambda 
+\end{equation}
+
+- $\lambda$ is the *angular acceleration* of the rigid body, which is the second time derivative of the angular displacement 
+
+$$ 
+\lambda = \ddot{\alpha}
+$$
+$$
+\omega = \dot{\alpha}
+$$
+
+- $\omega$ is the *angular velocity*, which is the first time derivative of the angular displacement
+- $\alpha$ is the *angle of attack*
+
+
+## Longitudinal Static Stability Margin
+
+The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube when the rocket is positioned at an angle-of-attack ($\alpha$) of zero [@source].
+
+$$ S_{lm} = \dfrac{COP - COG}{OD} $$
+
+When traveling under a non-zero angle of attack, the Stability Margin is adjusted using the body lift correction factor Equation \ref{eq_coefficient_normal_force_body_lift}.
+
+The result is dimensionless, however the ratio determined is measured in the number of *calibers*. 
+
+\begin{quote}
+2a - The static stability margin falls above 2 (but less than 3) calibers at launch
+\end{quote}
+
+[Static Stability Margin](https://www.apogeerockets.com/education/downloads/Newsletter133.pdf)
+
+## Out-of-scope
+
+- range (drift)
+- roll
+
+## Requirement
+
+- 2a - The static stability margin falls above 2 (but less than 3) calibers at launch
+- 2b - The dynamic stability is greater than 0 even in winds up to 8.33 m/s
+- 2f - The vehicle does not experience resonant pitching/yawing motion in flight
+
+### Assumptions
+
+- small angle of attack (less than 10$^\circ$)
+- incompressible flow
+- neglect viscous forces
+- neglect compressibility effects [@box2009, pg.7]
+- neglect lift force on the body tube [@box2009, pg.7]
+- neglect the effect of roll due to having 3 fins vs 4
+
 ## Intuition
 
 Suppose a high-powered rocket is launched in quiescent air vertically, and flies straight without wobbling.
-Then, suppose a small and momentary disturbance is experienced on the side of the rocket causing a deflection, for example a short gust of wind.
+Then, suppose a small and momentary disturbance (e.g. a short gust of wind) is experienced on the side of the rocket causing an angular deflection, .
 If the rocket is *stable*, a restoring force causes a *corrective moment* which will act in the opposite direction of the deflection. 
 This *corrective moment* can be considered a function of angular displacement [@mandell1973, pg.81].
 
@@ -32,7 +112,7 @@ This *corrective moment* can be considered a function of angular displacement [@
 M_{corrective} = F (\alpha)
 \end{equation}
 
-As the rocket gains velocity in the direction opposite the disturbance, a *damping moment* is generated as a result of the relative speed of the airspeed, in the direction orthogonal to the longitudinal axis.
+As the rocket gains velocity in the direction opposite the disturbance, a *damping moment* is generated as a result of the relative speed of the air, in the direction orthogonal to the longitudinal axis.
 As this *damping moment* opposes the angular velocity caused by the *corrective moment*, its sign is opposite to the angular velocity.
 The *damping moment* is also a function of angular velocity [@mandell1973, pg.81-82].
 
@@ -52,98 +132,50 @@ $$
 I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
 \end{equation}
 
-This nonlinear, homogenous, differential equation can not be solved exactly. 
+This nonlinear, homogenous, differential equation can not be solved exactly [@mandell1973, pg.84].
 Approximations are made considering small values of $\alpha$ and $\omega$, known as the *small-perturbation theory* [@mandell1973, pg.86].
-This provides constant coefficients, which we will denote $C_1$ for the *Corrective Moment Coefficient* and $C_2$ for the *Damping Moment Coefficient*.
+This linearization process provides ~~constant~~ coefficients, which we will denote $C_1$ for the *Corrective Moment Coefficient* and $C_2$ for the *Damping Moment Coefficient*.
 
 \begin{equation}
 I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alpha}{dt} \right) = 0
 \end{equation}
 
-## Out-of-scope
-
-- range (drift)
-- roll
-
-## Requirement
-
-- 2a - The static stability margin falls above 2 (but less than 3) calibers at launch
-- 2b - The dynamic stability is greater than 0 even in winds up to 8.33 m/s
-- 2f - The vehicle does not experience resonant pitching/yawing motion in flight
-
-## Rocket Flight Differential Equation
-
-Neglecting roll and climb, the following describes rocket flight as a *homogeneous, non-linear, differential equation* [@mandell1973, pg.83].
-
-\begin{equation}
-\label{eq_rocket_diff}
-I_L \dfrac{d^2 \alpha_x}{dt^2} + F (\alpha_x) + G \left( \dfrac{d \alpha_x}{dt} \right) = 0
-\end{equation}
-
-Equation \ref{eq_rocket_diff} has no assured solutions, and as a result of being non-linear, must be solved by *linearization approximation* over piece-wise and limited regions [@mandell1973, pg.84].
-
 ## Linearization Approximation
 
 \begin{quote}
-Although the functions representing $M_c$ and $M_d$ are not of the form "$y = mx + b$", they may be approxiimated by such forms over limited ranges of the valules of their independent variables [@mandell1973, pg.84].
+Although the functions representing $M_c$ and $M_d$ are not of the form "$y = mx + b$", they may be approximated by such forms over limited ranges of the valules of their independent variables [@mandell1973, pg.84].
 \end{quote}
 
 \begin{equation}
 M_c \cong \left[ \dfrac{d M_c}{d M_d}|_{\alpha = 0} \right]\alpha = C_1 \alpha
 \end{equation}[@mandell1973, pg.84]
 
-An experimental method provided of rocket flight to avoid the complications of linear approximations of Equation \ref{eq_rocket_diff}.
-
-### Assumptions
-
-- small angle of attack (less than 10$^\circ$)
-- incompressible flow
-- neglect viscous forces
-- neglect compressibility effects [@box2009, pg.7]
-- neglect lift force on the body tube [@box2009, pg.7]
-- neglect the effect of roll due to having 3 fins vs 4
+An experimental method provided of rocket flight to avoid the complications of linear approximations of Equation \ref{eq_rocket_diff}, and provides the *Corrective Moment Coefficient* and *Damping Moment Coefficient* as described below.
 
 [@box2009, pg. 9]
 
-### Rocket Normal Force
+### Corrective Moment Coefficient
+
+The *Corrective Moment Coefficient* describes the reaction of the rocket due to a disturbance about its longitudinal axis.
 
 \begin{equation}
-\label{rocket_normal_force}
-F_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N
-\end{equation}
-[@box2009, pg. 9]
-
-Where $A_c$ is the cross-sectional area of the body tube, and $C_N$ is the *Normal Force Coefficient*, and is a function of angle-of-attack ($\alpha$). 
-The small angle approximation is applied, wherein small angles can be approximated as a linear function of the angle.
-
-\begin{equation}
-\label{normal_force_coefficient}
-C_N = C_{N \alpha} \cdot \alpha
-\end{equation}
-[@box2009, pg. 9]
-
-Where $C_{N \alpha}$ is the *Stability Derivative*, the slope of the *Normal Force Coefficient*.
-The total *Stability Derivative* is the sum of all *i* rocket component stability derivatives
-
-\begin{equation}
-\label{total_stability_derivative}
-C_{N \alpha} = \sum C_{N \alpha (i)}   
+\label{eq_coef_moment_corrective}
+C_{MC} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} C_{FN} (COP-COG)
 \end{equation}
 
-[@box2009, pg. 9]
+Where:
 
-### Rocket Restoring Moment
+- $\rho$ is the local density of air
+- $\vec{v}$ is the velocity of the rocket
+- $A_{ref}$ is the reference area of the rocket flying into the free stream
+- $C_{NF}$ is the *Normal Force Coefficient* 
+- $(COP-COG)$ is the distance between the *Center of Pressure* and *Center of Gravity*
 
-The *Rocket Normal Force* (Equation \ref{rocket_normal_force}) applied at the *Center of Pressure* creates a moment about the *Center of Gravity*, known herein as the *Rocket Normal Moment*.
+Note: a rocket with a high *Corrective Moment Coefficient* is going to weathercock faster at lower velocities.
 
-\begin{equation}
-\label{rocket_normal_moment}
-M_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N \left( COP - COG \right)
-\end{equation}
+[Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
 
-### Damping 
-
-#### Damping Moment Coefficient
+### Damping Moment Coefficient
 
 As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
 In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
@@ -167,8 +199,8 @@ Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient
 C_{ADM} = \dfrac{1}{2} \rho \vec{v} A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
 \end{equation}
 
-NOTE: SHOULD $\vec{v}$ BE SQUARED?
-It might have something to with that the ADM is a function of angular displacement, and DM is a function of angular velocity??
+NOTE: Why isn't $\vec{v}$ SQUARED?
+It might have something to with the fact that the ADM is a function of angular displacement, and DM is a function of angular velocity??
 
 Where:
 
@@ -223,24 +255,6 @@ For instance, the *Pitch Damping Moment* of a fin is as follows.
 C_{damp} = 0.6 \dfrac{N A_{fin} d_{COP}^3}{A_{ref} d} \dfrac{\omega^2}{v^2_0}
 \end{equation}
 
-
-### Corrections
-
-#### Compressibility Correction
-
-*Barrowman's Method* neglects compressibility effects, however these effects cannot be neglected above Mach 0.3.
-
-#### Rocket Body Lift Correction
-
-*Barrowman's Method* neglects the lift generated by the rocket body. Galejs [@galejs] suggests the following adjustment to provide a compensated *Coefficient of Normal Force due to Body Lift*
-
-\begin{equation}
-\label{eq_coefficient_normal_force_body_lift}
-C_{N(L)} = K \dfrac{A_p}{A_{ref}} \alpha^2
-\end{equation}
-
-Where $A_p$ is the *planform area* of the rocket (the projected length-wise area of the rocket, neglecting the fins)
-
 ## General Homogeneous Response
 
 The characteristic, linearized, homogeneous yaw/pitch response is given as:
@@ -262,6 +276,7 @@ Where:
 
 - $t$ is the time passed since the "observation of the dynamic response has begun, not the time elapsed since the rocket was launched" [@mandell1973, pg.94]
 - $\omega$ is the *frequency of oscillation* (not literally the angular velocity of the rocket)
+
 \begin{equation}
 \label{eq_frequency_oscillation}
 \omega = \sqrt{ \dfrac{C_1}{I_L} - \dfrac{C_2^2}{4 I_L^2} }
@@ -282,12 +297,17 @@ Where:
 D = { C_2 \over 2 I_L }
 \end{equation}
 
-- $A$ is the *initial displacementi*
+- $A$ is the *initial displacement*
 \begin{equation}
 A = \dfrac{\alpha_{xo}}{sin \phi}
 \end{equation}
 
 [@mandell1973, pg.94]
+
+This equation is represented in the model as follows
+
+[angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
+![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
 
 $$
 I_L (D^2 - \omega^2) - C_2 D + C_1 = 0
@@ -298,111 +318,9 @@ $$
 
 [@mandell1973, pg.95]
 
-
-
-
 We can consider the rocket to be *restored* when the angle of attack stabilizes below 5% of $A$.
 
-
-
 [@mandell1973, pg.95-96]
-
-## Characteristic Equations
-
-\begin{equation}
-\label{eq_characteristic_equation}
-C_1 \ddot{\alpha} + C_2 \dot{\alpha} + C_3 \alpha = 0
-\end{equation}
-
-### Vibrations 
-
-\begin{equation}
-\label{eq_characteristic_equation_vibes}
-m \ddot{x} + c \dot{x} + kx = 0
-\end{equation}
-
-### Controls
-
-\begin{equation}
-\label{eq_characteristic_equation_controls}
-s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
-\end{equation}
-
-- $\zeta$ is the damping coefficient, and is tied to the frequency of the system
-
-## Equation of Motion
-
-The rotational forces acting at the COP due to aerodynamic effects can be categorized as the *Restoring Force* and the *Damping Force*.
-These forces will be discussed more later. 
-
-The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
-Then, the sum of forces at the COP is the *Restoring Force* ($F_R$) minus the *Damping Force* ($F_D$), and the sum of the Moments about the COG is expressed as follows.
-
-\begin{equation}
-\label{eq_angular_flight_eom}
-D
-\end{equation}
-
-The *Moment* of a rigid body about its COG can be expressed as the product of the *Moment of Inertia* of the rigid body and the *Angular acceleration* of the body. 
-
-\begin{equation}
-\label{eq_moment}
-M = I \lambda 
-\end{equation}
-
-- $\lambda$ is the *angular acceleration* of the rigid body, which is the second time derivative of the angular displacement 
-
-$$ 
-\lambda = \ddot{\alpha}
-$$
-$$
-\omega = \dot{\alpha}
-$$
-
-- $\omega$ is the *angular velocity*, which is the first time derivative of the angular displacement
-- $\alpha$ is the *angle of attack*
-
-[angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
-![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
-
-## Longitudinal Static Stability Margin
-
-The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube when the rocket is positioned at an angle-of-attack ($\alpha$) of zero [@source].
-
-$$ S_{lm} = \dfrac{COP - COG}{OD} $$
-
-When traveling under a non-zero angle of attack, the Stability Margin is adjusted using the body lift correction factor Equation \ref{eq_coefficient_normal_force_body_lift}.
-
-The result is dimensionless, however the ratio determined is measured in the number of *calibers*. 
-
-\begin{quote}
-2a - The static stability margin falls above 2 (but less than 3) calibers at launch
-\end{quote}
-
-[Static Stability Margin](https://www.apogeerockets.com/education/downloads/Newsletter133.pdf)
-
-
-### Corrective Moment Coefficient
-
-The *Corrective Moment Coefficient* describes the reaction of the rocket due to a disturbance about its longitudinal axis.
-
-\begin{equation}
-\label{eq_coef_moment_corrective}
-C_{MC} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} C_{FN} (COP-COG)
-\end{equation}
-
-Where:
-
-- $\rho$ is the local density of air
-- $\vec{v}$ is the velocity of the rocket
-- $A_{ref}$ is the reference area of the rocket flying into the free stream
-- $C_{NF}$ is the *Normal Force Coefficient* 
-- $(COP-COG)$ is the distance between the *Center of Pressure* and *Center of Gravity*
-
-Note: a rocket with a high *Corrective Moment Coefficient* is going to weathercock faster at lower velocities.
-
-[Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
-
 
 ### Rocket Damping Ratio
 
@@ -458,8 +376,60 @@ We find that the optimal damping is $0.7071 \omega_n$
 
 TODO
 
+## Other Observations
 
+### Rocket Normal Force
 
+\begin{equation}
+\label{rocket_normal_force}
+F_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N
+\end{equation}
+[@box2009, pg. 9]
+
+Where $A_c$ is the cross-sectional area of the body tube, and $C_N$ is the *Normal Force Coefficient*, and is a function of angle-of-attack ($\alpha$). 
+The small angle approximation is applied, wherein small angles can be approximated as a linear function of the angle.
+
+\begin{equation}
+\label{normal_force_coefficient}
+C_N = C_{N \alpha} \cdot \alpha
+\end{equation}
+[@box2009, pg. 9]
+
+Where $C_{N \alpha}$ is the *Stability Derivative*, the slope of the *Normal Force Coefficient*.
+The total *Stability Derivative* is the sum of all *i* rocket component stability derivatives
+
+\begin{equation}
+\label{total_stability_derivative}
+C_{N \alpha} = \sum C_{N \alpha (i)}   
+\end{equation}
+
+[@box2009, pg. 9]
+
+### Rocket Restoring Moment
+
+The *Rocket Normal Force* (Equation \ref{rocket_normal_force}) applied at the *Center of Pressure* creates a moment about the *Center of Gravity*, known herein as the *Rocket Normal Moment*.
+
+\begin{equation}
+\label{rocket_normal_moment}
+M_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N \left( COP - COG \right)
+\end{equation}
+
+### Corrections
+
+#### Compressibility Correction
+
+*Barrowman's Method* neglects compressibility effects, however these effects cannot be neglected above Mach 0.3.
+
+#### Rocket Body Lift Correction
+
+*Barrowman's Method* neglects the lift generated by the rocket body. Galejs [@galejs] suggests the following adjustment to provide a compensated *Coefficient of Normal Force due to Body Lift*
+
+\begin{equation}
+\label{eq_coefficient_normal_force_body_lift}
+C_{N(L)} = K \dfrac{A_p}{A_{ref}} \alpha^2
+\end{equation}
+
+Where $A_p$ is the *planform area* of the rocket (the projected length-wise area of the rocket, neglecting the fins)
 
 ## Wind Disturbance
 
@@ -507,4 +477,3 @@ Where
 - *U* is the average wind speed
 
 [@niskanen2013, pg. 59]
-
