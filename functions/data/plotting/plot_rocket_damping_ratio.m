@@ -43,7 +43,7 @@ set(h_legend,'FontSize',14);
 set(h_legend,'FontName','Courier New');
 
 clear title xlabel ylabel
-title('Mass vs Time');
+title('Rocket Damping Ratio');
 xlabel('Mass (kg)');
 ylabel('Time (s)');
 

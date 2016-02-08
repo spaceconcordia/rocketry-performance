@@ -40,6 +40,16 @@ s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
 
 - $\zeta$ is the damping coefficient, and is tied to the frequency of the system
 
+### Harmonic Response
+
+#### Particular Response
+
+#### Homogeneous Response
+
+#### Undamped Response
+
+#### Complete Response
+
 ### Coordinate System, Equations of Motion
 
 The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
@@ -101,7 +111,7 @@ The result is dimensionless, however the ratio determined is measured in the num
 - neglect lift force on the body tube [@box2009, pg.7]
 - neglect the effect of roll due to having 3 fins vs 4
 
-## Intuition
+## Derivation of the Harmonic Motion Equation
 
 Suppose a high-powered rocket is launched in quiescent air vertically, and flies straight without wobbling.
 Then, suppose a small and momentary disturbance (e.g. a short gust of wind) is experienced on the side of the rocket causing an angular deflection, .
@@ -129,6 +139,7 @@ $$
 I \left( \dfrac{d^2\alpha}{dt^2} \right) = -F(\alpha) - G \left(\dfrac{d\alpha}{dt} \right) 
 $$
 \begin{equation}
+\ref{eq_rocket_diff}
 I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
 \end{equation}
 
@@ -156,7 +167,7 @@ An experimental method provided of rocket flight to avoid the complications of l
 
 ### Corrective Moment Coefficient
 
-The *Corrective Moment Coefficient* describes the reaction of the rocket due to a disturbance about its longitudinal axis.
+The *Corrective Moment Coefficient* describes the reaction of the rocket against a disturbance about its longitudinal axis.
 
 \begin{equation}
 \label{eq_coef_moment_corrective}
@@ -302,6 +313,8 @@ D = { C_2 \over 2 I_L }
 A = \dfrac{\alpha_{xo}}{sin \phi}
 \end{equation}
 
+- $\alpha_{xo}$ is the value of $\alpha_x$ at $t=0$
+
 [@mandell1973, pg.94]
 
 This equation is represented in the model as follows
@@ -375,6 +388,12 @@ We find that the optimal damping is $0.7071 \omega_n$
 ### Time Constants of the Response
 
 TODO
+
+### Complete response to step input
+
+### Complete response to impulse input
+
+[mandell1973, pg.123]
 
 ## Other Observations
 
