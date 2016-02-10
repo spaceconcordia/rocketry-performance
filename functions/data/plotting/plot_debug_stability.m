@@ -1,11 +1,16 @@
+import_openrocket_data;
+import_rasaero_data;
+import_rocksim_data;
+
 plot_rocket_flight_stability;
 
 figure; 
-plot(tout, coef_moment_corrective);
+plot(tout, coef_moment_corrective,'m');
 hold on;
-plot(tout, coef_damping_aero+coef_damping_jet);
+plot(tout, coef_damping_aero+coef_damping_jet,'b');
+plot(tout, coef_normal_force,'k');
 title('Corrective Moment Coefficient vs Damping Moment Coefficient');
-legend('Corrective','Damping');
+legend('Corrective Moment','Damping Moment','Normal Force');
 
 figure; 
 plot(Rocksim_Time, Rocksim_Correctivemomentcoefficient./Rocksim_LongitudinalmomentofinertiaOuncesInches2 - Rocksim_Dampingmomentcoefficient.^2./(4.*Rocksim_LongitudinalmomentofinertiaOuncesInches2));

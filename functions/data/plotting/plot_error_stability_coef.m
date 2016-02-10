@@ -1,0 +1,31 @@
+rad2deg = 180/pi;
+figure; 
+title('Corrective Moment Coefficient vs Damping Moment Coefficient');
+subplot(3,1,1);
+plot(angular_position*rad2deg, coef_moment_corrective, 'r');
+hold on;
+plot(Rocksim_WindangleofattackDeg, Rocksim_Correctivemomentcoefficient, 'b');
+plot(openrocket_Angleofattack, openrocket_Pitchmomentcoefficient,'g');
+hold off;
+legend('Matlab','Rocksim','OpenRocket');
+xlim([-15,15]);
+title('Corrective Moment Coefficient');
+
+subplot(3,1,2);
+plot(angular_position*rad2deg, coef_damping_aero+coef_damping_jet, 'r');
+hold on;
+plot(Rocksim_WindangleofattackDeg, Rocksim_Dampingmomentcoefficient, 'b');
+plot(openrocket_Angleofattack, openrocket_Pitchdampingcoefficient, 'g');
+hold off;
+legend('Matlab','Rocksim','OpenRocket');
+xlim([-15,15]);
+title('Damping Moment Coefficient');
+
+subplot(3,1,3);
+plot(angular_position*rad2deg, coef_normal_force, 'r');
+hold on;
+plot(Rocksim_WindangleofattackDeg, Rocksim_CNanormalforcecoefficient, 'b');
+hold off;
+legend('Matlab','Rocksim');
+xlim([-15,15]);
+title('Normal Force Coefficient');
