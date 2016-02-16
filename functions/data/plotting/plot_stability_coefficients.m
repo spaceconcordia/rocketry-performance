@@ -21,7 +21,7 @@ Rocksim_phase= ...
     );
 plot( ...
     Rocksim_Time, Rocksim_phase);
-title('Rocksim Phase');
+title('Rocksim Frequency');
 
 %% OpenRocket
 figure;
@@ -57,7 +57,7 @@ hold off;
 %legend ('\alpha_x','D','sin(omega * t + phi)','exp(-Dt)','A*exp(-Dt)','A'); 
 legend ('\alpha_x','Ae^{-Dt}','-Ae^{-Dt}','Upper Bound','Lower Bound'); 
 title('Matlab Response to initial condition');
-xlim([3.2,25]);
+xlim([1.2,25]);
 
 figure;
 subplot(2,1,1);
@@ -65,7 +65,7 @@ plot(tout, coef_moment_corrective);
 title('Matlab Corrective Moment Coefficient');
 subplot(2,1,2);
 matlab_frequency_squared = ...
-    coef_moment_corrective./rocket_moment_inertia_long - coef_damping_moment.^2./(4.*rocket_moment_inertia_long);
+    coef_moment_corrective./rocket_moment_inertia_long - coef_damping_moment.^2./(4.*rocket_moment_inertia_long.^2);
 plot( ...
     tout, matlab_frequency_squared);
 title('Matlab Frequency Squared');

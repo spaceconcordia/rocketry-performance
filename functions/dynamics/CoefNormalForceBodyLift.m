@@ -3,7 +3,7 @@ function coef_normal_force_body_lift = CoefNormalForceBodyLift(inputs)
 K              = inputs(1);
 area_planform  = inputs(2);
 area_reference = inputs(3);
-aoa            = inputs(4);
+aoa            = inputs(4)
 
 coef_normal_force_body_lift = ...
     K ...
