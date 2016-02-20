@@ -139,31 +139,53 @@ $$
 I \left( \dfrac{d^2\alpha}{dt^2} \right) = -F(\alpha) - G \left(\dfrac{d\alpha}{dt} \right) 
 $$
 \begin{equation}
-\ref{eq_rocket_diff}
+\label{eq_rocket_diff}
 I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
 \end{equation}
 
 This nonlinear, homogenous, differential equation can not be solved exactly [@mandell1973, pg.84].
-Approximations are made considering small values of $\alpha$ and $\omega$, known as the *small-perturbation theory* [@mandell1973, pg.86].
-This linearization process provides ~~constant~~ coefficients, which we will denote $C_1$ for the *Corrective Moment Coefficient* and $C_2$ for the *Damping Moment Coefficient*.
-
-\begin{equation}
-I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alpha}{dt} \right) = 0
-\end{equation}
 
 ## Linearization Approximation
 
-\begin{quote}
-Although the functions representing $M_c$ and $M_d$ are not of the form "$y = mx + b$", they may be approximated by such forms over limited ranges of the valules of their independent variables [@mandell1973, pg.84].
-\end{quote}
+Linear Approximations of \ref{eq_rocket_diff} are made considering small values of $\alpha$ and $\omega$, known as the *small-perturbation theory* [@mandell1973, pg.86].
+This linearization process provides ~~constant~~ coefficients, which we will denote $C_1$ for the *Corrective Moment Coefficient* and $C_2$ for the *Damping Moment Coefficient*.
+
+$$
+F(\alpha) \approx C_1 \cdot \alpha 
+$$
+$$
+G \left(\dfrac{d\alpha}{dt} \right) \approx C_2 \cdot \dfrac{d\alpha}{dt} 
+$$
 
 \begin{equation}
-M_c \cong \left[ \dfrac{d M_c}{d M_d}|_{\alpha = 0} \right]\alpha = C_1 \alpha
-\end{equation}[@mandell1973, pg.84]
+\label{eq_rocket_diff_linearized}
+I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alpha}{dt} \right) = 0
+\end{equation}
 
-An experimental method provided of rocket flight to avoid the complications of linear approximations of Equation \ref{eq_rocket_diff}, and provides the *Corrective Moment Coefficient* and *Damping Moment Coefficient* as described below.
 
+### Preliminary Considerations
+
+#### Rocket Normal Force
+
+The *Rocket Normal Force* is the resultant force applied at the *Center of Pressure* perpendicular to the longitudinal axis of the rocket, when the rocket flies at an angle-of-attack.
+
+\begin{equation}
+\label{rocket_normal_force}
+F_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N
+\end{equation}
 [@box2009, pg. 9]
+
+Where $A_c$ is the cross-sectional area of the body tube, and $C_N$ is the *Normal Force Coefficient*, and is a function of angle-of-attack ($\alpha$). 
+The small angle approximation is applied, wherein small angles can be approximated as a linear function of the angle.
+
+\begin{equation}
+\label{normal_force_coefficient}
+C_N = C_{N \alpha} \cdot \alpha
+\end{equation}
+[@box2009, pg. 9]
+
+Where $C_{N \alpha}$ is the *Stability Derivative*
+
 
 ### Corrective Moment Coefficient
 
@@ -171,7 +193,7 @@ The *Corrective Moment Coefficient* describes the reaction of the rocket against
 
 \begin{equation}
 \label{eq_coef_moment_corrective}
-C_{MC} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} C_{FN} (COP-COG)
+C_{MC} = \dfrac{1}{2} \rho \vec{v}^2 A_{ref} C_{N \alpha} (COP-COG)
 \end{equation}
 
 Where:
@@ -179,7 +201,7 @@ Where:
 - $\rho$ is the local density of air
 - $\vec{v}$ is the velocity of the rocket
 - $A_{ref}$ is the reference area of the rocket flying into the free stream
-- $C_{NF}$ is the *Normal Force Coefficient* 
+- $C_{N \alpha}$ is the *Stability Derivative* ~~*Normal Force Coefficient*~~
 - $(COP-COG)$ is the distance between the *Center of Pressure* and *Center of Gravity*
 
 Note: a rocket with a high *Corrective Moment Coefficient* is going to weathercock faster at lower velocities.
@@ -207,7 +229,7 @@ Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient
 
 \begin{equation}
 \label{eq_coef_moment_damping_aero}
-C_{ADM} = \dfrac{1}{2} \rho \vec{v} A_{ref} \sum \left( C_{FN,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
+C_{ADM} = \dfrac{1}{2} \rho \vec{v} A_{ref} \sum \left( C_{N \alpha,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
 \end{equation}
 
 NOTE: Why isn't $\vec{v}$ SQUARED?
@@ -218,7 +240,7 @@ Where:
 - $\rho$ is the local density of air
 - $\vec{v}$ is the velocity of the rocket
 - $A_{ref}$ is the reference area of the rocket flying into the free stream
-- $C_{NF,x}$ is the *Normal Force Coefficient* 
+- ~~$C_{NF,x}$~~ $C_{N \alpha}$ is the ~~*Normal Force Coefficient*~~ *Stability Derivative*
 - $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
 - $COG$ is the distance between the rocket *Center of Gravity* to the nose cone tip
 
@@ -317,6 +339,11 @@ A = \dfrac{\alpha_{xo}}{sin \phi}
 
 [@mandell1973, pg.94]
 
+The initial conditions for this solution are
+
+- $a_{xo}$ = some non-zero angle-of-attack
+- $\Omega_{xo}$ = 0
+
 This equation is represented in the model as follows
 
 [angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
@@ -335,6 +362,20 @@ We can consider the rocket to be *restored* when the angle of attack stabilizes 
 
 [@mandell1973, pg.95-96]
 
+The *Naturual Frequency* of the rocket at the current air speed for the homogeneous solution is
+
+\begin{equation}
+\label{eq_natural_frequency_homogeneous}
+\omega_n = \sqrt{ \dfrac{C_1}{I_L} }
+\end{equation}
+
+
+## Complete Response to Step Input
+
+## Complete Response to Impulse Input
+
+## Steady State Response to Sinusoidal Forcing
+
 ### Rocket Damping Ratio
 
 The *Rocket Damping Ratio* is calculated as follows.
@@ -352,13 +393,25 @@ Where:
 
 [@mandell1973, pg.99]
 
+#### Underdamped Case
+
 \begin{equation}
-\begin{cases}
-0 < \dfrac{C_2^2}{4I_L^2} < \dfrac{C_1}{I_l} & Underdamped
-\end{cases}
+0 < \dfrac{C_2^2}{4I_L^2} < \dfrac{C_1}{I_l} \
 \end{equation}
 
 The fastest response is when $\zeta = \dfrac{\sqrt{2}}{2}$
+
+#### Overdamped Case
+
+\begin{equation}
+\dfrac{C_2^2}{4I_L^2} > \dfrac{C_1}{I_l} \
+\end{equation}
+
+#### Critically Damped Case
+
+\begin{equation}
+\dfrac{C_1}{I_l} = \dfrac{C_2^2}{4I_L^2}
+\end{equation}
 
 [@mandell1973, pg.101]
 
@@ -395,68 +448,11 @@ TODO
 
 [mandell1973, pg.123]
 
-## Other Observations
-
-### Rocket Normal Force
-
-\begin{equation}
-\label{rocket_normal_force}
-F_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N
-\end{equation}
-[@box2009, pg. 9]
-
-Where $A_c$ is the cross-sectional area of the body tube, and $C_N$ is the *Normal Force Coefficient*, and is a function of angle-of-attack ($\alpha$). 
-The small angle approximation is applied, wherein small angles can be approximated as a linear function of the angle.
-
-\begin{equation}
-\label{normal_force_coefficient}
-C_N = C_{N \alpha} \cdot \alpha
-\end{equation}
-[@box2009, pg. 9]
-
-Where $C_{N \alpha}$ is the *Stability Derivative*, the slope of the *Normal Force Coefficient*.
-The total *Stability Derivative* is the sum of all *i* rocket component stability derivatives
-
-\begin{equation}
-\label{total_stability_derivative}
-C_{N \alpha} = \sum C_{N \alpha (i)}   
-\end{equation}
-
-[@box2009, pg. 9]
-
-### Stability Derivative
-
-#### Nose Cone
-
-#### Rocket Body
-
-#### Fins
-
-### Rocket Restoring Moment
-
-The *Rocket Normal Force* (Equation \ref{rocket_normal_force}) applied at the *Center of Pressure* creates a moment about the *Center of Gravity*, known herein as the *Rocket Normal Moment*.
-
-\begin{equation}
-\label{rocket_normal_moment}
-M_{N} = \dfrac{1}{2} \rho \vec{v}^2 A_{c} C_N \left( COP - COG \right)
-\end{equation}
-
 ### Corrections
 
 #### Compressibility Correction
 
 *Barrowman's Method* neglects compressibility effects, however these effects cannot be neglected above Mach 0.3.
-
-#### Rocket Body Lift Correction
-
-*Barrowman's Method* neglects the lift generated by the rocket body. Galejs [@galejs] suggests the following adjustment to provide a compensated *Coefficient of Normal Force due to Body Lift*
-
-\begin{equation}
-\label{eq_coefficient_normal_force_body_lift}
-C_{N(L)} = K \dfrac{A_p}{A_{ref}} \alpha^2
-\end{equation}
-
-Where $A_p$ is the *planform area* of the rocket (the projected length-wise area of the rocket, neglecting the fins)
 
 ## Wind Disturbance
 

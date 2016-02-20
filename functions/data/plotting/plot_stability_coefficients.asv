@@ -59,8 +59,8 @@ ylim([0,0.15]);
 
 % Plot shaded region for stability bounds
 x1 = tout;
-upperbound = initial_amplitude*0.05;
-lowerbound = -initial_amplitude*0.05;
+upperbound = initial_disturbance*0.05;
+lowerbound = -initial_disturbance*0.05;
 
 figure;
 coef_damping_moment = coef_damping_aero + coef_damping_jet;
