@@ -373,9 +373,10 @@ This simplifies the calculation of the center of gravity of the rocket as fuel i
 
 The instantaneous moment of inertia is determined by relating the moment of inertias of the static structure and the dynamic structure through the parallel axis theorem evaluated at the total center of gravity (COG).
 
-The sum of moment of inertias evaluated through the parallel axis theorem nets the total moment of inertia.
+The sum of moment of inertias evaluated through the *parallel axis theorem* nets the total rocket moment of inertia.
 
 \begin{equation}
+\label{eq_parallel_axis_theorem}
 I_n = I_{cm(n)} + M_P d^2 
 \end{equation}
 
@@ -383,11 +384,14 @@ I_n = I_{cm(n)} + M_P d^2
 I_T(t) = \sum I_n 
 \end{equation}
 
-Where $I_T(t)$ is the total moment of inertia of the rocket as a function of time, and $I_n$ is the component vector (either static or dynamic moment of inertia)
+Where:
+
+- $I_T(t)$ is the total moment of inertia of the rocket as a function of time
+- $I_n$ is the component vector (either static or dynamic moment of inertia)
 
 [@box2009]
 
-### Longitudinal Moment of Inertia
+#### Longitudinal Moment of Inertia
 
 To the *Moment of Inertia* related to the pitch/yaw of the rocket is the *Longitudinal Moment of Inertia*. 
 
@@ -402,14 +406,14 @@ In keeping with the assumption of the motor as a point mass in the volumetric ce
 
 \begin{equation}
 \label{static_longitudinal_moment_inertia}
-I_{static} + m_{static} r_{0 \rightarrow 1}^2
+I_{s} + m_{s} r_{0 \rightarrow 1}^2
 \end{equation}
 
-Where $r_{0 \rightarrow 1}$ is the distance between the static center of gravity (the COG of the nose cone, body tube, and fins) and the instantaneous center of gravity of the rocket. $I_{static}$ is provided by CATIA.
+Where $r_{0 \rightarrow 1}$ is the distance between the static center of gravity (the COG of the nose cone, body tube, and fins) and the instantaneous center of gravity of the rocket. $I_{s}$ is provided by CATIA.
 
 \begin{equation}
 \label{motor_longitudinal_moment_inertia}
-I_{motor} = \dfrac{m_{motor}L_{motor}}{12} + m_{motor}r_{0 \rightarrow 2}^2
+I_{m} = \dfrac{m_{m}L_{m}}{12} + m_{m}r_{0 \rightarrow 2}^2
 \end{equation}
 
 Where $L_{motor}$ is the length of the motor casing, and $r_{0 \rightarrow 2}$ is the distance between the motor center of gravity and the rocket center of gravity. 
@@ -418,6 +422,6 @@ Then, the rocket *Longitudinal Moment of Inertia* is the sum, shown as follows
 
 \begin{equation}
 \label{rocket_longitudinal_moment_inertia}
-I_{rocket} = I_{motor} + I_{static}
+I_{r} = I_{m} + I_{s}
 \end{equation}
 

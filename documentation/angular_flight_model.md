@@ -362,7 +362,7 @@ We can consider the rocket to be *restored* when the angle of attack stabilizes 
 
 [@mandell1973, pg.95-96]
 
-The *Naturual Frequency* of the rocket at the current air speed for the homogeneous solution is
+The *Natural Frequency* of the rocket at the current air speed for the homogeneous solution is
 
 \begin{equation}
 \label{eq_natural_frequency_homogeneous}

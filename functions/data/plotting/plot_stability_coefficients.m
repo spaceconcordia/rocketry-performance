@@ -59,26 +59,7 @@ ylim([0,0.15]);
 
 % Plot shaded region for stability bounds
 x1 = tout;
-upperbound = initial_amplitude*0.05;
-lowerbound = -initial_amplitude*0.05;
+upperbound = initial_disturbance*0.05;
+lowerbound = -initial_disturbance*0.05;
 
-figure;
-coef_damping_moment = coef_damping_aero + coef_damping_jet;
-
-%ha = shadedplot(x1, upperbound, lowerbound, [0.7, 1, 0.7], 'r');
-plot(tout, angular_position, 'k--o');
-hold on;
-%plot(tout, inverse_time_constant,'b--o');
-%plot(tout, sin(angular_frequency.*(tout-disturbance_time) + phase_angle), 'g-*' );
-%plot(tout, exp(-inverse_time_constant.*(tout-disturbance_time)), 'm-o' );
-plot(tout, initial_amplitude.*exp(-inverse_time_constant.*(tout-disturbance_time)), 'k' );
-plot(tout, -initial_amplitude.*exp(-inverse_time_constant.*(tout-disturbance_time)), 'k' );
-plot(tout,upperbound,'g-o');
-plot(tout,lowerbound,'g-o');
-hold off;
-%legend ('\alpha_x','D','sin(omega * t + phi)','exp(-Dt)','A*exp(-Dt)','A'); 
-legend ('\alpha_x','Ae^{-Dt}','-Ae^{-Dt}','Upper Bound','Lower Bound'); 
-title('Matlab Response to initial condition');
-xlim([1.2,25]);
-
-
+plot_stability_response_homogeneous

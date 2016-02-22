@@ -1,9 +1,0 @@
-expected = 11.8525);
-actual = COPFinSet([0.75,1.6,0.85,11.2])
-actual = round(actual);
-assert (...
-    actual == expected, ...
-    'COPFinSet() \n actual = %d \n expected = %d ', actual, expected ...
-);
-
-disp('If no error, all clean!');

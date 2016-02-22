@@ -22,7 +22,7 @@ time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
 Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
 
 %% Thrust vs time
-subplot(4,1,1);
+subplot(5,1,1);
 matlab_plot_1 = plot(tout, thrust, 'm--*');
 hold on;
 openrocket_plot_1 = plot(...
@@ -56,7 +56,7 @@ xlabel('Thrust (N)');
 ylabel('Time (s)');
 
 %% Mass vs Time
-subplot(4,1,2)
+subplot(5,1,2)
 
 matlab_plot_2 = plot(tout, mass, 'm--*');
 hold on;
@@ -91,7 +91,7 @@ xlabel('Mass (kg)');
 ylabel('Time (s)');
 
 %% COP vs time
-subplot(4,1,3)
+subplot(5,1,3)
 
 matlab_plot_3 = plot(tout, cop_rocket, 'm--*');
 hold on;
@@ -126,7 +126,7 @@ xlabel('COP (m)');
 ylabel('Time (s)');
 
 %% COG vs time
-subplot(4,1,4)
+subplot(5,1,4)
 
 matlab_plot_3 = plot(tout, cog_rocket, 'm--*');
 hold on;
@@ -161,6 +161,45 @@ clear title xlabel ylabel
 title('COG vs Time');
 xlabel('COG (m)');
 ylabel('Time (s)');
+
+%% I_L vs time
+subplot(5,1,5)
+
+matlab_plot_3 = plot(tout, rocket_moment_inertia_long, 'm--*');
+hold on;
+openrocket_plot_3 = plot(...
+    openrocket_VarName1(1:indexmax_openrocket), ...
+    openrocket_Longitudinalmomentofinertiakgm(1:indexmax_openrocket), ...
+    'b--.'...
+);
+%{
+rasaero_plot_3 = plot( ...
+    rasaero_Timesec(1:indexmax_rasaero), ...
+    rasaero_CG(1:indexmax_rasaero)*in2meter, ...
+    'c--o' ...
+);
+
+rocksim_plot_3 = plot( ...
+    Rocksim_Time(1:indexmax_Rocksim), ...
+    Rocksim_LongitudinalmomentofinertiaOuncesInches2(1:indexmax_Rocksim)*in2meter, ...
+    'k- .' ...
+);
+%}
+hold off
+
+h_legend_3 = legend(...
+    [matlab_plot_3, openrocket_plot_3, rocksim_plot_3],...
+    'Matlab','OpenRocket','Rocksim', ...
+    'location', 'northeast' ...
+);
+set(h_legend_2,'FontSize',12);
+set(h_legend_2,'FontName','Courier New');
+
+clear title xlabel ylabel
+title('I_L vs Time');
+xlabel('I_l (m^4)');
+ylabel('Time (s)');
+
 %% Conditionally save the plot
 if exist('saveplots')
     if saveplots

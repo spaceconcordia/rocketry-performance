@@ -101,6 +101,31 @@ The following models were executed.
 [error_stability_calibers_plot]: images/plots/error_stability_calibers_plot.png "" 
 ![Stability (Calibers) as a Function of Time \label{error_stability_calibers_plot_label}][error_stability_calibers_plot] 
 
+### Homogeneous Response to Initial Conditions
+
+$$
+\alpha_{xo} = 4 \text{deg}
+$$
+$$ 
+\omega_{xo} = 0 \text{deg/s}
+$$
+
+[error_stability_response_homogeneous]: images/plots/plot_stability_homogeneous_response.png "" 
+![Homogeneous Response \label{error_stability_response_homogeneous}][error_stability_response_homogeneous] 
+
+A rocket can be considered restored from a disturbance if the angle of attack decays to 5% of the initial amplitude [@mandell1973, pg.99].
+
+[error_stability_response_homogeneous_damping_ratio]: images/plots/plot_stability_homogeneous_response_damping_ratio.png "" 
+![Damping Ratio \label{error_stability_response_homogeneous_damping_ratio}][error_stability_response_homogeneous_damping_ratio] 
+
+The ideal damping ratio is between 0.05 and 0.30 [@source]
+
+[error_stability_response_homogeneous_natural_frequency]: images/plots/plot_stability_homogeneous_response_natural_frequency.png "" 
+![Natural Frequency \label{error_stability_response_homogeneous_natural_frequency}][error_stability_response_homogeneous_natural_frequency] 
+
+The natural frequency of the rocket to pitch/yaw is [@source]. 
+This does not come into resonance with the oscillatory response of the rocket to disturbance.
+
 \clearpage
 
 ### Additional Plots
