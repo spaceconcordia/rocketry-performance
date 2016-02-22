@@ -38,7 +38,37 @@
 % representing the call sign of the weather station performing the survey.
 % The only data currently used are the pressure, height and temperature.
 % They are imported into arrays which are named based on the call-sign.
+%-------------------------------------------------------------------------%
 
+%-------------------------------------------------------------------------%
+% Data Import
+%   This section imports the atmospheric data from the same folder that
+%   this script is located within.
+%
+%   Variables:
+%       FileList    = List of files in current folder. It is converted from
+%                     a struct to a cell array for simplicity
+%       n           = A placeholder variable for counting and runoff
+%       NumFiles    = Contains the number of files that will be processed
+%
+%-------------------------------------------------------------------------%
+
+FileList = dir('*_array*.mat');
+
+FileList = struct2cell(FileList);
+
+[~, NumFiles] = size(FileList);
+
+AtmoData = zeros(200, 11, NumFiles);
+
+for n = 1:NumFiles
+    
+    name = char(FileList(1,n));
+    Inter = strtok(name, '_');
+    NameList(n) = substring(name, 1, 2, 3);
+    InterArray = cell2mat(struct2cell(load(name)));
+    
+end
 
 % calculate density using ISA_model function
 % TODO
