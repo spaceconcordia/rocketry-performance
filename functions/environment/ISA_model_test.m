@@ -50,6 +50,7 @@
 %                     a struct to a cell array for simplicity
 %       n           = A placeholder variable for counting and runoff
 %       NumFiles    = Contains the number of files that will be processed
+%       AtmoData    = Containns all atmospheric data in a 3D Array
 %
 %-------------------------------------------------------------------------%
 
