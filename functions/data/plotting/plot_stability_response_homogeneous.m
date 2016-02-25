@@ -1,3 +1,10 @@
+%% Matlab
+
+% Plot shaded region for stability bounds
+x1 = tout;
+upperbound = initial_disturbance*0.05;
+lowerbound = -initial_disturbance*0.05;
+
 figure;
 coef_damping_moment = coef_damping_aero + coef_damping_jet;
 
@@ -27,7 +34,9 @@ if exist('saveplots')
 end
 
 figure;
-plot(tout, rocket_damping_ratio);
+plot(tout, rocket_damping_ratio, 'm-*');
+hold on;
+plot(Rocksim_Time, Rocksim_DampingRatio,'k- .');
 title('Damping Ratio');
 xlim([0,25]);
 

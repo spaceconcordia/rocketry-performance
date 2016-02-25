@@ -330,7 +330,7 @@ Where:
 D = { C_2 \over 2 I_L }
 \end{equation}
 
-- $A$ is the *initial displacement*
+- $A$ is the *initial amplitude*
 \begin{equation}
 A = \dfrac{\alpha_{xo}}{sin \phi}
 \end{equation}
@@ -428,15 +428,6 @@ Where:
 - $I_L$ is the *Longitudinal Moment of Inertia*
 
 [@mandell1973, pg.97]
-
-Denoting oscillation frequency in terms of the natural frequency:
-
-\begin{equation}
-\label{eq_frequency}
-\omega = \omega_n \sqrt{1 - \zeta^2}
-\end{equation}
-
-We find that the optimal damping is $0.7071 \omega_n$
 
 ### Time Constants of the Response
 

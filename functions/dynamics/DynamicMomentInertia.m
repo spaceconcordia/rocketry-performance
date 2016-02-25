@@ -31,3 +31,4 @@ I_m = motor_moment_inertia + motor_mass*(d_motorcog_rocketcog)^2;
 %% the total rocket moment of inertia is the sum of the component
 % inertia
 rocket_moment_of_inertia = I_s + I_m;
+

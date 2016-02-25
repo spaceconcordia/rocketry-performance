@@ -55,11 +55,4 @@ plot( ...
 title('Matlab Damping Ratio');
 ylim([0,0.15]);
 
-%% Matlab
-
-% Plot shaded region for stability bounds
-x1 = tout;
-upperbound = initial_disturbance*0.05;
-lowerbound = -initial_disturbance*0.05;
-
 plot_stability_response_homogeneous
