@@ -58,28 +58,63 @@
 %                     atmospheric data
 %       DataPoints  = An array to hold the number of atmospheric data
 %                     points in each set to facilitate future calculations
+%       ThirdParty  = Boolean variable. If it contains 1, the script will 
+%                     retrieve data from the "thirdparty" folder
 %-------------------------------------------------------------------------%
 
-FileList = dir('*_array*.mat');
+ThirdParty = 1;
 
-FileList = struct2cell(FileList);
-
-[~, NumFiles] = size(FileList);
-
-AtmoData = zeros(5, 3, NumFiles);
-
-for n = 1:NumFiles
+if ThirdParty == 1
     
-    name = char(FileList(1,n));
-    InterArray = cell2mat(struct2cell(load(name)));
-    [DataPoints(n),~] = size(InterArray);
+    FileList = dir('thirdparty\*_array*.mat');
     
-    for j = 1:DataPoints(n)
+    FileList = struct2cell(FileList);
+
+    [~, NumFiles] = size(FileList);
+
+    AtmoData = zeros(5, 3, NumFiles);
+
+    for n = 1:NumFiles
+    
+        name = char(FileList(1,n));
+        name = strcat('thirdparty\',name);
+        InterArray = cell2mat(struct2cell(load(name)));
+        [DataPoints(n),~] = size(InterArray);
+    
+        for j = 1:DataPoints(n)
         
-        AtmoData(j,1,n) = InterArray(j,1);
-        AtmoData(j,2,n) = InterArray(j,2);
-        AtmoData(j,3,n) = InterArray(j,3);
+            AtmoData(j,1,n) = InterArray(j,1);
+            AtmoData(j,2,n) = InterArray(j,2);
+            AtmoData(j,3,n) = InterArray(j,3);
         
+        end
+    
+    end
+    
+else
+    
+    FileList = dir('*_array*.mat');
+    
+    FileList = struct2cell(FileList);
+
+    [~, NumFiles] = size(FileList);
+
+    AtmoData = zeros(5, 3, NumFiles);
+
+    for n = 1:NumFiles
+    
+        name = char(FileList(1,n));
+        InterArray = cell2mat(struct2cell(load(name)));
+        [DataPoints(n),~] = size(InterArray);
+    
+        for j = 1:DataPoints(n)
+        
+            AtmoData(j,1,n) = InterArray(j,1);
+            AtmoData(j,2,n) = InterArray(j,2);
+            AtmoData(j,3,n) = InterArray(j,3);
+        
+        end
+    
     end
     
 end
