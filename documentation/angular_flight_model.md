@@ -208,6 +208,13 @@ Note: a rocket with a high *Corrective Moment Coefficient* is going to weatherco
 
 [Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
 
+#### Dimensional Analysis
+
+\begin{equation}
+\label{eq_c1_dim_anal}
+\dfrac{kg}{m^3} \left[ \dfrac{m}{s} \right]^2 m^2 m = \dfrac{kg \cdot m }{s^2} \cdot m 
+\end{equation}
+
 ### Damping Moment Coefficient
 
 As the rocket responds to a disturbance, the *Corrective Moment* reactions forces act in an oscillating manner - weathercocking into the wind, then turning back towards the vertical direction.
@@ -243,6 +250,13 @@ Where:
 - ~~$C_{NF,x}$~~ $C_{N \alpha}$ is the ~~*Normal Force Coefficient*~~ *Stability Derivative*
 - $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
 - $COG$ is the distance between the rocket *Center of Gravity* to the nose cone tip
+
+##### Dimensional Analysis
+
+\begin{equation}
+\label{eq_c2a_dim_anal}
+\dfrac{kg}{m^3} \dfrac{m}{s} m^2 m^2 = \dfrac{kg \cdot m }{s} \cdot m 
+\end{equation}
 
 #### Propulsive Damping Moment Coefficient
 

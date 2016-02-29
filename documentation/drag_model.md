@@ -555,7 +555,7 @@ C_{aoa} = C_{Db(\alpha)} + C_{Df(\alpha)}
 
 \begin{equation}
 \label{eq_rocket_body_drag_aoa}
-C_{Db(\alpha)} = 2 \delta \alpha^2 + \dfrac{3.6 \eta (1.36 L - 0.55 h_n ) }{ \pi OD } \alpha^3
+C_{Db(\alpha)} = 2 \delta \alpha^2 + \dfrac{3.6 \eta (1.36 L - 0.55 h_n ) }{ \pi \cdot OD } \alpha^3
 \end{equation}
 
 Where:
@@ -565,6 +565,9 @@ Where:
 - $OD$ is the outer diameter of the rocket 
 - $h_n$ is the height of the nose cone
 - $\delta$ and $\nu$ are experimentally determined coefficients
+- $OD$ is the outer diameter of the rocket
+
+[@box2009, pg.14]
 
 #### Rocket Fin Drag at Angle of Attack
 
@@ -600,15 +603,12 @@ R_s = \dfrac{l_{TS}}{d_f}
 
 #### Alternatively
 
-Alternatively, [@niskanen2013, pg.53] proposes a piecewise approximation for angle of attack drag correction as described below:
+[@mandell1973] shares a function determined for *Total drag coefficient due to angle-of-attack*
 
-\begin{quote}
-Based on experimental data an empirical formula was produced for calculating the axial drag coefficient at an angle of attack $\alpha$ from the zero-angle
-drag coefficient. 
-The scaling function is a two-part polynomial function that starts from 1 at $\alpha$ = 0 $^\circ$, increases to 1.3 at $\alpha$ = 17$^\circ$ and then decreases to
-zero at $\alpha$ = 90$^\circ$ the derivative is also zero at these points. 
-Since the majority of the simulated flight is at very small angles of attack, this approximation provides a sufficiently accurate estimate for the purposes of this thesis.
-\end{quote}
+\begin{equation}
+\label{eq_darg_total_aoa}
+C_d (\alpha) = 16.83 \alpha^2 + 8.9 \alpha^3
+\end{equation}
 
 ### Matlab Implementation
 
