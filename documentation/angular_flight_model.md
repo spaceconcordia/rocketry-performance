@@ -510,3 +510,8 @@ Where
 - *U* is the average wind speed
 
 [@niskanen2013, pg. 59]
+
+## More Reading
+
+There are further resources on rocket flight stability here:
+- http://www.apogeerockets.com/Tech/Rocket_Stability

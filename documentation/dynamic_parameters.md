@@ -285,7 +285,12 @@ Wind tunnel tests performed in 1918 and 1919 demonstrated that the normal force 
 ##### Stability Derivative
 
 The *Stability Derivative* $C_{N\alpha}$ is a dimensionless parameter, used to calculate the force normal to the longitudinal axis, and is dependent on the shape of the component.
-It is also the slope of the *Normal Force Coefficient*.
+It is the slope of the *Normal Force Coefficient* plotted against the angle-of-attack. 
+For low angles of attack, it is nearly constant.
+
+TODO show figure
+
+[@source]
 
 The total *Stability Derivative* is the sum of all *i* rocket component stability derivatives
 
