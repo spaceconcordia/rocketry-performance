@@ -383,6 +383,11 @@ The *Natural Frequency* of the rocket at the current air speed for the homogeneo
 \omega_n = \sqrt{ \dfrac{C_1}{I_L} }
 \end{equation}
 
+Note: it would appear that this response only reflects the physical system for non-decreasing values of $C_2$, which would cause the exponential term to increase with time and cause the amplitude to grow.
+Although the damping coefficient remains relatively constant, the inverse time-constant is only a function of $\dfrac{C_2}{2 I_L}$. 
+As velocity decreases in the rocket coasting phase, $C_2$ drops proportional to the square of the velocity and thus the inverse-time constant decreases enough with respecting time, that $Dt$ is decreasing and thus $e^{-Dt}$ will begin to increase.
+
+Attach image [@source]
 
 ## Complete Response to Step Input
 
