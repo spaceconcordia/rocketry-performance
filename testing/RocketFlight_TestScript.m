@@ -2,15 +2,17 @@
 ord = confirm('Import thrust curve (needed to launch simulation)?');
 if ord
     fprintf ( 'Updating Thrust Data ... ' );
-    openrocket_data_import('aurelius_openrocket_simulation.csv','');
+    %openrocket_data_import('aurelius_openrocket_simulation.csv','');
+    import_thrust_curve
     disp ( 'Done' );
-    fprintf( 'Maximum OpenRocket altitude: %d m, %d ft \r\n', max(openrocket_altitude), max(openrocket_altitude)*3.28);
+    %fprintf( 'Maximum OpenRocket altitude: %d m, %d ft \r\n', max(openrocket_altitude), max(openrocket_altitude)*3.28);
 end
 
 dpm = confirm('Update Parametric Data (needed to launch simulation)?');
 if dpm
     fprintf ( 'Updating Parametric Data ... ' );
     data_parametric_model;
+    clearvars filename filen filep;
     disp ( 'Done' );
 end
 

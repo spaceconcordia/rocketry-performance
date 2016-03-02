@@ -4,14 +4,15 @@ The University of Louisville was kind enough to share experimental rocket flight
 
 ## Flight Details
 
+March 29, 2015
 
-| Date       | Elevation         | Ground Pressure | Ground Temperature     | Wind Speed       | Humidity | Launch Guide Length |
-| ---        | ---               | ---             | ---                    | ---              | ---      | ---                 |
-| 20??/??/?? | 405 ft (123,48 m) | ?? Pa           | ?? K (61.00 $^\circ$F) | ?? km/h (?? m/s) | ?? %     | 3.05 m (?? ft)      |
-| 20??/??/?? | 432 ft (131.71 m) | ?? Pa           | ?? K (58.21 $^\circ$F) | ?? km/h (?? m/s) | ?? %     |                     |
-| 20??/??/?? | 410 ft (125.00 m) | ?? Pa           | ?? K (70.79 $^\circ$F) | ?? km/h (?? m/s) | ?? %     |                     |
-| 20??/??/?? | 417 ft (127.13 m) | ?? Pa           | ?? K (61.32 $^\circ$F) | ?? km/h (?? m/s) | ?? %     |                     |
-| 20??/??/?? | 446 ft (135.97 m) | ?? Pa           | ?? K (61.50 $^\circ$F) | ?? km/h (?? m/s) | ?? %     |                     |
+| Date       | Elevation         | Ground Pressure | Ground Temperature     | Wind Speed         | Humidity | Launch Guide Length |
+| ---        | ---               | ---             | ---                    | ---                | ---      | ---                 |
+| 2015/03/29 | 405 ft (123,48 m) | ?? Pa           | ?? K (61.00 $^\circ$F) | 14 km/h (3.89 m/s) | ~39 %    | 3.05 m (?? ft)      |
+| 2015/03/29 | 432 ft (131.71 m) | ?? Pa           | ?? K (58.21 $^\circ$F) | 14 km/h (3.89 m/s) | ~39 %    | 3.05 m (?? ft)      |
+| 2015/03/29 | 410 ft (125.00 m) | ?? Pa           | ?? K (70.79 $^\circ$F) | 14 km/h (3.89 m/s) | ~39 %    | 3.05 m (?? ft)      |
+| 2015/03/29 | 417 ft (127.13 m) | ?? Pa           | ?? K (61.32 $^\circ$F) | 14 km/h (3.89 m/s) | ~39 %    | 3.05 m (?? ft)      |
+| 2015/03/29 | 446 ft (135.97 m) | ?? Pa           | ?? K (61.50 $^\circ$F) | 14 km/h (3.89 m/s) | ~39 %    | 3.05 m (?? ft)      |
 
 ## Motor Details
 
