@@ -9,7 +9,9 @@ title('Matlab - Drag Coefficient vs. Time');
 xlabel('Time (s)');
 legend ('Base','Fin Pressure','Parasitic','Skin Friction','Total Drag Coefficient');
 
-if saveplots % conditionally save the plot
-    saveas(gcf, '../documentation/images/plots/drag_coefficients.png');
-    export_fig drag_coefficients.png -m2
+if exist('saveplots')
+    if saveplots % conditionally save the plot
+        saveas(gcf, '../documentation/images/plots/drag_coefficients.png');
+        export_fig drag_coefficients.png -m2
+    end
 end

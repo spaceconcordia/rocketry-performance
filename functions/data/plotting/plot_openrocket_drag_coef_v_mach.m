@@ -1,10 +1,10 @@
-arraysize = size(tout,1);
-plot( mach_number , openrocket_drag_base_coef(1:arraysize) , 'm' );
+figure;
+plot( openrocket_Machnumber , openrocket_Basedragcoefficient , 'm' );
 hold on;
-plot( mach_number , openrocket_drag_friction_coef(1:arraysize) , 'b' );
-plot( mach_number , openrocket_drag_pressure_coef(1:arraysize) , 'g' );
-plot( mach_number , openrocket_drag_axial_coef(1:arraysize) , 'c' );
-plot( mach_number , openrocket_drag_coef(1:arraysize)  , 'k' );
+plot( openrocket_Machnumber , openrocket_Frictiondragcoefficient , 'b' );
+plot( openrocket_Machnumber , openrocket_Pressuredragcoefficient , 'g' );
+plot( openrocket_Machnumber , openrocket_Axialdragcoefficient , 'c' );
+plot( openrocket_Machnumber , openrocket_Dragcoefficient  , 'k' );
 hold off;
 
 clear title xlabel ylabel

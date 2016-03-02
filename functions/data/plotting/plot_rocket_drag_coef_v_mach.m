@@ -1,3 +1,4 @@
+figure;
 plot( mach_number , coef_drag_base_normalized         , 'm' );
 hold on;
 plot( mach_number , coef_drag_fin_pressure_normalized , 'g' );
@@ -16,7 +17,9 @@ ax1 = gca;
 ytic = linspace(ylimit(1),ylimit(2),n); 
 set(ax1,'ylim', ylimit, 'ytick', ytic);
 
-if saveplots % conditionally save the plot
-    saveas(gcf, '../documentation/images/plots/drag_mach_coefficients.png');
-    export_fig drag_mach_coefficients.png -m2
+if exist('saveplots')
+    if saveplots % conditionally save the plot
+        saveas(gcf, '../documentation/images/plots/drag_mach_coefficients.png');
+        export_fig drag_mach_coefficients.png -m2
+    end
 end
