@@ -48,7 +48,7 @@ raw_thrust = dataArray{:,2};
 %% Interpolate data for simulation
 disp('Setting baseline time');
 simulation_time = max(raw_time); % seconds
-timestep        = 0.01; % seconds
+%timestep        = 0.01; % seconds % comes from parametric spreadsheet
 t_new           = linspace(0,simulation_time,simulation_time/timestep);
 t_new           = t_new.';
 

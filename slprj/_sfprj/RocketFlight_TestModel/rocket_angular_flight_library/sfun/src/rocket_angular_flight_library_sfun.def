@@ -1,0 +1,3 @@
+LIBRARY rocket_angular_flight_library_sfun.lib
+EXPORTS
+mexFunction

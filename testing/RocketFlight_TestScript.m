@@ -1,4 +1,13 @@
 %% Import Rocket Design Data
+dpm = confirm('Update Parametric Data (needed to launch simulation)?');
+if dpm
+    fprintf ( 'Updating Parametric Data ... ' );
+    data_parametric_model;
+    clearvars filename filen filep;
+    disp ( 'Done' );
+end
+
+%% Import thrust curve
 ord = confirm('Import thrust curve (needed to launch simulation)?');
 if ord
     fprintf ( 'Updating Thrust Data ... ' );
@@ -6,14 +15,6 @@ if ord
     import_thrust_curve
     disp ( 'Done' );
     %fprintf( 'Maximum OpenRocket altitude: %d m, %d ft \r\n', max(openrocket_altitude), max(openrocket_altitude)*3.28);
-end
-
-dpm = confirm('Update Parametric Data (needed to launch simulation)?');
-if dpm
-    fprintf ( 'Updating Parametric Data ... ' );
-    data_parametric_model;
-    clearvars filename filen filep;
-    disp ( 'Done' );
 end
 
 %% Run Simulation
