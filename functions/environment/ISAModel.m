@@ -42,8 +42,20 @@ R       = 287.04;
 %   alt_in  = Launch altitude (meters)
 %--------------------------------------------------------------------------
 
-T_dev   = T_in - T_o + 6.5*(alt_in/1000);
-    
+T_dev   = T_in - T_o;
+
+%--------------------------------------------------------------------------
+% The following calculates the lapse rate to be used between the launch
+% site and the tropopause. It is assumed that the tropopause is exactly
+% 11,000 m ASL and has a temperature of 216.65 k
+% Variables used:
+%   LR      = Lapse rate (Kelvin/meter)
+%   T_in    = ground temperature (Kelvin)
+%   alt_in  = Launch altitude (meters)
+%--------------------------------------------------------------------------
+
+LR = (T_in - 216.65)/(11000 - alt_in);
+
 %--------------------------------------------------------------------------
 % The following calculates the temperature at the current altitude.
 % Variables used:
@@ -52,7 +64,7 @@ T_dev   = T_in - T_o + 6.5*(alt_in/1000);
 %   alt_act = Altitude above ground level (m)
 %--------------------------------------------------------------------------
 
-T_act   = (T_o + T_dev) - (6.5/1000)*(alt_in + alt_act);
+T_act   = (T_o + T_dev) - (LR)*(alt_in + alt_act);
     
 %--------------------------------------------------------------------------
 % The following recalculates the pressure in terms of ISA deviation.
@@ -62,7 +74,7 @@ T_act   = (T_o + T_dev) - (6.5/1000)*(alt_in + alt_act);
 %   A       = placeholder for calculation
 %--------------------------------------------------------------------------
 
-A       = (1 - 0.0065*(alt_in/(T_o + T_dev)))^5.2561;
+A       = (1 - LR*(alt_in/(T_o + T_dev)))^5.2561;
 
 P_dev   = (P_in/A) - P_o;
     
@@ -72,7 +84,7 @@ P_dev   = (P_in/A) - P_o;
 %   P_act   = actual pressure at current altitude (Pascals)
 %--------------------------------------------------------------------------
 
-P_act   = (P_o + P_dev)*((1-0.0065*((alt_in+alt_act)/(T_o+T_dev)))^5.2561);
+P_act   = (P_o + P_dev)*((1-LR*((alt_in+alt_act)/(T_o+T_dev)))^5.2561);
     
 %--------------------------------------------------------------------------
 % The following calculates the air density at the current altitude.
