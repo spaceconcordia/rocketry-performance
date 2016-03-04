@@ -393,6 +393,23 @@ Attach image [@source]
 
 ## Complete Response to Impulse Input
 
+A valid solution to the impulse response within the finite horizon is a mathematical guarantee of stability.
+
+[@source]
+
+### Delta-Dirac Function
+
+\begin{equation}
+\label{eq_delta_dirac}
+u(t) = \int_{-\infty}^{\infty} \delta ( u - \tau ) d \tau
+\end{equation}
+
+[@source]
+
+### Convolution Theorem
+
+The integral of a linear operator is the linear operator of the integral
+
 ## Steady State Response to Sinusoidal Forcing
 
 ### Rocket Damping Ratio
@@ -457,6 +474,33 @@ TODO
 ### Complete response to impulse input
 
 [mandell1973, pg.123]
+
+### AOA as a function of velocity
+
+In order to plot the real system behavior, it may be possible to solve Equation \ref{eq_rocket_diff} where $\alpha_x$ is a function of velocity, and solve for $\alpha_x$ by twice integrating $\ddot{\alpha_x}$.
+
+$$
+I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
+$$
+
+$$
+\dfrac{\delta^2 \alpha_x}{\delta t^2} = \dot{v} = \ddot{x}
+$$
+
+$$
+\dfrac{\delta \alpha_x}{\delta t} = v = \dot{x}
+$$
+
+$$
+\dfrac{\delta \alpha_x}{\delta t} = v = \dot{x}
+$$
+
+Somehow get to:
+
+$$
+\dfrac{d^2}{dv^2} ...
+$$
+
 
 ### Corrections
 

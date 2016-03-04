@@ -61,26 +61,28 @@ Integration of equation (\ref{vertical_flight_equation}) in the model is represe
 [vertical_model_simplified]: images/vertical_model_simplified.png "Vertical Model - Simplified" 
 ![Vertical Flight Model - Simplified \label{vertical_model_simplified}][vertical_model_simplified] 
 
-## Drift due to Weathercocking
+## Weathercocking
 
-*Weathercocking* is a phenomenon when the rocket tends to alter its trajectory and fly into the wind. Depending on the damping, the rocket eventually reaches a zero angle-of-attack parallel to the velocity vector of the wind, only in the opposite direction.
+*Weathercocking* is a phenomenon when the rocket tends to alter its trajectory and fly into the wind. 
+If the rocket is stable, and has a sufficiently high damping ratio, the rocket eventually reaches a near-zero angle-of-attack parallel to the velocity vector of the wind, only in the opposite direction.
 
 We can modify Equation \ref{eq_vertical_flight_eom} to account for weathercocking and provide the actual altitude reached, as well as the amount of drift experienced.
 
-Altitude accounting for weathercocking
+### Altitude accounting for weathercocking
 
 \begin{equation}
 \label{eq_vertical_angle}
-m(t)_z\ddot{z}(t) = T(t) \cos \theta - D(\dot{z}) \cos \theta - W(t)
+m(t)\ddot{z}(t) = T(t) \cos \theta - D(\dot{z}) \cos \theta - W(t)
 \end{equation}
 
 Where:
+
 - $z$ is the upward direction (normal from the ground)
 - $\theta$ is the angle between the current rocket trajectory and the z-axis
 
-Drift accounting for weathercocking
+### Drift accounting for weathercocking
 
 \begin{equation}
 \label{eq_vertical_angle}
-m(t)_x \ddot{z}(t) = T(t) \sin \theta - D(\dot{z}) \sin \theta 
+m(t) \ddot{z}(t) = T(t) \sin \theta - D(\dot{z}) \sin \theta 
 \end{equation}
