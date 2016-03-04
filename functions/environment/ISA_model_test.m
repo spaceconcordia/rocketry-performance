@@ -93,7 +93,7 @@ if ThirdParty == 1
     
 else
     
-    FileList = dir('*_array*.mat');
+    FileList = dir('experimental\*_array*.mat');
     
     FileList = struct2cell(FileList);
 
@@ -104,6 +104,7 @@ else
     for n = 1:NumFiles
     
         name = char(FileList(1,n));
+        name = strcat('experimental\',name);
         InterArray = cell2mat(struct2cell(load(name)));
         [DataPoints(n),~] = size(InterArray);
     
