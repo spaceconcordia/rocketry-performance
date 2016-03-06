@@ -21,10 +21,9 @@ function drag_force = BasicDrag(inputs)
 % The equation of the nose profile is known to be:
 
 C_d   = inputs(1);
-v     = inputs(2);
-rho   = inputs(3);
-A_ref = inputs(4);
+v_x   = inputs(2);
+v_y   = inputs(3);
+rho   = inputs(4);
+A_ref = inputs(5);
 
-drag_force = 0.5 * C_d * v^2 * A_ref * rho;
-
-end
+drag_force = 0.5 * C_d * [v_x,v_y].^2 * A_ref * rho;
