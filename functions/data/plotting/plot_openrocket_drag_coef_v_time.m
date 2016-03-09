@@ -1,12 +1,10 @@
-arraysize = size(tout,1);
-
 %% Plot Rocket Drag Coefficients
-plot( tout , openrocket_drag_base_coef(1:arraysize) , 'm' );
+plot( openrocket_VarName1 , openrocket_Basedragcoefficient , 'm' );
 hold on;
-plot( tout , openrocket_drag_friction_coef(1:arraysize) , 'b' );
-plot( tout , openrocket_drag_pressure_coef(1:arraysize) , 'g' );
-plot( tout , openrocket_drag_axial_coef(1:arraysize) , 'c' );
-plot( tout , openrocket_drag_coef(1:arraysize) , 'k' );
+plot( openrocket_VarName1 , openrocket_Frictiondragcoefficient, 'b' );
+plot( openrocket_VarName1 , openrocket_Pressuredragcoefficient, 'g' );
+plot( openrocket_VarName1 , openrocket_Axialdragcoefficient, 'c' );
+plot( openrocket_VarName1 , openrocket_Dragcoefficient, 'k' );
 hold off;
 title('OpenRocket - Drag Coefficient vs. Time');
 xlabel('Time (s)');

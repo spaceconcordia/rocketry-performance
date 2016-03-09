@@ -48,7 +48,6 @@ raw_thrust = dataArray{:,2};
 %% Interpolate data for simulation
 disp('Setting baseline time');
 simulation_time = max(raw_time); % seconds
-%timestep        = 0.01; % seconds % comes from parametric spreadsheet
 t_new           = linspace(0,simulation_time,simulation_time/timestep);
 t_new           = t_new.';
 
@@ -68,4 +67,4 @@ thrust_curve(2,:)    = thrust.';
 save ('thrust_curve_mclass.mat','-v7.3','thrust_curve');
 
 %% Clear temporary variables
-clearvars filename delimiter endRow formatSpec fileID dataArray ans t_new timestep simulation_time raw_time raw_thrust filen filep startRow thrust_curve thrust;
+clearvars filename delimiter endRow formatSpec fileID dataArray ans t_new simulation_time raw_time raw_thrust filen filep startRow thrust_curve thrust;

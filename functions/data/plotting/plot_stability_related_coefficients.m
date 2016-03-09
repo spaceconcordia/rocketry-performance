@@ -17,7 +17,7 @@ ylabel('I_L');
 
 subplot(3,2,4);
 title('Velocity');
-plot(tout, velocity);
+plot(tout, velocity_rocket);
 ylabel('m/s');
 
 subplot(3,2,5);

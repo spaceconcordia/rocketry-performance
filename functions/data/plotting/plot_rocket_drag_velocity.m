@@ -1,6 +1,6 @@
 %% Drag Model Figure
-%xdata = {velocity, velocity, velocity};
-xdata = {velocity, velocity};
+%xdata = {velocity_rocket, velocity_rocket, velocity_rocket};
+xdata = {velocity_rocket, velocity_rocket};
 %ydata = {drag_force, drag_coefficient, reynolds_number(:,:,:)};
 ydata = {drag_force, drag_coefficient};
 ylabel = {'Drag Force (N)','Drag Coefficient'};

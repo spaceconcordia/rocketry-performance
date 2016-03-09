@@ -1,3 +1,8 @@
+%% Import Simulation Data
+import_rasaero_data;
+import_rocksim_data;
+
+%% Plot Error for all available data
 figure; plot_error_altitude_v_time;
 figure; plot_error_mach_v_time;
 figure; plot_error_stability_margin;

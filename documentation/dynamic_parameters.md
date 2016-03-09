@@ -112,7 +112,23 @@ This rate is considered constant.
 
 ### Weight 
 
-As fuel is expended in generating thrust, the weight of the rocket is reduced. We can use the *Thrust Specific Fuel Consumption* to determine the corresponding reduction in weight during burn.
+As fuel is expended in generating thrust, the weight of the rocket is reduced. 
+One assumption that can be made is that the change of mass with time is "proportional to the impulse of the motor up to that point" [@box2009, pg.2].
+
+\begin{equation}
+\label{eq_mass_burned}
+\Delta M_i = - \dfrac{M_f \int^i_0 T dt}{\int^\infty_0 T dt}
+\end{equation}
+
+Where:
+
+- $M_f$ is the total mass of fuel
+- $T$ is the thrust
+- $\Delta M_i$ is the change in mass of fuel between time $i$ and $t$
+
+[@box2009, pg.2]
+
+We can also use the *Thrust Specific Fuel Consumption* to determine the corresponding reduction in weight during burn, if we assume that the mass flow rate of fuel during burn is constant.
 
 First remove the Average Thrust term to isolate the mass flow rate:
 

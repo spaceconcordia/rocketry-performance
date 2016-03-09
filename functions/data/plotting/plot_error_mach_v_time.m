@@ -6,7 +6,7 @@ lowerbound = 0.8;
 % OpenRocket
 indexmax_matlab = find(max(altitude) == altitude);
 time_to_apogee_matlab = tout(indexmax_matlab);
-matlab_mach_max = altitude(indexmax_openrocket);
+matlab_mach_max = altitude(indexmax_matlab);
 
 % OpenRocket
 indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);

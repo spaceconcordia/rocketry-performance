@@ -4,7 +4,7 @@ else
 end
 
 arraysize       = size(tout,1);
-openrocket_time = simtime(1:arraysize);
+openrocket_time = openrocket_VarName1(1:arraysize);
 
 if exist('openrocket_time')
 else
@@ -28,11 +28,11 @@ matlab_drag_data = {
 };
 
 openrocket_drag_data = {
-    openrocket_drag_coef(1:arraysize),...
-    openrocket_reynolds(1:arraysize),...
-    openrocket_drag_friction_coef(1:arraysize),...
-    openrocket_drag_pressure_coef(1:arraysize),...
-    openrocket_drag_base_coef(1:arraysize),...
+    openrocket_Dragcoefficient,...
+    openrocket_Reynoldsnumber,...
+    openrocket_Frictiondragcoefficient,...
+    openrocket_Pressuredragcoefficient,...
+    openrocket_Basedragcoefficient,...
 };
 
 %--------------------------------------------------------------------------------
@@ -79,8 +79,7 @@ end
 %% Drag performance VS MACH
 %--------------------------------------------------------------------------------
 
-openrocket_mach_trimmed = openrocket_mach(1:arraysize);
-openrocket_xdata        = {openrocket_mach_trimmed, openrocket_mach_trimmed, openrocket_mach_trimmed, openrocket_mach_trimmed, openrocket_mach_trimmed};
+openrocket_xdata        = {openrocket_Machnumber, openrocket_Machnumber, openrocket_Machnumber, openrocket_Machnumber, openrocket_Machnumber};
 
 mach_number_trimmed     = mach_number;
 
@@ -103,28 +102,10 @@ openrocket_linespec = {'b','b','b','b','b'};
 multiplot(openrocket_xdata, openrocket_drag_data, 'YLabel', ylabel, ...
  'LineSpec', openrocket_linespec, 'Title', 'OpenRocket - Drag Vs Mach', 'XLabel', 'Mach Number');
 
-%% Conditionally save the plot
-%{
-if exist('saveplots')
-    if saveplots
-        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
-        export_fig error_drag_plot.png -m2
-    end
-end
-%}
+xlim([0,0.9]);
 
 multiplot(matlab_xdata, matlab_drag_data, 'YLabel', ylabel, ...
  'LineSpec', matlab_linespec, 'Title', 'Matlab Drag Vs Mach', 'XLabel', 'Mach Number');
-
-%% Conditionally save the plot
-%{
-if exist('saveplots')
-    if saveplots
-        saveas(gcf, '../documentation/images/plots/error_drag_plot.png');
-        export_fig error_drag_plot.png -m2
-    end
-end
-%}
 
 figure;
 plot_openrocket_drag_coef_v_mach
