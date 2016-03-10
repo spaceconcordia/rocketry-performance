@@ -80,3 +80,13 @@ Where
 [Nose Profile Design](http://rimworld.com/nassarocketry/fabrication/nosecones/design.html)
 
 [Nose Profile Design](https://en.wikipedia.org/wiki/Nose_cone_design#Von_K.C3.A1rm.C3.A1n)
+
+### Aerodynamic Center
+
+The *Aerodynamic Center* is the point where the *Pitching Moment* does not change with angle-of-attack
+
+Sources:
+
+- http://ocw.mit.edu/courses/aeronautics-and-astronautics/16-100-aerodynamics-fall-2005/lecture-notes/16100lectre10_cg.pdf
+- http://www.digplanet.com/wiki/Aerodynamic_center
+
