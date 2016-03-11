@@ -49,13 +49,8 @@ The *Frontal Reference Area* is the projected area of the rocket perpendicular t
 ##### Frontal Reference Area at Angle of Attack
 
 When the rocket pitches into the free stream at an angle of attack, a greater portion of the rocket comprises the frontal reference area.
-
-We can approximate the frontal area as the planform area times the sine of the angle of attack. 
-
-\begin{equation}
-\label{eq_reference_area_aoa}
-A_p \cdot \sin \alpha
-\end{equation}
+We do not account for this, as it would be extremely complex to evaluate.
+We consider the frontal reference area does not change with angle-of-attack.
 
 #### Planform Area
 

@@ -5,8 +5,97 @@ Building on the material explored in the Angular Stability model, this section e
 [img_rocket_flight_forces_moments_label]: images/rocket_flight_forces_moments.png "Forces and Moments Experienced by rocket in flight" 
 ![Forces and Moments Experienced by rocket in flight \label{img_rocket_flight_forces_moments_label}][dynamic_weight_calculation_test_figure] 
 
+## Rotations 
 
-## Parameters needed for quaternion analysis
+*Spherical  Coordinates* and *Euler Angles* are commonly used to describe the orientation of an object, however both systems encounter singularities where the orientation is ambiguous. 
+Special cases are required to handle these singularities, which complicate the analysis and programming.
+
+## Quaternions 
+
+*Quaternions* are commonly used to describe spatial rotation, avoiding singularities. 
+
+An initial position is taken as reference to describe subsequent changes in orientation.
+Vectors can be transformed from rocket coordinates to world coordinates, and the reverse.
+
+Leonhard Euler proved that 
+
+\begin{equation}
+\label{eq_euler_mult}
+e^{i\phi} = \cos \phi + i \sin \phi
+\end{equation}
+
+Thus, $e^{i\phi}$ lies on the unit circle in the complex plane, and has a unit length.
+
+Multiplication
+
+$$
+(a+bi)(c+di) = re^{i\phi}se^{i\phi} = rse^{i(\phi + \theta)}
+$$
+
+$$
+i^2 = j^2 = k^2 = ijk = -1
+$$
+
+Quaternions
+
+$$
+H = { a + bi + cj + dk : a,b,c,d \forall R }j
+$$
+
+$i$, $j$, $k$ are all square roots of $-1$
+
+$$
+ij = k = -ji 
+$$
+$$
+jk = i = -kj 
+$$
+$$
+ki = j = -ik
+$$
+
+If we consider three-dimensional space to be purely imaginary quaternions:
+
+$$
+R^3 = {xi + yj + zk : x,y,z \forall R}
+$$
+
+Rotations are done using unit quaternions
+
+$$
+\cos \phi + i \sin \phi 
+$$
+$$
+\cos \phi + j \sin \phi 
+$$
+$$
+\cos \phi + k \sin \phi
+$$
+Which can be rewritten as 
+
+$$
+e^{i\phi}, e^{i\phi}, e^{k\phi}
+$$
+
+For example, taking any arbitrary unit quaternion (*vector*) **u**
+
+$$
+u = u_1i + u_2j + u_3k = e^{u\phi}
+$$
+
+We can rotate another arbitrary vector **v** about the axis in the **u** direction
+
+$$
+e^{u\phi}ve^{-u\phi}
+$$
+
+http://math.ucr.edu/~huerta/introquaternions.pdf
+
+### Complex Plane
+
+
+
+### Parameters needed for quaternion analysis
 
 - rocket mass
 - **reference length**
@@ -31,9 +120,17 @@ Building on the material explored in the Angular Stability model, this section e
 - roll rate
 - wind velocity
 
+## Coordinate System
+
+### Position
+
+#### Rocket Coordinates
+
+#### World Coordinates
+
+## Rocket Moments
 
 A *Pitch Moment* and *Pitch Damping Moment* are defined, which are different than the *Corrective Moment Coefficient* and the *Damping Moment Coefficient*.
-
 Note: a complementary *Yaw Moment* and *Yaw Damping Moment* are implied, with exactly the same considerations for motion along the uncoupled complementary yaw-axis. 
 
 ## Pitch Moment
