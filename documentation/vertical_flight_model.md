@@ -86,3 +86,8 @@ Where:
 \label{eq_vertical_angle}
 m(t) \ddot{z}(t) = T(t) \sin \theta - D(\dot{z}) \sin \theta 
 \end{equation}
+
+
+### Alternatively
+
+The altitude lost to weathercocking can be calculated based on the 
