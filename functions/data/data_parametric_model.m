@@ -1,4 +1,4 @@
-function pmo = data_parametric_model()
+function pmo = data_parametric_model(filename)
 %--------------------------------------------------------------------------------
 %
 % data_parametric_model.m
@@ -16,8 +16,10 @@ function pmo = data_parametric_model()
 % http://www.mathworks.com/help/matlab/matlab_external/example-reading-excel-spreadsheet-data.html
 %--------------------------------------------------------------------------------
 
-[filen,filep] = uigetfile('*.xlsm', 'Select a compliant parametric excel spreadsheet');
-filename = fullfile(filep,filen);
+if (~exist('filename', 'var'))
+    [filen,filep] = uigetfile('*.xlsm', 'Select a compliant parametric excel spreadsheet');
+    filename = fullfile(filep,filen);
+end
 
 %% Import data from spreadsheet
 % Script for importing data from the following spreadsheet:

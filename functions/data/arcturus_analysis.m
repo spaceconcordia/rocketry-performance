@@ -16,7 +16,7 @@ openrocket_data_import('arcturus_openrocket.csv','arcturus')
 plot_arcturus_accelerometer
 
 %% Import Strattologger Data
-import_arcturus_strattologger
+import_arcturus_custom_avionics
 
 %% Plot Strattologger Data
-plot_arcturus_strattologger
+plot_arcturus_custom_avionics

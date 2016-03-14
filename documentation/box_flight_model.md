@@ -1,4 +1,6 @@
-# 
+# Box Flight Model
 
 \begin{equation}
-j
+\label{eq_box_aoa}
+
+\end{equation}

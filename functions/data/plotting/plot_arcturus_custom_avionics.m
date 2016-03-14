@@ -1,4 +1,4 @@
-%% Plot Arcturus Strattologger Data
+%% Plot Arcturus Custom Avionics Data
 
 xdata = {t_arc_strat, t_arc_strat, t_arc_strat, t_arc_strat};
 ydata = {baroalt_arc_strat, velocity_arc_strat, acceleration_arc_strat, mach_arc_strat};
