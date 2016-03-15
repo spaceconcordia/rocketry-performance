@@ -2,17 +2,24 @@
 upperbound = 5;
 lowerbound = 2;
 
-%% Plot shaded region for competition bounds
-x1 = Rocksim_Time;
-y1 = linspace(upperbound,upperbound,size(Rocksim_Time,1));
-y2 = linspace(lowerbound,lowerbound,size(Rocksim_Time,1));
+if ~exist('openrocket_Altitudem')
+    import_openrocket_data_worst
+end
+
+if ~exist('rasaero_Altitudeft')
+    import_rasaero_data
+end
+
+if exist('Rocksim_AltitudeFeet')
+    import_rocksim_data
+end
 
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+indexmax_openrocket = find(max(openrocket_Altitudem) == openrocket_Altitudem);
 time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
-openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
-
+openrocket_altitude_max = openrocket_Altitudem(indexmax_openrocket);
+    
 % RasAero
 indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);
 time_to_apogee_rasaero = rasaero_Timesec(indexmax_rasaero);
@@ -22,22 +29,18 @@ rasaero_altitude_max = rasaero_Altitudeft(indexmax_rasaero);
 indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
 time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
 Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
-
+    
 %% Plot stability error
+figure;
+
+matlab_plot = plot(tout, static_stability_margin, 'm--*')
+hold on;
+
 openrocket_plot = plot(...
     openrocket_VarName1(1:indexmax_openrocket), ...
     openrocket_Stabilitymargincalibers(1:indexmax_openrocket), ...
     'b--.' ...
 );
-hold on;
-%matlab_plot = plot(tout, static_stability_margin, 'm--*')
-%{
-rasaero_plot = plot( ...
-    rasaero_Timesec(1:indexmax_rasaero), ...
-    rasaero_Altitudeft(1:indexmax_rasaero), ...
-    'c--o' ...
-);
-%}
 
 rocksim_plot = plot( ...
     Rocksim_Time(1:indexmax_Rocksim), ...
@@ -48,8 +51,8 @@ rocksim_plot = plot( ...
 hold off;
 
 h_legend = legend(...
-    [openrocket_plot, rocksim_plot],...
-    'OpenRocket','Rocksim', ...
+    [matlab_plot, openrocket_plot, rocksim_plot],...
+    'Matlab','OpenRocket','Rocksim', ...
     'location', 'southeast' ...
 );
 set(h_legend,'FontSize',12);

@@ -1,8 +1,8 @@
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_openrocket       = find(max(openrocket_Altitude) == openrocket_Altitude);
+indexmax_openrocket       = find(max(openrocket_Altitudem) == openrocket_Altitudem);
 time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
-openrocket_altitude_max   = openrocket_Altitude(indexmax_openrocket);
+openrocket_altitude_max   = openrocket_Altitudem(indexmax_openrocket);
 openrocket_altitude_max   = openrocket_altitude_max(1)*meter2feet;
 
 % RasAero
@@ -102,3 +102,8 @@ if exist('saveplots')
         export_fig error_aoa_plot.png -m2
     end
 end
+
+plot_stability_coefficients
+plot_stability_margin
+plot_stability_response_homogeneous
+plot_stability_related_coefficients

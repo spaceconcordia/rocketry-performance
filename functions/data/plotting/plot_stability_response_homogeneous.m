@@ -33,13 +33,6 @@ if exist('saveplots')
     end
 end
 
-figure;
-plot(tout, rocket_damping_ratio, 'm-*');
-hold on;
-plot(Rocksim_Time, Rocksim_DampingRatio,'k- .');
-title('Damping Ratio');
-xlim([0,25]);
-
 %% Conditionally save the plot
 if exist('saveplots')
     if saveplots
@@ -47,11 +40,6 @@ if exist('saveplots')
         export_fig plot_stability_homogeneous_response_damping_ratio.png -m2
     end
 end
-
-figure;
-plot(tout, frequency_natural);
-title('Natural Frequency');
-xlim([0,25]);
 
 %% Conditionally save the plot
 if exist('saveplots')
