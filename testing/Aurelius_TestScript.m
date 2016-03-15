@@ -34,7 +34,7 @@ fprintf ( 'Plotting output ... ' );
 import_openrocket_data_worst;
 import_rasaero_data;
 import_rocksim_data;
-plot_aurelius_analysis;
+plot_error_mass_v_time;
 
 % plot_output
 disp ( 'Done' );
