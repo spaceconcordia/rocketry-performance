@@ -62,7 +62,7 @@
 %                     retrieve data from the "thirdparty" folder
 %-------------------------------------------------------------------------%
 
-ThirdParty = 1;
+ThirdParty = 0;
 
 if ThirdParty == 1
     
@@ -145,7 +145,7 @@ for n = 1:NumFiles
     
     for j = 1:DataPoints(n)
         
-        inputs(4) = AtmoData(j,2,n);
+        inputs(4) = AtmoData(j,2,n) - AtmoData(1,2,n);
         outputs = ISAModel(inputs);
         
         TheoValues(j,1,n) = outputs(2);

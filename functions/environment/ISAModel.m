@@ -34,17 +34,6 @@ T_o     = 288.15;
 R       = 287.04;
     
 %--------------------------------------------------------------------------
-% The following calculates ISA deviation of the launch conditions assuming 
-% a virtual launch site a sea level
-% Variables used:
-%   T_dev   = ISA deviation temperature (Kelvin)
-%   T_in    = ground temperature (Kelvin)
-%   alt_in  = Launch altitude (meters)
-%--------------------------------------------------------------------------
-
-T_dev   = T_in - T_o;
-
-%--------------------------------------------------------------------------
 % The following calculates the lapse rate to be used between the launch
 % site and the tropopause. It is assumed that the tropopause is exactly
 % 11,000 m ASL and has a temperature of 216.65 k
@@ -55,6 +44,17 @@ T_dev   = T_in - T_o;
 %--------------------------------------------------------------------------
 
 LR = (T_in - 216.65)/(11000 - alt_in);
+
+%--------------------------------------------------------------------------
+% The following calculates ISA deviation of the launch conditions assuming 
+% a virtual launch site a sea level
+% Variables used:
+%   T_dev   = ISA deviation temperature (Kelvin)
+%   T_in    = ground temperature (Kelvin)
+%   alt_in  = Launch altitude (meters)
+%--------------------------------------------------------------------------
+
+T_dev   = T_in + LR * alt_in - T_o;
 
 %--------------------------------------------------------------------------
 % The following calculates the temperature at the current altitude.
@@ -84,7 +84,7 @@ P_dev   = (P_in/A) - P_o;
 %   P_act   = actual pressure at current altitude (Pascals)
 %--------------------------------------------------------------------------
 
-P_act   = (P_o + P_dev)*((1-LR*((alt_in+alt_act)/(T_o+T_dev)))^5.2561);
+P_act   = (P_o + P_dev)*((1-LR*((alt_in+alt_act)/(T_o + T_dev)))^5.2561);
     
 %--------------------------------------------------------------------------
 % The following calculates the air density at the current altitude.
