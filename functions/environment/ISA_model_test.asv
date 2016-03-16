@@ -207,10 +207,10 @@ if ThirdParty == 1
     
     for n = 1:NumFiles
         
-        titlename = char(FileList(1,n));
-        [filename,~] = strsplit(titlename, '.');
-        [titlename,~] = strsplit(filename, '_');
-        filename = strcat(titlename, '_plot');
+        name = char(FileList(1,n));
+        name = strsplit(name, '.');
+        titlename = strsplit(name, '_');
+        name = strcat(
         
         InterArray = zeros(5,7);
         
@@ -256,7 +256,7 @@ if ThirdParty == 1
         xlabel(ax4, 'Altitude (m)')
         ylabel(ax4, 'Temperature Error (%)')
         
-        print('stuff', '-dpng');
+        print(strcat(name, '_plot'), '-dpng');
     
     end
     
@@ -264,11 +264,7 @@ else
     
     for n = 1:NumFiles
         
-        titlename = char(FileList(1,n));
-        filename = strsplit(titlename, '.');
-        titlename = strsplit(filename{1}, '_');
-        titlename = titlename{1};
-        filename = strcat(titlename, '_plot');
+        name = char(FileList(1,n));
         
         InterArray = zeros(5,7);
         
@@ -314,7 +310,7 @@ else
         xlabel(ax4, 'Altitude (m)')
         ylabel(ax4, 'Temperature Error (%)')
         
-        print('stuff', '-dpng');
+        print(name, '-dpng');
     
     end
     
