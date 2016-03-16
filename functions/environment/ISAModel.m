@@ -32,18 +32,6 @@ alt_act = inputs(4);
 P_o     = 101325;
 T_o     = 288.15;
 R       = 287.04;
-    
-%--------------------------------------------------------------------------
-% The following calculates the lapse rate to be used between the launch
-% site and the tropopause. It is assumed that the tropopause is exactly
-% 11,000 m ASL and has a temperature of 216.65 k
-% Variables used:
-%   LR      = Lapse rate (Kelvin/meter)
-%   T_in    = ground temperature (Kelvin)
-%   alt_in  = Launch altitude (meters)
-%--------------------------------------------------------------------------
-
-LR = (T_in - 216.65)/(11000 - alt_in);
 
 %--------------------------------------------------------------------------
 % The following calculates ISA deviation of the launch conditions assuming 
