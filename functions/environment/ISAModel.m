@@ -54,7 +54,7 @@ LR = (T_in - 216.65)/(11000 - alt_in);
 %   alt_in  = Launch altitude (meters)
 %--------------------------------------------------------------------------
 
-T_dev   = T_in + LR * alt_in - T_o;
+T_dev   = T_in + 0.0065 * alt_in - T_o;
 
 %--------------------------------------------------------------------------
 % The following calculates the temperature at the current altitude.
@@ -64,7 +64,7 @@ T_dev   = T_in + LR * alt_in - T_o;
 %   alt_act = Altitude above ground level (m)
 %--------------------------------------------------------------------------
 
-T_act   = (T_o + T_dev) - (LR)*(alt_in + alt_act);
+T_act   = (T_o + T_dev) - (0.0065)*(alt_in + alt_act);
     
 %--------------------------------------------------------------------------
 % The following recalculates the pressure in terms of ISA deviation.
@@ -74,7 +74,7 @@ T_act   = (T_o + T_dev) - (LR)*(alt_in + alt_act);
 %   A       = placeholder for calculation
 %--------------------------------------------------------------------------
 
-A       = (1 - LR*(alt_in/(T_o + T_dev)))^5.2561;
+A       = (1 - 0.0065*(alt_in/(T_o + T_dev)))^5.2561;
 
 P_dev   = (P_in/A) - P_o;
     
@@ -84,7 +84,7 @@ P_dev   = (P_in/A) - P_o;
 %   P_act   = actual pressure at current altitude (Pascals)
 %--------------------------------------------------------------------------
 
-P_act   = (P_o + P_dev)*((1-LR*((alt_in+alt_act)/(T_o + T_dev)))^5.2561);
+P_act   = (P_o + P_dev)*((1-0.0065*((alt_in+alt_act)/(T_o + T_dev)))^5.2561);
     
 %--------------------------------------------------------------------------
 % The following calculates the air density at the current altitude.
