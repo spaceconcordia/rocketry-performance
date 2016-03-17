@@ -29,6 +29,7 @@ y1 = linspace(upperbound,upperbound,size(Rocksim_Time(1:indexmax_Rocksim),1));
 y2 = linspace(lowerbound,lowerbound,size(Rocksim_Time(1:indexmax_Rocksim),1));
 
 %% Plot altitude error
+figure;
 ha = shadedplot(x1, y1, y2, [0.7, 1, 0.7], 'r'); %first area is red
 hold on
 matlab_plot = plot( ...
@@ -62,13 +63,13 @@ h_legend = legend(...
 );
 set(h_legend,'FontSize',12);
 set(h_legend,'FontName','Courier New');
+xlim([1,15]); ylim([0.3,1]);
 
 %% Plot details
 clear title xlabel ylabel
 title('Mach Number vs Time');
 xlabel('Time (s)');
 ylabel('Mach Number');
-ylim([0,0.9]);
 
 %% save plot
 if exist('saveplots')

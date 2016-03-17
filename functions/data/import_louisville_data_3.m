@@ -49,5 +49,11 @@ Louisville_Velocity_3 = dataArray{:, 3};
 Louisville_TemperatureF_3 = dataArray{:, 4};
 Louisville_Voltage_3 = dataArray{:, 5};
 
+Louisville_Velocity_3a = zeros(length(Louisville_Altitude_3),1);
+Louisville_Velocity_3a(1) = 0;
+for i=2:length(Louisville_Altitude_3)
+    Louisville_Velocity_3a(i) = (Louisville_Altitude_3(i)-Louisville_Altitude_3(i)) / (Louisville_DataTime_3(i) - Louisville_DataTime_3(i-1) );
+end
+
 %% Clear temporary variables
 clearvars filename delimiter startRow formatSpec fileID dataArray ans;

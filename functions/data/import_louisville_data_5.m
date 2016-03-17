@@ -43,11 +43,17 @@ fclose(fileID);
 % script.
 
 %% Allocate imported array to column variable names_
-Louisville_DataTime_5 = dataArray{:, 1};
-Louisville_Altitude_5 = dataArray{:, 2};
-Louisville_Velocity_5 = dataArray{:, 3};
+Louisville_DataTime_5     = dataArray{:, 1};
+Louisville_Altitude_5     = dataArray{:, 2};
+Louisville_Velocity_5     = dataArray{:, 3};
 Louisville_TemperatureF_5 = dataArray{:, 4};
-Louisville_Voltage_5 = dataArray{:, 5};
+Louisville_Voltage_5      = dataArray{:, 5};
+
+Louisville_Velocity_5a = zeros(length(Louisville_Altitude_5),1);
+Louisville_Velocity_5a(1) = 0;
+for i=2:length(Louisville_Altitude_5)
+    Louisville_Velocity_5a(i) = (Louisville_Altitude_5(i)-Louisville_Altitude_5(i-1)) / (Louisville_DataTime_5(i) - Louisville_DataTime_5(i-1) ) / 100;
+end
 
 %% Clear temporary variables
 clearvars filename delimiter startRow formatSpec fileID dataArray ans;

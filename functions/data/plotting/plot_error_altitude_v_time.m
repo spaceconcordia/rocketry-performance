@@ -5,9 +5,9 @@ lowerbound = 8500/meter2feet;
 
 %% Find value index of apogee for each source
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+indexmax_openrocket = find(max(openrocket_Altitudem) == openrocket_Altitudem);
 time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
-openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
+openrocket_altitude_max = openrocket_Altitudem(indexmax_openrocket);
 openrocket_altitude_max = openrocket_altitude_max(1)*meter2feet;
 
 % RasAero
@@ -28,12 +28,12 @@ y1 = linspace(upperbound,upperbound,size(rasaero_Timesec(1:indexmax_rasaero),1))
 y2 = linspace(lowerbound,lowerbound,size(rasaero_Timesec(1:indexmax_rasaero),1));
 
 %% Plot altitude error
+figure;
 matlab_plot = plot(tout, altitude, 'm--*');
-
 hold on;
 openrocket_plot = plot(...
     openrocket_VarName1(1:indexmax_openrocket), ...
-    openrocket_Altitude(1:indexmax_openrocket), ...
+    openrocket_Altitudem(1:indexmax_openrocket), ...
     'b--.'...
 );
 rasaero_plot = plot( ...

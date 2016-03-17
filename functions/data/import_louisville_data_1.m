@@ -49,13 +49,13 @@ Louisville_Velocity_1 = dataArray{:, 3};
 Louisville_TemperatureF_1 = dataArray{:, 4};
 Louisville_Voltage_1 = dataArray{:, 5};
 
-%{
-Louisville_Velocity_1 = zeros(length(Louisville_Altitude_1),1);
-Louisville_Velocity_1(1) = 0;
+
+Louisville_Velocity_1a = zeros(length(Louisville_Altitude_1),1);
+Louisville_Velocity_1a(1) = 0;
 for i=2:length(Louisville_Altitude_1)
-    Louisville_Velocity_1(i) = Louisville_Altitude_1(i) / (Louisville_DataTime_1(i) - Louisville_DataTime_1(i-1) ) / 100;
+    Louisville_Velocity_1a(i) = (Louisville_Altitude_1(i)-Louisville_Altitude_1(i-1)) / ( Louisville_DataTime_1(i) - Louisville_DataTime_1(i-1) );
 end
-%}
+
 
 %% Clear temporary variables
 clearvars filename delimiter startRow formatSpec fileID dataArray ans;

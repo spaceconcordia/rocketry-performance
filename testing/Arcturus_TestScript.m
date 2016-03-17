@@ -32,8 +32,9 @@ fprintf( 'Average Damping Ratio:  %d \r\n', mean(rocket_damping_ratio));
 %% Plotting
 saveplots = confirm('Save plots (takes additional time)?');
 fprintf ( 'Plotting output ... ' );
-plot_arcturus_analysis;
 import_arcturus_openrocket_data
+import_arcturus_strattologger
+plot_arcturus_analysis;
 plot_output
 disp ( 'Done' );
 

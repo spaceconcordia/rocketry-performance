@@ -32,19 +32,3 @@ if exist('saveplots')
         export_fig plot_stability_homogeneous_response.png -m2
     end
 end
-
-%% Conditionally save the plot
-if exist('saveplots')
-    if saveplots
-        saveas(gcf, 'documentation/images/plots/plot_stability_homogeneous_response_damping_ratio.png');
-        export_fig plot_stability_homogeneous_response_damping_ratio.png -m2
-    end
-end
-
-%% Conditionally save the plot
-if exist('saveplots')
-    if saveplots
-        saveas(gcf, 'documentation/images/plots/plot_stability_homogeneous_response_natural_frequency.png');
-        export_fig plot_stability_homogeneous_response_natural_frequency.png -m2
-    end
-end

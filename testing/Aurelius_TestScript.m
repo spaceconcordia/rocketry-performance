@@ -35,6 +35,8 @@ import_openrocket_data_worst;
 import_rasaero_data;
 import_rocksim_data;
 plot_error_mass_v_time;
+plot_error_altitude_v_time;
+plot_error_mach_v_time;
 
 % plot_output
 disp ( 'Done' );

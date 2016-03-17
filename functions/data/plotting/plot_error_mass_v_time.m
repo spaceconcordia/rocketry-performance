@@ -21,6 +21,8 @@ indexmax_Rocksim = find(max(Rocksim_AltitudeFeet) == Rocksim_AltitudeFeet);
 time_to_apogee_Rocksim = Rocksim_Time(indexmax_Rocksim);
 Rocksim_altitude_max = Rocksim_AltitudeFeet(indexmax_Rocksim);
 
+%% Dynamic Parameters vs Time
+figure;
 %% Thrust vs time
 subplot(5,1,1);
 matlab_plot_1 = plot(tout, thrust, 'm--*');
