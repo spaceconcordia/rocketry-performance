@@ -44,11 +44,9 @@ Cesaroni L935
 
 ## Plots
 
-[experimental_comparison_altitude]: images/plots/plot_louisville_analysis.png "" 
-![Plot of Simulation Data vs Louisville Rocket Launches \label{experimental_comparison_altitude_label}][experimental_comparison_altitude] 
+[experimental_comparison_altitude]: images/plots/plot_louisville_altitude_analysis.png "" 
+![Altitude Plot of Simulation Data vs Louisville Rocket Launches \label{experimental_comparison_altitude_label}][experimental_comparison_altitude] 
 
-[experimental_comparison_velocity]: images/plots/plot_louisville_analysis.png "" 
-![Plot of Simulation Data vs Louisville Rocket Launches \label{experimental_comparison_velocity_label}][experimental_comparison_velocity] 
+[experimental_comparison_velocity]: images/plots/plot_louisville_velocity_analysis.png "" 
+![Velocity Plot of Simulation Data vs Louisville Rocket Launches \label{experimental_comparison_velocity_label}][experimental_comparison_velocity] 
 
-[experimental_comparison_velocity]: images/plots/plot_louisville_analysis.png "" 
-![Plot of Simulation Data vs Louisville Rocket Launches \label{experimental_comparison_velocity_label}][experimental_comparison_velocity] 

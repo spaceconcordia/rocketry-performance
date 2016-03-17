@@ -3,4 +3,4 @@ desktop.ini
 *.swo
 *.pdf
 *.mexw64
-
+!CR-2-4G_Aurelius_Engineering_Flight_Simulation.pdf
