@@ -23,9 +23,17 @@ Permanently add your workspace to the Matlab path. At the command prompt:
 ## Add to Library Browser
 [Add to Library Browser](http://www.mathworks.com/help/simulink/ug/adding-libraries-to-the-library-browser.html)
 
-## Simulink GOTCHAs
+## Algebraic Loops
 
-- Atomic Units must be carefully employed to allow the simulation to run
+With systems that involve direct-feedthrough (feedback), it is common to encounter an algebraic loop, wherein the output of a function is also an input of the same function.
+
+e.g. 
+$$ u = f(u) $$
+
+These can commonly be solved with a combination of *Atomic Subsystems*, *Initial Conditions*, or *Unit-Delay*. 
+This matter is discussed thoroughly in the following guide
+
+[Algebraic-Loops](http://www.mathworks.com/help/simulink/ug/algebraic-loops.html)
 
 ## Importing Data
 
@@ -40,6 +48,7 @@ Tabulated input data is relied upon to drive the simulation (see *Dynamic Parame
 [Import Data Structures](http://www.mathworks.com/help/simulink/ug/importing-data-structures-to-a-root-level-input-port.html)
 
 ### From File 
+
 The *From File* block in Simulink allows incremental loading of data 
 
 > The From File block reads data from a MAT-file and outputs the data as a signal. The data is a sequence of samples. Each sample consists of a time stamp and an associated data value.
@@ -51,11 +60,9 @@ The *From File* block in Simulink allows incremental loading of data
 Data is read incrementally from Mat-File versions 7.3 and above
 [Mat-file Versions](http://www.mathworks.com/help/matlab/import_export/mat-file-versions.html)
 
-
 #### nD Lookup Tables
 
 #### Specifying Time Data
-
 
 [Specifying Time Data in Simulink](http://www.mathworks.com/help/simulink/ug/importing-data-structures-to-a-root-level-input-port.html#bsuwoyk)
 

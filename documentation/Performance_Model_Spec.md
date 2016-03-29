@@ -1,35 +1,34 @@
 # Engineering Simulation for Rocket Flight Analysis
 
 ## Overview 
-The goal of this project is to create an Engineering Simulation for Rocket Flight Analysis in Matlab to model the rocket flight characteristics of the CR-2_4G Rocket.
+The goal of this project is to create an Engineering Simulation for Rocket Flight Analysis in Matlab.
+This is not exactly a flight simulator, which generally aims to train pilots and visually simulate aircraft flight.
+An engineering simulation tests the dynamics and behavior of a system, often employing a combination of analytic and empirical methods, in order to validate an engineering model before its deployment.
 
-Specifically the model should verify the maximum altitude and velocity.
-Further developments are explored for future enhancement. 
-A modular development pattern will be followed order to support future expansion. 
-Unit testing of simulator logic will be undertaken where reasonable, and further validation will be provided by testing the overall model against 3rd party flight data where available.
+Such a simulation is driven by the requirements of the engineering project. 
+This project is constrained by the flight requirements of an international rocketry competition, and as such, it is developed to validate them.
 
-The model must take as input the current structural design parameters, thrust information, and simulated ambient conditions of the launch environment.
-Certain parameters will be dynamic; as the motor expends fuel, the position of the center of gravity and center of pressure will shift with decreasing mass. 
-Additionally the moments of inertia will be altered. 
-These dynamic parameters must be considered to maximize the accuracy of the model.
+A modular development pattern is performed where possible, in order to support expansion for other simulation purposes. 
+Unit and integration testing of simulator logic is undertaken where reasonable, and further validation is provided by testing the overall model against available 3rd party flight data.
 
 Beyond the primary goal of validating the rocket flight performance through simulation, this project is an educational tool to enhance the knowledge and learning of the team members and of the *Space Concordia* society as a whole. 
 Furthermore, it will serve as a starting point for future controls and simulations applications to come, many of which are discussed in the **Future Enhancements** section.
 
 ## Definition of the Problem
 
-An engineering simulation is needed to test the flight performance of a high-powered rocket.
+An engineering simulation is needed to predict the flight performance of a high-powered rocket.
 A high-powered rocket is defined as having between 160 Ns and 40,960 Ns total impulse [@BoxBishopHunt11].
 A team from the *Space Concordia* association at *Concordia University* is entering a submission into the *International Rocket Engineering Competition* (IREC) run by the *Experimental Sounding Rocket Association* (ESRA).
 The competition provides performance targets which must be met in order to be eligible to win.
 These targets are held as design requirements for performance, and are listed in the **Requirements** section below.
 
 ## Requirements
+
 The Performance Model must provide the maximum altitude and velocity of the rocket in subsonic flight under a known thrust curve and known dimensional parameters. 
 
-- 2a Static stability between 2 and 3 calibers 
+- 2a Static stability above 2 calibers 
 - 2b Dynamic stability above 0 
-- 2c Max velocity at launch rail 30.5 m/s 
+- 2c Min velocity at launch rail 30.5 m/s 
 - 2d Vehicle max speed mach 0.9 
 - 2e Vehicle reaches 10,000 ft altitude (+1000 feet / - 0 feet)
 - 2f Vehicle doesn't experience resonant pitching/yawing moment
@@ -48,7 +47,8 @@ The Performance Model must provide the maximum altitude and velocity of the rock
 ### Kinematics
 
 *Kinematics* is the study of the motion without consideration of the forces in play. 
-This analysis can be simplified by considering the entire mass of a body at a convenient point, such as the *Center of Gravity* (point-mass).
+This analysis can be simplified by considering the entire mass of a body at a convenient point, for instance the *Center of Gravity*.
+We call this the point-mass system.
 Of particular interest are the position, velocity, and acceleration of the point [@mandell1973].
 
 ### Dynamics
@@ -64,7 +64,7 @@ Such a *mutually independent system of equations* could be solved rather easily,
 Coupled systems of equations, on the other hand, would have to be solved simultaneously.
 
 As it happens, the translational model of the rocket is not fully decoupled from the rotational model. 
-As the rocket rotates while travelling through the air at an angle of attack, it presents a larger reference area and thus increases the drag force, causing a negative acceleration in the translation model. 
+As the rocket rotates while travelling through the air at an angle of attack, it presents a larger reference area and thus increases the drag force, causing a negative acceleration in the translational point-mass model. 
 Likewise, an increase in the translational velocity of the rocket creates a larger lift force when the rocket is rotating at an angle of attack. 
 This lift force, which is applied at the rocket's center of pressure, creates a rotation about the center of gravity.
 

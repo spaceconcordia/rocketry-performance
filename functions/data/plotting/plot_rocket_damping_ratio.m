@@ -44,8 +44,8 @@ set(h_legend,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('Rocket Damping Ratio');
-xlabel('Mass (kg)');
-ylabel('Time (s)');
+ylabel('Mass (kg)');
+xlabel('Time (s)');
 
 %plot (tout, coef_damping_aero + coef_damping_jet, 'k');
 %plot (tout, coef_moment_corrective','r');

@@ -1,8 +1,12 @@
+\clearpage
+
 # Simulation Execution
 
 ## Simulation Configuration
 
 ### Historical Weather Data for Green River, Utah
+
+The following conditions are historical data for Green River, Utah on June 25th, 2015 at 12:00PM (noon) [@forecastio].
 
 | Date       | Elevation          | Ground Pressure | Ground Temperature      | Wind Speed         | Humidity |
 | ---        | ---                | ---             | ---                     | ---                | ---      |
@@ -14,11 +18,9 @@
 
 ### General Conditions 
 
-For all tests, the following conditions were used, based on historical data for June 25th, 2015 at 12:00PM (noon) near Green River, Utah [@forecastio].
-
-| Elevation                        | Humidity | Launch Guide Length |
-| ---                              | ---      | ---                 |
-| 4,078 ft (1,243 m) [@greenriver] | 33 %     | 5.4864 (18 ft)      |
+| Elevation         | Humidity | Launch Guide Length |
+| ---               | ---      | ---                 |
+| 4300 ft (1,311 m) | 33 %     | 5.4864 (18 ft)      |
 
 \captionof{table}{General Simulation Conditions}
 
@@ -26,7 +28,7 @@ For all tests, the following conditions were used, based on historical data for 
 
 The best case scenario is with no wind, and a 0$^\circ$ launch angle, and the lowest air pressure.
 
-| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle | 
+| Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle |
 | ---        | ---             | ---                     | ---                |
 | 0 m/s      | 101000 Pa       | 298.15 K (25 $^\circ$C) | 0$^\circ$          |
 
@@ -38,21 +40,16 @@ The worst case scenario, is the maximum wind condition permitted for launch by t
 
 | Wind Speed | Ground Pressure | Ground Temperature      | Launch Guide Angle |
 | ---        | ---             | ---                     | ---                |
-| 8.33 m/s   | 101325 kPa      | 288.15 K (15 $^\circ$C) | 10$^\circ$         |
+| 8.33 m/s   | 101325 kPa      | 303.15 K (30 $^\circ$C) | 10$^\circ$         |
 
 \captionof{table}{Worst Case Simulation Conditions}
 
 \clearpage
 
-## Simulation Software
+## Simulation Execution
 
-The following models were executed.
-
-### OpenRocket
-
-### RockSim
-
-### RASAero
+Identical rocket designs were implemented in OpenRocket, RockSim, RASAero, and our Engineering Simulator.
+The 3rd party simulator results were parsed with Matlab to determine essential performance criteria and to compare with our model.
 
 \clearpage
 
@@ -60,96 +57,64 @@ The following models were executed.
 
 #### Matlab Models
 
-[vertical_model_test]: images/vertical_model.png "" 
-![Vertical Model in Simulink, angle of attack less than 5 degrees \label{vertical_model_test_label}][vertical_model_test] 
-
 [full_model_test]: images/rocket_model.png "" 
-![Full Model in Simulink, angle of attack less than 15 degrees \label{full_model_test_label}][full_model_test] 
+![Full Model in Simulink, angle-of- attack less than 15 degrees \label{full_model_test_label}][full_model_test] 
 
 \clearpage
-
-## Summary
-
-### Best Case
-
-| Software | Case | Velocity leaving launch rail | Max Acc. | Max Vel. | Max. Alt. | Time to apogee |
-| ---      | ---  | ---                          | ---      | ---      | ---       | ---            |
-
-### Worst Case
-
-| Software | Case | Velocity leaving launch rail | Max Acc. | Max Vel. | Max. Alt. | Time to apogee |
-| ---      | ---  | ---                          | ---      | ---      | ---       | ---            |
 
 ## Observations
 
-\clearpage
-
-## Primary Plots
+Figure \ref{error_altitude_plot_label} shows the predicted Altitude of the rocket compared against OpenRocket, RASAero, and Rocksim.
+It would appear that RASAero and Rocksim predict a higher altitude, perhaps considering their underestimation of the drag forces, shown in Figure \ref{error_dragforce_v_plot_label}.
 
 [error_altitude_plot]: images/plots/error_altitude_plot.png "" 
 ![Altitude as a Function of Time \label{error_altitude_plot_label}][error_altitude_plot] 
 
+> 2e Vehicle reaches 10,000 ft altitude (+1000 feet / - 0 feet)
+
+\clearpage
+
+Figure \ref{error_mach_plot_label} shows that the Mach number predicted by each software is quite close.
+
 [error_mach_plot]: images/plots/error_mach_plot.png "" 
 ![Mach Number as a Function of Time \label{error_mach_plot_label}][error_mach_plot] 
 
-[error_dragcoef_plot]: images/plots/error_dragcoef_v_mach_plot.png "" 
-![Drag Coefficient as a Function of Mach Number \label{error_dragcoef_v_plot_label}][error_dragcoef_plot] 
+> 2d Vehicle max speed mach 0.9 
 
-[error_dragforce_plot]: images/plots/error_dragforce_plot.png "" 
-![Drag Force as a Function of Mach Number \label{error_dragforce_v_plot_label}][error_dragforce_plot] 
+\clearpage
+
+Figure \ref{error_stability_calibers_plot_label} shows that the dynamic stability is quite similarly predicted by all tested simulators.
+OpenRocket shows a continuous oscillation, which according to my current analysis of their methodology, perhaps does not correctly consider the oscillation damping encountered during flight.
+In any case, if the OpenRocket model were to be 100% correct, the dynamic stability criteria would still be satisfied by a wide margin.
+
+> 2a Static stability above 2 calibers 
+
+> 2b Dynamic stability above 0 
 
 [error_stability_calibers_plot]: images/plots/error_stability_calibers_plot.png "" 
 ![Stability (Calibers) as a Function of Time \label{error_stability_calibers_plot_label}][error_stability_calibers_plot] 
 
-### Homogeneous Response to Initial Conditions
+\clearpage
+As seen in Figure \ref{plot_natural_frequency}, once the rocket leaves the launch pad, the angular frequency of the rigid-body oscillation does not approach the natural frequency of the rocket, confirming requirement: 
 
-$$
-\alpha_{xo} = 4 \text{deg}
-$$
-$$ 
-\omega_{xo} = 0 \text{deg/s}
-$$
+> 2f - The vehicle does not experience resonant pitching/yawing motion in flight 
 
-[error_stability_response_homogeneous]: images/plots/plot_stability_homogeneous_response.png "" 
-![Homogeneous Response \label{error_stability_response_homogeneous}][error_stability_response_homogeneous] 
+In any case, we know that resonant oscillation at the natural frequency does not occur, since the rocket stabilizes. 
+Figure \ref{error_stability_response} shows the stabilization of the angle-of-attack with time. 
 
-A rocket can be considered restored from a disturbance if the angle of attack decays to 5% of the initial amplitude [@mandell1973, pg.99].
+[error_stability_response]: images/plots/error_aoa_plot.png "" 
+![Angle of Attack Stabilization \label{error_stability_response}][error_stability_response] 
 
-[error_stability_response_homogeneous_damping_ratio]: images/plots/plot_stability_homogeneous_response_damping_ratio.png "" 
-![Damping Ratio \label{error_stability_response_homogeneous_damping_ratio}][error_stability_response_homogeneous_damping_ratio] 
+RockSim and RASAero are chosen for this plot since they have a more mature stability methodology.
 
-The ideal damping ratio is between 0.05 and 0.30 [@source]
-
-[error_stability_response_homogeneous_natural_frequency]: images/plots/plot_stability_homogeneous_response_natural_frequency.png "" 
-![Natural Frequency \label{error_stability_response_homogeneous_natural_frequency}][error_stability_response_homogeneous_natural_frequency] 
-
-The natural frequency of the rocket to pitch/yaw is [@source]. 
-This does not come into resonance with the oscillatory response of the rocket to disturbance.
+[plot_natural_frequency]: images/plots/plot_natural_frequency.png "" 
+![Natural Frequency \label{plot_natural_frequency}][plot_natural_frequency] 
 
 \clearpage
 
-### Additional Plots
+## Simulation Summary
 
-[dynamics_plot]: images/plots/dynamics_plot.png "" 
-![Mass, Weight, and Thrust as a Function of Time \label{dynamics_plot_label}][dynamics_plot] 
-
-[kinematics_plot]: images/plots/kinematics_plot.png "" 
-![Altitude, Velocity, and Acceleration as a Function of Time \label{kinematics_plot_label}][kinematics_plot] 
-
-[drag_v_velocity_plot]: images/plots/drag_v_velocity_plot.png "" 
-![Drag Force, Drag Coefficient, and Reynolds Number as a Function of Velocity \label{drag_v_velocity_plot_label}][drag_v_velocity_plot] 
-
-[drag_v_mach_plot]: images/plots/drag_v_mach.png "" 
-![Drag Force, Drag Coefficient, and Reynolds Number as a Function of Mach Number \label{drag_v_mach_plot_label}][drag_v_mach_plot] 
-
-[drag_plot]: images/plots/drag_plot.png "" 
-![Altitude, Velocity, and Acceleration as a Function of Time \label{drag_plot_label}][drag_plot] 
-
-[drag_coefs_plot]: images/plots/drag_coefficients.png "" 
-![Specific Drag Coefficients as a Function of Time \label{drag_coefs_plot_label}][drag_coefs_plot] 
-
-[atmosphere_plot]: images/plots/atmosphere_plot.png "" 
-![Altitude, Velocity, and Acceleration as a Function of Time \label{atmosphere_plot_label}][atmosphere_plot] 
-
+[simulation_summary]: images/simulation_summary.png "" 
+![Simulation Summary \label{plt_simulation_summary}][simulation_summary] 
 
 \clearpage

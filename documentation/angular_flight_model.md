@@ -1,56 +1,10 @@
-# Angular Flight Stability (Pitch, Yaw) Analysis
+# Rigid-Body Rotation (Pitch, Yaw) Stability Analysis
 
 ## Overview
 
 Due to disturbances such as wind, and imperfections and imbalances in the construction, the rocket will tend to fly at an *Angle of Attack* into the free stream, wherein the velocity vector (taken from the *Center of Gravity*) is not parallel with the longitudinal axis.
-This will cause non-linear changes to the magnitude of the aerodynamic forces, which, as a further simplification, can be said to be acting about the *Center of Pressure*.
+This will cause non-linear changes to the magnitude of the aerodynamic forces, which, as a further simplification, can be said to be acting on the *Center of Pressure*.
 In order for the aerodynamic forces to straighten the rocket in its forward motion, and to stabilize the oscillatory rotation about the COG, the COP must be located behind the COG.
-
-> "One of the first principles any rocket designer must learn is that a rocket will fly only if the center of gravity is ahead of the center of pressure far enough to allow the air currents to cause a stabilizing effect."
-
-http://www.nar.org/NARTS/TR13.html
-
-### Dynamic Stability Analysis 
-
-The rocket must exhibit dynamic stability, wherein oscillations are reduced by the damping moment.
-
-The rocket should experience a resonant motion in response to aerodynamic forces such that it doesn't sustain at the natural frequencies that can cause structural or component damage. 
-This value must be verified regularly with the design team to ensure compliance.
-
-#### Characteristic Equations
-
-\begin{equation}
-\label{eq_characteristic_equation}
-C_1 \ddot{\alpha} + C_2 \dot{\alpha} + C_3 \alpha = 0
-\end{equation}
-
-##### Vibrations 
-
-\begin{equation}
-\label{eq_characteristic_equation_vibes}
-m \ddot{x} + c \dot{x} + kx = 0
-\end{equation}
-
-##### Controls
-
-\begin{equation}
-\label{eq_characteristic_equation_controls}
-s^2 + 2 \zeta \omega_n s + \omega^2_n = 0
-\end{equation}
-
-- $\zeta$ is the damping coefficient, and is tied to the frequency of the system
-
-### Harmonic Response
-
-#### Particular Response
-
-#### Homogeneous Response
-
-#### Undamped Response
-
-#### Complete Response
-
-### Coordinate System, Equations of Motion
 
 The moment arm about the COG is the distance of the COP from the tip of the nose cone, minus the distance of the COG from the tip of the nose cone.
 Then, the sum of forces at the COP is the *Restoring Force* ($F_R$) minus the *Damping Force* ($F_D$), and the sum of the Moments about the COG is expressed as follows.
@@ -77,7 +31,7 @@ $$
 
 ## Longitudinal Static Stability Margin
 
-The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube when the rocket is positioned at an angle-of-attack ($\alpha$) of zero [@source].
+The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between the *Center of Gravity* and the *Center of Pressure* divided by the outer diameter of the body tube when the rocket is positioned at an angle-of-attack ($\alpha$) of zero [@mandell1973].
 
 $$ S_{lm} = \dfrac{COP - COG}{OD} $$
 
@@ -85,16 +39,7 @@ When traveling under a non-zero angle of attack, the Stability Margin is adjuste
 
 The result is dimensionless, however the ratio determined is measured in the number of *calibers*. 
 
-\begin{quote}
-2a - The static stability margin falls above 2 (but less than 3) calibers at launch
-\end{quote}
-
-[Static Stability Margin](https://www.apogeerockets.com/education/downloads/Newsletter133.pdf)
-
-## Out-of-scope
-
-- range (drift)
-- roll
+> 2a - The static stability margin falls above 2 (but less than 3) calibers at launch
 
 ## Requirement
 
@@ -102,7 +47,7 @@ The result is dimensionless, however the ratio determined is measured in the num
 - 2b - The dynamic stability is greater than 0 even in winds up to 8.33 m/s
 - 2f - The vehicle does not experience resonant pitching/yawing motion in flight
 
-### Assumptions
+## Assumptions
 
 - small angle of attack (less than 10$^\circ$)
 - incompressible flow
@@ -111,61 +56,9 @@ The result is dimensionless, however the ratio determined is measured in the num
 - neglect lift force on the body tube [@box2009, pg.7]
 - neglect the effect of roll due to having 3 fins vs 4
 
-## Derivation of the Harmonic Motion Equation
+## Definition of Terms
 
-Suppose a high-powered rocket is launched in quiescent air vertically, and flies straight without wobbling.
-Then, suppose a small and momentary disturbance (e.g. a short gust of wind) is experienced on the side of the rocket causing an angular deflection, .
-If the rocket is *stable*, a restoring force causes a *corrective moment* which will act in the opposite direction of the deflection. 
-This *corrective moment* can be considered a function of angular displacement [@mandell1973, pg.81].
-
-\begin{equation}
-M_{corrective} = F (\alpha)
-\end{equation}
-
-As the rocket gains velocity in the direction opposite the disturbance, a *damping moment* is generated as a result of the relative speed of the air, in the direction orthogonal to the longitudinal axis.
-As this *damping moment* opposes the angular velocity caused by the *corrective moment*, its sign is opposite to the angular velocity.
-The *damping moment* is also a function of angular velocity [@mandell1973, pg.81-82].
-
-\begin{equation}
-M_{damping} = G (\omega)
-\end{equation}
-
-Then, taking a sum of Moments, the rotation of the rocket can be described as follows [@mandell1973, pg.83]
-
-$$
-I \lambda = -F(\alpha) - G(\omega) 
-$$
-$$
-I \left( \dfrac{d^2\alpha}{dt^2} \right) = -F(\alpha) - G \left(\dfrac{d\alpha}{dt} \right) 
-$$
-\begin{equation}
-\label{eq_rocket_diff}
-I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
-\end{equation}
-
-This nonlinear, homogenous, differential equation can not be solved exactly [@mandell1973, pg.84].
-
-## Linearization Approximation
-
-Linear Approximations of \ref{eq_rocket_diff} are made considering small values of $\alpha$ and $\omega$, known as the *small-perturbation theory* [@mandell1973, pg.86].
-This linearization process provides ~~constant~~ coefficients, which we will denote $C_1$ for the *Corrective Moment Coefficient* and $C_2$ for the *Damping Moment Coefficient*.
-
-$$
-F(\alpha) \approx C_1 \cdot \alpha 
-$$
-$$
-G \left(\dfrac{d\alpha}{dt} \right) \approx C_2 \cdot \dfrac{d\alpha}{dt} 
-$$
-
-\begin{equation}
-\label{eq_rocket_diff_linearized}
-I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alpha}{dt} \right) = 0
-\end{equation}
-
-
-### Preliminary Considerations
-
-#### Rocket Normal Force
+### Rocket Normal Force
 
 The *Rocket Normal Force* is the resultant force applied at the *Center of Pressure* perpendicular to the longitudinal axis of the rocket, when the rocket flies at an angle-of-attack.
 
@@ -183,9 +76,6 @@ The small angle approximation is applied, wherein small angles can be approximat
 C_N = C_{N \alpha} \cdot \alpha
 \end{equation}
 [@box2009, pg. 9]
-
-Where $C_{N \alpha}$ is the *Stability Derivative*
-
 
 ### Corrective Moment Coefficient
 
@@ -302,6 +192,59 @@ For instance, the *Pitch Damping Moment* of a fin is as follows.
 C_{damp} = 0.6 \dfrac{N A_{fin} d_{COP}^3}{A_{ref} d} \dfrac{\omega^2}{v^2_0}
 \end{equation}
 
+## Derivation of the Harmonic Motion Equation
+
+Suppose a high-powered rocket is launched in quiescent air vertically, and flies straight without wobbling.
+Then, suppose a small and momentary disturbance (e.g. a short gust of wind) is experienced on the side of the rocket causing an angular deflection, .
+If the rocket is *stable*, a restoring force causes a *corrective moment* which will act in the opposite direction of the deflection. 
+This *corrective moment* can be considered a function of angular displacement [@mandell1973, pg.81].
+
+\begin{equation}
+M_{corrective} = F (\alpha)
+\end{equation}
+
+As the rocket gains velocity in the direction opposite the disturbance, a *damping moment* is generated as a result of the relative speed of the air, in the direction orthogonal to the longitudinal axis.
+As this *damping moment* opposes the angular velocity caused by the *corrective moment*, its sign is opposite to the angular velocity.
+The *damping moment* is also a function of angular velocity [@mandell1973, pg.81-82].
+
+\begin{equation}
+M_{damping} = G (\omega)
+\end{equation}
+
+Then, taking a sum of Moments, the rotation of the rocket can be described as follows [@mandell1973, pg.83]
+
+$$
+I \lambda = -F(\alpha) - G(\omega) 
+$$
+$$
+I \left( \dfrac{d^2\alpha}{dt^2} \right) = -F(\alpha) - G \left(\dfrac{d\alpha}{dt} \right) 
+$$
+\begin{equation}
+\label{eq_rocket_diff}
+I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
+\end{equation}
+
+This nonlinear, homogenous, differential equation can not be solved exactly [@mandell1973, pg.84].
+
+## Linearization Approximation
+
+Linear Approximations of \ref{eq_rocket_diff} are made considering small values of $\alpha$ and $\omega$, known as the *small-perturbation theory* [@mandell1973, pg.86].
+This linearization process provides ~~constant~~ coefficients, which we will denote $C_1$ for the *Corrective Moment Coefficient* and $C_2$ for the *Damping Moment Coefficient*.
+
+$$
+F(\alpha) \approx C_1 \cdot \alpha 
+$$
+$$
+G \left(\dfrac{d\alpha}{dt} \right) \approx C_2 \cdot \dfrac{d\alpha}{dt} 
+$$
+
+\begin{equation}
+\label{eq_rocket_diff_linearized}
+I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alpha}{dt} \right) = 0
+\end{equation}
+
+
+
 ## General Homogeneous Response
 
 The characteristic, linearized, homogeneous yaw/pitch response is given as:
@@ -372,7 +315,7 @@ $$
 
 [@mandell1973, pg.95]
 
-We can consider the rocket to be *restored* when the angle of attack stabilizes below 5% of $A$.
+A rocket can be considered restored from a disturbance if the angle of attack decays to 5% of the initial amplitude [@mandell1973, pg.99].
 
 [@mandell1973, pg.95-96]
 
@@ -385,17 +328,13 @@ The *Natural Frequency* of the rocket at the current air speed for the homogeneo
 
 Note: it would appear that this response only reflects the physical system for non-decreasing values of $C_2$, which would cause the exponential term to increase with time and cause the amplitude to grow.
 Although the damping coefficient remains relatively constant, the inverse time-constant is only a function of $\dfrac{C_2}{2 I_L}$. 
-As velocity decreases in the rocket coasting phase, $C_2$ drops proportional to the square of the velocity and thus the inverse-time constant decreases enough with respecting time, that $Dt$ is decreasing and thus $e^{-Dt}$ will begin to increase.
-
-Attach image [@source]
+As velocity decreases in the rocket coasting phase, $C_2$ drops proportional to the square of the velocity and thus the inverse-time constant decreases enough with respecting time, that $Dt$ is decreasing and thus $e^{-Dt}$ will begin to increase. 
+This is accounted for by the drift velocity at apogee.
+While the rocket has a zero climbing velocity, it does still travel laterally and the total velocity contributes to the damping moment coefficient, maintaining stability.
 
 ## Complete Response to Step Input
 
 ## Complete Response to Impulse Input
-
-A valid solution to the impulse response within the finite horizon is a mathematical guarantee of stability.
-
-[@source]
 
 ### Delta-Dirac Function
 
@@ -404,11 +343,7 @@ A valid solution to the impulse response within the finite horizon is a mathemat
 u(t) = \int_{-\infty}^{\infty} \delta ( u - \tau ) d \tau
 \end{equation}
 
-[@source]
-
 ### Convolution Theorem
-
-The integral of a linear operator is the linear operator of the integral
 
 ## Steady State Response to Sinusoidal Forcing
 
@@ -467,17 +402,17 @@ Where:
 
 ### Time Constants of the Response
 
-TODO
-
 ### Complete response to step input
 
 ### Complete response to impulse input
 
-[mandell1973, pg.123]
+[@mandell1973, pg.123]
 
 ### AOA as a function of velocity
 
 In order to plot the real system behavior, it may be possible to solve Equation \ref{eq_rocket_diff} where $\alpha_x$ is a function of velocity, and solve for $\alpha_x$ by twice integrating $\ddot{\alpha_x}$.
+
+Since AOA is a function of total velocity through the *Corrective Moment Coefficient* and the *Damping Moment Coefficient*, it may be possible to solve the system by differentiating with respect to velocity, rather than by time.
 
 $$
 I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
@@ -495,12 +430,11 @@ $$
 \dfrac{\delta \alpha_x}{\delta t} = v = \dot{x}
 $$
 
-Somehow get to:
+Eventually we get to:
 
 $$
-\dfrac{d^2}{dv^2} ...
+\dfrac{d^2\alpha_x}{dv^2} = ...
 $$
-
 
 ### Corrections
 
@@ -526,34 +460,6 @@ This simulates a constant wind force coming from a single direction.
 As the density of air goes down with increases altitude, this assumes that the wind speed picks up at higher altitudes to maintain the constant wind force.
 
 Alternatively, we could model a constant wind speed of $8.33 m/s$, and apply the ISA Model for the density as a function of altitude to determine the changing wind force as the rocket climbs.
-
-### Future Enhancement
-
-To account for wind turbulence in future models, two commonly used Wind Models are explored.
-
-#### Kaimal Wind Model
-
-\begin{equation}
-\label{eq_kaiman_wind_model}
-\dfrac{S_u (f)}{\sigma ^2 _ u} = \dfrac{4 L_{1u} / U }{(1+6f L_{1u} / U )^{5/3}}
-\end{equation}
-
-#### Von Karman Wind Model
-
-\begin{equation}
-\label{eq_von_karman_wind_model}
-\dfrac{S_u (f)}{\sigma ^2 _ u} = \dfrac{4 L_{2u} / U }{(1+ 70.8 (fL_{2u} / U)^2 )^{5/3}}
-\end{equation}
-
-Where 
-
-- $\dfrac{S_u (f)}{\sigma ^2 _ u}$ is the *Spectral Density Function* of turbulence velocity
-- $f$ is the turbulence frequency
-- $\sigma_u$ is the standard deviation fo the turbulence velocity
-- $L_{1u}$ and $L_{2u}$ are length parameters
-- *U* is the average wind speed
-
-[@niskanen2013, pg. 59]
 
 ## More Reading
 

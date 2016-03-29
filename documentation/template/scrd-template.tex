@@ -290,6 +290,34 @@ $endfor$
 \usepackage{capt-of}
 
 %--------------------------------------------------------------------------------------------------------------
+%	
+%	COPY FRONTMATTER AND MAINMATTER AND BACKMATTER COMMANDS
+%	
+%--------------------------------------------------------------------------------------------------------------
+\makeatletter
+
+\newcommand\frontmatter{%
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}}
+
+\newcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+ % \@mainmatterfalse
+   }
+
+\makeatother
+
+%--------------------------------------------------------------------------------------------------------------
 %
 %	BEGIN DOCUMENT
 %
@@ -297,18 +325,29 @@ $endfor$
 \begin{document}
 
 $if(title)$
-\maketitle
-$endif$
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
+%\maketitle
 $endif$
 
 $for(include-before)$
 $include-before$
 
 $endfor$
+
+%--------------------------------------------------------------------------------------------------------------
+%
+%	FRONT MATTER
+%
+%--------------------------------------------------------------------------------------------------------------
+\frontmatter
+
+$if(abstract)$
+%\section*{Abstract}
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+\clearpage
+
 $if(toc)$
 {
 \hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
@@ -317,13 +356,36 @@ $if(toc)$
 \clearpage
 }
 $endif$
+
+
 $if(lot)$
 \listoftables
 $endif$
 \listoffigures
 \clearpage
+
+%--------------------------------------------------------------------------------------------------------------
+%
+%	MAIN MATTER
+%
+%--------------------------------------------------------------------------------------------------------------
+\mainmatter
+
+%--------------------------------------------------------------------------------------------------------------
+% body
+%--------------------------------------------------------------------------------------------------------------
 $body$
 
+%--------------------------------------------------------------------------------------------------------------
+%
+%	BACK MATTER
+%
+%--------------------------------------------------------------------------------------------------------------
+%\backmatter
+
+%--------------------------------------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------------------------------------
+\mainmatter
 $if(natbib)$
 $if(bibliography)$
 $if(biblio-title)$

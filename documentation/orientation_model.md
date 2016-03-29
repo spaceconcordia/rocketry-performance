@@ -1,16 +1,22 @@
-# Rocket Orientation
+## Rocket Orientation
 
-Building on the material explored in the Angular Stability model, this section explains the orientation of the rocket during flight.
+While good results have been achieved thus far, a 6DOF simulator is preferable to produce the most realistic simulation possible. 
+It would be possible to account for wind turbulence and other disruptions which are not confined to a single axis. 
+If all forces and moments can be clearly defined, it also allows a seamless coupling of the point-mass and rigid body rotation systems described earlier, as well as the pitch/yaw and roll systems.
+
+Building on the material explored in the Angular Stability model, this section introduces topics relating to the orientation of the rocket during flight.
 
 [img_rocket_flight_forces_moments_label]: images/rocket_flight_forces_moments.png "Forces and Moments Experienced by rocket in flight" 
-![Forces and Moments Experienced by rocket in flight \label{img_rocket_flight_forces_moments_label}][dynamic_weight_calculation_test_figure] 
+![Forces and Moments Experienced by rocket in flight \label{img_rocket_flight_forces_moments_label}][img_rocket_flight_forces_moments_label] 
 
-## Rotations 
+\clearpage
+
+### Rotations 
 
 *Spherical  Coordinates* and *Euler Angles* are commonly used to describe the orientation of an object, however both systems encounter singularities where the orientation is ambiguous. 
 Special cases are required to handle these singularities, which complicate the analysis and programming.
 
-## Quaternions 
+### Quaternions 
 
 *Quaternions* are commonly used to describe spatial rotation, avoiding singularities. 
 
@@ -91,10 +97,6 @@ $$
 
 http://math.ucr.edu/~huerta/introquaternions.pdf
 
-### Complex Plane
-
-
-
 ### Parameters needed for quaternion analysis
 
 - rocket mass
@@ -120,20 +122,12 @@ http://math.ucr.edu/~huerta/introquaternions.pdf
 - roll rate
 - wind velocity
 
-## Coordinate System
-
-### Position
-
-#### Rocket Coordinates
-
-#### World Coordinates
-
-## Rocket Moments
+### Rocket Moments
 
 A *Pitch Moment* and *Pitch Damping Moment* are defined, which are different than the *Corrective Moment Coefficient* and the *Damping Moment Coefficient*.
 Note: a complementary *Yaw Moment* and *Yaw Damping Moment* are implied, with exactly the same considerations for motion along the uncoupled complementary yaw-axis. 
 
-## Pitch Moment
+### Pitch Moment
 
 The *Pitch Moment* is taken from the tip of the nose cone, it must be moved to the COG to mirror *Corrective Moment Coefficient*.
 
@@ -151,7 +145,7 @@ Where:
 - $A_ref$ is the reference area (frontal or side?)
 - $L_{ref}$ is ???
 
-## Pitch Moment Coefficient
+### Pitch Moment Coefficient
 
 \begin{equation}
 \label{eq_pitch_moment}
@@ -186,7 +180,7 @@ M_{pm} = M_{pm} + \left( \text{randomness}  \right)
 
 Some randomness is added to avoid an "over-perfect" solution
 
-## Pitch Damping Moment
+### Pitch Damping Moment
 
 - significant only near apogee
 

@@ -32,8 +32,8 @@ set(h_legend,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('Thrust vs Time');
-xlabel('Thrust (N)');
-ylabel('Time (s)');
+ylabel('Thrust (N)');
+xlabel('Time (s)');
 
 %% Mass vs Time
 subplot(5,1,2)
@@ -57,8 +57,8 @@ set(h_legend_2,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('Mass vs Time');
-xlabel('Mass (kg)');
-ylabel('Time (s)');
+ylabel('Mass (kg)');
+xlabel('Time (s)');
 
 %% COP vs time
 subplot(5,1,3)
@@ -82,8 +82,8 @@ set(h_legend_2,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('COP vs Time');
-xlabel('COP (m)');
-ylabel('Time (s)');
+ylabel('COP (m)');
+xlabel('Time (s)');
 
 %% COG vs time
 subplot(5,1,4)
@@ -107,8 +107,8 @@ set(h_legend_2,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('COG vs Time');
-xlabel('COG (m)');
-ylabel('Time (s)');
+ylabel('COG (m)');
+xlabel('Time (s)');
 
 %% I_L vs time
 subplot(5,1,5)
@@ -132,8 +132,8 @@ set(h_legend_2,'FontName','Courier New');
 
 clear title xlabel ylabel
 title('I_L vs Time');
-xlabel('I_l (m^4)');
-ylabel('Time (s)');
+ylabel('I_l (m^4)');
+xlabel('Time (s)');
 
 %% Conditionally save the plot
 if exist('saveplots')

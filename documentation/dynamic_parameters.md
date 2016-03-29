@@ -36,17 +36,24 @@ It is a vector quantity of magnitude and direction.
 \dot{m} = \rho \vec{v} A
 \end{equation}
 
-[NASA - Thrust ](http://www.grc.nasa.gov/WWW/k-12/airplane/thrust1.html)
+[@nasa_thrust]
 
 #### Thrust Equation
+
+Thrust is a mechanical force created by a propulsion system which moves a vessel through a medium.
+In high-powered rocketry, it is typically created by the expulsion of hot gas generated during the ignition of a solid fuel motor.
+The acceleration of gases from the motor causes a thrust force in the opposite direction (according to Newton's 2$^{nd}$ law), which propels the rocket from the launch pad.
+The thrust force is the product of the mass flow rate of the hot gases and the change in velocity between the exit of the nozzle and the free stream.
 
 \begin{equation} 
 T = \dot{m} \Delta \vec{v} 
 \end{equation}
 
-[NASA - Thrust Equation](http://www.grc.nasa.gov/WWW/k-12/airplane/thrsteq.html)
+[@nasa_thrust]
 
-Thrust curves are provided by the manufacturer, and are rated at a constant fuel expenditure rate known as the specific fuel consumption ($S_{fc}$)
+Thrust curves are provided by the manufacturer, based on static tests.
+The highest performing result from the batch of test motors is chosen for the curve.
+Therefore, the thrust curve represents the highest expected performance of the motor within the specified operating conditions
 
 Table \ref{sample_motor_data} shows an example of the motor data provided by ThrustCurve.org:
 
@@ -75,6 +82,9 @@ Table \ref{sample_motor_data} shows an example of the motor data provided by Thr
 | Availability      | regular                          |
 
 \captionof{table}{\label{sample_motor_data}Sample Motor Data}
+
+[thrust_curve]: images/M1540_thrust_curve.png "M1540 Thrust Curve" 
+![Sample Thrust Curve\label{thrust_curve_label}][thrust_curve] 
 
 Source: http://www.thrustcurve.org/motorsearch.jsp?id=673
 
@@ -136,7 +146,7 @@ First remove the Average Thrust term to isolate the mass flow rate:
 \dot{m} = S_{fG} \cdot T_{avg} = 5.3587 \times 10^{-4} \dfrac{kg}{N \cdot s} \cdot 1537.0 \, N  = 0.8236 \, kg/s 
 \end{equation}
 
-This equation can be expressed in terms of Weight through Newton's 2$^nd$ law: $F = m\vec{a}$
+This equation can be expressed in terms of Weight through Newton's 2$^{nd}$ law: $F = m\vec{a}$
 
 \begin{equation}
 \dot{W}_m = \dot{m} \cdot \vec{g} = 0.8236 \, kg/s \cdot 9.81 \, m/s^2 \approx 8.0799 N/s 
@@ -173,207 +183,18 @@ Finally, the motor weight as a function of time is
 W_m (t) = W_{m_t} - \Delta W_f(t) = W_{m_t} - \dot{m}_{fc} \cdot t
 \end{equation}
 
-#### Matlab Implementation
+As a further simplification, if we assume that the mass flow rate is constant, we can find it simply by dividing the mass propellant by the motor burn time. 
+This results in only a slight error as shown in Figure \ref{dynamic_weight_calculation_test_figure_label} below.
 
-The following figure shows the output of the dynamic weight calculation in Matlab. 
+Figure \ref{dynamic_weight_calculation_test_figure_label} shows the output of the dynamic weight calculation in Matlab. 
 The Thrust and Weight curves produce output similar to OpenRocket as expected.
 
-[dynamic_weight_calculation_test_figure]: images/plots/error_mass_v_time_plot.png "Dynamic Weight Calculation Test Output" 
+[dynamic_weight_calculation_test_figure]: images/plots/error_thrust_mass.png "Dynamic Weight Calculation Test Output" 
 ![Dynamic Weight Calculation Test Output \label{dynamic_weight_calculation_test_figure_label}][dynamic_weight_calculation_test_figure] 
 
-\clearpage
-
-### Center of Pressure
-
-The *Center of Pressure* (COP) is the location (point) where the aerodynamic forces can be said to be acting, simplifying the complex distribution of forces across the rocket and its features. 
-
-The *Center of Pressure* changes with the normal force distribution on the rocket, which is driven by *Angle of Attack*  [@barrowman, pg.4].
-
-$$ COP = COP(\alpha) $$
-
-A wind tunnel is the best way to approximate this point, but an analytic method is available.
-
-#### Barrowman's Equations
-
-*Barrowman's Equations* are used to determine the *Center of Pressure*.
-
-\begin{equation}
-\label{rocket_center_of_pressure}
-\bar{X} = 
-\dfrac
-{ \left( C_{N \alpha} \right)_n \bar{x}_n + \left( C_{N \alpha} \right)_{cb} \bar{x}_{cb} + \left( C_{N \alpha} \right)_{fb} \bar{x}_{fb} }
-{ C_{N \alpha}  }
-\end{equation}
-
-Where:
-
-- $C_{N \alpha}$ is the *Stability Derivative*
-- subscript $_n$ refers to the nose cone
-- subscript $_{cb}$ refers to the cylindrical body
-- subscript $_{fb}$ refers to the fin set in the presence of the body
-- $\bar{x}$ refers to the component centroid
-
-[@barrowman, pg.12]
-
-
-##### Nose Cone COP
-
-###### LV-Haack Nose Cone COP
-
-\begin{equation}
-\label{eq_cop_lv_haack}
-\bar{X}_n = 0.437 h_n
-\end{equation}
-
-[@crowell1996, pg.7]
-
-####### Von Karman Nose Cone COP
-
-\begin{equation}
-\label{eq_cop_von_karman}
-\bar{X}_n = 0.500 h_n
-\end{equation}
-
-[@crowell1996, pg.7]
-
-##### Fin Set COP
-
-The force acting on the fins can be calculated using the following equation (applies only for identically shaped fins, in sets of 3, 4, or 6).
-
-\begin{equation}
-\label{eq_cop_fin_set}
-(C_{n \alpha} )_f = C_{in}\dfrac{4n \left( \dfrac{s}{d} \right)^2}{1 + \sqrt{1 + \left( \dfrac{2 l}{a + b} \right)^2}}
-\end{equation}
-
-Where:
-
-- $a$ is the fin tip chord length
-- $b$ is the fin root chord length
-- $s$ is the fin height
-- $l$ is the distance between the root center and the tip center
-- $C_{in}$ is a coefficient for the interference effects of the air flow near the fin-body interface
-
-\begin{equation}
-\label{eq_coef_cop_interference}
-C_{in} = 1 + \dfrac{OD/2}{OD/2 + s}
-\end{equation}
-
-[@barrowman, pg.11]
-
-The location of the *Center of Pressure* for the fin set is as follows.
-
-\begin{equation}
-\label{eq_cop_fin_set}
-\bar{X}_{fb}
-= 
-X_f 
-+ 
-\dfrac {m ( b + 2 a )} {3 ( b + a ) } 
-+ \dfrac{1}{6} 
-\left[ b + a - \dfrac{b a}{b + a} \right]
-\end{equation}
-
-[@box2009, pg.10]
-
-Where:
-
-- $X_f$ is the distance from the tip of the nose cone to the point where the leading edge of the fin meets the body tube [@box2009, pg.11]
-- $a$ is the fin tip chord length
-- $b$ is the fin root chord length
-- $s$ is the fin height
-- $m$ is the fin sweep length
-
-Also, see this [Center of Pressure Calculator online](http://physics.gallaudet.edu/tools/rocketcop.html).
-
-##### Cylindrical Body COP
-
-The centroid of a cylindrical body will be half its length
-
-\begin{equation}
-\label{eq_centroid_bodytube}
-\bar{x}_{ct} = \dfrac{1}{2} l_{cb}
-\end{equation}
-
-Wind tunnel tests performed in 1918 and 1919 demonstrated that the normal force generated by a cylindrical body at an angle of attack of less than 10 degrees is negligible
-
-[@barrowman, pg.10].
-
-##### Stability Derivative
-
-The *Stability Derivative* $C_{N\alpha}$ is a dimensionless parameter, used to calculate the force normal to the longitudinal axis, and is dependent on the shape of the component.
-It is the slope of the *Normal Force Coefficient* plotted against the angle-of-attack. 
-For low angles of attack, it is nearly constant.
-
-TODO show figure
-
-[@source]
-
-The total *Stability Derivative* is the sum of all *i* rocket component stability derivatives
-
-\begin{equation}
-\label{total_stability_derivative}
-C_{N \alpha} = \sum C_{N \alpha (i)}   
-\end{equation}
-
-[@box2009, pg. 9]
-
-##### Nose Cone
-
-\begin{equation}
-\label{eq_sd_nosecone}
-C_{N \alpha (n)} = 2
-\end{equation}
-
-##### Rocket Body
-
-\begin{equation}
-\label{eq_sd_bodytube}
-C_{N \alpha (bt)} = 0
-\end{equation}
-
-##### Fins
-
-\begin{equation}
-\label{eq_sd_finset}
-C_{N \alpha (fs)} = ...
-\end{equation}
-
-#### Rocket Body Lift Correction
-
-*Barrowman's Method* neglects the lift generated by the rocket body. Galejs [@galejs] suggests the following adjustment to provide a compensated *Coefficient of Normal Force due to Body Lift*
-
-\begin{equation}
-\label{eq_coef_normal_force_body_lift}
-C_{N(L)} = K \dfrac{A_p}{A_ref} \alpha^2
-\end{equation}
-
-Where:
-
-- $K$ = 1 
-- $A_p$ is the rocket planform area excluding the fins
-- $A_{ref}$ is the reference area of the rocket
-
-[@box2009, pg.11] 
-
-Equation \ref{eq_coef_normal_force_body_lift} is divided by $\alpha$ to be added to $C_{N \alpha}$ calculated and used in Equation \ref{rocket_center_of_pressure}.
-
-TODO All COP components must be modified by the lift coefficient
-
-\begin{equation}
-\label{eq_coef_normal_force_body_lift_alpha}
-C_{N \alpha^2} = K \dfrac{A_p}{A_ref} \alpha
-\end{equation}
-
-This correction is applied at the centroid of the planform area.
-
-[@box2009, pg.11] 
-
-##### Transonic Considerations
-
-*Barrowman's Equations* are based on assumptions that are only valid in subsonic flight.
-In the transonic and supersonic regions, what new effects are introduced that would affect the location of the *Center of Pressure*?
-
 ### Center of Gravity
+
+The *Center of Gravity* is a location were we can consider the entire rocket mass to be concentrated in a point-mass system. 
 
 \begin{equation}
 y_{cg} = \dfrac{m_1 y_1 + m_2 y_2 + ... + m_n y_n}{\sum_{j=1}^n m_j}
@@ -445,4 +266,204 @@ Then, the rocket *Longitudinal Moment of Inertia* is the sum, shown as follows
 \label{rocket_longitudinal_moment_inertia}
 I_{r} = I_{m} + I_{s}
 \end{equation}
+
+### Center of Pressure
+
+The *Center of Pressure* (COP) is the location (point) where the aerodynamic forces can be said to be acting, simplifying the complex distribution of forces across the rocket and its features. 
+
+The *Center of Pressure* changes with the normal force distribution on the rocket, which is driven by *Angle of Attack*  [@barrowman, pg.4].
+
+$$ COP = COP(\alpha) $$
+
+A wind tunnel is the best way to approximate this point, but an analytic method is available, discussed in detail in the next section.
+
+Figure \ref{cop_cog_il_figure} shows how our determination of the $COP$, $COG$, and $I_L$ compares with other simulation software.
+
+[cop_cog_il_figure]: images/plots/error_cog_cop_il_plot.png "Dynamic Weight Calculation Test Output" 
+![COP, COG, and I_l as a function of time \label{cop_cog_il_figure}][cop_cog_il_figure] 
+
+\clearpage
+
+# The Barrowman Method
+
+In 1966, James Barrowman published a report called "The Theoretical Prediction of the Center of Pressure" [@barrowman_report]. 
+Despite some modifications and additions since, it remains a fundamental method, ever present in modern high-powered rocketry.
+
+*Barrowman's Method* is principally used to determine the *Center of Pressure*.
+
+\begin{equation}
+\label{rocket_center_of_pressure}
+\bar{X} = 
+\dfrac
+{ \left( C_{N \alpha} \right)_n \bar{x}_n + \left( C_{N \alpha} \right)_{cb} \bar{x}_{cb} + \left( C_{N \alpha} \right)_{fb} \bar{x}_{fb} }
+{ C_{N \alpha}  }
+\end{equation}
+
+Where:
+
+- $C_{N \alpha}$ is the *Stability Derivative*
+- subscript $_n$ refers to the nose cone
+- subscript $_{cb}$ refers to the cylindrical body
+- subscript $_{fb}$ refers to the fin set in the presence of the body
+- $\bar{x}$ refers to the component centroid
+
+[@barrowman, pg.12]
+
+## Stability Derivative
+
+The *Stability Derivative* $C_{N\alpha}$ is a dimensionless parameter, used to calculate the force normal to the longitudinal axis, and is dependent on the shape of the component.
+It is the slope of the *Normal Force Coefficient* plotted against the angle-of-attack. 
+For low angles of attack, it is nearly constant.
+
+TODO show figure
+
+[@mandell1973]
+
+The total *Stability Derivative* is the sum of all *i* rocket component stability derivatives
+
+\begin{equation}
+\label{total_stability_derivative}
+C_{N \alpha} = \sum C_{N \alpha (i)}   
+\end{equation}
+
+[@box2009, pg. 9]
+
+## Nose Cone
+
+\begin{equation}
+\label{eq_sd_nosecone}
+C_{N \alpha (n)} = 2
+\end{equation}
+
+## Rocket Body
+
+The *Barrowman Method* considers the body lift at small angles of attack to be negligible.
+
+\begin{equation}
+\label{eq_sd_bodytube}
+C_{N \alpha (bt)} = 0
+\end{equation}
+
+## Fins
+
+The following solution for the fin set stability derivative applies only for identically shaped fins, in sets of 3, 4, or 6.
+
+\begin{equation}
+\label{eq_sd_fin_set}
+C_{N \alpha(f)} = C_{in}\dfrac{4n \left( \dfrac{s}{d} \right)^2}{1 + \sqrt{1 + \left( \dfrac{2 l}{a + b} \right)^2}}
+\end{equation}
+
+Where:
+
+- $a$ is the fin tip chord length
+- $b$ is the fin root chord length
+- $s$ is the fin height
+- $l$ is the distance between the root center and the tip center
+- $C_{in}$ is a coefficient for the interference effects of the air flow near the fin-body interface
+
+[@barrowman, pg.11]
+
+\begin{equation}
+\label{eq_sd_interference}
+C_{in} = 1 + \dfrac{OD/2}{OD/2 + s}
+\end{equation}
+
+[@barrowman, pg.11]
+
+## Nose Cone COP
+
+### LV-Haack Nose Cone COP
+
+\begin{equation}
+\label{eq_cop_lv_haack}
+\bar{X}_n = 0.437 h_n
+\end{equation}
+
+[@crowell1996, pg.7]
+
+### Von Karman Nose Cone COP
+
+\begin{equation}
+\label{eq_cop_von_karman}
+\bar{X}_n = 0.500 h_n
+\end{equation}
+
+[@crowell1996, pg.7]
+
+#### Fin Set COP
+
+
+The location of the *Center of Pressure* for the fin set is as follows.
+
+\begin{equation}
+\label{eq_cop_fin_set}
+\bar{X}_{fb}
+= 
+X_f 
++ 
+\dfrac {m ( b + 2 a )} {3 ( b + a ) } 
++ \dfrac{1}{6} 
+\left[ b + a - \dfrac{b a}{b + a} \right]
+\end{equation}
+
+[@box2009, pg.10]
+
+Where:
+
+- $X_f$ is the distance from the tip of the nose cone to the point where the leading edge of the fin meets the body tube [@box2009, pg.11]
+- $a$ is the fin tip chord length
+- $b$ is the fin root chord length
+- $s$ is the fin height
+- $m$ is the fin sweep length
+
+Also, see this [Center of Pressure Calculator online](http://physics.gallaudet.edu/tools/rocketcop.html).
+
+##### Cylindrical Body COP
+
+The centroid of a cylindrical body will be half its length
+
+\begin{equation}
+\label{eq_centroid_bodytube}
+\bar{x}_{ct} = \dfrac{1}{2} l_{cb}
+\end{equation}
+
+Wind tunnel tests performed in 1918 and 1919 demonstrated that the normal force generated by a cylindrical body at an angle of attack of less than 10 degrees is negligible
+
+[@barrowman, pg.10].
+
+
+## Rocket Body Lift Correction
+
+*Barrowman's Method* neglects the lift generated by the rocket body. Galejs [@galejs] suggests the following adjustment to provide a compensated *Coefficient of Normal Force due to Body Lift*
+
+\begin{equation}
+\label{eq_coef_normal_force_body_lift}
+C_{N(L)} = K \dfrac{A_p}{A_ref} \alpha^2
+\end{equation}
+
+Where:
+
+- $K$ = 1 
+- $A_p$ is the rocket planform area excluding the fins
+- $A_{ref}$ is the reference area of the rocket
+
+[@box2009, pg.11] 
+
+Equation \ref{eq_coef_normal_force_body_lift} is divided by $\alpha$ to be added to $C_{N \alpha}$ calculated and used in Equation \ref{rocket_center_of_pressure}.
+
+TODO All COP components must be modified by the lift coefficient
+
+\begin{equation}
+\label{eq_coef_normal_force_body_lift_alpha}
+C_{N \alpha^2} = K \dfrac{A_p}{A_ref} \alpha
+\end{equation}
+
+This correction is applied at the centroid of the planform area.
+
+[@box2009, pg.11] 
+
+## Transonic Considerations
+
+*Barrowman's Equations* are based on assumptions that are only valid in subsonic flight.
+In the transonic and supersonic regions, what new effects are introduced that would affect the location of the *Center of Pressure*?
 

@@ -9,9 +9,9 @@ time_to_apogee_matlab = tout(indexmax_matlab);
 matlab_mach_max = altitude(indexmax_matlab);
 
 % OpenRocket
-indexmax_openrocket = find(max(openrocket_Altitude) == openrocket_Altitude);
+indexmax_openrocket = find(max(openrocket_Altitudem) == openrocket_Altitudem);
 time_to_apogee_openrocket = openrocket_VarName1(indexmax_openrocket);
-openrocket_altitude_max = openrocket_Altitude(indexmax_openrocket);
+openrocket_altitude_max = openrocket_Altitudem(indexmax_openrocket);
 
 % RasAero
 indexmax_rasaero = find(max(rasaero_Altitudeft) == rasaero_Altitudeft);

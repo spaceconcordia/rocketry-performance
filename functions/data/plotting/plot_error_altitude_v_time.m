@@ -57,6 +57,10 @@ h_legend = legend(...
     strcat('Rocksim      :' , sprintf('%0.2f' , Rocksim_altitude_max(1))           , ' ft')        , ...
     'location'              , 'southeast' ...
 );
+
+%n=get(gca,'ytick');
+%set(gca,'yticklabel',sprintf('%.2f |',n'));
+
 set(h_legend,'FontSize',12);
 set(h_legend,'FontName','Courier New');
 

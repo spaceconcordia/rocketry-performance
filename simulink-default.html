@@ -1,0 +1,290 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>Simulink Default Report</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="en" class="book" title="Simulink Default Report"><div class="titlepage"><div><div><h1 class="title"><a name="d12e1"></a>Simulink Default Report</h1></div><div><h2 class="subtitle"></h2></div><div><div class="author"><h3 class="author"><span class="firstname">scorpii
+ </span></h3></div></div><div><p class="pubdate">28-Mar-2016 17:23:50</p></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="chapter"><a href="#35218bb1cf3c3a7b58d2eca93b736730">1. RocketFlight_TestModel</a></span></dt><dd><dl><dt><span class="sect1"><a href="#02cd22552f198fe19b15ad8d929388d6">RocketFlight_TestModel</a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>1.1. <a href="#d12e655">RocketFlight_TestModel<span> Simulation Parameters</span>
+    </a></dt><dt>1.2. <a href="#d12e750">Clock Block Properties</a></dt><dt>1.3. <a href="#d12e792">Demux Block Properties</a></dt><dt>1.4. <a href="#d12e855">RocketFlight_TestModel<span> System Information</span>
+    </a></dt><dt>1.5. <a href="#d12e921">Block Type Count</a></dt></dl></div><div class="chapter" title="Chapter&nbsp;1.&nbsp;RocketFlight_TestModel"><div class="titlepage"><div><div><h2 class="title"><a name="35218bb1cf3c3a7b58d2eca93b736730"></a>Chapter&nbsp;1.&nbsp;RocketFlight_TestModel</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="#02cd22552f198fe19b15ad8d929388d6">RocketFlight_TestModel</a></span></dt></dl></div><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem"><p class="simpara">
+            <a class="link" href="#35218bb1cf3c3a7b58d2eca93b736730" title="Chapter&nbsp;1.&nbsp;RocketFlight_TestModel">RocketFlight_TestModel</a>
+        </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem"><p class="simpara">
+                    Rocket 2DOF Kinematics Model
+                </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem"><p class="simpara">
+                            Atmospheric Model
+                        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem">
+                                    Atmospheric Sanity
+                                </li><li class="listitem"><p class="simpara">
+                                    Rocket ISA Model
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    ISA Model
+                                    </li></ul></div></li></ul></div></li><li class="listitem"><p class="simpara">
+                            Critical Areas
+                        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem"><p class="simpara">
+                                    Frontal Reference Area
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    AreaReferenceFrontal
+                                    </li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Wetted Area of Body
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    Wetted Body of Area
+                                    </li></ul></div></li></ul></div></li><li class="listitem"><p class="simpara">
+                            Propulsion Dynamics
+                        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem"><p class="simpara">
+                                    Dynamic Motor Model
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    Dynamic Sanity
+                                    </li><li class="listitem">
+                                    Thurst Curve Data
+                                    </li></ul></div></li><li class="listitem">
+                                    Propulsion Input Data
+                                </li></ul></div></li><li class="listitem">
+                            Reference Area at AOA
+                        </li><li class="listitem"><p class="simpara">
+                            Rocket 2DOF Translation
+                        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem"><p class="simpara">
+                                    Kinematic Model1
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    Kinematic Sanity
+                                    </li><li class="listitem">
+                                    Rocket Vertical Flight Model
+                                    </li></ul></div></li><li class="listitem">
+                                    Rocket Drift
+                                </li><li class="listitem"><p class="simpara">
+                                    Rocket Trajectory
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    2D Vector
+                                    </li><li class="listitem">
+                                    Trajectory Angle
+                                    </li></ul></div></li></ul></div></li><li class="listitem"><p class="simpara">
+                            Rocket Drag Model
+                        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem">
+                                    2D Vector
+                                </li><li class="listitem"><p class="simpara">
+                                    Critical Areas
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem"><p class="simpara">
+                                    Frontal Reference Area
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    AreaReferenceFrontal
+                                    </li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Wetted Area of Body
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Wetted Body of Area
+                                    </li></ul></div></li></ul></div></li><li class="listitem">
+                                    Drag Force
+                                </li><li class="listitem">
+                                    Mach Number
+                                </li><li class="listitem"><p class="simpara">
+                                    Reynolds Number
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    Actual Reynolds Number
+                                    </li><li class="listitem">
+                                    Critical Reynolds Number
+                                    </li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Rocket Drag Coefficient
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem"><p class="simpara">
+                                    Base Drag Coefficient
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Base Drag Coefficient
+                                    </li><li class="listitem">
+                                    Base Drag Coefficient (Normalized)
+                                    </li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Fin Pressure Drag Coefficient
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Normalized Fin Pressure Drag Coefficient
+                                    </li><li class="listitem">
+                                    Stagnation Pressure Coefficient
+                                    </li></ul></div></li><li class="listitem">
+                                    Nose Cone Drag Coefficient
+                                    </li><li class="listitem"><p class="simpara">
+                                    Parasitic Drag Coefficient
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Parasitic Drag Coefficient
+                                    </li><li class="listitem">
+                                    Parasitic Drag Coefficient (Normalized)
+                                    </li><li class="listitem">
+                                    Stagnation Drag Coefficient
+                                    </li></ul></div></li><li class="listitem">
+                                    Rocket Drag at AOA
+                                    </li><li class="listitem"><p class="simpara">
+                                    Skin Friction Drag Coefficient
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Skin Friction Drag Coefficient (normalized)
+                                    </li><li class="listitem">
+                                    Skin Friction Drag Coefficient   (uncorrected for compressibility)
+                                    </li><li class="listitem">
+                                    Skin Friction Drag Coefficient  (corrected for compressibility)
+                                    </li><li class="listitem">
+                                    Wetted Area of Fin
+                                    </li></ul></div></li></ul></div></li><li class="listitem">
+                                    Zero until leaving launch guide
+                                </li></ul></div></li></ul></div></li><li class="listitem"><p class="simpara">
+                    Shawn  Angular Flight Model
+                </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem"><p class="simpara">
+                            Shawn Angular Model
+                        </p><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem"><p class="simpara">
+                                    Angular Harmonic Motion
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem"><p class="simpara">
+                                    Angular Frequency
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Zero until leaving launch guide
+                                    </li></ul></div></li><li class="listitem">
+                                    Initial Amplitude
+                                    </li><li class="listitem">
+                                    Inverse Time Constant
+                                    </li><li class="listitem">
+                                    Natural Frequency
+                                    </li><li class="listitem">
+                                    Phase Angle
+                                    </li><li class="listitem">
+                                    Rocket  Damping Ratio
+                                    </li><li class="listitem"><p class="simpara">
+                                    Rocket Angular Flight Model Simplified
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    If NaN then ZERO
+                                    </li></ul></div></li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Barrowman Method
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem"><p class="simpara">
+                                    Aerodynamic Damping Moment Coefficient
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Body Lift Correction
+                                    </li><li class="listitem">
+                                    Finset
+                                    </li><li class="listitem">
+                                    Subsystem
+                                    </li><li class="listitem">
+                                    Subsystem1
+                                    </li><li class="listitem">
+                                    Zero until leaving launch guide
+                                    </li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Center of Pressure
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Body Tube Cone Center
+                                    </li><li class="listitem">
+                                    Fin Set Center
+                                    </li><li class="listitem">
+                                    Modified Center of Pressure
+                                    </li><li class="listitem">
+                                    Nose Cone Center
+                                    </li><li class="listitem">
+                                    Rocket Planform Center
+                                    </li></ul></div></li><li class="listitem">
+                                    Corrective Moment Coefficient
+                                    </li><li class="listitem">
+                                    Dynamic Center Of Gravity
+                                    </li><li class="listitem">
+                                    Dynamic Moment of Inertia
+                                    </li><li class="listitem">
+                                    Longitudinal Static Stability Margin
+                                    </li><li class="listitem">
+                                    Normal Force
+                                    </li><li class="listitem"><p class="simpara">
+                                    Propulsion Damping Moment
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Zero until leaving launch guide
+                                    </li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Rocket Body Lift Correction
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Zero until leaving launch guide
+                                    </li></ul></div></li><li class="listitem">
+                                    Rocket Normal Force Coefficient
+                                    </li><li class="listitem"><p class="simpara">
+                                    Rocket Stability Derivative
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="square" compact><li class="listitem">
+                                    Body Tube Stability Derivative
+                                    </li><li class="listitem"><p class="simpara">
+                                    Fin Set Stability Derivative
+                                    </p><div class="itemizedlist"><ul class="itemizedlist" type="disc" compact><li class="listitem">
+                                    Fin-Body Interference  Coefficient
+                                    </li></ul></div></li><li class="listitem">
+                                    Nose Cone Stability Derivative
+                                    </li></ul></div></li></ul></div></li><li class="listitem"><p class="simpara">
+                                    Wind Disturbance
+                                </p><div class="itemizedlist"><ul class="itemizedlist" type="circle" compact><li class="listitem">
+                                    Zero until leaving launch guide
+                                    </li></ul></div></li><li class="listitem">
+                                    Zero until leaving launch guide
+                                </li><li class="listitem">
+                                    Zero until leaving launch guide1
+                                </li></ul></div></li></ul></div></li></ul></div></li></ul></div><div class="table"><a name="d12e655"></a><p class="title"><b>Table&nbsp;1.1.&nbsp;RocketFlight_TestModel<span> Simulation Parameters</span>
+    </b></p><div class="table-contents"><table summary="RocketFlight_TestModel Simulation Parameters&#xA;    " width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="60*" align="left"><col width="60*" align="left"><col width="60*" align="left"></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>Solver</em></span>
+                    <span> </span>ode4</td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>ZeroCross</em></span>
+                    <span> </span>on</td><td style="border-bottom: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>StartTime</em></span>
+                    <span> </span>0.0<span> </span>
+                    <span class="emphasis"><em>StopTime</em></span>
+                    <span> </span>simulation_duration</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>RelTol</em></span>
+                    <span> </span>1e-3</td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>AbsTol</em></span>
+                    <span> </span>auto</td><td style="border-bottom: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>Refine</em></span>
+                    <span> </span>1</td></tr><tr><td style="border-right: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>InitialStep</em></span>
+                    <span> </span>auto</td><td style="border-right: 0.5pt solid ; " align="left">
+                    <span class="emphasis"><em>FixedStep</em></span>
+                    <span> </span>timestep</td><td style="" align="left">
+                    <span class="emphasis"><em>MaxStep</em></span>
+                    <span> </span>auto</td></tr></tbody></table></div></div><br class="table-break"><a name="d12e750"></a><div class="table"><p class="title"><b>Table&nbsp;1.2.&nbsp;Clock Block Properties</b></p><div class="table-contents"><table summary="Clock Block Properties" border="1" cellspacing="0" fastRender="1" width="100%"><col width="60*"><col width="60*"><col width="60*"><col width="60*"><thead><tr>
+            <th align="left">Name</th>
+            <th align="left">Parent</th>
+            <th align="left">Display Time</th>
+            <th align="left">Decimation</th>
+        </tr></thead><tbody><tr>
+            <td align="left">
+                <a name="79c5b1168bece1cac2e5fb43f666f9a8"></a>Clock1</td>
+            <td align="left">
+                <a class="link" href="#35218bb1cf3c3a7b58d2eca93b736730" title="Chapter&nbsp;1.&nbsp;RocketFlight_TestModel">RocketFlight_TestModel</a>
+            </td>
+            <td align="left">on</td>
+            <td align="left">10</td>
+        </tr></tbody></table></div></div><a name="d12e792"></a><div class="table"><p class="title"><b>Table&nbsp;1.3.&nbsp;Demux Block Properties</b></p><div class="table-contents"><table summary="Demux Block Properties" border="1" cellspacing="0" fastRender="1" width="100%"><col width="60*"><col width="60*"><col width="60*"><col width="60*"><col width="60*"><thead><tr>
+            <th align="left">Name</th>
+            <th align="left">Parent</th>
+            <th align="left">Outputs</th>
+            <th align="left">Display Option</th>
+            <th align="left">Bus Selection Mode</th>
+        </tr></thead><tbody><tr>
+            <td align="left">
+                <a name="96ba28fe10e5fba51cb314122597d892"></a>Demux</td>
+            <td align="left">
+                <a class="link" href="#35218bb1cf3c3a7b58d2eca93b736730" title="Chapter&nbsp;1.&nbsp;RocketFlight_TestModel">RocketFlight_TestModel</a>
+            </td>
+            <td align="left">2</td>
+            <td align="left">bar</td>
+            <td align="left">off</td>
+        </tr></tbody></table></div></div><div class="sect1" title="RocketFlight_TestModel"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="02cd22552f198fe19b15ad8d929388d6"></a>RocketFlight_TestModel</h2></div></div></div><div class="mediaobject"><map name="d12e847"><area coords="458,263,479,283" shape="rect" href="#79c5b1168bece1cac2e5fb43f666f9a8"><area coords="379,11,383,38" shape="rect" href="#96ba28fe10e5fba51cb314122597d892"></map><img src="./simulink-default_html_files/image-002-sl.png" usemap="%0A                #d12e847" ismap="" border="0"></div><div class="table"><a name="d12e855"></a><p class="title"><b>Table&nbsp;1.4.&nbsp;RocketFlight_TestModel<span> System Information</span>
+    </b></p><div class="table-contents"><table summary="RocketFlight_TestModel System Information&#xA;    " width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="3540*" align="left"><col width="8460*" align="left"></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="right">Name</td><td style="border-bottom: 0.5pt solid ; " align="left">RocketFlight_TestModel</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="right">Parent</td><td style="border-bottom: 0.5pt solid ; " align="left">&lt;root&gt;</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="right">Description</td><td style="border-bottom: 0.5pt solid ; " align="left">&nbsp;</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="right">Tag</td><td style="border-bottom: 0.5pt solid ; " align="left">&nbsp;</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; " align="right">Blocks</td><td style="border-bottom: 0.5pt solid ; " align="left">
+                    <table border="0" summary="Simple list" class="simplelist"><tr><td>
+                            Angular Motion Scope
+                        </td></tr><tr><td>
+                            <a class="link" href="#79c5b1168bece1cac2e5fb43f666f9a8">Clock1</a>
+                        </td></tr><tr><td>
+                            <a class="link" href="#96ba28fe10e5fba51cb314122597d892">Demux</a>
+                        </td></tr><tr><td>
+                            Rocket 2DOF Kinematics Model
+                        </td></tr><tr><td>
+                            Shawn  Angular Flight Model
+                        </td></tr></table>
+                </td></tr><tr><td style="border-right: 0.5pt solid ; " align="right">LinkStatus</td><td style="" align="left">N/A</td></tr></tbody></table></div></div><br class="table-break"><a name="d12e921"></a><div class="table"><p class="title"><b>Table&nbsp;1.5.&nbsp;Block Type Count</b></p><div class="table-contents"><table summary="Block Type Count" border="1" cellspacing="0" fastRender="1" width="100%"><col width="120*"><col width="60*"><col width="240*"><thead><tr>
+            <th align="left">BlockType</th>
+            <th align="left">Count</th>
+            <th align="left">Block Names</th>
+        </tr></thead><tbody><tr>
+            <td align="left">SubSystem</td>
+            <td align="left">2</td>
+            <td align="left">
+                Rocket 2DOF Kinematics Model, Shawn  Angular Flight Model
+            </td>
+        </tr><tr>
+            <td align="left">Demux</td>
+            <td align="left">1</td>
+            <td align="left">
+                <a class="link" href="#96ba28fe10e5fba51cb314122597d892">Demux</a>
+            </td>
+        </tr><tr>
+            <td align="left">Clock</td>
+            <td align="left">1</td>
+            <td align="left">
+                <a class="link" href="#79c5b1168bece1cac2e5fb43f666f9a8">Clock1</a>
+            </td>
+        </tr></tbody></table></div></div></div></div></div></body></html>

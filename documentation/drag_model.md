@@ -1,4 +1,4 @@
-## Drag Model
+# Drag Model
 
 Rockets in flight experience multiple sources of drag. The total drag effect is the sum of all specific drag effects.
 
@@ -15,7 +15,7 @@ These and other drag forces are detailed in this section.
 
 The drag model must take the parametric design parameters and applicable dynamics parameters (see *Data Model*) to output the Drag Force and combined drag coefficient.
 
-### Mach Number
+## Mach Number
 
 *Mach Number* (M) is the ratio of the airspeed to the speed of sound for air at a given temperature
 
@@ -50,7 +50,7 @@ The *Mach Number* is then the ratio of the air velocity to the sound speed of th
 M = \dfrac{ \vec{v} } { c }
 \end{equation}
 
-#### Mach Regions
+### Mach Regions
 
 *Velocity regions* are defined, in which aerodynamic effects are known to vary considerably.
 The following velocity regions are established for further discussion.
@@ -71,7 +71,7 @@ However, transonic effects cannot be ignored when at a Mach Number greater than 
 
 \clearpage
 
-### Incompressible Flow
+## Incompressible Flow
 
 For Mach < 0.3, 
 
@@ -84,7 +84,7 @@ force and viscous force
 [@box2009, pg.6]
 
 
-### Compressible Flow Correction
+## Compressible Flow Correction
 
 Special considerations apply when compressibility effects are in play. These effects occur above Mach 0.3 [@box2009], which will be easily exceeded by the transonic upper limit of Mach 0.9 mandated by the competition.
 
@@ -112,13 +112,13 @@ Particular correction factors are recommended for ranges of Mach number
 
 Where $C_i$ is the incompressible drag coefficient and $C^`_i$ is the compressibility corrected drag coefficient [@box2009, pg.15].
 
-### Turbulent Effects
+## Turbulent Effects
 
 > A turbulent boundary layer induces a notably larger skin friction drag than a laminar boundary layer
 
 [@niskanen2013, pg.42]
 
-### Stagnation Pressure
+## Stagnation Pressure
 
 *Stagnation Pressure* is the pressure on the normal surfaces to airflow. 
 
@@ -143,7 +143,7 @@ Then, the *Pressure Drag Coefficient* can be expressed as a function of *Mach Nu
 C_{pr} = 0.85 \dfrac{q_{stag}}{q}
 \end{equation}
 
-### Reynolds Number
+## Reynolds Number
 
 The *Reynolds Number* is a dimensionless number which describes the ratio of the kinematic effects of a fluid to viscous effects.
 
@@ -154,7 +154,7 @@ Re = \dfrac{\rho \vec{v} d}{\mu}
 
 [@munson2013, pg.324]
 
-#### Critical Reynolds Number
+### Critical Reynolds Number
 
 The *Critical Reynolds Number* ($Re_{crit}$) is the value of *Reynolds Number* where the flow changes from laminar to turbulent. 
 This is greatly dependent on the surface roughness [munson2013]. 
@@ -192,7 +192,7 @@ R_{crit} = 51 \left( \dfrac{R_s}{L} \right)^{-1.039}
 
 [@niskanen2013, pg.44]
 
-#### Actual Reynolds Number
+### Actual Reynolds Number
 The *Actual Reynolds Number* can be expressed in the following form: 
 
 \begin{equation}
@@ -205,7 +205,7 @@ Where:
 - $L$ is the length of the rocket
 - $\nu$ is the kinematic viscosity of the air in free stream
 
-### Drag Force and Coefficients
+## Drag Force and Coefficients
 
 The total drag force is a function of air velocity (relative to the rocket body) drag coefficient, reference area, and air density.
 
@@ -225,9 +225,9 @@ From Fluid Mechanics [source?]
 D_f = \dfrac{1}{2} C_d A_{ref} \rho \vec{v}^2  
 \end{equation}
 
-#### Viscous Drag Effects
+### Viscous Drag Effects
 
-##### Skin Friction Drag
+#### Skin Friction Drag
 
 Skin Friction Drag is due to viscous effects during flight, and is significantly influenced by surface roughness.
 
@@ -301,7 +301,7 @@ Where $f_b$ is the *Fineness Ratio*, the ratio of the length of the rocket divid
 Re_{crit} = 51 \left( \dfrac{R_a}{L} \right) ^{-1.039} 
 \end{equation}
 
-#### Pressure (Form/Profile) Drag
+### Pressure (Form/Profile) Drag
 
 This is the drag caused by the pressure exerted on the surface of an object as it moves through a free stream [@munson2013, pg.514].
 
@@ -309,7 +309,7 @@ This is the drag caused by the pressure exerted on the surface of an object as i
 C_{pr}, D_{pr} (A_{ref}, M) 
 \end{equation}
 
-##### Body Drag 
+#### Body Drag 
 
 *Body Drag* is the drag on the rocket forebody (pressure drag?)
 
@@ -322,7 +322,7 @@ Where $l_{TR}$ is the total length of the rocket body, $l_c$ is the length of th
 the maximum body diameter and $d_d$ is the diameter of the rocket base. C f(fb) is the coefficient
 of viscous friction on the rocket forebody (defined later in (45))
 
-##### Fin Pressure Drag
+#### Fin Pressure Drag
 
 The *Fin Pressure Drag* depends on the fin profile. The current rocket will use a square (rectangular) profile, and can be determined as follows.
 
@@ -330,7 +330,7 @@ The *Fin Pressure Drag* depends on the fin profile. The current rocket will use 
 C_{fp}, D_{fp} (A_{ref}, M) 
 \end{equation}
 
-###### Leading Edge pressure drag
+##### Leading Edge pressure drag
 
 \begin{equation}
     C_{D,LE} = C_{D,stag} = 0.85 \dfrac{q_{stag}}{q}
@@ -357,38 +357,13 @@ $$
 $$
 [@niskanen2013, pg. 108]
 
-##### Von Karman Nose Pressure Drag
+#### Von Karman Nose Pressure Drag
 
 Most nose cone shapes can be approximated to produce zero pressure drag at subsonic velocities, however complications arise for transonic and supersonic velocities.
-A semi-empirical method can be employed in the latter conditions.
-
-> The curves of the pressure drag coefficient as a function of the nose fineness
-ratio $f_N$ can be closely fitted with a function of the form
-
-\begin{equation}
-C_{d_pressure} = \dfrac{a}{(f_N + 1)^b}
-\end{equation}
-
-Where *a* and *b* are calculated from two data points corresponding to fineness ratios 0 and 3
-
-[@source?]
-
-In subsonic and transonic regions, pressure drag of nose cones is calculated as follows:
-
-\begin{equation}
-\begin{cases}
-    0.8 \cdot \sin^2 \phi               & M \approx 0 \\
-    a \cdot M^b + 0.8 \cdot \sin^2 \phi & M \approx 0.8
-\end{cases}
-\end{equation}
-
-Where *a* and *b* are computed by interpolation to fit the drag coefficient and the derivative of the drag coefficient at the lower bound of the transonic region. 
-
 The cause of this drag is slight flow separation, and as such cannot be corrected due to compressibility effects.
+A semi-empirical method can be employed, and is explored by [@niskanen2013].
 
-[@niskanen2013, pg.47]
-
-##### Base Drag
+#### Base Drag
 
 Base drag is caused by a low pressure region generated behind the base of the rocket as it moves quickly through the atmosphere [@niskanen2013, pg.50].
 Specifically, it is due to boundary separation between the flow past the rocket and the surrounding air [@box2009, pg.12]. 
@@ -409,7 +384,7 @@ C_{ba} =
 \end{cases}
 \end{equation}
 
-[@niskanen, pg.50]
+[@niskanen2013, pg.50]
 
 In reality, this low pressure region is disturbed by the thrust envelope from the motor. 
 Thus, we would expect base drag to be different during the motor burn time than during the free flight after all fuel was exhausted.
@@ -429,7 +404,7 @@ C_{ba,normalized} =
 C_{ba} * A_{tube,base}/A_{motor,base}
 \end{equation}
 
-##### Shoulder Pressure Drag
+#### Shoulder Pressure Drag
 
 The drag coefficient of the shoulder interfacing the body tube is assumed to be equal to that of the body tube itself, and also assumes a smooth interface.
 This is likely to be sufficient for subsonic velocites [@niskanen2013, pg.48], and for the scope of this project it is neglected entirely.
@@ -485,7 +460,7 @@ C_{pa} \cdot
 [img_coef_drag_parasitic]: images/drag/coef_drag_parasitic.png "" 
 ![Matlab Implementation of Parasitic Drag Coefficient\label{img_coef_drag_parasitic_label}][img_coef_drag_parasitic] 
 
-##### Interference Drag
+#### Interference Drag
 
 *Interference Drag* is caused due to effects of air flow at the interfaces of the fins and the body.
 
@@ -517,20 +492,20 @@ A_{f_e} = \dfrac{1}{2} (l_r + l_t) l_s
 
 Interference Drag effects are small in comparison to other drag effects [@niskanen2013], and are thus ignored at this stage of the project.
 
-#### Wave Drag
+### Wave Drag
 
 *Wave drag* is drag associated with shock waves (independent of viscous effects). 
 
 > At transonic speed, shock waves form at the nose tip and at the leading edge of the fins ... Momentum is transferred from the rocket to the surrounding air via these shockwaves  
 
-#### Boat-Tail Drag
+### Boat-Tail Drag
 
 A *boat-tail* is a reduction in diameter of the body tube towards the base of the rocket. 
 Our rocket does not have a boat-tail, thus *Boat-Tail Drag* considerations are ignored. 
 
 \clearpage 
 
-### Additional Drag at Angle of Attack
+## Additional Drag at Angle of Attack
 
 When the rocket flies at a non-zero angle of attack, additional drag considerations must be made.
 The reference area the rocket becomes larger as the rocket is pitched into the free stream, exposing more of the rocket body to pressure and stagnation effects.
@@ -551,7 +526,7 @@ This analysis is derived with the aid of additional coefficients determined expe
 C_{aoa} = C_{Db(\alpha)} + C_{Df(\alpha)}
 \end{equation}
 
-#### Rocket Body Drag at Angle of Attack
+### Rocket Body Drag at Angle of Attack
 
 \begin{equation}
 \label{eq_rocket_body_drag_aoa}
@@ -601,7 +576,7 @@ R_s = \dfrac{l_{TS}}{d_f}
 
 [@box2009, pg.14]
 
-#### Alternatively
+### Alternatively
 
 [@mandell1973] shares a function determined for *Total drag coefficient due to angle-of-attack*
 
@@ -610,19 +585,30 @@ R_s = \dfrac{l_{TS}}{d_f}
 C_d (\alpha) = 16.83 \alpha^2 + 8.9 \alpha^3
 \end{equation}
 
-### Matlab Implementation
+## Matlab Implementation
 
-Figure \ref{rocket_drag_model_label} below shows the *Simulink* implementation of the calculation of the drag model
+Figure \ref{rocket_drag_model_label} shows the *Simulink* implementation of the calculation of the drag model
 
 [rocket_drag_model]: images/rocket_drag_model.png "Rocket Drag Model" 
 ![Rocket Drag Model\label{rocket_drag_model_label}][rocket_drag_model] 
 
 \clearpage
 
-Figure \ref{rocket_drag_coefficients_label} below shows the *Simulink* implementation of the calculation of drag coefficient
+Figure \ref{rocket_drag_coefficients_label} shows the *Simulink* implementation of the calculation of drag coefficient
 
 [rocket_coef_drag_model]: images/rocket_drag_coefficient.png "Rocket Drag Model" 
 ![Rocket Drag Coefficient Model \label{rocket_drag_coefficients_label}][rocket_coef_drag_model] 
+
+\clearpage
+
+### Matlab Validation
+
+The following plots show the Drag Model compared against OpenRocket, RASAero, and Rocksim. 
+The differences between the commercial simulations are likely due to differing drag analysis methods which are not available due to their closed source nature.
+However, it can be seen that Matlab and OpenRocket are very close, which validates the Matlab model since it was closely following the methods performed in OpenRocket
+
+[error_dragforce_plot]: images/plots/error_dragforce_plot.png "" 
+![Drag Force as a Function of Mach Number \label{error_dragforce_v_plot_label}][error_dragforce_plot] 
 
 \clearpage
 

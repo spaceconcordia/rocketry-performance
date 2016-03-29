@@ -1,4 +1,5 @@
 function drag_force = BasicDrag(inputs)
+%% Basic D
 % The following calculates the basic drag coefficient based on C.P. Hoult's
 % "Drag Coefficient (rev 3.2)". The drag is divided into skin friction
 % drag, pressure drag, wave drag and parasitic drag. Note that this

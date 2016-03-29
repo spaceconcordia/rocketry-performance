@@ -1,5 +1,5 @@
 function coef_drag_skin_corrected = CoefDragSkinCorrected(inputs)
-
+%% CoefDragSkinCorrected
 coef_drag_skin_uncorrected = inputs(1);
 mach_number                = inputs(2);
 
