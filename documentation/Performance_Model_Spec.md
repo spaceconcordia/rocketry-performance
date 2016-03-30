@@ -35,13 +35,6 @@ The Performance Model must provide the maximum altitude and velocity of the rock
 
 [SCRD 2016 Specifications and Requirements]
 
-## Validation
-
-- Sub-Models will be unit tested with 3rd party data to ensure functional validity where possible.
-- Once all Sub-Models are validated individually, the overall model will be validated using 3rd-party data.
-    - Primary 3rd-party simulation data source will be OpenRocket simulations
-    - Where possible, actual 3rd-party rocket flight data will be used to validate the model
-
 ## Problem Solving Approach
 
 ### Kinematics
@@ -80,13 +73,11 @@ If accepted, this would imply a *weak coupling* between the translational model 
 - three or four trapezoidal fins 
 - passively controlled (no active thrust or stability control)
 - constant fuel expenditure rate
-- vertical/linear flight within 5 degrees [@box2009]
 - the *Ideal Gas Law* applies throughout the flight
-- humidity in the air is ignored
 - steady-state irrotational flow around the body [@niskanen2013]
 - fully aligned thrust [@box2009, pg.16]
+- roll is ignored
 - smooth transition between nose cone and body tube (no shoulder)
 - rocket does not have a boattail
 - rocket has a single rectangular launch lug
-
 

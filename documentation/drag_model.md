@@ -179,9 +179,6 @@ For $Re_{crit} = 5 \times 10^5$
 
 [@niskanen2013, pg.42]
 
-[Trinh, Khanh Tuoc](http://arxiv.org/ftp/arxiv/papers/1007/1007.0810.pdf)
-[See Fluids Text book](fluids textbook)
-
 Surface roughness has a considerable influence on *Critical Reynolds Number*. 
 It can be determined as follows.
 
@@ -600,6 +597,14 @@ Figure \ref{rocket_drag_coefficients_label} shows the *Simulink* implementation 
 ![Rocket Drag Coefficient Model \label{rocket_drag_coefficients_label}][rocket_coef_drag_model] 
 
 \clearpage
+
+### Model Referencing
+
+A high level view of all the test models is in the file *DRAG_TESTING.slx* and is shown in the Model Reference in Figure \ref{drag_model_reference_label}.
+
+[drag_model_reference]: images/DRAG_TESTING.png "Drag - Model Referencing"
+![Drag System - Model Referencing - Simulink Library\label{drag_model_reference_label}][drag_model_reference] 
+
 
 ### Matlab Validation
 

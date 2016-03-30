@@ -51,8 +51,6 @@ The worst case scenario, is the maximum wind condition permitted for launch by t
 Identical rocket designs were implemented in OpenRocket, RockSim, RASAero, and our Engineering Simulator.
 The 3rd party simulator results were parsed with Matlab to determine essential performance criteria and to compare with our model.
 
-\clearpage
-
 ### Matlab
 
 #### Matlab Models

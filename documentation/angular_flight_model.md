@@ -465,3 +465,14 @@ Alternatively, we could model a constant wind speed of $8.33 m/s$, and apply the
 
 There are further resources on rocket flight stability here:
 - http://www.apogeerockets.com/Tech/Rocket_Stability
+
+\clearpage
+
+## Model Referencing 
+
+A high level view of all the test models is in the file *ANGULAR_FLIGHT_TESTING.slx* and is shown in the Model Reference in Figure \ref{angular_model_reference_label}.
+
+[angular_model_reference]: images/ANGULAR_FLIGHT_TESTING.png "Rigid-Body Oscillation - Model Referencing"
+![Rigid-Body Oscillation - Model Referencing - Simulink Library\label{angular_model_reference_label}][angular_model_reference] 
+
+\clearpage

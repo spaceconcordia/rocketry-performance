@@ -1,4 +1,0 @@
-\contentsline {section}{Vertical (AOA \textless {} 5\(^\circ \)) Flight Model}{3}{section*.4}
-\contentsline {subsection}{Particular Assumptions}{3}{section*.5}
-\contentsline {subsection}{Simplified Model}{3}{section*.6}
-\contentsline {subsection}{Drift due to Weathercocking}{4}{section*.7}

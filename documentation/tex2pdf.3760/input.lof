@@ -1,0 +1,31 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Sample Thrust Curve}}{5}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces Dynamic Weight Calculation Test Output }}{7}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces Dynamic Data - Model Referencing}}{10}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces COP, COG, and I\_l as a function of time }}{11}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces Barrowman Method - Simulink Library}}{15}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces Rocket Drag Sources - Subsonic Flight }}{19}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces Matlab Implementation of Parasitic Drag Coefficient}}{26}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces Rocket Drag Forces - Axial vs.\nobreakspace {}Normal Caption }}{28}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces Rocket Drag Model}}{29}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces Rocket Drag Coefficient Model }}{30}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces Drag System - Model Referencing - Simulink Library}}{31}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces Drag Force as a Function of Mach Number }}{32}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces Vertical Flight Model - Simplified }}{33}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces Angular Flight Model - Simplified }}{39}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Rigid-Body Oscillation - Model Referencing - Simulink Library}}{43}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces Center of Pressure - Integration Test}}{45}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces All Integration Tests }}{46}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Comparison of ISA Model with SLC Weather Balloon Data }}{47}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Comparison of ISA Model with TUS Weather Balloon Data }}{47}{figure.19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Altitude Plot of Simulation Data vs Louisville Rocket Launches }}{50}{figure.20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Velocity Plot of Simulation Data vs Louisville Rocket Launches }}{51}{figure.21}
+\contentsline {figure}{\numberline {22}{\ignorespaces Altitude Plot of Simulation Data vs Arcturus Rocket Launch }}{52}{figure.22}
+\contentsline {figure}{\numberline {23}{\ignorespaces Velocity Plot of Simulation Data vs Arcturus Rocket Launch }}{53}{figure.23}
+\contentsline {figure}{\numberline {24}{\ignorespaces Full Model in Simulink, angle-of- attack less than 15 degrees }}{55}{figure.24}
+\contentsline {figure}{\numberline {25}{\ignorespaces Altitude as a Function of Time }}{56}{figure.25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Mach Number as a Function of Time }}{57}{figure.26}
+\contentsline {figure}{\numberline {27}{\ignorespaces Stability (Calibers) as a Function of Time }}{58}{figure.27}
+\contentsline {figure}{\numberline {28}{\ignorespaces Angle of Attack Stabilization }}{59}{figure.28}
+\contentsline {figure}{\numberline {29}{\ignorespaces Natural Frequency }}{60}{figure.29}
+\contentsline {figure}{\numberline {30}{\ignorespaces Simulation Summary }}{61}{figure.30}
+\contentsline {figure}{\numberline {31}{\ignorespaces Forces and Moments Experienced by rocket in flight }}{64}{figure.31}

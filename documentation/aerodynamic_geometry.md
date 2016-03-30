@@ -72,9 +72,7 @@ Where
 \theta = \cos^{-1} \left( 1 - \dfrac{2x}{L} \right)
 \end{equation}
 
-[Nose Profile Design](http://rimworld.com/nassarocketry/fabrication/nosecones/design.html)
-
-[Nose Profile Design](https://en.wikipedia.org/wiki/Nose_cone_design#Von_K.C3.A1rm.C3.A1n)
+[@crowell1996]
 
 ### Aerodynamic Center
 

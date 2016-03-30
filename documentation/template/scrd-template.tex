@@ -232,14 +232,14 @@ $endfor$
     {
     \centering
         \small{
-            THIS DOCUMENT IS INTENDED FOR INTERNAL USE ONLY
+            SPACE CONCORDIA - ROCKETRY DIVISION - CONCORDIA UNIVERSITY
         }
     }
     \\
     {
     \centering
         \small{
-        UNAUTHORIZED DISTRIBUTION OF THIS DOCUMENT IS STRICTLY PROHIBITED 
+        ENGINEERING SIMULATION FOR ROCKET FLIGHT ANALYSIS
         }
     }
     \vspace*{\fill}
@@ -268,7 +268,6 @@ $endfor$
     \vspace*{\fill}
     {
     \centering
-    SCRD Internal Documents Template \\
     \today
     }
     \vspace*{\fill}
@@ -348,9 +347,11 @@ $abstract$
 $endif$
 \clearpage
 
+\hypersetup{linkcolor=black}
+
 $if(toc)$
 {
-\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+\hypersetup{linkcolor=black}
 \setcounter{tocdepth}{$toc-depth$}
 \tableofcontents
 \clearpage
@@ -371,6 +372,7 @@ $endif$
 %--------------------------------------------------------------------------------------------------------------
 \mainmatter
 
+\hypersetup{linkcolor=black}
 %--------------------------------------------------------------------------------------------------------------
 % body
 %--------------------------------------------------------------------------------------------------------------

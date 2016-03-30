@@ -267,7 +267,18 @@ Then, the rocket *Longitudinal Moment of Inertia* is the sum, shown as follows
 I_{r} = I_{m} + I_{s}
 \end{equation}
 
-### Center of Pressure
+\clearpage
+
+## Model Referencing 
+
+A high level view of all the test models for the preceding parameters is in the file *DYNAMIC_DATA_TESTING.slx*, and is shown in the Model Reference in Figure \ref{dynamic_data_testing_label}.
+
+[dynamic_data_testing]: images/DYNAMIC_DATA_TESTING.png "Dynamic Data - Model Reference" 
+![Dynamic Data - Model Referencing\label{dynamic_data_testing_label}][dynamic_data_testing] 
+
+\clearpage
+
+## Center of Pressure
 
 The *Center of Pressure* (COP) is the location (point) where the aerodynamic forces can be said to be acting, simplifying the complex distribution of forces across the rocket and its features. 
 
@@ -466,4 +477,16 @@ This correction is applied at the centroid of the planform area.
 
 *Barrowman's Equations* are based on assumptions that are only valid in subsonic flight.
 In the transonic and supersonic regions, what new effects are introduced that would affect the location of the *Center of Pressure*?
+
+\clearpage
+
+## Simulink Implementation
+
+
+Figure \ref{barrowman_library_label} shows the integration of the required parameters to perform the Barrowman Method.
+
+[barrowman_library]: images/barrowman_method.png "Barrowman Method - Simulink Library" 
+![Barrowman Method - Simulink Library\label{barrowman_library_label}][barrowman_library] 
+
+\clearpage
 

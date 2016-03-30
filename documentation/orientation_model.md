@@ -30,7 +30,7 @@ Leonhard Euler proved that
 e^{i\phi} = \cos \phi + i \sin \phi
 \end{equation}
 
-Thus, $e^{i\phi}$ lies on the unit circle in the complex plane, and has a unit length.
+Thus, $e^{i\phi}$ lies on the unit circle in the complex plane, and has a unit length [@introquaternions].
 
 Multiplication
 
@@ -42,13 +42,13 @@ $$
 i^2 = j^2 = k^2 = ijk = -1
 $$
 
-Quaternions
+Quaternions are typically denoted as the addition of a scalar and vector [@niskanen2013]:
 
 $$
-H = { a + bi + cj + dk : a,b,c,d \forall R }j
+q = w + x\hat{i} + y\hat{j} + z\hat{k} = w + v
 $$
 
-$i$, $j$, $k$ are all square roots of $-1$
+$i$, $j$, $k$ are all square roots of $-1$ [@introquaternions]
 
 $$
 ij = k = -ji 
@@ -60,13 +60,13 @@ $$
 ki = j = -ik
 $$
 
-If we consider three-dimensional space to be purely imaginary quaternions:
+If we consider three-dimensional space to be purely imaginary quaternions [@introquaternions]:
 
 $$
 R^3 = {xi + yj + zk : x,y,z \forall R}
 $$
 
-Rotations are done using unit quaternions
+Rotations are done using unit quaternions [@introquaternions]
 
 $$
 \cos \phi + i \sin \phi 
@@ -77,25 +77,148 @@ $$
 $$
 \cos \phi + k \sin \phi
 $$
-Which can be rewritten as 
+
+Which can be rewritten as [@introquaternions]
 
 $$
 e^{i\phi}, e^{i\phi}, e^{k\phi}
 $$
 
-For example, taking any arbitrary unit quaternion (*vector*) **u**
+For example, taking any arbitrary unit quaternion (*vector*) **u** [@introquaternions]
 
 $$
 u = u_1i + u_2j + u_3k = e^{u\phi}
 $$
 
-We can rotate another arbitrary vector **v** about the axis in the **u** direction
+We can rotate another arbitrary vector **v** about the axis in the **u** direction [@introquaternions]
 
 $$
 e^{u\phi}ve^{-u\phi}
 $$
 
-http://math.ucr.edu/~huerta/introquaternions.pdf
+We can also rotate in the inverse direction as follows 
+
+$$
+e^{-u\phi}ve^{u\phi}
+$$
+
+Such multiplication of unit quaternions is useful for particular 3D rotations about an axis.
+Specifically, the unit quaternion $e^{i\phi}$ corresponds to a rotations about the origin on the complex plane of angle $\phi$ [@niskanen2013].
+
+We can rewrite the previous rotations with the unit quaternion $q$
+
+$$
+qvq^{-1}
+$$
+
+$$
+q^{-1}vq
+$$
+
+The computation of quaternions can be simplified, knowing that
+
+$$
+q^{-1} = \left( w + x \hat{i} + y \hat{j} + z \hat{k} \right)^{-1} = w - x \hat{i} - y \hat{j} - z \hat{k}
+$$
+
+With the following transformation, $q$ can be be converted to a rotation matrix $R$
+
+\begin{equation}
+R = 
+\left[
+\begin{matrix}
+1-2v_y^2            & 2 v_x v_y - 2 w v_z       & 2 v_x v_z + 2 w v_y \\
+2 v_x v_y + 2 w_v z & 1 - 2 v_x^2 - 2 v^2_z & 2 v_y v_z - 2 w v_x \\
+2 v_x v_z - 2 w v_y & 2 v_y V_z + 2 w v_x   & 1 - 2 v_x^2 - 2 v^2_y \\
+\end{matrix}
+\right]
+\end{equation}
+
+[@BoxBishopHunt11]
+
+Where:
+
+\begin{equation}
+w = \cos \left( \dfrac{\phi}{2} \right)
+\end{equation}
+
+\begin{equation}
+v_x = \sin \left( \dfrac{\phi}{2} \right)a_x
+\end{equation}
+
+\begin{equation}
+v_y = \sin \left( \dfrac{\phi}{2} \right)a_y
+\end{equation}
+
+\begin{equation}
+v_z = \sin \left( \dfrac{\phi}{2} \right)a_z
+\end{equation}
+
+[@BoxBishopHunt11]
+
+This can be used to determine the unit vectors for the pitch ($X$), yaw ($Y$), and roll ($Z$) axes in the current orientation before rotation
+
+\begin{equation}
+X = R X^T_0
+\end{equation}
+
+\begin{equation}
+Y = R Y^T_0
+\end{equation}
+
+\begin{equation}
+Z = R Z^T_0
+\end{equation}
+
+[@BoxBishopHunt11]
+
+Where:
+
+\begin{equation}
+X = 
+\left[
+1,0,0
+\right]
+\end{equation}
+
+\begin{equation}
+Y = 
+\left[
+0,1,0
+\right]
+\end{equation}
+
+\begin{equation}
+Z = 
+\left[
+0,0,1
+\right]
+\end{equation}
+
+[@BoxBishopHunt11]
+
+An inertia tensor is defined as follows:
+
+\begin{equation}
+I =
+\left[
+\begin{matrix}
+I_{xx}    & 0      & 0 \\
+0      & I_{yy} & 0 \\
+0      & 0      & I_{zz} \\
+\end{matrix}
+\right]
+\end{equation}
+
+[@BoxBishopHunt11]
+
+TODO:
+
+1. calculate earth-relative linear velocity vector
+2. angular velocity vector
+3. calculate quaternion derivative
+
+Et Voila!
 
 ### Parameters needed for quaternion analysis
 
@@ -156,31 +279,10 @@ Where:
 
 - $F_s$ is the side force
 
-### Fin-set Pitch Moment Coefficient
-
-\begin{equation}
-M_{pm} = \dfrac{C_N \times COP}{L_{ref}}
-\end{equation}
-
-### Body Tube and Fin Set Interference Pitch Moment Coefficient
-\begin{equation}
-M_{pm} = \dfrac{C_N \times COP_x}{L_{ref}}
-\end{equation}
-
-### Barrowman Calculation 
-\begin{equation}
-total.getCM + forces.getCM
-\end{equation}
-
-### Final Solver Pitch Moment Coefficient
-
-\begin{equation}
-M_{pm} = M_{pm} + \left( \text{randomness}  \right)
-\end{equation}
-
-Some randomness is added to avoid an "over-perfect" solution
+[@niskanen2013]
 
 ### Pitch Damping Moment
 
 - significant only near apogee
 
+[@niskanen2013]
