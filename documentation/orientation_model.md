@@ -6,8 +6,7 @@ If all forces and moments can be clearly defined, it also allows a seamless coup
 
 Building on the material explored in the Angular Stability model, this section introduces topics relating to the orientation of the rocket during flight.
 
-[img_rocket_flight_forces_moments_label]: images/rocket_flight_forces_moments.png "Forces and Moments Experienced by rocket in flight" 
-![Forces and Moments Experienced by rocket in flight \label{img_rocket_flight_forces_moments_label}][img_rocket_flight_forces_moments_label] 
+[@BoxBishopHunt11]
 
 \clearpage
 
@@ -29,6 +28,8 @@ Leonhard Euler proved that
 \label{eq_euler_mult}
 e^{i\phi} = \cos \phi + i \sin \phi
 \end{equation}
+
+[@introquaternions]
 
 Thus, $e^{i\phi}$ lies on the unit circle in the complex plane, and has a unit length [@introquaternions].
 
@@ -114,12 +115,14 @@ $$
 $$
 q^{-1}vq
 $$
+[@niskanen2013]
 
 The computation of quaternions can be simplified, knowing that
 
 $$
 q^{-1} = \left( w + x \hat{i} + y \hat{j} + z \hat{k} \right)^{-1} = w - x \hat{i} - y \hat{j} - z \hat{k}
 $$
+[@niskanen2013]
 
 With the following transformation, $q$ can be be converted to a rotation matrix $R$
 

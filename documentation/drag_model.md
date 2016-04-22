@@ -25,11 +25,15 @@ The speed of sound (c) is calculated as follows
 c = \sqrt{\gamma R T } 
 \end{equation}
 
+[@munson2013]
+
 The *Ideal Gas Law* states that 
 \begin{equation}
 \label{ideal_gas_law}
 P = \rho R T
 \end{equation}
+
+[@munson2013]
 
 We assume that the *Ideal Gas Law* applies, and use it to solve for *RT* using pressure and density. 
 $$ RT = \dfrac{P}{\rho} $$
@@ -39,6 +43,8 @@ Thus we can calculate the speed of sound as follows
 \label{speed_of_sound}
 c = \sqrt{\gamma \dfrac{P}{\rho} } 
 \end{equation}
+
+[@munson2013]
 
 Where $p$ is the local pressure, $\rho$ is the local density, and $\gamma$ is the *adiabatic index*, known as the *isentropic explansion factor* - it is the ratio of the specific heats of a gas at constant pressure and constant volume.
 
@@ -88,16 +94,19 @@ force and viscous force
 
 Special considerations apply when compressibility effects are in play. These effects occur above Mach 0.3 [@box2009], which will be easily exceeded by the transonic upper limit of Mach 0.9 mandated by the competition.
 
-> At low speeds (incompressible flow), the aerodynamic coefficients are functions of the angle of attack ($\alpha$) and Reynolds number (Re). 
+"At low speeds (incompressible flow), the aerodynamic coefficients are functions of the angle of attack ($\alpha$) and Reynolds number (Re)." [@box2009]
 
 \begin{equation}
 C_i (M < 0.3) = C_i (\alpha, Re) 
 \end{equation}
-> At higher speeds (compressible, Ma $\ge$ 0.4) they are also a function of Mach number.
+
+At higher speeds (compressible, Ma $\ge$ 0.4) they are also a function of Mach number. [@box2009]
 
 \begin{equation}
 C_i (M \ge 0.3) = C_i (\alpha, Re, M)
 \end{equation}
+
+[@box2009]
 
 Particular correction factors are recommended for ranges of Mach number
 
@@ -142,6 +151,8 @@ Then, the *Pressure Drag Coefficient* can be expressed as a function of *Mach Nu
 \label{eq_pressure_drag_coefficient}
 C_{pr} = 0.85 \dfrac{q_{stag}}{q}
 \end{equation}
+
+[@niskanen2013]
 
 ## Reynolds Number
 
@@ -216,11 +227,14 @@ The drag coefficient $C_d$ is the sum of all component drag coefficients
 C_d = \sum C_i = C_{pa} + C_{fo} + C_{pr} + C_{in} + C_{ba} + C_{sk} + C_{fp} + C_{wa} + C_{bt} + C_{aoa}
 \end{equation}
  
-From Fluid Mechanics [source?]
 
 \begin{equation}
 D_f = \dfrac{1}{2} C_d A_{ref} \rho \vec{v}^2  
 \end{equation}
+
+The drag force for a given reference area and drag coefficient is
+
+[@munson2013]
 
 ### Viscous Drag Effects
 
@@ -242,6 +256,8 @@ C_{sk}, (A_{wet}, M, \dfrac{\epsilon}{l} )
 \end{equation}
 
 $\dfrac{\epsilon}{l}$ is the relative roughness of the surface 
+
+[@munson2013]
 
 With the critical and actual Reynolds Numbers determined, the *Uncorrected Skin Friction Drag Coefficient* can now be conditionally determined
 
@@ -306,13 +322,9 @@ This is the drag caused by the pressure exerted on the surface of an object as i
 C_{pr}, D_{pr} (A_{ref}, M) 
 \end{equation}
 
-#### Body Drag 
-
-*Body Drag* is the drag on the rocket forebody (pressure drag?)
-
 \begin{equation}
 \label{body_drag_coefficient}
-C_{fb} = \left[ 1 + \dfrac{60}{(l_{TR}/d_b)^3} + 0.0025 \dfrac{l_b}{d_b} \right] \left[ 2.7 \dfrac{l_n}{d_b} + 4 \dfrac{l_b}{d_b} 2 \left( 1 - \dfrac{d_d}{d_b} \right) \dfrac{l_c}{d_b} \right] \cdot C_{f(fb)}
+C_{pr} = \left[ 1 + \dfrac{60}{(l_{TR}/d_b)^3} + 0.0025 \dfrac{l_b}{d_b} \right] \left[ 2.7 \dfrac{l_n}{d_b} + 4 \dfrac{l_b}{d_b} 2 \left( 1 - \dfrac{d_d}{d_b} \right) \dfrac{l_c}{d_b} \right] \cdot C_{f(pr)}
 \end{equation}
 
 Where $l_{TR}$ is the total length of the rocket body, $l_c$ is the length of the boat tail, $d_b$ is
@@ -393,6 +405,8 @@ Instead, an accepted approximation is to subtract the area of the motor from the
 D_{ba} = \dfrac{1}{2} C_{ba} \rho (A_{tube,base} - A_{motor,base}) \vec{v}^2 
 \end{equation}
 
+[@niskanen2013, pg.50]
+
 We can normalize the base drag coefficient to take this into account.
 
 \begin{equation}
@@ -400,6 +414,8 @@ We can normalize the base drag coefficient to take this into account.
 C_{ba,normalized} =
 C_{ba} * A_{tube,base}/A_{motor,base}
 \end{equation}
+
+[@niskanen2013, pg.50]
 
 #### Shoulder Pressure Drag
 
@@ -430,6 +446,8 @@ The following equation relates the launch lug diameter $\phi_{lug}$ to the launc
 C_{pa} = \left( 1.3 - 0.3 \dfrac{l_{lug}}{\phi_{lug}} , 1 \right)_{max} \cdot C_{stagnation} 
 \end{equation}
 
+[@niskanen2013, pg.52]
+
 Where *L* is the rocket length, $h_n$ is the height of the nose cone, *OD* is the outer diameter of the rocket, and $C_{stagnation}$ is the stagnation coefficient [@niskanen2013, pg.52].
 
 The reference area of the launch lug is given as follows
@@ -439,6 +457,8 @@ The reference area of the launch lug is given as follows
 \pi \cdot (r_{ext,lug}^2 - r_{int,lug}^2) \cdot 
 \left[ 1 - \left( \dfrac{l_{lug}}{\phi_{lug}} \right) \right]_{+ve} 
 \end{equation}
+
+[@niskanen2013, pg.52]
 
 The *Parasitic Drag Coefficient* can be normalized to the reference area of the launch lug.
 
@@ -470,6 +490,8 @@ C_{in}, D_{in} (A_{ref}, M)
 C_{in} = 2 C_{sk,fins} \left( 1 + 2 \dfrac{T_f}{l_m} \right) \dfrac{4n(A_{f_p}-A_{f_e})} {\pi d^2_f}
 \end{equation}
 
+[@box2009, pg.12-13]
+
 Where:
 
 - $C_{sk,fins}$ is the coefficient of skin friction (due to viscous effects) on the fins
@@ -492,8 +514,9 @@ Interference Drag effects are small in comparison to other drag effects [@niskan
 ### Wave Drag
 
 *Wave drag* is drag associated with shock waves (independent of viscous effects). 
+It is ignored in this report.
 
-> At transonic speed, shock waves form at the nose tip and at the leading edge of the fins ... Momentum is transferred from the rocket to the surrounding air via these shockwaves  
+[@box2009, pg.12-13]
 
 ### Boat-Tail Drag
 

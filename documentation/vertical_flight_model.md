@@ -9,6 +9,8 @@ Simplifying the rocket flight as ideally one-dimensional, with the positive z-di
 m(t)\ddot{z}(t) = T(t) - D(\dot{z}) - W(t)
 \end{equation}
 
+[@mandell1973]
+
 Mass is a function of time, which is explained in the *Dynamic Parameters* section. Drag is a function of velocity, which is explained in *Drag Model* section.
 Acceleration can be expressed as the first derivative of velocity and also the second derivative of position, each with respect to time.
 
@@ -30,6 +32,8 @@ The sum of forces can be rearranged and acceleration can be solved for:
 \vec{a} =  \ddot{z} = \dfrac{1}{m(t)} (T(t) - D(\dot{z}) - W(t)) 
 \end{equation}
 
+[@mandell1973]
+
 Acceleration can be integrated to find position and velocity.
 
 \begin{equation}
@@ -39,6 +43,8 @@ Acceleration can be integrated to find position and velocity.
 \begin{equation}
 z = \iint \vec{a} dz
 \end{equation}
+
+[@mandell1973]
 
 Integration of equation (\ref{vertical_flight_equation}) in the model is represented by the $\dfrac{1}{s}$ block. The model is pictured in Figure \ref{vertical_model_simplified}.
 
@@ -59,6 +65,8 @@ If we apply a wind velocity in the drag calculation, we can then modify Equation
 m(t)\ddot{z}(t) = T(t) \cos \theta - D(\dot{z}) \cos \theta - W(t)
 \end{equation}
 
+[@mandell1973]
+
 Where:
 
 - $z$ is the upward direction (normal from the ground)
@@ -71,3 +79,4 @@ Where:
 m(t) \ddot{z}(t) = T(t) \sin \theta - D(\dot{z}) \sin \theta 
 \end{equation}
 
+[@mandell1973]

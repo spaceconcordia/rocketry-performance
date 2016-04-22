@@ -16,6 +16,8 @@ Related to aerodynamic geometry of the rocket, the specific parameters of intere
 
 *Surface Roughness* is the deviation in the normal direction from a surface of its features. It contributes to *Skin Friction Drag* 
 
+[@munson2013]
+
 ### Fineness Ratio
 
 The *Fineness Ratio* is the ratio of the length to the outer diameter
@@ -23,6 +25,8 @@ The *Fineness Ratio* is the ratio of the length to the outer diameter
 \begin{equation} 
 f_B = \dfrac{L} {OD}
 \end{equation}
+
+[@niskanen2013]
 
 ### Fins
 
@@ -38,13 +42,9 @@ Reference areas are required to calculate the drag force.
 
 The *Wetted Body Area* is the combined area of all surfaces in contact with moving air. 
 
-[Fluids e-book (TODO find better)]:(https://ecourses.ou.edu/cgi-bin/eBook.cgi?doc=&topic=fl&chap_sec=09.1&page=theory)
-
 #### Frontal Reference Area
 
 The *Frontal Reference Area* is the projected area of the rocket perpendicular to the direction of air flow. For perfectly vertical flight and quiescent air conditions, this is the precise projection of the tip face of the rocket.
-
-[TODO show figure]
 
 ##### Frontal Reference Area at Angle of Attack
 
@@ -73,13 +73,3 @@ Where
 \end{equation}
 
 [@crowell1996]
-
-### Aerodynamic Center
-
-The *Aerodynamic Center* is the point where the *Pitching Moment* does not change with angle-of-attack
-
-Sources:
-
-- http://ocw.mit.edu/courses/aeronautics-and-astronautics/16-100-aerodynamics-fall-2005/lecture-notes/16100lectre10_cg.pdf
-- http://www.digplanet.com/wiki/Aerodynamic_center
-

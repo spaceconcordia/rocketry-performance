@@ -200,7 +200,7 @@ The *Center of Gravity* is a location were we can consider the entire rocket mas
 y_{cg} = \dfrac{m_1 y_1 + m_2 y_2 + ... + m_n y_n}{\sum_{j=1}^n m_j}
 \end{equation}
 
-[NASA CG]:(http://www.grc.nasa.gov/WWW/K-12/airplane/cg.html)
+[@mandell]
 
 \begin{equation}
 COG(t) = \dfrac{m_1 y_1 + (m_2 - \Delta m) y_2}{m_1 + m_2 - \Delta m(t)} 
@@ -242,7 +242,7 @@ To the *Moment of Inertia* related to the pitch/yaw of the rocket is the *Longit
 I = \dfrac{mL^2}{12}
 \end{equation}
 
-[TODO source dynamics textbook]
+[@box2009]
 
 In keeping with the assumption of the motor as a point mass in the volumetric center of the motor casing, the dynamic *Longitudinal Moment of Inertia* is calculated as follows.
 
@@ -326,7 +326,6 @@ The *Stability Derivative* $C_{N\alpha}$ is a dimensionless parameter, used to c
 It is the slope of the *Normal Force Coefficient* plotted against the angle-of-attack. 
 For low angles of attack, it is nearly constant.
 
-TODO show figure
 
 [@mandell1973]
 
@@ -346,6 +345,8 @@ C_{N \alpha} = \sum C_{N \alpha (i)}
 C_{N \alpha (n)} = 2
 \end{equation}
 
+[@barrowman]
+
 ## Rocket Body
 
 The *Barrowman Method* considers the body lift at small angles of attack to be negligible.
@@ -354,6 +355,8 @@ The *Barrowman Method* considers the body lift at small angles of attack to be n
 \label{eq_sd_bodytube}
 C_{N \alpha (bt)} = 0
 \end{equation}
+
+[@box2009]
 
 ## Fins
 
@@ -469,13 +472,11 @@ TODO All COP components must be modified by the lift coefficient
 C_{N \alpha^2} = K \dfrac{A_p}{A_ref} \alpha
 \end{equation}
 
-This correction is applied at the centroid of the planform area.
-
-[@box2009, pg.11] 
+This correction is applied at the centroid of the planform area [@box2009, pg.11].
 
 ## Transonic Considerations
 
-*Barrowman's Equations* are based on assumptions that are only valid in subsonic flight.
+*Barrowman's Equations* are based on assumptions that are only valid in subsonic flight [@barrowman].
 In the transonic and supersonic regions, what new effects are introduced that would affect the location of the *Center of Pressure*?
 
 \clearpage

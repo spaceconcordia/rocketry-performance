@@ -35,7 +35,9 @@ The *Longitudinal Static Stability Margin* ($S_{lm}$) is the distance between th
 
 $$ S_{lm} = \dfrac{COP - COG}{OD} $$
 
-When traveling under a non-zero angle of attack, the Stability Margin is adjusted using the body lift correction factor Equation \ref{eq_coefficient_normal_force_body_lift}.
+[@mandell1973]
+
+When traveling under a non-zero angle of attack, the Stability Margin is adjusted using the body lift correction factor Equation.
 
 The result is dimensionless, however the ratio determined is measured in the number of *calibers*. 
 
@@ -94,9 +96,9 @@ Where:
 - $C_{N \alpha}$ is the *Stability Derivative* ~~*Normal Force Coefficient*~~
 - $(COP-COG)$ is the distance between the *Center of Pressure* and *Center of Gravity*
 
-Note: a rocket with a high *Corrective Moment Coefficient* is going to weathercock faster at lower velocities.
+[@mandell1973]
 
-[Corrective Moment Coefficient](https://www.apogeerockets.com/education/downloads/Newsletter193.pdf)
+Note: a rocket with a high *Corrective Moment Coefficient* is going to weathercock faster at lower velocities [@mandell1973].
 
 #### Dimensional Analysis
 
@@ -111,23 +113,29 @@ As the rocket responds to a disturbance, the *Corrective Moment* reactions force
 In order to reach dynamic stability, this oscillation must decay and settle to a reasonable response.
 The *Damping Moment Coefficient* represents how fast the response settles towards zero.
 
+[@mandell1973]
+
 There are two *Damping Moment Coefficients* to consider, the *Aerodynamic Damping Moment Coefficient* and the *Propulsive Damping Moment Coefficient*.
 
-Then the *Damping Moment Coefficient* is the sum of the two moment components coefficients.
+Then the *Damping Moment Coefficient* is the sum of the two moment components coefficients [@mandell1973].
 
 \begin{equation}
 \label{eq_coef_moment_damping}
 C_{DM} = C_{ADM} + C_{PDM}
 \end{equation}
 
+[@mandell1973]
+
 #### Aerodynamic Damping Moment Coefficient
 
-Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient*
+Each rocket component contributes to the *Aerodynamic Damping Moment Coefficient* [@mandell1973].
 
 \begin{equation}
 \label{eq_coef_moment_damping_aero}
 C_{ADM} = \dfrac{1}{2} \rho \vec{v} A_{ref} \sum \left( C_{N \alpha,x} \cdot \left[ COP_{x} - COG \right]^2  \right) 
 \end{equation}
+
+[@mandell1973]
 
 NOTE: Why isn't $\vec{v}$ SQUARED?
 It might have something to with the fact that the ADM is a function of angular displacement, and DM is a function of angular velocity??
@@ -141,6 +149,8 @@ Where:
 - $COP_{x}$ is the distance of *Center of Pressure* of the rocket component to the nose cone tip
 - $COG$ is the distance between the rocket *Center of Gravity* to the nose cone tip
 
+[@mandell1973]
+
 ##### Dimensional Analysis
 
 \begin{equation}
@@ -150,12 +160,14 @@ Where:
 
 #### Propulsive Damping Moment Coefficient
 
-Also known as *Jet Damping*, as propulsion creates forward momentum, it resists rotation of the rocket.
+Also known as *Jet Damping*, as propulsion creates forward momentum, it resists rotation of the rocket [@mandell1973].
 
 \begin{equation}
 \label{eq_coef_moment_damping_jet}
 C_{PDM} = \dot{m} \left( d_{tip,nozzle} - COG \right) ^2
 \end{equation}
+
+[@mandell1973]
 
 ##### Jet Damping - Dimensional Analysis
 
@@ -170,27 +182,29 @@ $$
 
 Note: why is the *Jet Damping Moment* missing a 1/t?
 
-[Damping Moment Coefficient - Source](https://www.apogeerockets.com/education/downloads/Newsletter195.pdf)
-
 #### Pitch Damping Moment
 
-The *Pitch Damping Moment* is a moment opposing the *Rocket Restoring Moment* and dampens the oscillation. 
+The *Pitch Damping Moment* is a moment opposing the *Rocket Restoring Moment* and dampens the oscillation [@niskanen2013]. 
 
 \begin{equation}
 \label{eq_moment_damping_pitch}
 0.55 \dfrac{l^4 r_t}{A_{ref} d} \dfrac{\omega^2}{v^2_0}
 \end{equation}
 
+[@niskanen2013]
+
 According to [@niskanen2013], the *Pitch Damping Moment* is essentially insignificant until near apogee. 
 This is because it is proportional to $\dfrac{\omega^2}{v^2_0}$ (as seen in \ref{eq_moment_damping_pitch}), which will be near zero until apogee due to very small angular velocities made smaller by squaring the $\omega$ term.
 
 The *Pitch Damping Moment* of each rocket component must be calculated individually.
-For instance, the *Pitch Damping Moment* of a fin is as follows.
+For instance, the *Pitch Damping Moment* of a fin is as follows [@niskanen2013].
 
 \begin{equation}
 \label{eq_moment_damping_pitch_fin}
 C_{damp} = 0.6 \dfrac{N A_{fin} d_{COP}^3}{A_{ref} d} \dfrac{\omega^2}{v^2_0}
 \end{equation}
+
+[@niskanen2013]
 
 ## Derivation of the Harmonic Motion Equation
 
@@ -224,6 +238,8 @@ $$
 I \left( \dfrac{d^2\alpha}{dt^2} \right) + F(\alpha) + G \left(\dfrac{d\alpha}{dt} \right) = 0
 \end{equation}
 
+[@mandell1973, pg.84]
+
 This nonlinear, homogenous, differential equation can not be solved exactly [@mandell1973, pg.84].
 
 ## Linearization Approximation
@@ -243,8 +259,6 @@ $$
 I \left( \dfrac{d^2\alpha}{dt^2} \right) + C_1 (\alpha) + C_2 \left(\dfrac{d\alpha}{dt} \right) = 0
 \end{equation}
 
-
-
 ## General Homogeneous Response
 
 The characteristic, linearized, homogeneous yaw/pitch response is given as:
@@ -262,15 +276,21 @@ A solution over a known range of acceptable values of the coefficients above is:
 \alpha_x = A e^{-Dt} \sin(\omega t + \phi)
 \end{equation}
 
+[@mandell1973]
+
 Where:
 
 - $t$ is the time passed since the "observation of the dynamic response has begun, not the time elapsed since the rocket was launched" [@mandell1973, pg.94]
 - $\omega$ is the *frequency of oscillation* (not literally the angular velocity of the rocket)
 
+[@mandell1973]
+
 \begin{equation}
 \label{eq_frequency_oscillation}
 \omega = \sqrt{ \dfrac{C_1}{I_L} - \dfrac{C_2^2}{4 I_L^2} }
 \end{equation}
+
+[@mandell1973]
 
 - $\phi$ is the *phase angle* in radians
 \begin{equation}
@@ -280,6 +300,8 @@ Where:
 \left( \dfrac{ \alpha_{xo} \omega } { D\alpha_{xo} + \Omega_{xo} } \right) 
 }
 \end{equation}
+
+[@mandell1973]
 
 - $D$ is the *inverse time constant*
 \begin{equation}
@@ -292,6 +314,8 @@ D = { C_2 \over 2 I_L }
 A = \dfrac{\alpha_{xo}}{sin \phi}
 \end{equation}
 
+[@mandell1973]
+
 - $\alpha_{xo}$ is the value of $\alpha_x$ at $t=0$
 
 [@mandell1973, pg.94]
@@ -301,23 +325,17 @@ The initial conditions for this solution are
 - $a_{xo}$ = some non-zero angle-of-attack
 - $\Omega_{xo}$ = 0
 
+[@mandell1973]
+
 This equation is represented in the model as follows
 
 [angular_model_simplified]: images/angular_model_simplified.png "Angular Model - Simplified" 
 ![Angular Flight Model - Simplified \label{angular_model_simplified}][angular_model_simplified] 
 
-$$
-I_L (D^2 - \omega^2) - C_2 D + C_1 = 0
-$$
-$$
--2 I_L D + C_2 = 0
-$$
-
 [@mandell1973, pg.95]
 
 A rocket can be considered restored from a disturbance if the angle of attack decays to 5% of the initial amplitude [@mandell1973, pg.99].
 
-[@mandell1973, pg.95-96]
 
 The *Natural Frequency* of the rocket at the current air speed for the homogeneous solution is
 
@@ -325,6 +343,8 @@ The *Natural Frequency* of the rocket at the current air speed for the homogeneo
 \label{eq_natural_frequency_homogeneous}
 \omega_n = \sqrt{ \dfrac{C_1}{I_L} }
 \end{equation}
+
+[@mandell1973, pg.95-96]
 
 Note: it would appear that this response only reflects the physical system for non-decreasing values of $C_2$, which would cause the exponential term to increase with time and cause the amplitude to grow.
 Although the damping coefficient remains relatively constant, the inverse time-constant is only a function of $\dfrac{C_2}{2 I_L}$. 
@@ -336,25 +356,20 @@ While the rocket has a zero climbing velocity, it does still travel laterally an
 
 ## Complete Response to Impulse Input
 
-### Delta-Dirac Function
-
-\begin{equation}
-\label{eq_delta_dirac}
-u(t) = \int_{-\infty}^{\infty} \delta ( u - \tau ) d \tau
-\end{equation}
-
 ### Convolution Theorem
 
 ## Steady State Response to Sinusoidal Forcing
 
 ### Rocket Damping Ratio
 
-The *Rocket Damping Ratio* is calculated as follows.
+The *Rocket Damping Ratio* is calculated as follows [@mandell1973, pg.99].
 
 \begin{equation}
 \label{eq_rocket_damping_ratio}
 \zeta = \dfrac{C_2}{2 \cdot \sqrt{C_1 I_L}}
 \end{equation}
+
+[@mandell1973, pg.99]
 
 Where:
 
@@ -362,8 +377,8 @@ Where:
 - $C_2$ is the *Damping Moment Coefficient*
 - $I_L$ is the *Longitudinal Moment of Inertia*
 
-[@mandell1973, pg.99]
-
+[@mandell1973]
+ 
 #### Underdamped Case
 
 \begin{equation}
@@ -372,11 +387,15 @@ Where:
 
 The fastest response is when $\zeta = \dfrac{\sqrt{2}}{2}$
 
+[@mandell1973, pg.101]
+
 #### Overdamped Case
 
 \begin{equation}
 \dfrac{C_2^2}{4I_L^2} > \dfrac{C_1}{I_l} \
 \end{equation}
+
+[@mandell1973, pg.101]
 
 #### Critically Damped Case
 
@@ -441,6 +460,8 @@ $$
 #### Compressibility Correction
 
 *Barrowman's Method* neglects compressibility effects, however these effects cannot be neglected above Mach 0.3.
+
+[@niskanen2013]
 
 ## Wind Disturbance
 
