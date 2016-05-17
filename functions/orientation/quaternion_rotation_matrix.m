@@ -2,6 +2,8 @@
 %   Inputs
 % -----------------------------------------------------
 
+% TODO: Make these inputs user-inputs:
+
 % Point to rotate:
 P(1) = 1;
 P(2) = -1;
