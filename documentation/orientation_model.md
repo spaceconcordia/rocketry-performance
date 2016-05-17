@@ -17,7 +17,100 @@ Special cases are required to handle these singularities, which complicate the a
 
 ### Quaternions 
 
-*Quaternions* are commonly used to describe spatial rotation, avoiding singularities. 
+*Quaternions* are commonly used to describe spatial rotation, avoiding singularities encountered in Euler rotations due to Gimbal lock. 
+
+Quaternions can be used to find the image of a point rotated by a certain angle about a rotation axis.
+
+There are two main methods for carrying out this procedure:
+1. Using the quaternion rotation
+2. Using the quaternion-derived rotation matrix
+
+#### Method 1: Quaternion Rotation
+
+Given an initial point (p), a unit axis of rotation (u), and an angle of rotation ($\theta$).
+
+The steps for using quaternion rotations are as follows:
+
+1. Find a unit vector about which the point will be rotated:
+
+$$
+\vec{u} = (u_x, u_y, u_z) = u_x\hat{i}+u_y\hat{j}+u_z\hat{k}
+$$
+
+2. Next, obtain the quaternion using the following equation:
+
+$$
+\vec{q} = e^{\theta/2(u_x\hat{i}+u_y\hat{j}+u_z\hat{k})} =
+\cos\left(\dfrac{\theta}{2}\right)+(u_x\hat{i}+u_y\hat{j}+u_z\hat{k})\sin\left(\dfrac{\theta}{2}\right)
+$$
+
+3. Find the conjugate of the quaternion where:
+
+$$
+\vec{q} ^{-1}= e^{-\theta/2(u_x\hat{i}+u_y\hat{j}+u_z\hat{k})} =
+\cos\left(\dfrac{\theta}{2}\right)-(u_x\hat{i}+u_y\hat{j}+u_z\hat{k})\sin\left(\dfrac{\theta}{2}\right)
+$$
+
+4. Solve for the image, p' using the following equation:
+
+$$
+\vec{p}' = \vec{q}\vec{p}\vec{q}^{-1}
+$$
+
+The solution is then:
+
+$$
+\vec{p}' = (p_x, p_y, p_z)
+$$
+
+#### Method 2: Quaternion-Derived Rotation Matrix
+
+Given an initial point (p), a unit axis of rotation (u), and an angle of rotation ($\theta$).
+
+The steps for using the quaternion-derived rotation matrix are as follows:
+
+1. Obtain the rotation matrix, R, from:
+
+\begin{equation}
+R = 
+\left[
+\begin{matrix}
+1-2v_y^2-2v_z^2            & 2 v_x v_y - 2 w v_z       & 2 v_x v_z + 2 w v_y \\
+2 v_x v_y + 2 w v_z & 1 - 2 v_x^2 - 2 v^2_z & 2 v_y v_z - 2 w v_x \\
+2 v_x v_z - 2 w v_y & 2 v_y V_z + 2 w v_x   & 1 - 2 v_x^2 - 2 v^2_y \\
+\end{matrix}
+\right]
+\end{equation}
+
+[@BoxBishopHunt11]
+
+\begin{equation}
+w = \cos \left( \dfrac{\phi}{2} \right)
+\end{equation}
+
+\begin{equation}
+v_x = \sin \left( \dfrac{\phi}{2} \right)a_x
+\end{equation}
+
+\begin{equation}
+v_y = \sin \left( \dfrac{\phi}{2} \right)a_y
+\end{equation}
+
+\begin{equation}
+v_z = \sin \left( \dfrac{\phi}{2} \right)a_z
+\end{equation}
+
+2. Solve the equation:
+
+$$
+p' = Rp
+$$
+
+The solution is then:
+
+$$
+\vec{p}' = (p_x, p_y, p_z)
+$$
 
 An initial position is taken as reference to describe subsequent changes in orientation.
 Vectors can be transformed from rocket coordinates to world coordinates, and the reverse.
@@ -46,7 +139,7 @@ $$
 Quaternions are typically denoted as the addition of a scalar and vector [@niskanen2013]:
 
 $$
-q = w + x\hat{i} + y\hat{j} + z\hat{k} = w + v
+q = w + xi + yj + zk = (w, \vec{v})
 $$
 
 $i$, $j$, $k$ are all square roots of $-1$ [@introquaternions]
@@ -124,14 +217,16 @@ q^{-1} = \left( w + x \hat{i} + y \hat{j} + z \hat{k} \right)^{-1} = w - x \hat{
 $$
 [@niskanen2013]
 
+> We are not sure if this should be the inverse or the conjugate. Are they the same?
+
 With the following transformation, $q$ can be be converted to a rotation matrix $R$
 
 \begin{equation}
 R = 
 \left[
 \begin{matrix}
-1-2v_y^2            & 2 v_x v_y - 2 w v_z       & 2 v_x v_z + 2 w v_y \\
-2 v_x v_y + 2 w_v z & 1 - 2 v_x^2 - 2 v^2_z & 2 v_y v_z - 2 w v_x \\
+1-2v_y^2-2v_z^2            & 2 v_x v_y - 2 w v_z       & 2 v_x v_z + 2 w v_y \\
+2 v_x v_y + 2 w v_z & 1 - 2 v_x^2 - 2 v^2_z & 2 v_y v_z - 2 w v_x \\
 2 v_x v_z - 2 w v_y & 2 v_y V_z + 2 w v_x   & 1 - 2 v_x^2 - 2 v^2_y \\
 \end{matrix}
 \right]
