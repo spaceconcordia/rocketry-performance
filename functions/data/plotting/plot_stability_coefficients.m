@@ -29,7 +29,7 @@ ylim([0,0.15]);
 figure;
 
 subplot(4,1,1);
-plot(openrocket_VarName1, openrocket_CorrectiveMomentCoefficient);
+plot(openrocket_VarName1, openrocket_Correctivemomentcoefficient);
 title('OpenRocket Corrective Moment Coefficient');
 xlim([0,rightbound]); ylim([0,3000]);
 

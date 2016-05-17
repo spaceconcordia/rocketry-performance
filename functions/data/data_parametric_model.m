@@ -17,7 +17,7 @@ function pmo = data_parametric_model(filename)
 %--------------------------------------------------------------------------------
 
 if (~exist('filename', 'var'))
-    [filen,filep] = uigetfile('*.xlsm', 'Select a compliant parametric excel spreadsheet');
+    [filen,filep] = uigetfile('*.xls*', 'Select a compliant parametric excel spreadsheet');
     filename = fullfile(filep,filen);
 end
 

@@ -94,7 +94,7 @@ fclose(fileID);
 
 %% Allocate imported array to column variable names
 openrocket_VarName1 = dataArray{:, 1};
-openrocket_Altitude = dataArray{:, 2};
+openrocket_Altitudem = dataArray{:, 2};
 openrocket_Verticalvelocityms = dataArray{:, 3};
 openrocket_Verticalaccelerationms = dataArray{:, 4};
 openrocket_Totalvelocityms = dataArray{:, 5};
@@ -122,7 +122,7 @@ openrocket_Stabilitymargincalibers = dataArray{:, 26};
 openrocket_Machnumber = dataArray{:, 27};
 openrocket_Reynoldsnumber = dataArray{:, 28};
 openrocket_Thrust = dataArray{:, 29};
-openrocket_Dragforce = dataArray{:, 30};
+openrocket_DragforceN = dataArray{:, 30};
 openrocket_Dragcoefficient = dataArray{:, 31};
 openrocket_Axialdragcoefficient = dataArray{:, 32};
 openrocket_Frictiondragcoefficient = dataArray{:, 33};
