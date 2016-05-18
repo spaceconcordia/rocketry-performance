@@ -27,7 +27,7 @@ There are two main methods for carrying out this procedure:
 
 #### Method 1: Quaternion Rotation
 
-Given an initial point (p), a unit axis of rotation (u), and an angle of rotation ($\theta$).
+Given an initial point ($\vec{p}$), a unit axis of rotation ($\vec{u}$), and an angle of rotation ($\theta$).
 
 The steps for using quaternion rotations are as follows:
 
@@ -51,7 +51,7 @@ $$
 \cos\left(\dfrac{\theta}{2}\right)-(u_x\hat{i}+u_y\hat{j}+u_z\hat{k})\sin\left(\dfrac{\theta}{2}\right)
 $$
 
-4. Solve for the image, p' using the following equation:
+4. Solve for the image, $\vec{p}'$ using the following equation:
 
 $$
 \vec{p}' = \vec{q}\vec{p}\vec{q}^{-1}
@@ -65,11 +65,11 @@ $$
 
 #### Method 2: Quaternion-Derived Rotation Matrix
 
-Given an initial point (p), a unit axis of rotation (u), and an angle of rotation ($\theta$).
+Given an initial point ($\vec{p}$), a unit axis of rotation ($\vec{u}$), and an angle of rotation ($\theta$).
 
 The steps for using the quaternion-derived rotation matrix are as follows:
 
-1. Obtain the rotation matrix, R, from:
+1. Obtain the rotation matrix, $R$, from:
 
 \begin{equation}
 R = 
