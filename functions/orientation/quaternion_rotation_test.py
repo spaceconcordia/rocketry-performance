@@ -34,11 +34,40 @@ class TestQuaternionMethods(unittest.TestCase):
 
     # assert the actual against the expected
     v_expected = (0.0, 1.0, 2.220446049250313e-16)
-    print v_expected
-    print v_actual
     self.assertEqual(v_actual, v_expected )
 
-    plot_arrows( np.array([ [1,1,1, 1,1,1] ]) )
+
+  def test_transformation_Matrix(self):
+    # point to rotate
+    P = np.matrix([1, -1, 2]);
+
+    # rotation vector co-ordinates:
+    R = np.array([0, 0.5, math.sqrt(3)/2])
+
+    # angle of rotation (radians)
+    rotation_angle = 60 * math.pi/180
+
+    # normalize rotation vector (return unit vector)
+    norm_v = v_normalize(R)
+    norm_v = np.asmatrix(norm_v)
+    print norm_v
+
+    # obtain rotation matrix
+    R_mat = q_R_matrix(norm_v, rotation_angle)
+
+    P_T = np.asmatrix(P.T)
+
+    P_rotated = R_mat*P_T
+        
+    P_expected = np.matrix([[2.1160254], [0.5580127], [1.10048095]])
+
+    self.assertAlmostEqual(P_rotated[0,0], P_expected[0,0] )
+    self.assertAlmostEqual(P_rotated[1,0], P_expected[1,0] )
+    self.assertAlmostEqual(P_rotated[2,0], P_expected[2,0] )
+  
+    plot_arrows( np.array([ [P_rotated[0,0],P_rotated[1,0],P_rotated[1,0], 1,1,1] ]) )
+    plot_arrows( np.array([ [P[0,0],P[0,1],P[0,1], 1,1,1] ]) )
+    plt.show()
 
 if __name__ == '__main__':
   unittest.main()

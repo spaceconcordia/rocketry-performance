@@ -13,7 +13,6 @@ def plot_arrows(soa):
   ax.set_xlim([0,1])
   ax.set_ylim([0,1])
   ax.set_zlim([0,1])
-  plt.show()
 
 '''
 Return a unit vector
@@ -76,3 +75,26 @@ def q_to_axisangle(q):
   w, v = q[0], q[1:]
   theta = acos(w) * 2.0
   return v_normalize(v), theta
+
+''' 
+Method 2
+'''
+def q_R_matrix(norm_v, angle):
+  #print norm_v
+  #print angle
+  w = math.cos(angle/2)
+  print w
+  e_x = norm_v[0,0] * math.sin(angle/2)
+  print e_x
+  e_y = norm_v[0,1] * math.sin(angle/2)
+  print e_y
+  e_z = norm_v[0,2] * math.sin(angle/2)
+  print e_z
+
+  #q_R_matrix = np.zeros(3,3)
+  q_R_matrix = np.matrix([ 
+      [1-2*e_y**2 - 2*e_z**2, 2*e_x*e_y - 2*w*e_z, 2*e_x*e_z + 2*w*e_y], 
+      [2*e_x*e_y + 2*w*e_z, 1-2*e_x**2 - 2*e_z**2, 2*e_y*e_z - 2*w*e_x],
+      [2*e_x*e_z - 2*w*e_y, 2*e_y*e_z + 2*w*e_x, 1-2*e_x**2 - 2*e_y**2] 
+  ])
+  return q_R_matrix

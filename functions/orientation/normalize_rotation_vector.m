@@ -29,8 +29,3 @@ disp('Rotation unit vector has magnitude of 1!');
 normal_vector = [ax, ay, az];
 
 end
-
-
-
-
-
