@@ -24,7 +24,7 @@ assert (...
     'Rotation Unit Vector Magnitude \n actual = %d \n expected = %d ', actual, expected ...
 );
 
-disp('Rotation unit vector has magnitude of 1!');
+%disp('Rotation unit vector has magnitude of 1!');
 
 normal_vector = [ax, ay, az];
 

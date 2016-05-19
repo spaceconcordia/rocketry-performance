@@ -35,8 +35,8 @@ R = get_R_matrix(normR, theta);
 %   Obtain rotated vector
 % -----------------------------------------------------
 
-B = transpose(P);
-P_prime = R*B;
+P_t = transpose(P);
+P_prime = R*P_t;
 
 P_prime
 
