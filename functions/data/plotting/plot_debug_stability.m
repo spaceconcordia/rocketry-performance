@@ -2,7 +2,7 @@ import_openrocket_data;
 import_rasaero_data;
 import_rocksim_data;
 
-plot_rocket_flight_stability;
+% plot_rocket_flight_stability;
 
 figure; 
 plot(tout, coef_moment_corrective,'m');

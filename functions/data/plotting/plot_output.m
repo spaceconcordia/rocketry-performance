@@ -1,5 +1,5 @@
-timetoapogee_openrocket
 import_openrocket_data
+timetoapogee_openrocket
 import_rocksim_data
 import_rasaero_data
 plot_error

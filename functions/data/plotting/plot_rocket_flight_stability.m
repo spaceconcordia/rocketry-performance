@@ -112,7 +112,7 @@ if exist('saveplots')
     end
 end
 
-plot_stability_coefficients
+% plot_stability_coefficients
 plot_stability_margin
 plot_stability_response_homogeneous
 plot_stability_related_coefficients

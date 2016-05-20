@@ -1,7 +1,7 @@
 %% Import Rocket Design Data
 %clear;
 fprintf ( 'Updating Parametric Data ... ' );
-data_parametric_model('Parametric_Data.xlsm');
+data_parametric_model('Parametric_Data.xlsx');
 clearvars filename filen filep;
 disp ( 'Done' );
 
